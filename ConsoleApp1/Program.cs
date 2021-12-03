@@ -9,7 +9,7 @@ namespace ConsoleApp1
             Console.WriteLine ("Hello, world!");
             Console.ReadLine ();
             Console.Beep (500, 600);
-           ConsoleApp1
+           
         }
     }
 }
