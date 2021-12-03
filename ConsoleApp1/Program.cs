@@ -6,7 +6,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine ("Hello, world!");         
+            Console.Beep(220, 1000);         
         }
     }
 }
