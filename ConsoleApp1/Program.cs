@@ -6,7 +6,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.Beep(220, 1000);         
+            Console.Beep(220, 1000);
+            Console.WriteLine("Hello friends");
         }
     }
 }
