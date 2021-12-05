@@ -6,9 +6,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine ("Hello, world!");
-            Console.WriteLine("Hello, C#!");
-            Console.WriteLine("Hello, every body!");
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
+            if (a > b) // < > == <= >=  
+            {
+                Console.WriteLine("max is:");
+                Console.WriteLine(a);
+            }            
+            else
+                Console.WriteLine(b);
         }
     }
 }
