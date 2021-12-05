@@ -6,10 +6,21 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine ("Hello, world!");
-            Console.Write("Press any key: ");
-            Console.ReadKey();
-            Console.Beep(400, 600);
+            double footDistance = double.Parse(Console.ReadLine()); //0.305 metr
+            double metrDistance = double.Parse(Console.ReadLine());
+
+
+            if (footDistance * 0.305 > metrDistance)
+            {
+                Console.WriteLine ("max is:");
+                Console.WriteLine (footDistance * 0.305);
+            }
+            else
+            { 
+                Console.Write ("max is: ");
+                Console.Write (metrDistance);
+            }
+            
         }
     }
 }
