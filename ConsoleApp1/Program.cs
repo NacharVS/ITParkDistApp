@@ -6,16 +6,19 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int c = int.Parse(Console.ReadLine());
-            if (a > b) // < > == <= >=  
+            double footDistance = double.Parse(Console.ReadLine()); //0.305 meter
+            double meterDistance = double.Parse(Console.ReadLine());
+            
+            if (footDistance * 0.305 > meterDistance)
             {
-                Console.WriteLine("max is:");
-                Console.WriteLine(a);
-            }            
+                Console.WriteLine($"Max distance in foots {footDistance}");
+            }
             else
-                Console.WriteLine(b);
+            {
+                Console.WriteLine($"Max distance in meters {meterDistance}");
+            }
+
+            //Max distance in foot/meters is MAX
         }
     }
 }
