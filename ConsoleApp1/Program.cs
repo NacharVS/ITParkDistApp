@@ -67,42 +67,63 @@ namespace ConsoleApp1
                     break;*/
             //goto "winter";*/
             //5 задача
-            int bread = 10;
-            int sugar = 20;
-            int milk = 30;
-            Console.WriteLine("How money do you have?");
-            int Money=int.Parse(Console.ReadLine());
-            Console.WriteLine("Choose product: bred(10ue)/sugar(20ue)/milk(30ue)");
-            string product = Console.ReadLine();
-            Console.WriteLine("How mach " + product + " do you need?");
-            int amountProduct=int.Parse(Console.ReadLine());
-            switch (product)
+            /*int bread = 10; //$ - cost
+            int sugar = 20; //$ - cost
+            int milk = 30; //$ - cost*/
+            Console.Write("How money do you have?...: ");
+            int allMoney=int.Parse(Console.ReadLine());
+            Console.WriteLine("Choose product:");
+            Console.WriteLine("1. Milk = 0.70 $");
+            Console.WriteLine("2. Bread = 1.60 $");
+            Console.WriteLine("3. Beef = 9.90 $");
+            Console.WriteLine("4. Sugar = 1.40 $");
+            Console.WriteLine("5. Cheese = 11.00 $");
+            string productType = Console.ReadLine();
+            Console.WriteLine($"How mach product do you need?");
+            int amountOfProduct=int.Parse(Console.ReadLine());
+            switch (productType)
             {
-                case "bred":
+                case "1":
                     {
-                        int b = amountProduct * bread;
-                        if (b <= Money)
-                            Console.WriteLine("Summa:" + b + " :  You money ("+Money+") is enough for " + amountProduct + " " + product);
-                        else Console.WriteLine("Summa:" + b + " :  You money (" + Money + ") is NOT enough for " + amountProduct + " " + product + " !");
+                        double sumMoney = 0.7 * amountOfProduct;
+                        if (sumMoney <= allMoney)
+                            Console.WriteLine($"Successful purchase =) (Your money: {allMoney} is enough to buy Milk for {sumMoney}$ Your change is {allMoney-sumMoney}$)");
+                        else Console.WriteLine($"Not enough money! (Summ of all Milk: {sumMoney} more then your money: {allMoney}");
                     }
                     break;
-                case "sugar":
+                case "2":
                     {
-                        int s = amountProduct * sugar;
-                        if (s <= Money)
-                            Console.WriteLine("Summa:" + s + " :  You money (" + Money + ") is enough for " + amountProduct + " " + product);
-                        else Console.WriteLine("Summa:" + s + " :  You money (" + Money + ") is NOT enough for " + amountProduct + " " + product + " !");
+                        double sumMoney = 1.6 * amountOfProduct;
+                        if (sumMoney <= allMoney)
+                            Console.WriteLine($"Successful purchase =) (Your money: {allMoney} is enough to buy Bread for {sumMoney}$ Your change is {allMoney - sumMoney}$)");
+                        else Console.WriteLine($"Not enough money! (Summ of all Bread: {sumMoney} more then your money: {allMoney}");
                     }
                     break;
-                case "milk":
+                case "3":
                     {
-                        int m = amountProduct * milk;
-                        if (m <= Money)
-                            Console.WriteLine("Summa:" + m + " :  You money (" + Money + ") is enough for " + amountProduct + " " + product);
-                        else Console.WriteLine("Summa:" + m + " :  You money (" + Money + ") is NOT enough for " + amountProduct + " " + product + " !");
+                        double sumMoney = 9.9 * amountOfProduct;
+                        if (sumMoney <= allMoney)
+                            Console.WriteLine($"Successful purchase =) (Your money: {allMoney} is enough to buy Beef for {sumMoney}$ Your change is {allMoney - sumMoney}$)");
+                        else Console.WriteLine($"Not enough money! (Summ of all Beef: {sumMoney} more then your money: {allMoney}");
                     }
                     break;
-                
+                case "4":
+                    {
+                        double sumMoney = 1.4 * amountOfProduct;
+                        if (sumMoney <= allMoney)
+                            Console.WriteLine($"Successful purchase =) (Your money: {allMoney} is enough to buy Sugar for {sumMoney}$ Your change is {allMoney - sumMoney}$)");
+                        else Console.WriteLine($"Not enough money! (Summ of all Sugar: {sumMoney} more then your money: {allMoney}");
+                    }
+                    break;
+                case "5":
+                    {
+                        double sumMoney = 11.0 * amountOfProduct;
+                        if (sumMoney <= allMoney)
+                            Console.WriteLine($"Successful purchase =) (Your money: {allMoney} is enough to buy Chese for {sumMoney}$ Your change is {allMoney - sumMoney}$)");
+                        else Console.WriteLine($"Not enough money! (Summ of all Cheese: {sumMoney} more then your money: {allMoney}");
+                    }
+                    break;
+
             }
 
         }
