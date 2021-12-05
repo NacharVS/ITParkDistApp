@@ -10,15 +10,15 @@ namespace ConsoleApp1
             
             switch (s)
             {
-                case "winter": Console.WriteLine("december january febraury");
+                case "Winter": Console.WriteLine("december january febraury");
                     break;
-                case "summer":
+                case "Summer":
                     Console.WriteLine("junio julio agosto");
                     break;
-                case "autumn":
+                case "Autumn":
                     Console.WriteLine("september october november");
                     break;
-                case "spring":
+                case "Spring":
                     Console.WriteLine("march april may");
                     break;
                 default: Console.WriteLine("incorract input");
