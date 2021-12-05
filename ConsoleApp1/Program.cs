@@ -6,18 +6,34 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            double footDistance = double.Parse(Console.ReadLine()); //0.305 meter
-            double meterDistance = double.Parse(Console.ReadLine());
-            
-            if (footDistance * 0.305 > meterDistance)
+            string s = Console.ReadLine(); // winter --> december, january, february
+            s = s.ToLower();
+            switch (s)
             {
-                Console.WriteLine($"Max distance in foots {footDistance}");
+                case "monday":
+                    Console.WriteLine(1);
+                    break;
+                case "tuesday":
+                    Console.WriteLine(2);
+                    break;
+                case "wednesday":
+                    Console.WriteLine(3);
+                    break;
+                case "thursday":
+                    Console.WriteLine(4);
+                    break;
+                case "friday":
+                    Console.WriteLine(5);
+                    break;
+                case "saturday":
+                    Console.WriteLine(6);
+                    break;
+                case "sunday":
+                    Console.WriteLine(7);
+                    break;
+                default: Console.WriteLine("incorrect input");
+                    break;
             }
-            else
-            {
-                Console.WriteLine($"Max distance in meters {meterDistance}");
-            }
-
             //Max distance in foot/meters is MAX
         }
     }
