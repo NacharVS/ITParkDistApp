@@ -37,7 +37,8 @@ namespace ConsoleApp1
                 Console.WriteLine("More is:" + kmspeed);
             else Console.WriteLine("More is:" + mspeed);
             Console.ReadLine();*/
-            Console.WriteLine("Input the season:");
+            //4 задача
+            /*Console.WriteLine("Input the season:");
             string s = Console.ReadLine();
             s=s.ToLower();
             switch(s)
@@ -61,9 +62,41 @@ namespace ConsoleApp1
                     break;
                 case "sunday":
                     Console.WriteLine(7);
-                    break;*/
-                default:Console.WriteLine("Incorrect season! Try again...");
                     break;
+                default:Console.WriteLine("Incorrect season! Try again...");
+                    break;*/
+            //goto "winter";*/
+            //5 задача
+            int bread = 10;
+            int sugar = 20;
+            int milk = 30;
+            Console.WriteLine("How money do you have?");
+            int deneg=int.Parse(Console.ReadLine());
+            Console.WriteLine("Choose product: bred(10ue)/sugar(20ue)/milk(30ue)");
+            string product = Console.ReadLine();
+            Console.WriteLine("How mach " + product + " do you need?");
+            int amountProduct=int.Parse(Console.ReadLine());
+            switch (product)
+            {
+                case "bred":
+                    int b = amountProduct * bread;
+                    if (b<=deneg)
+                    Console.WriteLine("Summa:"+b+" :  You money is enough for "+amountProduct+" "+product);
+                    else Console.WriteLine("Summa:" + b + " :  You money is NOT enough for " + amountProduct + " " + product+ " !");
+                    break;
+                case "sugar":
+                    int s = amountProduct * bread;
+                    if (s <= deneg)
+                        Console.WriteLine("Summa:" + s + " :  You money is enough for " + amountProduct + " " + product);
+                    else Console.WriteLine("Summa:" + s + " :  You money is NOT enough for " + amountProduct + " " + product+" !");
+                    break;
+                case "milk":
+                    int m = amountProduct * bread;
+                    if (m <= deneg)
+                        Console.WriteLine("Summa:" + m + " :  You money is enough for " + amountProduct + " " + product);
+                    else Console.WriteLine("Summa:" + m + " :  You money is NOT enough for " + amountProduct + " " + product+" !");
+                    break;
+                
             }
 
         }
