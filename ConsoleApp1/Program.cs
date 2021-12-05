@@ -39,18 +39,19 @@ namespace ConsoleApp1
             Console.ReadLine();*/
             Console.WriteLine("Input the season:");
             string s = Console.ReadLine();
+            s=s.ToLower();
             switch(s)
             {
-                case "winter":Console.WriteLine("december,january,february");
+                case "winter":Console.WriteLine("December,January,February");
                     break;
                 case "summer":
-                    Console.WriteLine("june,july,august");
+                    Console.WriteLine("June,July,August");
                     break;
                 case "spring":
-                    Console.WriteLine("march,may,april");
+                    Console.WriteLine("March,May,April");
                     break;
                 case "autumn":
-                    Console.WriteLine("september,october,november");
+                    Console.WriteLine("September,October,November");
                     break;
                 /*case "friday":
                     Console.WriteLine(5);
@@ -61,7 +62,7 @@ namespace ConsoleApp1
                 case "sunday":
                     Console.WriteLine(7);
                     break;*/
-                default:Console.WriteLine("incorrect season");
+                default:Console.WriteLine("Incorrect season! Try again...");
                     break;
             }
 
