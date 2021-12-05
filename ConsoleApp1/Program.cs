@@ -6,16 +6,24 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            double footDistance = int.Parse(Console.ReadLine()); //0.305 meter
-            double meterDistence = int.Parse(Console.ReadLine());
-            doble footsTometers = footDistance * 0.305
-
-            if (footsTometers > meterDistence)
+            string s = Console.ReadLine();
+            
+            switch (s)
             {
-                Console.WriteLine($"Max distance in meters is { footsTometers}");
+                case "winter": Console.WriteLine("december january febraury");
+                    break;
+                case "summer":
+                    Console.WriteLine("junio julio agosto");
+                    break;
+                case "autumn":
+                    Console.WriteLine("september october november");
+                    break;
+                case "spring":
+                    Console.WriteLine("march april may");
+                    break;
+                default: Console.WriteLine("incorract input");
+                    break;
             }
-            else
-                Console.WriteLine($"Max distance in meters is { meterDistence}");
         }
     }
 }
