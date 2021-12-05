@@ -6,8 +6,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine ("Всем привет");
-            Console.ReadKey();
+            double footDistance = int.Parse(Console.ReadLine()); //0.305 meter
+            double meterDistence = int.Parse(Console.ReadLine());
+            doble footsTometers = footDistance * 0.305
+
+            if (footsTometers > meterDistence)
+            {
+                Console.WriteLine($"Max distance in meters is { footsTometers}");
+            }
+            else
+                Console.WriteLine($"Max distance in meters is { meterDistence}");
         }
     }
 }
