@@ -41,6 +41,7 @@ namespace ConsoleApp1
                     break;
             }
             */
+            /*
             Console.WriteLine("enter season ");
             string season = Console.ReadLine();
             season = season.ToLower();
@@ -57,7 +58,46 @@ namespace ConsoleApp1
                 default : Console.WriteLine("incorrect input");
                     break;
             }
+            */
+
+            Console.WriteLine("Please enter how macth money you want to spend ");
+            double money = double.Parse ( Console.ReadLine() );
             
+            Console.WriteLine("Sugar = 1$, bread = 2$, butter = 3$, coffee = 4$");
+            Console.WriteLine("Choose some food");
+            string food = Console.ReadLine();
+            food = food.ToLower();
+            
+            Console.WriteLine("How match food you want to buy?");
+            double howMatch = double.Parse(Console.ReadLine());
+            
+            switch (food)
+            {
+                case "sugar":
+                    if (1 * howMatch <= money)
+                        Console.WriteLine($" - You've bought {howMatch} kg of sugar. It costs {1 * howMatch} $");
+                    else Console.WriteLine("It's not enough. See you later");
+                    break;
+                case "bread":
+                    if (2 * howMatch <= money)
+                        Console.WriteLine($" - You've bought {howMatch} bars of bread. It costs {2 * howMatch} $");
+                    else Console.WriteLine("It's not enough. See you later");
+                    break;
+                case "butter":
+                    if (3 * howMatch <= money)
+                        Console.WriteLine($" - You've bought {howMatch} bars of butter. It costs {3 * howMatch} $");
+                    else Console.WriteLine("It's not enough. See you later");
+                    break;
+                case "coffee":
+                    if (4 * howMatch <= money)
+                        Console.WriteLine($" - You've bought {howMatch} g of coffe. It costs {4 * howMatch} $");
+                    else Console.WriteLine("It's not enough. See you later");
+                    break;
+                default:
+                    Console.WriteLine("incorrect input");
+                    break;
+            }
+
         }
     }
 }
