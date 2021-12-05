@@ -71,7 +71,7 @@ namespace ConsoleApp1
             int sugar = 20;
             int milk = 30;
             Console.WriteLine("How money do you have?");
-            int deneg=int.Parse(Console.ReadLine());
+            int amMoney=int.Parse(Console.ReadLine());
             Console.WriteLine("Choose product: bred(10ue)/sugar(20ue)/milk(30ue)");
             string product = Console.ReadLine();
             Console.WriteLine("How mach " + product + " do you need?");
@@ -80,19 +80,19 @@ namespace ConsoleApp1
             {
                 case "bred":
                     int b = amountProduct * bread;
-                    if (b<=deneg)
+                    if (b<= amMoney)
                     Console.WriteLine("Summa:"+b+" :  You money is enough for "+amountProduct+" "+product);
                     else Console.WriteLine("Summa:" + b + " :  You money is NOT enough for " + amountProduct + " " + product+ " !");
                     break;
                 case "sugar":
-                    int s = amountProduct * bread;
-                    if (s <= deneg)
+                    int s = amountProduct * sugar;
+                    if (s <= amMoney)
                         Console.WriteLine("Summa:" + s + " :  You money is enough for " + amountProduct + " " + product);
                     else Console.WriteLine("Summa:" + s + " :  You money is NOT enough for " + amountProduct + " " + product+" !");
                     break;
                 case "milk":
-                    int m = amountProduct * bread;
-                    if (m <= deneg)
+                    int m = amountProduct * milk;
+                    if (m <= amMoney)
                         Console.WriteLine("Summa:" + m + " :  You money is enough for " + amountProduct + " " + product);
                     else Console.WriteLine("Summa:" + m + " :  You money is NOT enough for " + amountProduct + " " + product+" !");
                     break;
