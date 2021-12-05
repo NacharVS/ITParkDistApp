@@ -6,7 +6,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("first speed (km/h) : ");
             double kmh  = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("first speed (m/s) : ");
             double ms = double.Parse(Console.ReadLine());
 
             if (kmh * 0.28 > ms ) 
