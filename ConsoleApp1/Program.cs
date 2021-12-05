@@ -10,6 +10,7 @@ namespace ConsoleApp1
             Console.WriteLine("Hello, C#!");
             Console.WriteLine("Hello, every body!");
             Console.WriteLine("Alohomora");
+
         }
     }
 }
