@@ -7,8 +7,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Console.WriteLine ("Hello, world!");
-            Console.ReadLine();
-            Console.Beep(600, 600);
+            Console.Write("Press any key: ");
+            Console.ReadKey();
+            Console.Beep(400, 600);
         }
     }
 }
