@@ -6,8 +6,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.Beep(220, 1000);
-            Console.WriteLine("Hello friends");
+            double footDistance  = double.Parse(Console.ReadLine());
+            double MeterDistance = double.Parse(Console.ReadLine());
+            double footDistance_to_Metr = footDistance * 0.3040;
+
+            if (MeterDistance > footDistance_to_Metr) 
+            {
+                Console.WriteLine("max is: Seconde distance (MeterDistance)");
+            }
+            else
+                Console.WriteLine("max is: First distance (footDistance)");
         }
     }
 }
