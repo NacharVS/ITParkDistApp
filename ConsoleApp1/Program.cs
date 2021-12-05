@@ -6,16 +6,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            double footDistance  = double.Parse(Console.ReadLine());
-            double MeterDistance = double.Parse(Console.ReadLine());
-            double footDistance_to_Metr = footDistance * 0.3040;
+            double kmh  = double.Parse(Console.ReadLine());
+            double ms = double.Parse(Console.ReadLine());
 
-            if (MeterDistance > footDistance_to_Metr) 
+            if (kmh * 0.28 > ms ) 
             {
-                Console.WriteLine("max is: Seconde distance (MeterDistance)");
+                Console.WriteLine("max is: first speed (km)");
             }
             else
-                Console.WriteLine("max is: First distance (footDistance)");
+                Console.WriteLine("max is: second speed (ms)");
         }
     }
 }
