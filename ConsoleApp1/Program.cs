@@ -6,35 +6,26 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string s = Console.ReadLine(); // winter --> december, january, february
-            s = s.ToLower();
-            switch (s)
-            {
-                case "monday":
-                    Console.WriteLine(1);
-                    break;
-                case "tuesday":
-                    Console.WriteLine(2);
-                    break;
-                case "wednesday":
-                    Console.WriteLine(3);
-                    break;
-                case "thursday":
-                    Console.WriteLine(4);
-                    break;
-                case "friday":
-                    Console.WriteLine(5);
-                    break;
-                case "saturday":
-                    Console.WriteLine(6);
-                    break;
-                case "sunday":
-                    Console.WriteLine(7);
-                    break;
-                default: Console.WriteLine("incorrect input");
-                    break;
-            }
-            
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
+            if ((a > b) && (a > c))
+                Console.WriteLine(a);
+            else
+               if ((a > c) && (b > a))
+                Console.WriteLine(a);
+            else
+               if ((b > a) && (c > b)) 
+                Console.WriteLine(b);
+            else
+                if ((b > c) && (a > b)) 
+                Console.WriteLine(b);
+            else
+                if ((c > b) && (a > c)) 
+                Console.WriteLine(c);
+            else
+                if ((c > a) && (b > c))
+                Console.WriteLine(c);
         }
     }
 }
