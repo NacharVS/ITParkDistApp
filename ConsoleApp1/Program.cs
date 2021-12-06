@@ -7,26 +7,39 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             {
-                Console.Write("Enter the first number:");
-                int number_1 = int.Parse(Console.ReadLine());
+                Console.Write("Enter a three-digit number:");
+                int number = int.Parse(Console.ReadLine());
 
-                Console.Write("Enter the second number:");
-                int number_2 = int.Parse(Console.ReadLine());
+                if (number > 99 && number < 1000)
+                {
+                    int even_odd = number % 2;
+                    int units = number % 10;
+                    int dozens = (number / 10) % 10;
+                    int hundreds = number / 100;
 
-                Console.Write("Enter the third number:");
-                int number_3 = int.Parse(Console.ReadLine());
+                    int result;
 
-                int average_number = -1;
+                    switch (even_odd)
+                    {
+                        case 0:
+                            result = hundreds + dozens + units;
+                            Console.WriteLine($"The sum of three numbers is: {result}");
+                            break;
 
-                if ((number_1 > number_2 || number_1 > number_3) && (number_1 < number_2 || number_1 < number_3)) average_number = number_1;
+                        case 1:
+                            result = hundreds * dozens * units;
+                            Console.WriteLine($"Multiplication of three numbers is: {result}");
+                            break;
 
-                if ((number_2 > number_1 || number_2 > number_3) && (number_2 < number_1 || number_2 < number_3)) average_number = number_2;
+                        default:
+                            Console.WriteLine("Error");
+                            break;
+                    }
 
-                if ((number_3 > number_1 || number_3 > number_2) && (number_3 < number_1 || number_3 < number_2)) average_number = number_3;
+                }
 
-                if (average_number != -1) Console.WriteLine($"Average number is: {average_number}");
+                else Console.WriteLine("You entered the wrong number!");
 
-                else Console.WriteLine("Error");
             }
         }
     }
