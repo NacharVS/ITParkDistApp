@@ -34,7 +34,7 @@ namespace ConsoleApp1
                 default: Console.WriteLine("incorrect input");
                     break;
             }
-            //Max distance in foot/meters is MAX
+            
         }
     }
 }
