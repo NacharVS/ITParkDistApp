@@ -6,26 +6,40 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int c = int.Parse(Console.ReadLine());
-            if ((a > b) && (a > c))
-                Console.WriteLine(a);
+            int number = int.Parse(Console.ReadLine());
+            int ed = number % 10;
+            int des = number / 10 % 10;
+            int hun = number / 100;
+                if (ed == 0)
+                Console.WriteLine(ed * des * hun);
             else
-               if ((a > c) && (b > a))
-                Console.WriteLine(a);
+                if (ed==2)
+                Console.WriteLine(ed * des * hun);
             else
-               if ((b > a) && (c > b)) 
-                Console.WriteLine(b);
+                if (ed == 4)
+                Console.WriteLine(ed * des * hun);
             else
-                if ((b > c) && (a > b)) 
-                Console.WriteLine(b);
+                if (ed == 6)
+                Console.WriteLine(ed * des * hun);
             else
-                if ((c > b) && (a > c)) 
-                Console.WriteLine(c);
+                if (ed == 8)
+                Console.WriteLine(ed * des * hun);
             else
-                if ((c > a) && (b > c))
-                Console.WriteLine(c);
+                if (ed == 1)
+                Console.WriteLine(ed + des + hun);
+            else
+                if (ed == 3)
+                Console.WriteLine(ed + des + hun);
+            else
+                if (ed == 5)
+                Console.WriteLine(ed + des + hun);
+            else
+                if (ed == 7)
+                Console.WriteLine(ed + des + hun);
+            else
+                if (ed == 9)
+                Console.WriteLine(ed + des + hun);
+
         }
     }
 }
