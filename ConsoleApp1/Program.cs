@@ -6,24 +6,28 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string s = Console.ReadLine();
-            
-            switch (s)
+            Console.WriteLine("Please enter three numbers ");
+            int number1 = Convert.ToInt32(Console.ReadLine());
+            int number2 = Convert.ToInt32(Console.ReadLine());
+            int number3 = Convert.ToInt32(Console.ReadLine());
+
+            if (number1 > number2 && number1 < number3)
             {
-                case "Winter": Console.WriteLine("december january febraury");
-                    break;
-                case "Summer":
-                    Console.WriteLine("junio julio agosto");
-                    break;
-                case "Autumn":
-                    Console.WriteLine("september october november");
-                    break;
-                case "Spring":
-                    Console.WriteLine("march april may");
-                    break;
-                default: Console.WriteLine("incorract input");
-                    break;
+                Console.WriteLine(number1);
             }
+            else if (number1 > number3)
+            {
+                Console.WriteLine(number1);
+            }
+            else if (number2 < number3)
+            {
+                Console.WriteLine(number2);
+            }
+            else
+            {
+                Console.WriteLine(number3);
+            }
+            Console.ReadKey();
         }
     }
 }
