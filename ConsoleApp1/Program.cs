@@ -6,28 +6,30 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter three numbers ");
-            int number1 = Convert.ToInt32(Console.ReadLine());
-            int number2 = Convert.ToInt32(Console.ReadLine());
-            int number3 = Convert.ToInt32(Console.ReadLine());
-
-            if (number1 > number2 && number1 < number3)
+            Console.WriteLine("please enter a three digit number");
+            int number = Convert.ToInt32(Console.ReadLine());
+            if (number > 99 && number < 1000)
             {
-                Console.WriteLine(number1);
-            }
-            else if (number1 > number3)
-            {
-                Console.WriteLine(number1);
-            }
-            else if (number2 < number3)
-            {
-                Console.WriteLine(number2);
+                double number1 = number / 2 % 1;
+                if (number1 == 0)
+                {
+                    int one = number % 10;
+                    int two = number / 10 % 10;
+                    int three = number / 100;
+                    Console.WriteLine(one + two + three);
+                }
+                else
+                {
+                    int one = number % 10;
+                    int two = number / 10 % 10;
+                    int three = number / 100;
+                    Console.WriteLine(one * two * three);
+                }
             }
             else
             {
-                Console.WriteLine(number3);
+                Console.WriteLine("incorrect data");
             }
-            Console.ReadKey();
         }
     }
 }
