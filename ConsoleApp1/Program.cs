@@ -4,21 +4,26 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            double R, C, S1, S2, V;
+            short a, b, c;
 
-            Console.Write("Введите радиус окружности: ");
-            R = Convert.ToDouble(Console.ReadLine());
-            C = Math.PI * R * 2;
-            S1 = Math.PI * Math.Pow(R, 2);
-            S2 = 4 * S1;
-            V = 4 * Math.PI * Math.Pow(R, 3) / 3;
+            Console.WriteLine("Среднее порядковое число.\n");
 
-            Console.WriteLine("\nДлина окружности равна: {0};\nПлощадь круга равна: {1};\nПлощадь поверхности сферы равна: {2};\nОбъём сферы равен: {3}.\n", C, S1, S2, V);
-            Console.WriteLine("Нажмите любую клавишу для завершения.");
-            Console.ReadKey();
+            Console.Write("Введите первое число: ");
+            a = short.Parse(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            b = short.Parse(Console.ReadLine());
+            Console.Write("Введите третье число: ");
+            c = short.Parse(Console.ReadLine());
+
+            if ((a > b && a < c) || (a < b && a > c))
+                Console.WriteLine(a);
+            else if ((b > a && b < c) || (b < a && b > c))
+                Console.WriteLine(b);
+            else
+                Console.WriteLine(c);
+            }
         }
-        
     }
 }
