@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
+
 namespace ConsoleApp1
 {
     class Program
@@ -38,7 +40,8 @@ namespace ConsoleApp1
             else Console.WriteLine("More is:" + mspeed);
             Console.ReadLine();*/
             //4 задача
-            /*Console.WriteLine("Input the season:");
+            /*Begin:
+            Console.WriteLine("Input the season:");
             string s = Console.ReadLine();
             s=s.ToLower();
             switch(s)
@@ -64,12 +67,12 @@ namespace ConsoleApp1
                     Console.WriteLine(7);
                     break;
                 default:Console.WriteLine("Incorrect season! Try again...");
-                    break;*/
-            //goto "winter";*/
+                    goto Begin;*/
             //5 задача
             /*int bread = 10; //$ - cost
             int sugar = 20; //$ - cost
             int milk = 30; //$ - cost*/
+            /*
             Console.Write("How money do you have?...: ");
             int allMoney=int.Parse(Console.ReadLine());
             Console.WriteLine("Choose product:");
@@ -123,9 +126,24 @@ namespace ConsoleApp1
                         else Console.WriteLine($"Not enough money! (Summ of all Cheese: {sumMoney} more then your money: {allMoney}");
                     }
                     break;
-
-            }
-
+            */
+            //Среднее из трех чисел
+            Console.Write("Введите три натуральных числа: ");
+            int userNumber = Console.ReadLine().Split().Select(int.Parse).ToArray().Take(3);
+            Console.WriteLine(userNumber);
+            int firstDigit = int.Parse(userNumber) / 100;
+            int secondDigit = (userNumber % 100) / 10;
+            int thirdDigit = userNumber % 10;
+            Console.WriteLine($"1 число: {firstDigit}");
+            Console.WriteLine($"2 число: {secondDigit}");
+            Console.WriteLine($"3 число: {thirdDigit}");
+            if (firstDigit > secondDigit & firstDigit < thirdDigit)
+                Console.WriteLine($"Среднее число: {firstDigit}");
+            else
+                if (secondDigit > firstDigit & secondDigit < thirdDigit)
+                    Console.WriteLine($"Среднее число: {secondDigit}");
+                else Console.WriteLine($"Среднее число: {thirdDigit}");
         }
+
     }
 }
