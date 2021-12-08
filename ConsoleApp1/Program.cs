@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
@@ -127,22 +128,33 @@ namespace ConsoleApp1
                     }
                     break;
             */
-            //Среднее из трех чисел
-            Console.Write("Введите три натуральных числа: ");
-            int userNumber = Console.ReadLine().Split().Select(int.Parse).ToArray().Take(3);
-            Console.WriteLine(userNumber);
-            int firstDigit = int.Parse(userNumber) / 100;
-            int secondDigit = (userNumber % 100) / 10;
-            int thirdDigit = userNumber % 10;
-            Console.WriteLine($"1 число: {firstDigit}");
-            Console.WriteLine($"2 число: {secondDigit}");
-            Console.WriteLine($"3 число: {thirdDigit}");
-            if (firstDigit > secondDigit & firstDigit < thirdDigit)
+            //1.Вводиться 3 натуральных числа. Найти среднее из них.
+            //(Пример ввода/вывода: 7 66 5/Результат 7; Пример ввода/вывода: 2 4 8/Результат 4)
+            /*Console.Write("Введите три натуральных числа через пробел: ");
+            string inputNumber=Console.ReadLine();
+            string[] tokens = inputNumber.Split(' ');
+            int firstDigit=int.Parse(tokens[0]);
+            int secondDigit = int.Parse(tokens[1]);
+            int thirdDigit = int.Parse(tokens[2]);
+            if ((firstDigit > secondDigit & firstDigit <= thirdDigit)||(firstDigit>thirdDigit & firstDigit<=secondDigit))
                 Console.WriteLine($"Среднее число: {firstDigit}");
             else
-                if (secondDigit > firstDigit & secondDigit < thirdDigit)
+                if ((secondDigit >= firstDigit & secondDigit <= thirdDigit)||(secondDigit >= thirdDigit & secondDigit <= firstDigit))
                     Console.WriteLine($"Среднее число: {secondDigit}");
-                else Console.WriteLine($"Среднее число: {thirdDigit}");
+                else Console.WriteLine($"Среднее число: {thirdDigit}");*/
+            //2.Дано трехзначное число. Если оно четное, то найти сумму цифр, если оно нечетное, найти произведение.
+            //(Пример ввода/вывода: 123/Результат 6; Пример ввода/вывода: 666 /Результат 18)
+            /*Console.Write("Введите трехзначное число: ");
+            int inputNumber = int.Parse(Console.ReadLine());
+            int firstDigit = inputNumber / 100;
+            int secondDigit = (inputNumber % 100)/10;
+            int thirdDigit = inputNumber % 10;
+            if (inputNumber % 2 <= 0)
+                Console.WriteLine($"Четное. Сумма цифр: {firstDigit+secondDigit+thirdDigit}");
+            else Console.WriteLine($"Нечетное. Произведение цифр: {firstDigit * secondDigit * thirdDigit}");*/
+            //3. Написать программу, которая, в зависимости от выбора пользователя, предложит найти площадь геометрической фигуры. 
+            //(Пример работы программы: Выберите фигуру: square, введите длину одной стороны квадрата: 4, Площадь квадрата: 16)
+
         }
 
     }
