@@ -56,12 +56,19 @@ namespace ConsoleApp1
 
             //Задание № 3.
             //int Radius;
-            //int S;
+            //int side;
+            //double footing;
+            //double height;
+            
+            //double S;
+            
+            
             //Console.WriteLine("Выбирите геометрическую фигуру:круг,квадрат,треугольник");
             //string figure = Console.ReadLine();
             //switch (figure)
             //{
-            //    case "круг":Console.WriteLine("Выбирите радиус круга в см.");
+            //    case "круг":
+            //        Console.WriteLine("Выбирите радиус круга в см.");
             //        Radius = int.Parse(Console.ReadLine());
             //        S = Radius * 2;
             //        Console.WriteLine("Площадь круга = " + S);
@@ -69,15 +76,23 @@ namespace ConsoleApp1
 
             //    case "квадрат":
             //        Console.WriteLine("Выбирите одну сторону квадрата в см.");
-            //        Radius = int.Parse(Console.ReadLine());
-            //        S = Radius * 4;
+            //        side = int.Parse(Console.ReadLine());
+            //        S = side * side;
             //        Console.WriteLine("Площадь квадрата= " + S);
             //        break;
 
             //    case "треугольник":
-            //        Console.WriteLine("Выбирите одну сторону треугольника в см.");
-            //        Radius = int.Parse(Console.ReadLine());
-            //        S = Radius * 3;
+            //        Console.WriteLine("введите основание треугольника в см.");
+            //        footing = double.Parse(Console.ReadLine());
+                   
+
+            //        Console.WriteLine("Введите высоту треугольника в см.");
+            //        height = double.Parse(Console.ReadLine());
+
+            //        S = footing * height/2;
+
+
+
             //        Console.WriteLine("Площадь треугольника= " + S);
             //        break;
             //}
