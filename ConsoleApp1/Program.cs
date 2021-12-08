@@ -7,19 +7,29 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {    //Задание № 1.
-             //double a, b,c;
-             //Console.WriteLine("Введите число 1");
-             //a = double.Parse(Console.ReadLine());
+            //int a, b, c;
+            
+            //Console.WriteLine("Введите число 1");
+            //a = int.Parse(Console.ReadLine());
 
 
             //Console.WriteLine("Введите число 2");
-            //b = double.Parse(Console.ReadLine());
+            //b = int.Parse(Console.ReadLine());
 
             //Console.WriteLine("Введите  число 3");
-            //c = double.Parse(Console.ReadLine());
+            //c = int.Parse(Console.ReadLine());
 
-            //double result = (a + b + c)/ 3;
-            //Console.WriteLine(result);
+            //int result = a;
+
+            //if ((a < b && b < c) || (a > b && b > c))
+            //{
+            //    result = b;
+            //}
+            //else if ((b < c && c < a) || (b > c && c > a))
+            //{
+            //    result = c;
+            //}
+            //Console.WriteLine($"Среднее число   {result}");
 
             //----------------------------------------------------------------------
 
@@ -59,10 +69,10 @@ namespace ConsoleApp1
             //int side;
             //double footing;
             //double height;
-            
+
             //double S;
-            
-            
+
+
             //Console.WriteLine("Выбирите геометрическую фигуру:круг,квадрат,треугольник");
             //string figure = Console.ReadLine();
             //switch (figure)
@@ -84,7 +94,7 @@ namespace ConsoleApp1
             //    case "треугольник":
             //        Console.WriteLine("введите основание треугольника в см.");
             //        footing = double.Parse(Console.ReadLine());
-                   
+
 
             //        Console.WriteLine("Введите высоту треугольника в см.");
             //        height = double.Parse(Console.ReadLine());
