@@ -6,6 +6,86 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //MiddleDigit
+            Console.WriteLine("enter digit1 ");
+            int digit1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter digit2 ");
+            int digit2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter digit3 ");
+            int digit3 = int.Parse(Console.ReadLine());
+                        
+            if (digit1 > digit2 & digit1 < digit3 | digit1 > digit3 & digit1 < digit2)
+                Console.WriteLine ( $"The Middle digit is {digit1}");
+            else if (digit2 > digit1 & digit2 < digit3 | digit2 > digit3 & digit2 < digit1)
+                Console.WriteLine($"The Middle digit is {digit2}");
+            else if (digit3 > digit1 & digit3 < digit2 | digit3 > digit2 & digit3 < digit1)
+                Console.WriteLine($"The Middle digit is {digit3}");
+            else Console.WriteLine("There is no correct middle digit among these digits");
+            Console.WriteLine();
+
+            //ThreeDigitNumber
+            Console.WriteLine ("Please enter three-digit number ");
+            int threeDigitNumber = int.Parse (Console.ReadLine());
+
+            digit1 = threeDigitNumber % 10;
+            digit3 = threeDigitNumber / 100;
+            digit2 = (threeDigitNumber - digit3 * 100) / 10;
+
+            if (threeDigitNumber % 2 == 0)
+                Console.WriteLine ($"The sum of digits is {digit1 + digit2 + digit3}");
+            else
+                Console.WriteLine ($"The multiplication of digits is {digit1 * digit2 * digit3}");
+            Console.WriteLine();
+            
+            //Area
+            Console.WriteLine ("Choose the figure: square, circle, rectangle, triangle");
+
+            string figure = Console.ReadLine();
+            figure = figure.ToLower();
+            switch (figure)
+            {
+                case "square":
+                    Console.WriteLine ("enter the side length");
+                    double side = double.Parse (Console.ReadLine());
+                    Console.WriteLine ($"Area of the square is: {side * side}");
+                    break;
+                case "circle":
+                    Console.WriteLine("enter the radius length");
+                    double radius = double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Area of the circle is: {Math.PI * radius * 2}");
+                    break;
+                case "rectangle":
+                    Console.WriteLine("enter the length of first side");
+                    double side1 = double.Parse(Console.ReadLine());
+                    Console.WriteLine("enter the length of first side");
+                    double side2 = double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Area of the rectangle is: {side1 * side2}");
+                    break;
+                case "triangle":
+                    Console.WriteLine("enter the length of the side");
+                    double side3 = double.Parse(Console.ReadLine());
+                    Console.WriteLine("enter the length of the triangle height");
+                    double height = double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Area of the triangle is: {side3 * height / 2}");
+                    break;
+                default:
+                    Console.WriteLine("incorrect input");
+                    break;
+            }
+            Console.WriteLine();
+
+            //Deposit
+            Console.WriteLine ("Enter the sum of deposit");
+            double sum = double.Parse (Console.ReadLine());
+            Console.WriteLine ("Enter how many mounths deposit lasts: ");
+            int mounth = int.Parse(Console.ReadLine());
+            double interest = 4;
+            Console.WriteLine($"The interest is {interest} per mounth");
+                     
+            Console.WriteLine($"The sum with interest is: {sum * Math.Pow(1 + interest/100, mounth)}");
+
+
+
             //double footDistance = double.Parse(Console.ReadLine()); //0.305 metr
             //double metrDistance = double.Parse(Console.ReadLine());
             /*
@@ -59,7 +139,7 @@ namespace ConsoleApp1
                     break;
             }
             */
-
+            /*
             Console.WriteLine("Please enter how macth money you want to spend ");
             double money = double.Parse ( Console.ReadLine() );
             
@@ -97,6 +177,7 @@ namespace ConsoleApp1
                     Console.WriteLine("incorrect input");
                     break;
             }
+            */
 
         }
     }
