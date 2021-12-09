@@ -6,33 +6,22 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            double a = int.Parse(Console.ReadLine());
+            double b = int.Parse(Console.ReadLine());
+
+            double resalt = 1;
+
+            for (int i = 1; i <= b; i++)
             {
-                //Request data about the deposit and the number of months.
-                Console.WriteLine("Enter the deposit amount:");
-                double depositAtBeginning = double.Parse(Console.ReadLine());
-
-                Console.WriteLine("Enter the number of months of deposit storage:");
-                int numberOfmonth = int.Parse(Console.ReadLine());
-
-                double depositAtEnd;
-
-                if (depositAtBeginning <= 0 && numberOfmonth <= 0)
-
-                    if (depositAtBeginning <= 0)
-
-                        Console.WriteLine("You have entered a negative deposit!");
-
-                    if (numberOfmonth <= 0)
-
-                        Console.WriteLine("You entered a negative number of months!");
-   
-                else
-                {
-                    depositAtEnd = depositAtBeginning * Math.Pow(1 + 0.04, numberOfmonth);
-                    Console.WriteLine($"The amount of the deposit after {numberOfmonth} months will become {depositAtEnd}");
-                }
-
+                resalt = resalt * a;
             }
+
+            Console.WriteLine(resalt);
+
+
+
         }
+
+
     }
 }
