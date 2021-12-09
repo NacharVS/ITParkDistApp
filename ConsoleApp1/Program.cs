@@ -6,36 +6,23 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string s = Console.ReadLine(); // winter --> december, january, february
-            s = s.ToLower();
-            switch (s)
-            {
-                case "monday":
-                    Console.WriteLine(1);
-                    break;
-                case "tuesday":
-                    Console.WriteLine(2);
-                    break;
-                case "wednesday":
-                    Console.WriteLine(3);
-                    break;
-                case "thursday":
-                    Console.WriteLine(4);
-                    break;
-                case "friday":
-                    Console.WriteLine(5);
-                    break;
-                case "saturday":
-                    Console.WriteLine(6);
-                    break;
-                case "sunday":
-                    Console.WriteLine(7);
-                    break;
-                default:
-                    Console.WriteLine("incorrect input");
-                    break;
-            }
+            Console.WriteLine("Введите три числа");
+            int _a = int.Parse(Console.ReadLine());
+            int _b = int.Parse(Console.ReadLine());
+            int _c = int.Parse(Console.ReadLine());
 
+            
+            int _result = _a;
+
+            if ((_a < _b && _b < _c) || (_a > _b && _b > _c))
+            {
+                _result = _b;
+            }
+            else if ((_b < _c && _c < _a) || (_b > _c && _c > _a))
+            {
+                _result = _c;
+            }
+            Console.WriteLine($"Среднее число   {_result}");
         }
     }
 }
