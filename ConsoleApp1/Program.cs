@@ -6,6 +6,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            
            //среднее значение
 
             Console.WriteLine("Еnter the first number: ");
@@ -55,7 +56,8 @@ namespace ConsoleApp1
             {
                 Console.Write("enter side length: ");
                 int lenght = int.Parse(Console.ReadLine());
-                double Ssquare = Math.Pow(lenght, 2); Console.WriteLine($"Square area = {Ssquare}");
+                double Ssquare = Math.Pow(lenght, 2); 
+                Console.WriteLine($"Square area = {Ssquare}");
             }
             else
             {
@@ -66,7 +68,7 @@ namespace ConsoleApp1
                 int Srectangle = lenghtRes * widthRes;
                 Console.WriteLine($"Restangle area = {Srectangle}");
             }
-
+            
 
             
 
