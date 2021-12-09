@@ -154,7 +154,66 @@ namespace ConsoleApp1
             else Console.WriteLine($"Нечетное. Произведение цифр: {firstDigit * secondDigit * thirdDigit}");*/
             //3. Написать программу, которая, в зависимости от выбора пользователя, предложит найти площадь геометрической фигуры. 
             //(Пример работы программы: Выберите фигуру: square, введите длину одной стороны квадрата: 4, Площадь квадрата: 16)
-
+            /*Console.WriteLine("Выберите фигуру:");
+            Console.WriteLine("1.квадрат");
+            Console.WriteLine("2.прямоугольник");
+            Console.WriteLine("3.параллелограмм");
+            Console.WriteLine("4.круг");
+            Console.WriteLine("5.треугольник");
+            var geometricFigure = Console.ReadLine();
+            switch (geometricFigure)
+            {
+                case "1":
+                    {
+                        Console.Write("Введите длину стороны квадрата: ");
+                        double side = double.Parse(Console.ReadLine());
+                        double area = Math.Pow(side, 2);
+                        Console.WriteLine($"Площадь квадрата: {area}");
+                    }
+                    break;
+                case "2":
+                    {
+                        Console.Write("Введите длину одной стороны прямоугольника: ");
+                        double side1 = double.Parse(Console.ReadLine());
+                        Console.Write("Введите длину другой стороны прямоугольника: ");
+                        double side2 = double.Parse(Console.ReadLine());
+                        double area = side1*side2;
+                        Console.WriteLine($"Площадь прямоугольника: {area}");
+                    }
+                    break;
+                case "3":
+                    {
+                        Console.Write("Введите длину одной стороны параллелограмма: ");
+                        double side = double.Parse(Console.ReadLine());
+                        Console.Write("Введите длину высоты, опущенной на указанную сторону: ");
+                        double high = double.Parse(Console.ReadLine());
+                        double area = side * high;
+                        Console.WriteLine($"Площадь параллелограмма: {area}");
+                    }
+                    break;
+                case "4":
+                    {
+                        Console.Write("Введите радиус круга: ");
+                        double radius = double.Parse(Console.ReadLine());
+                        double area = Math.PI * Math.Pow(radius,2);
+                        Console.WriteLine($"Площадь круга: {area}");
+                    }
+                    break;
+                case "5":
+                    {
+                        Console.Write("Введите длину одной стороны треугольника:");
+                        double side = double.Parse(Console.ReadLine());
+                        Console.Write("Введите длину высоты, опущенной на указанную сторону:");
+                        double high = double.Parse(Console.ReadLine());
+                        double area = (side * high)/2;
+                        Console.WriteLine($"Площадь треугольника: {area}");
+                    }
+                    break;
+            }*/
+            //4. Написать программу для вычисления процентов по вкладу (ставка составляет 4% в месяц).
+            //Пользователь вводит сумму вклада и количество месяцев. Проценты начисляются каждый месяц.
+            //(Пример ввода / вывода: 4000 4 Результат: 4679,43424)
+            Console.WriteLine();
         }
 
     }
