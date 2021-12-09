@@ -213,13 +213,157 @@ namespace ConsoleApp1
             //4. Написать программу для вычисления процентов по вкладу (ставка составляет 4% в месяц).
             //Пользователь вводит сумму вклада и количество месяцев. Проценты начисляются каждый месяц.
             //(Пример ввода / вывода: 4000 4 Результат: 4679,43424)
-            Console.Write("Введите сумму вклада: ");
+            /*Console.Write("Введите сумму вклада: ");
             double depositSum = double.Parse(Console.ReadLine());
             Console.Write("Введите срок вклада в целых месяцах: ");
             int depositTerm=int.Parse(Console.ReadLine());
             double depositResult = depositSum*(Math.Pow(1.04,depositTerm));
-            Console.WriteLine($"Итоговая сумма к концу вклада: {depositResult}");
+            Console.WriteLine($"Итоговая сумма к концу вклада: {depositResult}");*/
+            //----------------------------------------------------
+            //Лекция 3 Циклы.
+            //1 pelmen = 2 testo+1 farsh
+            /*int testo = int.Parse(Console.ReadLine());
+            int farsh = int.Parse(Console.ReadLine());
+            int pelmenCount = 0;
+            //int pelmeneyNeeded = int.Parse(Console.ReadLine());
+            for (int i = testo + farsh; i / 3 >= 1; i = i - 3)
+            {
+                if (testo >= 2 & farsh >= 1)
+                {
+                    pelmenCount++;
+                    testo = testo - 2;
+                    farsh = farsh - 1;
+                }
+                else break;
+                Console.WriteLine($"Ptlmeney: {pelmenCount}, testo: {testo}, farsh: {farsh}");
+            }*/
+            /*int n = int.Parse(Console.ReadLine());
+            int result = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                result = result * i;
+                
+            }
+            Console.WriteLine(result);*/
+            //-----------------------------------------------------
+            /*Console.Write("Введите сумму вклада: ");
+            double depositSum = double.Parse(Console.ReadLine());
+            Console.Write("Введите срок вклада в целых месяцах: ");
+            int depositTerm = int.Parse(Console.ReadLine());
+            double depositResult=0;
+            for (int i = 0; i <= depositTerm; i++)
+            {
+                depositResult = depositSum + (depositSum * 0.04);
+            }
+
+            Console.WriteLine($"Итоговая сумма к концу вклада: {depositResult}");*/
+            //---------------------
+            /*Console.Write("Введите число, a: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Введите степень, b: ");
+            int b = int.Parse(Console.ReadLine());
+            int r = 1;
+            for (int i=0; i<b; i++)
+            {
+                r = r * a;
+            }
+            Console.WriteLine($"A в степени B равно: {r}");*/
+            //-------------------------------------
+            /*int a = int.Parse(Console.ReadLine());
+            int sum = 0;
+            //Console.WriteLine(c);
+            for (int i = a; i >0; i=i/10)
+            {
+                sum += a%10;
+                a=a / 10;
+            }
+            Console.WriteLine(sum);*/
+            //-------------------------------------
+            /*string a = Console.ReadLine();
+            int b = a.Length;
+            int sum = 0;
+            for (int i = 0; i <b; i++ )
+            {
+                sum += Convert.ToInt32(a[i]);
+            }
+            Console.WriteLine(sum);*/
+            //------------------------
+            /*int a = int.Parse(Console.ReadLine());
+            int sum = 0;
+            while (a > 0)
+            {
+                sum += a % 10;
+                a = a / 10;
+            }
+            Console.WriteLine(sum);*/
+            /*int a = int.Parse(Console.ReadLine());
+            int sum = 0;
+            while (a > 0)
+            {
+                sum = sum*10 + a % 10;
+                a = a / 10;
+            }
+            Console.WriteLine(sum);*/
+            //------------------------------------
+            /*for (int i = 2; i < 10; i=i+2)
+            {
+                for (int j = -3; j < 3; j++)
+                {
+                    if (j == 0) break;
+                    else
+                    Console.WriteLine((double)(i/j));
+                }
+                Console.WriteLine();
+            }*/
+            /*int summ = int.Parse(Console.ReadLine());
+            for (int i = 1; i < 999; i++)
+            {
+                if (summ == i % 10 + i / 100 + i / 10 % 10)
+                {
+                    Console.WriteLine($"{i / 100} {i / 10 % 10} {i % 10}");
+                }
+            }*/
+            /*int combinations=0;
+            int summ = int.Parse(Console.ReadLine());
+            for (int i = 0; i <=9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                {
+                    for (int k= 0; k <= 9; k++)
+                    {
+                        if (i + j + k == summ&&i!=j&&j!=k&&i!=k)
+                        {
+                            Console.WriteLine($"{i}{j}{k}");
+                            combinations++;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine($"Count: {combinations}");*/
+            //------------------------ for и while
+            int n = int.Parse(Console.ReadLine());
+            int count=0;
+            for (int i = 1; i <=n; i++)
+            {
+                int a = i;
+                while (a > 0)
+                {
+                    if (a % 10 == 7)// i == 7 ||  || i / 10 == 7)
+                        count++;
+                    a = a / 10;
+                }
+            }
+            Console.WriteLine($"Count: {count}");
         }
 
+        // сократить кол-во комбинаций
+//вывести представление числаN в в виде простых множетелей
+//input 6 output 2 3
+//input 30 output 2 3 5
+// input 16 output 2 2 2 2
+// дана числовая последовательность от 1 до N Найти такое число сумма цифр кторого будет наибольшей среди всей последовательности.
+//вывести само число и его сумму цифр
+//input (1 до n) 20 output 19 10
+//input 44 output 39 12
     }
 }
