@@ -6,25 +6,28 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int summ = int.Parse(Console.ReadLine());
-            int combinations = 0;// 1 < summ < 27
-            for (int i = 0; i <= 9; i++)
+            int n = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 1; i <= n; i++)
             {
-                for (int j = 0; j <= 9; j++)
+                int a = i;
+                while(a > 0)
                 {
-                    for (int k = 0; k <= 9; k++)
+                    if(a % 10 == 7)
                     {
-                        if (i + j + k == summ && i != j && j!= k && i!=k )
-                        {
-                            Console.WriteLine($"{i}{j}{k}");
-                            combinations++;
-                        }
+                        sum++;
                     }
+                    a = a / 10;
                 }
             }
-            Console.WriteLine($" count {combinations}");
+            Console.WriteLine(sum);
+            // input 20  output 2
+            // input 100 output 20
         }
-        
+        //7 8 9 6
+        //7897
+        //7898
+        //7899
 
     }
 }
