@@ -213,7 +213,12 @@ namespace ConsoleApp1
             //4. Написать программу для вычисления процентов по вкладу (ставка составляет 4% в месяц).
             //Пользователь вводит сумму вклада и количество месяцев. Проценты начисляются каждый месяц.
             //(Пример ввода / вывода: 4000 4 Результат: 4679,43424)
-            Console.WriteLine();
+            Console.Write("Введите сумму вклада: ");
+            double depositSum = double.Parse(Console.ReadLine());
+            Console.Write("Введите срок вклада в целых месяцах: ");
+            int depositTerm=int.Parse(Console.ReadLine());
+            double depositResult = depositSum*((Math.Pow(depositSum,0.04)-1)/(depositSum-1));
+            Console.WriteLine($"Итоговая сумма к концу вклада: {depositResult}");
         }
 
     }
