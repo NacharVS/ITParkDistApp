@@ -6,32 +6,17 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Put Ur money in terminal");
-            int moneyCount = int.Parse(Console.ReadLine());
-            Console.WriteLine("Products:");
-            Console.WriteLine("1. Bread - 50");
-            Console.WriteLine("2. Milk - 40");
-            Console.WriteLine("3. Butter - 70");
-            Console.WriteLine("4. Chocolate - 110");
-            Console.WriteLine("5. Coffee - 100");
-            Console.Write("Enter the number of product:");
-            int productNumber = int.Parse(Console.ReadLine());
-            Console.Write("Enter the count of product:");
-            int productCount = int.Parse(Console.ReadLine());
+            int number = 1; // 16468644
+            int summ = 0;
 
-            switch (productNumber)
+            for (int i = number; i > 0; i = i / 10)
             {
-                case 1: if(moneyCount < productCount * 50)
-                        Console.WriteLine("Not enouth money");
-                else
-                        Console.WriteLine($"U have bought {productCount} of bread with {productCount * 50} price, Urchange {moneyCount - productCount * 50}");
-                    break;
-                default:
-                    Console.WriteLine("Incorrect input");
-                    break;
+                summ += number % 10;
+                number = number / 10;
             }
+            Console.WriteLine(summ);
         }
-            //Max distance in foot/meters is MAX
-        }
+        
+
     }
 }
