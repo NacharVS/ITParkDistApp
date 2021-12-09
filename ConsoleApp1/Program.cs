@@ -217,7 +217,7 @@ namespace ConsoleApp1
             double depositSum = double.Parse(Console.ReadLine());
             Console.Write("Введите срок вклада в целых месяцах: ");
             int depositTerm=int.Parse(Console.ReadLine());
-            double depositResult = depositSum*((Math.Pow(depositSum,0.04)-1)/(depositSum-1));
+            double depositResult = depositSum*(Math.Pow(1.04,depositTerm));
             Console.WriteLine($"Итоговая сумма к концу вклада: {depositResult}");
         }
 
