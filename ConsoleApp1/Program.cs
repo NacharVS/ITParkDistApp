@@ -6,6 +6,65 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //reverse of digit
+            Console.WriteLine("enter number ");
+            int number1 = int.Parse(Console.ReadLine());
+            double reverseDigit = 0;
+            int n = number1;
+            int n1 = 0;
+            while (n > 0)
+            {
+                n1 = n1 + 1;
+                n = n / 10;
+            }
+            while (number1 > 0)
+            {
+                reverseDigit = reverseDigit + number1 % 10 * Math.Pow(10, n1 - 1);
+                n1 = n1 - 1; 
+                number1 = number1 / 10;
+                
+            }
+            Console.WriteLine($"The reverse digit is: {reverseDigit}");
+
+
+            //sum of digit
+            Console.WriteLine("enter number ");
+            int number = int.Parse(Console.ReadLine());
+            int sumDigit = 0;
+            while (number > 0)
+            {
+                sumDigit += number % 10;
+                number = number / 10;
+            }
+            Console.WriteLine($"Sum of digit is: {sumDigit}");
+
+            //степень
+            Console.WriteLine("enter a ");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter b ");
+            int b = int.Parse(Console.ReadLine());
+            int result = a;
+            for (int i = b; i > 1; i--)
+            {
+                result = result * a;
+            }
+            Console.WriteLine($"a в степени b = {result}");
+            
+            //Deposit
+            Console.WriteLine("Enter the sum of deposit");
+            double sum = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter how many mounths deposit lasts: ");
+            int mounth = int.Parse(Console.ReadLine());
+            double interest = 4;
+            Console.WriteLine($"The interest is {interest} per mounth");
+
+            
+            for (int i = mounth; i > 0; i--)
+            {
+                sum = sum * 1.04;
+            }
+            Console.WriteLine($"The sum with interest is: {sum}");
+            /*
             //MiddleDigit
             Console.WriteLine("enter digit1 ");
             int digit1 = int.Parse(Console.ReadLine());
@@ -83,7 +142,7 @@ namespace ConsoleApp1
             Console.WriteLine($"The interest is {interest} per mounth");
                      
             Console.WriteLine($"The sum with interest is: {sum * Math.Pow(1 + interest/100, mounth)}");
-
+            */
 
 
             //double footDistance = double.Parse(Console.ReadLine()); //0.305 metr
