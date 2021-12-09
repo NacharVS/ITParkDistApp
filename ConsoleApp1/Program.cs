@@ -6,14 +6,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int number = 1; // 16468644
+            int number = 11223344; // 1234 ==> 4321
             int summ = 0;
 
-            for (int i = number; i > 0; i = i / 10)
+            while (number > 0)
             {
-                summ += number % 10;
+                summ = summ * 10 + number % 10;
                 number = number / 10;
             }
+
             Console.WriteLine(summ);
         }
         
