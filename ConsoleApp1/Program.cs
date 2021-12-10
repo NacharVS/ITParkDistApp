@@ -333,7 +333,7 @@ namespace ConsoleApp1
                 {
                     for (int k= 0; k <= 9; k++)
                     {
-                        if (i + j + k == summ && i!=j && j!=k && i!=k &&)
+                        if (i + j + k == summ && i!=j && i != k  && j != k/* && j != k&& k != i&& k != j*/)
                         {
                             Console.WriteLine($"{i}{j}{k}");
                             combinations++;
