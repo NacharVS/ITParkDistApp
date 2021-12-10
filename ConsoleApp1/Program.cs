@@ -6,6 +6,23 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //Combinations of 3 digits
+            Console.WriteLine("Комбинации цифр для кодового замка. 3 цифры:");
+            int n = 0; //порядковый номер комбинации
+            for(int i = 0; i < 10; i++)
+            {
+                for (int j = i + 1; j < 10; j++)
+                {
+                    for (int k = j + 1; k < 10; k++)
+                    {
+                        n++;
+                        Console.Write($" {n} -- {i}{j}{k}; ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+
+            /*
             //reverse of digit
             Console.WriteLine("enter number ");
             int number1 = int.Parse(Console.ReadLine());
@@ -61,9 +78,11 @@ namespace ConsoleApp1
             
             for (int i = mounth; i > 0; i--)
             {
-                sum = sum * 1.04;
+                sum = sum * (1 + interest/100);
             }
             Console.WriteLine($"The sum with interest is: {sum}");
+            */
+
             /*
             //MiddleDigit
             Console.WriteLine("enter digit1 ");
