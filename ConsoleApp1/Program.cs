@@ -2,46 +2,39 @@
 
 namespace ConsoleApp1
 {
+    // Ввывести представление числа N в виде простых множителей. 
+    // input 6 output 2 3 
+    // intput 30 output 2 3 5
+    // input 16 output 2 2 2 2
     class Program
     {
         static void Main(string[] args)
         {
-            //Entering the sum of three numbers.
-            Console.WriteLine("Enter the sum of numbers in the range from 3 to 24:");
-            int summ = int.Parse(Console.ReadLine());
-            
-            int combinationCount = 0;// 2 (0, 1, 2) < summ < 25 (7, 8, 9).
 
-            //Checking a summ is in the correct range.
-            if (summ > 2 && summ < 25)
+            Console.WriteLine("Enter number N;");
+            int number = int.Parse(Console.ReadLine());
+                        
+            while (number > 1)
             {
-                //Matching small numbers in combination.
-                for (int i = 0; i <= 9; i++)
+                for (int i = 2; i <= number; i++)
                 {
-                    //Matching averages numbers in combination
-                    for (int j = 0; j <= 9; j++)
+                    if (number % i == 0)
                     {
-                        //Matching larges numbers in combination.
-                        for (int k = 0; k <= 9; k++)
-                        {
-                            //Selection condition for a combination of three digits.
-                            if (i + j + k == summ && i < j && j < k)
-                            {
-                                
-                                Console.WriteLine($"{i}{j}{k}");
-                                
-                                combinationCount++;
-                            }
-                        }
+                        number = number / i;
+                        
+                        Console.Write($"{i} ");
+                        break;
                     }
                 }
             }
 
-            else Console.WriteLine("You entered the wrong number. The number must be between 3 and 24!");
-
-            Console.WriteLine($" count {combinationCount}");
         }
+        
 
+        // Дана числовая последовательность от 1 до N. Найти такое число сумма цифр которого будет
+        // наибольшей среди всей последовательности. Вывести само число и его сумму цифр
+        // input 20 output 19 10
+        // input 44 output 39 12
 
     }
 }
