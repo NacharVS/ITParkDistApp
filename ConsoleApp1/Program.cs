@@ -21,6 +21,66 @@ namespace ConsoleApp1
                     Console.WriteLine();
                 }
             }
+            Console.WriteLine();
+
+
+
+            //разложение на простые числа
+            //если число < 100, оно будет разлагаться на 2, 3, 5, 7 или само себя
+            //т.е. проверять можно только до 7 (11*11 = 121 > 100 -- на 11 не проверяем)
+            Console.WriteLine("enter number from 1 to 100 ");
+            int number = int.Parse(Console.ReadLine());
+            Console.Write($"{number}: ");
+            while(number%2 < 1)
+            {
+                number = number / 2;
+                Console.Write(" 2 ");
+            }
+            while (number % 3 < 1)
+            {
+                number = number / 3;
+                Console.Write(" 3 ");
+            } 
+            while (number % 5 < 1)
+            {
+                number = number / 5;
+                Console.Write(" 5 ");
+            } 
+            while (number % 7 < 1)
+            {
+                number = number / 7;
+                Console.Write(" 7 ");
+            }
+            if(number > 1) Console.Write(number);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            //MaxSum of digits
+            Console.WriteLine("enter number ");
+            int number1 = int.Parse(Console.ReadLine());
+            int sumDigit = 0;
+            int maxSumDigit = 0;
+            int numberResult = 0;
+
+            for(int i = 1; i <= number1; i++)
+            {
+                int number2 = i;
+                while (number2 > 0)
+                {
+                    sumDigit += number2 % 10;
+                    number2 = number2 / 10;
+                }
+
+                if (maxSumDigit < sumDigit)
+                {
+                    maxSumDigit = sumDigit;
+                    numberResult = i;
+                }
+                sumDigit = 0;
+            }
+            
+            Console.WriteLine($"Number {numberResult}  Sum of digits is: {maxSumDigit}");
+
 
             /*
             //reverse of digit
