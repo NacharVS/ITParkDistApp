@@ -7,8 +7,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {    //Задание № 1.
-            //int a, b, c;
-            
+             //int a, b, c;
+
             //Console.WriteLine("Введите число 1");
             //a = int.Parse(Console.ReadLine());
 
@@ -110,14 +110,22 @@ namespace ConsoleApp1
             //----------------------------------------------------------------------
 
             //Задание № 4.
-            double Summa;
-            int day;
+            double money = 100; // Деньги 
+            int month = 6; // Месяцы
+            double q = 3; // Процент по вкладу "3%"
             Console.WriteLine("Введите сумму вклада");
-            Summa = double.Parse(Console.ReadLine());
+            money = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Введите количество дней");
-            day = int.Parse(Console.ReadLine());
+            month = int.Parse(Console.ReadLine());
+            
+            double income = q / 100 + 1; // Переводим проценты в число
 
+
+            for (int i = 0; i < month; i++)
+                money *= income;
+
+            Console.WriteLine("Итого"+money);
 
 
 
