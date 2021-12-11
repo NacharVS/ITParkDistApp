@@ -337,38 +337,24 @@ namespace ConsoleApp1
                         Console.WriteLine($"Count: {count}");
             */
             //1 задача. Нахождение комбинаций 3х-значного кодового замка по его сумме:
-            /*          
-                        Console.Write("Введите сумму цифр кодовой комбинации замка: ");    
-                        int combinations=0;
-                        int iCheck = 0;
-                        int jCheck = 0;
-                        int kCheck = 0;
-                        int summ = int.Parse(Console.ReadLine());
-                        for (int i = 0; i <= 9; i++)
+            Console.Write("Введите сумму цифр кодовой комбинации замка: ");
+            int combinations = 0;
+            int summ = int.Parse(Console.ReadLine());
+            for (int i = 0; i <= 9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                {
+                    for (int k = 0; k <= 9; k++)
+                    {
+                        if (i + j + k == summ && i < j && j < k)
                         {
-                            if (i != iCheck&&i!=jCheck&&i!=kCheck)
-                            {
-                                for (int j = 0; j <= 9; j++)
-                                {
-                                    for (int k = 0; k <= 9; k++)
-                                    {
-                                        if (i + j + k == summ && i != j && i != k && j != k)
-                                        {
-                                            iCheck = i;
-                                            jCheck = j;
-                                            kCheck = k;
-                                            Console.WriteLine($"{i}{j}{k}");
-                                            combinations++;
-                                            if (i < 9) i++;
-                                            if (j < 9) j++;
-                                            if (k < 9) k++;
-                                        }
-                                    }
-                                }
-                            }
+                            Console.WriteLine($"{i}{j}{k}");
+                            combinations++;
                         }
-                        Console.WriteLine($"Всего комбинаций: {combinations}");
-            */
+                    }
+                }
+            }
+            Console.WriteLine($"Всего комбинаций: {combinations}");
             //2 задача. Простые множители.
             /*        
                       Console.Write("Введите число для поиска его простых множителей: ");
@@ -392,7 +378,7 @@ namespace ConsoleApp1
                       }
           */
             //3 задача.Нахождение максимальной суммы цифр в числовом ряде:
-            Console.Write("Введите конечное число N ряда 1...N: ");
+            /*Console.Write("Введите конечное число N ряда 1...N: ");
             int sequence = int.Parse(Console.ReadLine());
             int numberOfMaxSum = 0;
             int maximumSum = 0;
@@ -413,6 +399,7 @@ namespace ConsoleApp1
                 }
             }
             Console.WriteLine($"В заданном ряде (1-{sequence}) число {numberOfMaxSum} имеет максимальную сумму цифр: {maximumSum}");
+            */
         }
     }
 }
