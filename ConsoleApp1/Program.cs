@@ -8,19 +8,34 @@ namespace ConsoleApp1
         {
             //Combinations of 3 digits
             Console.WriteLine("Комбинации цифр для кодового замка. 3 цифры:");
+            Console.WriteLine("Enter the sum of digits: ");
+            int summ = int.Parse(Console.ReadLine());
+            int combinations = 0;
             int n = 0; //порядковый номер комбинации
-            for(int i = 0; i < 10; i++)
+            if (summ >= 3 & summ <= 24)     //проверка 0+1+2 - мин, 7+8+9 - макс.
             {
-                for (int j = i + 1; j < 10; j++)
+                for (int i = 0; i < 10; i++)
                 {
-                    for (int k = j + 1; k < 10; k++)
+                    for (int j = i + 1; j < 10; j++)
                     {
-                        n++;
-                        Console.Write($" {n} -- {i}{j}{k}; ");
+                        for (int k = j + 1; k < 10; k++)
+                        {
+                            if(i + j + k == summ)
+                            {
+                                combinations++;
+                                Console.WriteLine($"{combinations} -- {i}{j}{k}");
+                            }
+                            
+                        }
+                        
                     }
-                    Console.WriteLine();
                 }
+                Console.WriteLine($"The sum of digits is {summ}");
+                Console.WriteLine($"count {combinations}");
             }
+            else Console.WriteLine("The sum of digits is incorrect");
+           
+            
             Console.WriteLine();
 
 
