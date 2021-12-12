@@ -12,6 +12,7 @@ namespace ConsoleApp1
             ////////////////
 
             //Вводим сумму
+            Console.WriteLine("enter the sum of combinations");
             int summ = Convert.ToInt32(Console.ReadLine());
             int count = 0;// 1 < summ < 27
 
@@ -94,6 +95,7 @@ namespace ConsoleApp1
             ////Задача 2////
             ////////////////
 
+            //Console.WriteLine("enter number");
             //int number = Convert.ToInt32(Console.ReadLine());
             //int multiplier = 2;
 
@@ -167,6 +169,7 @@ namespace ConsoleApp1
             ////////////////
 
             ////вводим число
+            //Console.WriteLine("enter sequence limit (max 10000)");
             //int number = Convert.ToInt32(Console.ReadLine());
             //int value = 0;
             //int max = 1;
