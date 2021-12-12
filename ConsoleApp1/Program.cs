@@ -7,41 +7,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int[] array = new int[10];
-            // сортировка методом пузырька
-            Random random = new Random();
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int[,] array = new int[a, b];
+            int summ = 0;
+            Random rnd = new Random();
+            //сумма в каждой строке массива
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                array[i] = random.Next(10,100);
-                Console.Write($"{array[i]} ");
-            }
-
-            for (int j = 0; j < array.Length - 1; j++)
-            {
-                for (int i = 0; i < array.Length - 1-j; i++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    if (array[i] > array[i + 1])
-                    {
-                        int buffer = array[i + 1];
-                        array[i + 1] = array[i];
-                        array[i] = buffer;
-                    }
-                    
+                    array[i, j] = rnd.Next(2);
+                    summ += array[i, j];
+                    Console.Write($"{array[i,j]} ");
                 }
+                Console.Write($"   {summ}");
+                summ = 0;
+                Console.WriteLine();
             }
-
-
-
-
-            Console.WriteLine();
-
-            foreach (var item in array)
-            {
-                Console.Write($"{item} ");
-            }
-
-           
 
 
 
