@@ -6,178 +6,256 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // Задание 1
 
-            int max = 0;
-            int min = 0;
+            ////////////////
+            ////Задача 1////
+            ////////////////
 
-            bool isCorrect = true;
+            //Вводим сумму
+            int summ = Convert.ToInt32(Console.ReadLine());
+            int count = 0;// 1 < summ < 27
 
-            Console.WriteLine("First number:");
-            int a = int.Parse(Console.ReadLine());
-            Console.WriteLine("Second number:");
-            int b = int.Parse(Console.ReadLine());
-            Console.WriteLine("Third number:");
-            int c = int.Parse(Console.ReadLine());
+            //Создаем переменные под оригинальные не повторяющиеся значения (их максимум может быть 10)
+            int combinations1 = 0;
+            int combinations2 = 0;
+            int combinations3 = 0;
+            int combinations4 = 0;
+            int combinations5 = 0;
+            int combinations6 = 0;
+            int combinations7 = 0;
+            int combinations8 = 0;
+            int combinations9 = 0;
+            int combinations10 = 0;
 
-            //Проверка на равные числа
-            if (a == b)
-                isCorrect = false;
-
-            if (a == c)
-                isCorrect = false;
-
-            if (b == c)
-                isCorrect = false;
-
-            if (isCorrect == true)
+            //Перебор всех возможных комбинаций
+            for (int i = 0; i <= 9; i++)
             {
-                if (a > b && a > c)
+                for (int j = 0; j <= 9; j++)
                 {
-                    max = a;
+                    for (int k = 0; k <= 9; k++)
+                    {
 
-                    if (b > c)
-                        min = c;
-                    else
-                        min = b;
+                        if (i + j + k == summ && i != j && j != k && i != k &&
+                        combinations1 != (i * 100 + j * 10 + k) && combinations1 != (i * 100 + k * 10 + j) && combinations1 != (j * 100 + i * 10 + k) && combinations1 != (j * 100 + k * 10 + i) && combinations1 != (k * 100 + i * 10 + j) && combinations1 != (k * 100 + j * 10 + i) &&
+                        combinations2 != (i * 100 + j * 10 + k) && combinations2 != (i * 100 + k * 10 + j) && combinations2 != (j * 100 + i * 10 + k) && combinations2 != (j * 100 + k * 10 + i) && combinations2 != (k * 100 + i * 10 + j) && combinations2 != (k * 100 + j * 10 + i) &&
+                        combinations3 != (i * 100 + j * 10 + k) && combinations3 != (i * 100 + k * 10 + j) && combinations3 != (j * 100 + i * 10 + k) && combinations3 != (j * 100 + k * 10 + i) && combinations3 != (k * 100 + i * 10 + j) && combinations3 != (k * 100 + j * 10 + i) &&
+                        combinations4 != (i * 100 + j * 10 + k) && combinations4 != (i * 100 + k * 10 + j) && combinations4 != (j * 100 + i * 10 + k) && combinations4 != (j * 100 + k * 10 + i) && combinations4 != (k * 100 + i * 10 + j) && combinations4 != (k * 100 + j * 10 + i) &&
+                        combinations5 != (i * 100 + j * 10 + k) && combinations5 != (i * 100 + k * 10 + j) && combinations5 != (j * 100 + i * 10 + k) && combinations5 != (j * 100 + k * 10 + i) && combinations5 != (k * 100 + i * 10 + j) && combinations5 != (k * 100 + j * 10 + i) &&
+                        combinations6 != (i * 100 + j * 10 + k) && combinations6 != (i * 100 + k * 10 + j) && combinations6 != (j * 100 + i * 10 + k) && combinations6 != (j * 100 + k * 10 + i) && combinations6 != (k * 100 + i * 10 + j) && combinations6 != (k * 100 + j * 10 + i) &&
+                        combinations7 != (i * 100 + j * 10 + k) && combinations7 != (i * 100 + k * 10 + j) && combinations7 != (j * 100 + i * 10 + k) && combinations7 != (j * 100 + k * 10 + i) && combinations7 != (k * 100 + i * 10 + j) && combinations7 != (k * 100 + j * 10 + i) &&
+                        combinations8 != (i * 100 + j * 10 + k) && combinations8 != (i * 100 + k * 10 + j) && combinations8 != (j * 100 + i * 10 + k) && combinations8 != (j * 100 + k * 10 + i) && combinations8 != (k * 100 + i * 10 + j) && combinations8 != (k * 100 + j * 10 + i) &&
+                        combinations9 != (i * 100 + j * 10 + k) && combinations9 != (i * 100 + k * 10 + j) && combinations9 != (j * 100 + i * 10 + k) && combinations9 != (j * 100 + k * 10 + i) && combinations9 != (k * 100 + i * 10 + j) && combinations9 != (k * 100 + j * 10 + i) &&
+                        combinations10 != (i * 100 + j * 10 + k) && combinations10 != (i * 100 + k * 10 + j) && combinations10 != (j * 100 + i * 10 + k) && combinations10 != (j * 100 + k * 10 + i) && combinations10 != (k * 100 + i * 10 + j) && combinations10 != (k * 100 + j * 10 + i))
+                        {
+                            count++;
+
+                            //Переводим комбинацию чисел i, j, k в трехзначное число
+                            switch (count)
+                            {
+                                case 1:
+                                    combinations1 = i * 100 + j * 10 + k;
+                                    break;
+                                case 2:
+                                    combinations2 = i * 100 + j * 10 + k;
+                                    break;
+                                case 3:
+                                    combinations3 = i * 100 + j * 10 + k;
+                                    break;
+                                case 4:
+                                    combinations4 = i * 100 + j * 10 + k;
+                                    break;
+                                case 5:
+                                    combinations5 = i * 100 + j * 10 + k;
+                                    break;
+                                case 6:
+                                    combinations6 = i * 100 + j * 10 + k;
+                                    break;
+                                case 7:
+                                    combinations7 = i * 100 + j * 10 + k;
+                                    break;
+                                case 8:
+                                    combinations8 = i * 100 + j * 10 + k;
+                                    break;
+                                case 9:
+                                    combinations9 = i * 100 + j * 10 + k;
+                                    break;
+                                case 10:
+                                    combinations10 = i * 100 + j * 10 + k;
+                                    break;
+                            }
+                            Console.WriteLine($"{i}{j}{k}");
+                        }
+                    }
                 }
-
-
-                if (a > b && a < c)
-                {
-                    max = c;
-                    min = b;
-                }
-
-                if (a < b && b > c)
-                {
-                    max = b;
-
-                    if (a > c)
-                        min = c;
-                    else
-                        min = a;
-                }
-
-                if (a < b && b < c)
-                {
-                    max = c;
-                    min = a;
-                }
-
-                if (a < max && a > min)
-                    Console.WriteLine("Number in the middle - " + a);
-
-                if (b < max && b > min)
-                    Console.WriteLine("Number in the middle - " + b);
-
-                if (c < max && c > min)
-                    Console.WriteLine("Number in the middle - " + c);
             }
-            else
-                Console.WriteLine("Re-enter numbers - enter different numbers");
+            Console.WriteLine($" count {count}");
 
-            Console.ReadKey();
+            ////////////////
+            ////Задача 2////
+            ////////////////
 
-            // Задание 2 
+            //int number = Convert.ToInt32(Console.ReadLine());
+            //int multiplier = 2;
 
-            //int number;
-            //Console.WriteLine("введите число: ");
-            //number = Convert.ToInt32(Console.ReadLine());
-            //int a = 0;
-            //int b = 0;
-            //int c = 0;
+            //// Целая часть от деления
+            //int WholePart = number;
 
-            //a = number / 100;
-            //b = (number % 100) / 10;
-            //c = (number % 100) % 10;
 
-            //int result = 0;
-
-            //if (number % 2 == 0)
+            //while (multiplier != 0)
             //{
-            //    Console.WriteLine("четное число");
-            //    result = a + b + c;
-            //    Console.WriteLine("result - " + result);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("нечетное");
-            //    result = a * b * c;
-            //    Console.WriteLine("result - " + result);
-            //}
+            //    //Остаток от деления
+            //    int remainderOfTheDivision = 0;
 
-            //Console.ReadKey();
+            //    remainderOfTheDivision = WholePart % 2;                           
+            //    if (remainderOfTheDivision == 0)
+            //    {
+            //        WholePart = WholePart / 2;
+            //        multiplier = 2;
+            //    }
+            //    else
+            //        multiplier = 0;
 
-            //Задание 3         
-
-            //Console.WriteLine("Сhoose a geometric shape");
-
-            //Console.WriteLine("1-square");
-
-            //Console.WriteLine("2-rectangle");
-
-            //Console.WriteLine("3-circle");
-
-
-
-            //int number = int.Parse(Console.ReadLine());
-
-            //double S = 0;
-            //switch(number)
-            //{
-            //    case 1:
+            //    if (multiplier == 0)
+            //    {
+            //        remainderOfTheDivision = WholePart % 3;
+            //        if (remainderOfTheDivision == 0)
             //        {
-            //            Console.WriteLine("Is selected - square. Enter the size of the side ");
-            //            int side = int.Parse(Console.ReadLine());
-            //            S = side * side;
-            //            Console.WriteLine($"Square area: {S}");
+            //            WholePart = WholePart / 3;
+            //            multiplier = 3;
+            //        }
+            //        else
+            //            multiplier = 0;
+            //    }
+
+            //    if (multiplier == 0)
+            //    {
+            //        remainderOfTheDivision = WholePart % 5;
+            //        if (remainderOfTheDivision == 0)
+            //        {
+            //            WholePart = WholePart / 5;
+            //            multiplier = 5;
+            //        }
+            //        else
+            //            multiplier = 0;
+            //    }
+
+            //    if (multiplier == 0)
+            //    {
+            //        remainderOfTheDivision = WholePart % 7;
+            //        if (remainderOfTheDivision == 0)
+            //        {
+            //            WholePart = WholePart / 7;
+            //            multiplier = 7;
+            //        }
+            //        else
+            //            multiplier = 0;
+            //    }
+
+            //    if (multiplier == 0)
+            //        Console.WriteLine($" multiplier - {WholePart}");
+            //    else
+            //        Console.WriteLine($" multiplier - {multiplier}");
+
+            //    if (WholePart == 1)
+            //        multiplier = 0;
+
+
+            //}         
+
+            ////////////////
+            ////Задача 3////
+            ////////////////
+
+            ////вводим число
+            //int number = Convert.ToInt32(Console.ReadLine());
+            //int value = 0;
+            //int max = 1;
+            //int sum = 0;
+            //int needNumber = 0;
+
+            //for (int i = 1; i <= number; i++)
+            //{
+            //    int number1 = 0;
+            //    int number2 = 0;
+            //    int number3 = 0;
+            //    int number4 = 0;
+            //    int number5 = 0;
+
+
+            //    if (i < 10000)
+            //    {
+            //        if (i < 1000)
+            //        {
+            //            if (i < 100)
+            //            {
+            //                if (i < 10)
+            //                {
+            //                    value = 1;
+            //                }
+            //                else
+            //                    value = 2;
+            //            }
+            //            else
+            //                value = 3;
 
             //        }
-            //        break;
-            //    case 2:
-            //        {
-            //            Console.WriteLine("Is selected - rectangle. Enter the size of the side1");
-            //            int side1 = int.Parse(Console.ReadLine());
+            //        else
+            //            value = 4;
+            //    }
+            //    else
+            //        value = 5;
 
-            //            Console.WriteLine("Enter the size of the side2");
-            //            int side2 = int.Parse(Console.ReadLine());
 
-            //            S = side1 * side2;
-            //            Console.WriteLine($"Rectangle area: {S}");
-            //        }
-            //        break;
-            //    case 3:
-            //        {
+            //    switch (value)
+            //    {
+            //        case 1:
 
-            //            Console.WriteLine("Is selected - Circle. enter radius");
-            //            int side = int.Parse(Console.ReadLine());
+            //            number1 = i;
+            //            sum = number1;
+            //            break;
 
-            //            S = 3.14 * side * side;
+            //        case 2:
+            //            number1 = i / 10;
+            //            number2 = i % 10;
+            //            sum = number1 + number2;
+            //            break;
 
-            //            Console.WriteLine($"Circle area: {S}");
-            //        }
-            //        break;
+            //        case 3:
+            //            number1 = i / 100;
+            //            number2 = (i % 100) / 10;
+            //            number3 = (i % 100) % 10;
+            //            sum = number1 + number2 + number3;
+            //            break;
+
+            //        case 4:
+            //            number1 = i / 1000;
+            //            number2 = i % 1000 / 100;
+            //            number3 = i % 1000 % 100 / 10;
+            //            number4 = i % 1000 % 100 % 10;
+            //            sum = number1 + number2 + number3 + number4;
+
+            //            break;
+
+            //        case 5:
+            //            number1 = i / 10000;
+            //            number2 = i % 10000 / 1000;
+            //            number3 = i % 10000 % 1000 / 100;
+            //            number4 = i % 10000 % 1000 % 100 / 10;
+            //            number5 = i % 10000 % 1000 % 100 % 10;
+            //            sum = number1 + number2 + number3 + number4 + number5;
+            //            break;
+            //    }
+
+            //    if (sum > max)
+            //    {
+            //        max = sum;
+            //        needNumber = i;
+            //    }
+
             //}
 
-            //Console.ReadKey();
-
-
-            //Задание 4
-
-            //Console.WriteLine("Enter the amount of the deposit");
-            //double deposit = int.Parse(Console.ReadLine());
-
-            //Console.WriteLine("Number of months");
-            //int months = int.Parse(Console.ReadLine());
-
-            //double result = 0;
-
-            //result = months * (deposit * 4) / 100 + deposit;
-
-            //Console.WriteLine($"Result: {result}");
-
-            //Console.ReadKey();
+            //Console.WriteLine($"Need number ---- {needNumber}");
+            //Console.WriteLine($"Sum ---- {max}");         
         }
     }
 }
