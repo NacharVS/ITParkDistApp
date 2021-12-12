@@ -337,7 +337,8 @@ namespace ConsoleApp1
                         Console.WriteLine($"Count: {count}");
             */
             //1 задача. Нахождение комбинаций 3х-значного кодового замка по его сумме:
-            Console.Write("Введите сумму цифр кодовой комбинации замка: ");
+            /*
+             * Console.Write("Введите сумму цифр кодовой комбинации замка: ");
             int combinations = 0;
             int summ = int.Parse(Console.ReadLine());
             for (int i = 0; i <= 9; i++)
@@ -355,6 +356,7 @@ namespace ConsoleApp1
                 }
             }
             Console.WriteLine($"Всего комбинаций: {combinations}");
+            */
             //2 задача. Простые множители.
             /*        
                       Console.Write("Введите число для поиска его простых множителей: ");
@@ -400,16 +402,199 @@ namespace ConsoleApp1
             }
             Console.WriteLine($"В заданном ряде (1-{sequence}) число {numberOfMaxSum} имеет максимальную сумму цифр: {maximumSum}");
             */
+            //HOMEWORK
+            //(V)1.Сократить кол-во комбинаций.
+            //(V)2.Вывести представление числа N в виде простых множетелей.
+            //      input 6 output 2 3
+            //      input 30 output 2 3 5
+            //      input 16 output 2 2 2 2
+            //(V)3.Дана числовая последовательность от 1 до N;
+            //      Найти такое число сумма цифр которого будет наибольшей среди всей последовательности;
+            //      Вывести само число и его сумму цифр.
+            //      input (1 до n) 20 output 19 10
+            //      input 44 output 39 12
+            //Лекция 4. Коллекции, массивы.
+            /*int[] array = new int[5];
+            int[] array2 = new int[9];
+            Console.WriteLine(array2.Length);
+            array[0] = 15;
+            array2[0] = 77;
+            Console.WriteLine($"{array[0]} {array2[0]} {array2[1]}");*/
+            //простая формула: [] - кол-во элементов массива. [9] - 9 элементов, но последний 8, т.к. начало с нуля.
+            //macIndex=Length-1
+            //класс random
+            /* int[] array = new int[10];
+             Random random = new Random();
+             /*array[0]=random.Next(100);//одно значение в скобке - от 1 до этого значения. 2 цифры - от первой до второй.
+             Console.WriteLine(array[0]);
+             int sum = 0;
+             int max = int.MinValue;
+             int min = int.MaxValue;*/
+            //заполнение массива и подсчет суммы элементов. Нахождение max/min.
+            /*for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(100);
+                sum += array[i];
+                Console.Write($"{array[i]} ");
+                if (array[i] > max)
+                    max = array[i];
+                if (array[i] < min)
+                    min = array[i];
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Сумма: {sum}, max: {max}, min: {min}") ;
+            */
+            //поиск элементов больше предыдущего
+            /*Console.Write("Больше предыдущего: ");
+            for (int i = 0; i < array.Length-1; i++)
+            {
+                if (array[i+1] > array[i])
+                Console.Write($"{array[i+1]} ");
+            }*/
+            //цикл foreach - только для чтения.
+            /*foreach (int item in array)//item - переменная, может быть любая.
+            {
+                Console.WriteLine(item);
+            }*/
+            /*Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(array[5]);*/
+            //8 2  4 65 2 3 77 8
+            //4 65 3 77
+            //Сортировка массива. Пузырьковый метод.
+            /*int[] array = new int[10];
+            Random random = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(10, 100);
+                Console.Write($"{array[i]} ");
+            }
+            Console.WriteLine();
+            for (int j = 0; j < array.Length - 1; j++)
+            {
+                for (int i = 0; i < array.Length - 1 - j; i++)
+                {
+                    if (array[i] > array[i + 1])
+                    {
+                        int p = array[i + 1];
+                        array[i + 1] = array[i];
+                        array[i] = p;
+                    }
+                }
+            }
+            foreach (var item in array)
+            {
+                Console.Write($"{item} ");
+            }
+            */
+            //двумерные массивы
+            /*int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int[,] array = new int[a, b];
+            Random rnd=new Random();
+            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во строк.
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = rnd.Next(10, 100);
+                    Console.Write($"{array[i, j]} ");
+                }
+                Console.WriteLine();
+            }*/
+            //найти сумму элементов строк
+            /*int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int[,] array = new int[a, b];
+            Random rnd = new Random();
+            int sum = 0;
+            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во строк.
+            {
+                sum = 0;
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = rnd.Next(0, 2);
+                    Console.Write($"{array[i, j]} ");
+                    sum += array[i, j];
+                }
+                Console.WriteLine($"Сумма: {sum}");
+                Console.WriteLine();
+            }*/
+            //Найти сумму строки и отсортировать суммы
+            /*int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int[,] array = new int[a, b];
+            Random rnd = new Random();
+            int[] sumInRow = new int[array.GetLength(0)];
+            int sum = 0;
+            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во строк.
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = rnd.Next(0, 10);
+                    sumInRow[i] += array[i, j];
+                    Console.Write($"{array[i, j]} ");
+                    
+                }
+               Console.WriteLine();
+            }
+            
+                for (int j = 0; j < sumInRow.Length - 1; j++)
+                {
+                    for (int i = 0; i < sumInRow.Length - 1 - j; i++)
+                    {
+                        if (sumInRow[i] > sumInRow[i + 1])
+                        {
+                            int p = sumInRow[i + 1];
+                            sumInRow[i + 1] = sumInRow[i];
+                            sumInRow[i] = p;
+                        }
+                    }
+                }
+
+            Console.WriteLine();
+            Console.Write("Sorted: ");
+            foreach (var item in sumInRow)
+            {
+                Console.Write($"{item} ");
+            }
+            */
+            //POPRAVIT!!!
+            //ЛИСТЫ
+            List<int> list = new List<int> ();
+            list.Add(5);
+            list.Add(323);
+            list.Add(2);
+            list.Add(432);
+            list.Add(342);
+            list.Add(6556);
+            list.Add(222);
+            list.Add(43);
+            /*if (list.Contains(222))
+                Console.WriteLine(list.IndexOf(222));*/
+            foreach (int item in list)
+            {
+                Console.WriteLine(item);
+            }
+            
+           //Console.WriteLine(list[1]);
+            //Console.WriteLine(list.Count);
+            //Console.WriteLine(list.IndexOf(43));
+            //list.Remove(2);
+            
+            /*
+             Задание: в задачке про каталог товаров - создать каталог (наименование и цена за единицу). Должна быть возможность добавления новых товаров.
+            Покупка нескольких товаров и удаление (админ).
+            После сессии админа - войти под админом или клиентом. Если клиент - список товаров обновлен. (ввод товароа хоть
+            фира, хоть строка) (ввод наименовани и количество товаров) 
+            Организовтаь подсчет общей стоимости покупки, проверку на наличие достаточной
+            суммы денег. Если покупка прошла - вывести полный список купленных товаров и их стоимость.
+            Корхина покупок - список
+            Проверка денег - ифы
+            Работа между переключениями админ/клиент - свич.
+            Покупка - может быть 1 товар или несколько.
+             */
+
         }
     }
 }
-//(V)1.Сократить кол-во комбинаций.
-//(V)2.Вывести представление числа N в виде простых множетелей.
-//      input 6 output 2 3
-//      input 30 output 2 3 5
-//      input 16 output 2 2 2 2
-//3.Дана числовая последовательность от 1 до N;
-//      Найти такое число сумма цифр которого будет наибольшей среди всей последовательности;
-//      Вывести само число и его сумму цифр.
-//      input (1 до n) 20 output 19 10
-//      input 44 output 39 12
