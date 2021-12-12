@@ -6,22 +6,34 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter the amount"); //Пожалуйста, введите сумму
-            double money = double.Parse(Console.ReadLine());
-            Console.WriteLine("Please enter the number of months"); //Пожалуйста, введите количество месяцев
-            int months = Convert.ToInt32(Console.ReadLine());
-            if (money>0 && months>0)
+            int summ = int.Parse(Console.ReadLine());
+            int combinations = 0;// 1 < summ < 27
+            int a = 0;
+            int b = a;
+            for (int i = 0; i <= 7; i++)
+               // if (i!=1)
             {
-                double accumulation = money * Math.Pow(1.04, months);
-                Console.WriteLine($"Amount of savings={accumulation}");
-                Console.ReadKey();
-            }
-            else
-            {
-                Console.WriteLine("Incorrect data");
-                Console.ReadKey();
-            }
+                for (int j = 1; j <= 8; j++)
+                    if (j!=a)
+                {
+                        
+                    for (int k = 2; k <= 9; k++)
+                    {
+                        if (i + j + k == summ && i != j && j != k && i != k)
+                        {
+                            Console.WriteLine($"{i}{j}{k}");
+                            combinations++;
+                            a = k;
+                            break;
+                        }
+                    }
 
+                }
+
+            }
+            Console.WriteLine($" count {combinations}");
         }
     }
+
 }
+
