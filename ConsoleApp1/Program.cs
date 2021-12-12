@@ -10,7 +10,7 @@ namespace ConsoleApp1
             int a = int.Parse(Console.ReadLine());
             int b = int.Parse(Console.ReadLine());
             int[,] array = new int[a, b];
-            int summ = 0;
+            int[] summs = new int[array.GetLength(0)];
             Random rnd = new Random();
             //сумма в каждой строке массива
 
@@ -19,16 +19,38 @@ namespace ConsoleApp1
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
                     array[i, j] = rnd.Next(2);
-                    summ += array[i, j];
+                    summs[i] += array[i, j];
                     Console.Write($"{array[i,j]} ");
-                }
-                Console.Write($"   {summ}");
-                summ = 0;
+                }                           
                 Console.WriteLine();
+            }
+            for (int i = 0; i < summs.Length; i++)
+            {
+                Console.WriteLine($"{i+1}. {summs[i]}");
+            }
+
+            
+            for (int j = 0; j < summs.Length - 1; j++)
+            {
+                for (int i = 0; i < summs.Length - 1-j; i++)
+                {
+                    if (summs[i] > summs[i + 1])
+                    {
+                        int buffer = summs[i + 1];
+                        summs[i + 1] = summs[i];
+                        summs[i] = buffer;
+                    }
+                    
+                }
             }
 
 
-
+            Console.WriteLine();
+            Console.WriteLine("sorted summs:");
+            foreach (var item in summs)
+            {
+                Console.Write($"{item} ");
+            }
 
         }
         
