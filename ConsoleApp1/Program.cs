@@ -6,6 +6,68 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //массивы
+            int[] array = new int[10];
+            int max = 10;
+            int min = 100;
+
+            Random random = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(10, 100);
+                if (max <= array[i])
+                    max = array[i];
+                if (min >= array[i])
+                    min = array[i];
+                Console.Write($" {array[i]} ");
+            }
+            //сортировка
+            for(int j = 0; j < array.Length - 1; j++)
+            {
+                for (int i = 0; i < array.Length - 1 - j; i++)
+                {
+                    int buffer;
+                    if (array[i] >= array[i + 1])
+                    {
+                        buffer = array[i + 1];
+                        array[i + 1] = array[i];
+                        array[i] = buffer;
+                    }
+                }
+            }
+            
+            Console.WriteLine();
+
+
+            foreach (int item in array)
+            {
+                Console.Write($" {item} ");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"min = {min}, max = {max}");
+
+            //двумерный массив
+            Console.WriteLine("введите количество столбцов");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("введите количество строк");
+            int b = int.Parse(Console.ReadLine());
+            int[,] array2 = new int[a, b];
+            int summ = 0;
+            for(int i = 0; i < array2.GetLength(1); i++)
+            {
+                for (int j = 0; j < array2.GetLength(0); j++)
+                {
+                    array2[j, i] = random.Next(2);
+                    Console.Write($" {array2[j, i]} ");
+                    summ += array2[j, i];
+                }
+                Console.WriteLine(summ);
+                Console.WriteLine();
+                summ = 0;
+
+            }
+
+            /*
             //Combinations of 3 digits
             Console.WriteLine("Комбинации цифр для кодового замка. 3 цифры:");
             Console.WriteLine("Enter the sum of digits: ");
@@ -95,7 +157,7 @@ namespace ConsoleApp1
             }
             
             Console.WriteLine($"Number {numberResult}  Sum of digits is: {maxSumDigit}");
-
+            */
 
             /*
             //reverse of digit
@@ -129,7 +191,7 @@ namespace ConsoleApp1
                 number = number / 10;
             }
             Console.WriteLine($"Sum of digit is: {sumDigit}");
-
+            
             //степень
             Console.WriteLine("enter a ");
             int a = int.Parse(Console.ReadLine());
