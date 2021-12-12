@@ -53,6 +53,7 @@ namespace ConsoleApp1
             int b = int.Parse(Console.ReadLine());
             int[,] array2 = new int[a, b];
             int summ = 0;
+            int[] sumRow = new int[b];
             for(int i = 0; i < array2.GetLength(1); i++)
             {
                 for (int j = 0; j < array2.GetLength(0); j++)
@@ -61,10 +62,31 @@ namespace ConsoleApp1
                     Console.Write($" {array2[j, i]} ");
                     summ += array2[j, i];
                 }
-                Console.WriteLine(summ);
+                sumRow[i] = summ;
+                Console.WriteLine( $"  сумма строки {summ}");
                 Console.WriteLine();
                 summ = 0;
+            }
 
+            for (int j = 0; j < sumRow.Length - 1; j++)
+            {
+                for (int i = 0; i < sumRow.Length - 1 - j; i++)
+                {
+                    int buffer;
+                    if (sumRow[i] >= sumRow[i + 1])
+                    {
+                        buffer = sumRow[i + 1];
+                        sumRow[i + 1] = sumRow[i];
+                        sumRow[i] = buffer;
+                    }
+                }
+            }
+
+            Console.WriteLine();
+
+            foreach (int item in sumRow)
+            {
+                Console.Write($" {item} ");
             }
 
             /*
