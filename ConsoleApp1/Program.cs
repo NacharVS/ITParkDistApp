@@ -521,37 +521,38 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }*/
             //Найти сумму строки и отсортировать суммы
-            /*int a = int.Parse(Console.ReadLine());
+            /*
+            int a = int.Parse(Console.ReadLine());
             int b = int.Parse(Console.ReadLine());
             int[,] array = new int[a, b];
             Random rnd = new Random();
             int[] sumInRow = new int[array.GetLength(0)];
-            int sum = 0;
             for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во строк.
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    array[i, j] = rnd.Next(0, 10);
+                    array[i, j] = rnd.Next(2);
                     sumInRow[i] += array[i, j];
                     Console.Write($"{array[i, j]} ");
-                    
                 }
-               Console.WriteLine();
+                Console.WriteLine();
             }
-            
-                for (int j = 0; j < sumInRow.Length - 1; j++)
+            for (int i = 0; i < sumInRow.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {sumInRow[i]}");
+            }
+            for (int j = 0; j < sumInRow.Length - 1; j++)
+            {
+                for (int i = 0; i < sumInRow.Length - 1 - j; i++)
                 {
-                    for (int i = 0; i < sumInRow.Length - 1 - j; i++)
+                    if (sumInRow[i] > sumInRow[i + 1])
                     {
-                        if (sumInRow[i] > sumInRow[i + 1])
-                        {
-                            int p = sumInRow[i + 1];
-                            sumInRow[i + 1] = sumInRow[i];
-                            sumInRow[i] = p;
-                        }
+                        int p = sumInRow[i + 1];
+                        sumInRow[i + 1] = sumInRow[i];
+                        sumInRow[i] = p;
                     }
                 }
-
+            }
             Console.WriteLine();
             Console.Write("Sorted: ");
             foreach (var item in sumInRow)
@@ -559,7 +560,6 @@ namespace ConsoleApp1
                 Console.Write($"{item} ");
             }
             */
-            //POPRAVIT!!!
             //ЛИСТЫ
             List<int> list = new List<int> ();
             list.Add(5);
@@ -570,20 +570,18 @@ namespace ConsoleApp1
             list.Add(6556);
             list.Add(222);
             list.Add(43);
-            /*if (list.Contains(222))
-                Console.WriteLine(list.IndexOf(222));*/
-            foreach (int item in list)
-            {
-                Console.WriteLine(item);
-            }
-            
-           //Console.WriteLine(list[1]);
-            //Console.WriteLine(list.Count);
-            //Console.WriteLine(list.IndexOf(43));
-            //list.Remove(2);
-            
+            if (list.Contains(222))
+                Console.WriteLine(list.IndexOf(222));
+             foreach (int item in list)
+             {
+                 Console.WriteLine(item);
+             }
+            Console.WriteLine(list[1]);
+            Console.WriteLine(list.Count);
+            Console.WriteLine(list.IndexOf(43));
+            list.Remove(2);
             /*
-             Задание: в задачке про каталог товаров - создать каталог (наименование и цена за единицу). Должна быть возможность добавления новых товаров.
+            Задание: в задачке про каталог товаров - создать каталог (наименование и цена за единицу). Должна быть возможность добавления новых товаров.
             Покупка нескольких товаров и удаление (админ).
             После сессии админа - войти под админом или клиентом. Если клиент - список товаров обновлен. (ввод товароа хоть
             фира, хоть строка) (ввод наименовани и количество товаров) 
@@ -593,8 +591,7 @@ namespace ConsoleApp1
             Проверка денег - ифы
             Работа между переключениями админ/клиент - свич.
             Покупка - может быть 1 товар или несколько.
-             */
-
+            */
         }
     }
 }
