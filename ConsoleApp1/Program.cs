@@ -7,29 +7,33 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             int number = int.Parse(Console.ReadLine());
-          while (number > 1 && number%2==0)
+            int max = 0;
+            int MaxSumm = 0;
+
+            for (int i = 1; i <= number; i++)
             {
-                Console.WriteLine(2);
-                number= number/2;
-            }
-            
-                int i = 3;
-                while (number>1)
-            {
-                while (number%i==0)
+                int a = i;
+                int summ = 0;
+
+                while (a > 0)
                 {
-                    Console.WriteLine(i);
-                    number= number/i;
+                    summ += a % 10;
+                    a = a / 10;
                 }
-                i = i + 2;
+
+                if (MaxSumm < summ)
+                {
+                    MaxSumm = summ;
+                    max = i;
+                }
             }
-            
+            Console.WriteLine($"number={max}  summ MAX={MaxSumm}");
         }
 
-            
-        
+
+
     }
 
 
 }
-   
+
