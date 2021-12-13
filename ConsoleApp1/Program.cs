@@ -8,7 +8,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             //    Задача №1
-
+            Console.WriteLine("Введите число");
             int sum = int.Parse(Console.ReadLine());
             int combin = 0;
             for (int i = 0; i <= 9; i++)
