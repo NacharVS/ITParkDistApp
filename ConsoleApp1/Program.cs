@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace ConsoleApp1
@@ -7,50 +8,29 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int[,] array = new int[a, b];
-            int[] summs = new int[array.GetLength(0)];
-            Random rnd = new Random();
-            //сумма в каждой строке массива
-
-            for (int i = 0; i < array.GetLength(0); i++)
+            List<int> list = new List<int>();
+            list.Add(5);
+            list.Add(323);
+            list.Add(2); 
+            list.Add(432);
+            list.Add(342); 
+            list.Add(6556);
+            list.Add(222);
+            list.Add(43);
+            if(list.Contains(222))
+                Console.WriteLine(list.IndexOf(222));
+            else
             {
-                for (int j = 0; j < array.GetLength(1); j++)
-                {
-                    array[i, j] = rnd.Next(2);
-                    summs[i] += array[i, j];
-                    Console.Write($"{array[i,j]} ");
-                }                           
-                Console.WriteLine();
-            }
-            for (int i = 0; i < summs.Length; i++)
-            {
-                Console.WriteLine($"{i+1}. {summs[i]}");
+                Console.WriteLine("not found");
             }
 
-            
-            for (int j = 0; j < summs.Length - 1; j++)
-            {
-                for (int i = 0; i < summs.Length - 1-j; i++)
-                {
-                    if (summs[i] > summs[i + 1])
-                    {
-                        int buffer = summs[i + 1];
-                        summs[i + 1] = summs[i];
-                        summs[i] = buffer;
-                    }
-                    
-                }
-            }
+            Console.WriteLine("updated");
 
-
-            Console.WriteLine();
-            Console.WriteLine("sorted summs:");
-            foreach (var item in summs)
-            {
-                Console.Write($"{item} ");
-            }
+            // Создать каталог товаров(Наименование и цена за единицу). 
+            // Должна быть возможность добавления новых товаров. (admin) и удаление. 
+            // Покупка нескольких товаров(ввод наименования и количества товара). Организовать подсчет общей стоимости 
+            //покупки, проверку на наличие необходимых финансов. Если покупка прошла, то вывести полный список купленных товаров и их стоимость.
+           
 
         }
         
