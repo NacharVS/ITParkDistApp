@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp1
 {
@@ -6,17 +6,12 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int c = int.Parse(Console.ReadLine());
-            if (a > b && a > c)
-                Console.WriteLine("Number Max = " + a);
-            else if (b > c)
-                Console.WriteLine("Number Max = " + b);
-            else
-                Console.WriteLine("Number Max = " + c);
+           int number = int.Parse(Console.ReadLine());
+            int ed = number % 10;
+            int des = number / 10 % 10;
+            int hun = number / 100;
 
-            Console.ReadLine();
+            Console.WriteLine(ed + des + hun);
 
 
 
