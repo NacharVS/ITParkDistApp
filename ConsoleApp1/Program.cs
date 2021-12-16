@@ -30,10 +30,9 @@ namespace ConsoleApp1
             }
         }
 
-        static void ArrayGeneration2()
+        static void ArrayGeneration2(int[,] mass)
         {
             Random rnd = new Random();
-            int[,] mass = new int[10,10];
             for (int i = 0; i < mass.GetLength(0); i++)
             {
                 for (int j = 0; j < mass.GetLength(1); j++)
@@ -49,14 +48,29 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            int[] mass = new int[10];
-            ArrayGeneration(mass);
-            int index = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-            Console.WriteLine($"element {index} {mass[index-1]}");
+            int[,] mass = new int[10, 7];
+            ArrayGeneration2(mass);
+ 
         
-           
+           // 4 6 8 9 2          
+           // 2 1 5 7 3
+
+            // 1 1 2 
+            // 7 8 9
+            // 3 1 2
+            // 1 1 1
+            // 6 5 8
           
+            // 5 7 10
+            // 9 9 14
+
+
+            // 5 7 10 9 2
+            // 9 9 14 7 3
+            // 3 1 2 0 0
+            // 1 1 1 0 0
+            // 6 5 8 0 0 
+
         }
         
 
