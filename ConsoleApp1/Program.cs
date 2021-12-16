@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Threading;
 
 namespace ConsoleApp1
 {
@@ -7,60 +8,46 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //    Задача №1
-            Console.WriteLine("Введите число");
-            int sum = int.Parse(Console.ReadLine());
-            int combin = 0;
-            for (int i = 0; i < 9; i++)
-            {
-                for (int k = 0; k < 9; k++)
-                {
-                    for (int l = 0; l < 9; l++)
-                    {
-                        if (i + k + l == sum && i != k && k != l && i != l && i<k && k<l &&i<l)
-                        {
-                            Console.WriteLine($"{i}{k}{l}");
-                            combin++;
-                        }
-                    }
-                }
-            }
-            Console.WriteLine("Комбинаций=" + combin);
+            //Задача № 1
 
-            //---------------------------------------------------------------------------------------
-            //Задача № 3
+            //List<string> products = new List<string>() { "Сахар", "Мандарины" };
+            //List<double> prices = new List<double>() { 50, 50 };
+            //Console.WriteLine("Client/Admin");
 
-            //int n = int.Parse(Console.ReadLine());
-            //int max = 0;
-            //int maxsum = 0;
-            //for (int i = 1; i <=n; i++)
+            //string s = Console.ReadLine();
+
+            //if (s == "c")
             //{
-            //    int a = i;
-            //    int sum = 0;
-            //    while (a>0)
+            //    Console.WriteLine("Введите сумму");
+            //    double money = 2000;
+            //    while (true)
             //    {
-            //        sum += a % 10;
+            //        Console.WriteLine("our list");
+            //        for (int i = 0; i < products.Count; i++)
+            //        {
+            //            Console.WriteLine($"{i + 1}.{products[i]}{prices[i]}");
+            //        }
+            //        Console.WriteLine("Make Ur choice(1,2,3...):");
+            //        string clientsChoice = Console.ReadLine();
 
-            //        a = a / 10;
-            //    }
-            //    if (maxsum < sum)
-            //    {
-            //        maxsum = sum;
-            //        max = i;
+
+            //        Console.WriteLine("something else?(Y/N)");
+            //        clientsChoice = Console.ReadLine();
+            //        if (clientsChoice == "N")
+            //        {
+            //            break;
+            //        }
             //    }
             //}
 
-            //Console.WriteLine($"Число{max}сумма {maxsum}");
+            
 
-            //-------------------------------------------------------------------------------------------------
 
-            //Задача №2
-
+            
 
 
 
-
-
+            
         }
 
 
