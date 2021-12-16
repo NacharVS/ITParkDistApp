@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
@@ -7,258 +8,200 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            ////////////////
-            ////Задача 1////
-            ////////////////
+            List<string[]> List = new List<string[]>();
 
-            //Вводим сумму
-            Console.WriteLine("enter the sum of combinations");
-            int summ = Convert.ToInt32(Console.ReadLine());
-            int count = 0;// 1 < summ < 27
+            string[] arr = new string[2];
 
-            //Создаем переменные под оригинальные не повторяющиеся значения (их максимум может быть 10)
-            int combinations1 = 0;
-            int combinations2 = 0;
-            int combinations3 = 0;
-            int combinations4 = 0;
-            int combinations5 = 0;
-            int combinations6 = 0;
-            int combinations7 = 0;
-            int combinations8 = 0;
-            int combinations9 = 0;
-            int combinations10 = 0;
+            List.Add(new string[2] { "Молоко", "60" });
+            List.Add(new string[2] { "Масло", "100" });
+            List.Add(new string[2] { "Хлеб", "40" });
+            List.Add(new string[2] { "Шоколад", "110" });
+            List.Add(new string[2] { "Яйца", "80" });
 
-            //Перебор всех возможных комбинаций
-            for (int i = 0; i <= 9; i++)
+            while (true)
             {
-                for (int j = 0; j <= 9; j++)
+                Console.WriteLine(" ");
+                Console.WriteLine("Введите под каким пользователем вы хотите войти в программу");
+                Console.WriteLine("(1) Администратор; (2) Покупатель");
+                int command = int.Parse(Console.ReadLine());
+                string prise;
+                bool isContinueAdmin = true;
+                bool isContinueClient = true;
+
+                switch (command)
                 {
-                    for (int k = 0; k <= 9; k++)
-                    {
-
-                        if (i + j + k == summ && i != j && j != k && i != k &&
-                        combinations1 != (i * 100 + j * 10 + k) && combinations1 != (i * 100 + k * 10 + j) && combinations1 != (j * 100 + i * 10 + k) && combinations1 != (j * 100 + k * 10 + i) && combinations1 != (k * 100 + i * 10 + j) && combinations1 != (k * 100 + j * 10 + i) &&
-                        combinations2 != (i * 100 + j * 10 + k) && combinations2 != (i * 100 + k * 10 + j) && combinations2 != (j * 100 + i * 10 + k) && combinations2 != (j * 100 + k * 10 + i) && combinations2 != (k * 100 + i * 10 + j) && combinations2 != (k * 100 + j * 10 + i) &&
-                        combinations3 != (i * 100 + j * 10 + k) && combinations3 != (i * 100 + k * 10 + j) && combinations3 != (j * 100 + i * 10 + k) && combinations3 != (j * 100 + k * 10 + i) && combinations3 != (k * 100 + i * 10 + j) && combinations3 != (k * 100 + j * 10 + i) &&
-                        combinations4 != (i * 100 + j * 10 + k) && combinations4 != (i * 100 + k * 10 + j) && combinations4 != (j * 100 + i * 10 + k) && combinations4 != (j * 100 + k * 10 + i) && combinations4 != (k * 100 + i * 10 + j) && combinations4 != (k * 100 + j * 10 + i) &&
-                        combinations5 != (i * 100 + j * 10 + k) && combinations5 != (i * 100 + k * 10 + j) && combinations5 != (j * 100 + i * 10 + k) && combinations5 != (j * 100 + k * 10 + i) && combinations5 != (k * 100 + i * 10 + j) && combinations5 != (k * 100 + j * 10 + i) &&
-                        combinations6 != (i * 100 + j * 10 + k) && combinations6 != (i * 100 + k * 10 + j) && combinations6 != (j * 100 + i * 10 + k) && combinations6 != (j * 100 + k * 10 + i) && combinations6 != (k * 100 + i * 10 + j) && combinations6 != (k * 100 + j * 10 + i) &&
-                        combinations7 != (i * 100 + j * 10 + k) && combinations7 != (i * 100 + k * 10 + j) && combinations7 != (j * 100 + i * 10 + k) && combinations7 != (j * 100 + k * 10 + i) && combinations7 != (k * 100 + i * 10 + j) && combinations7 != (k * 100 + j * 10 + i) &&
-                        combinations8 != (i * 100 + j * 10 + k) && combinations8 != (i * 100 + k * 10 + j) && combinations8 != (j * 100 + i * 10 + k) && combinations8 != (j * 100 + k * 10 + i) && combinations8 != (k * 100 + i * 10 + j) && combinations8 != (k * 100 + j * 10 + i) &&
-                        combinations9 != (i * 100 + j * 10 + k) && combinations9 != (i * 100 + k * 10 + j) && combinations9 != (j * 100 + i * 10 + k) && combinations9 != (j * 100 + k * 10 + i) && combinations9 != (k * 100 + i * 10 + j) && combinations9 != (k * 100 + j * 10 + i) &&
-                        combinations10 != (i * 100 + j * 10 + k) && combinations10 != (i * 100 + k * 10 + j) && combinations10 != (j * 100 + i * 10 + k) && combinations10 != (j * 100 + k * 10 + i) && combinations10 != (k * 100 + i * 10 + j) && combinations10 != (k * 100 + j * 10 + i))
+                    case 1:
                         {
-                            count++;
-
-                            //Переводим комбинацию чисел i, j, k в трехзначное число
-                            switch (count)
+                            while (isContinueAdmin)
                             {
-                                case 1:
-                                    combinations1 = i * 100 + j * 10 + k;
-                                    break;
-                                case 2:
-                                    combinations2 = i * 100 + j * 10 + k;
-                                    break;
-                                case 3:
-                                    combinations3 = i * 100 + j * 10 + k;
-                                    break;
-                                case 4:
-                                    combinations4 = i * 100 + j * 10 + k;
-                                    break;
-                                case 5:
-                                    combinations5 = i * 100 + j * 10 + k;
-                                    break;
-                                case 6:
-                                    combinations6 = i * 100 + j * 10 + k;
-                                    break;
-                                case 7:
-                                    combinations7 = i * 100 + j * 10 + k;
-                                    break;
-                                case 8:
-                                    combinations8 = i * 100 + j * 10 + k;
-                                    break;
-                                case 9:
-                                    combinations9 = i * 100 + j * 10 + k;
-                                    break;
-                                case 10:
-                                    combinations10 = i * 100 + j * 10 + k;
-                                    break;
+                                string product;
+
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Введите команду:");
+                                Console.WriteLine("(1) Добавить товар (2) Удалить товар");
+                                command = int.Parse(Console.ReadLine());
+                                if (command == 1)
+                                {
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine("Актуальный перечень товаров: ");
+                                    foreach (var item in List)
+                                    {
+                                        Console.WriteLine("товар - " + item[0] + " " + "цена - " + item[1]);
+                                    }
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine("Введите наменование для добавления товара: ");
+                                    product = Console.ReadLine();
+                                    Console.WriteLine("Введите цену товара: ");
+                                    prise = Console.ReadLine();
+                                    List.Add(new string[2] { product, prise });
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine($"Товар {product} успешно добавлен");
+                                    Console.WriteLine(" ");
+                                    foreach (var item in List)
+                                    {
+                                        Console.WriteLine("товар - " + item[0] + " " + "цена - " + item[1]);
+                                    }
+                                }
+                                else if (command == 2)
+                                {
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine("Актуальный перечень товаров: ");
+                                    foreach (var item in List)
+                                    {
+                                        Console.WriteLine("товар - " + item[0] + " " + "цена - " + item[1]);
+                                    }
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine("Введите наменование товара для удаления: ");
+                                    product = Console.ReadLine();
+
+                                    //Поиск продукта и его удаление
+                                    foreach (var item in List)
+                                    {
+                                        if (product == item[0])
+                                        {
+                                            List.Remove(item);
+                                            break;
+                                        }
+                                    }
+
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine($"Товар {product} успешно удален");
+                                }
+                                else
+                                {
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine("Неправильный ввод");
+                                }
+
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Продолжить как администратор: (1) - да  (2) - нет");
+                                command = int.Parse(Console.ReadLine());
+
+                                if (command == 1)
+                                {
+                                    isContinueAdmin = true;
+                                }
+                                else if (command == 2)
+                                {
+                                    isContinueAdmin = false;
+                                }
+                                else
+                                {
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine("Неправильный ввод");
+                                }
+
                             }
-                            Console.WriteLine($"{i}{j}{k}");
                         }
-                    }
+                        break;
+
+
+                    case 2:
+                        {
+                            string product;
+
+                            while (isContinueClient)
+                            {
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Внесите денежную сумму:");
+
+                                int my_money = int.Parse(Console.ReadLine());
+
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Выберете продукт из списка (написать наименование продукта): ");
+
+                                foreach (var item in List)
+                                {
+                                    Console.WriteLine("товар - " + item[0] + " " + "цена - " + item[1]);
+                                }
+
+                                Console.WriteLine(" ");
+                                product = Console.ReadLine();
+
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Введите количество");
+
+                                //Ввод количества товара
+                                Console.WriteLine(" ");
+                                int amount = int.Parse(Console.ReadLine());
+                                int priseInt = 0;
+
+                                //Поиск продукта и вычисление его цены
+                                foreach (var item in List)
+                                {
+                                    if (product == item[0])
+                                    {
+                                        priseInt = int.Parse(item[1]);
+                                        break;
+                                    }
+                                }
+
+                                int sum = priseInt * amount; //Сумма покупки
+                                int odd_money = 0; //Сдача
+
+                                if (my_money >= sum)
+                                {
+                                    odd_money = my_money - sum;
+                                    Console.WriteLine($"Вы купили товар - {product} в количестве - {amount} шт., сумма покупки составила - {sum}, ваша сдача - {odd_money}");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Недостаточно средств");
+
+                                }
+
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Продолжить покупки: (1) - да  (2) - нет");
+                                command = int.Parse(Console.ReadLine());
+
+                                if (command == 1)
+                                {
+                                    isContinueClient = true;
+                                }
+                                else if (command == 2)
+                                {
+                                    isContinueClient = false;
+                                }
+                                else
+                                {
+                                    Console.WriteLine(" ");
+                                    Console.WriteLine("Неправильный ввод");
+                                }
+                            }
+
+
+
+                        }
+                        break;
+
+
+                    default:
+                        Console.WriteLine("Неправильный ввод");
+                        break;
                 }
+
+
             }
-            Console.WriteLine($" count {count}");
-
-            ////////////////
-            ////Задача 2////
-            ////////////////
-
-            //Console.WriteLine("enter number");
-            //int number = Convert.ToInt32(Console.ReadLine());
-            //int multiplier = 2;
-
-            //// Целая часть от деления
-            //int WholePart = number;
-
-
-            //while (multiplier != 0)
-            //{
-            //    //Остаток от деления
-            //    int remainderOfTheDivision = 0;
-
-            //    remainderOfTheDivision = WholePart % 2;                           
-            //    if (remainderOfTheDivision == 0)
-            //    {
-            //        WholePart = WholePart / 2;
-            //        multiplier = 2;
-            //    }
-            //    else
-            //        multiplier = 0;
-
-            //    if (multiplier == 0)
-            //    {
-            //        remainderOfTheDivision = WholePart % 3;
-            //        if (remainderOfTheDivision == 0)
-            //        {
-            //            WholePart = WholePart / 3;
-            //            multiplier = 3;
-            //        }
-            //        else
-            //            multiplier = 0;
-            //    }
-
-            //    if (multiplier == 0)
-            //    {
-            //        remainderOfTheDivision = WholePart % 5;
-            //        if (remainderOfTheDivision == 0)
-            //        {
-            //            WholePart = WholePart / 5;
-            //            multiplier = 5;
-            //        }
-            //        else
-            //            multiplier = 0;
-            //    }
-
-            //    if (multiplier == 0)
-            //    {
-            //        remainderOfTheDivision = WholePart % 7;
-            //        if (remainderOfTheDivision == 0)
-            //        {
-            //            WholePart = WholePart / 7;
-            //            multiplier = 7;
-            //        }
-            //        else
-            //            multiplier = 0;
-            //    }
-
-            //    if (multiplier == 0)
-            //        Console.WriteLine($" multiplier - {WholePart}");
-            //    else
-            //        Console.WriteLine($" multiplier - {multiplier}");
-
-            //    if (WholePart == 1)
-            //        multiplier = 0;
-
-
-            //}         
-
-            ////////////////
-            ////Задача 3////
-            ////////////////
-
-            ////вводим число
-            //Console.WriteLine("enter sequence limit (max 10000)");
-            //int number = Convert.ToInt32(Console.ReadLine());
-            //int value = 0;
-            //int max = 1;
-            //int sum = 0;
-            //int needNumber = 0;
-
-            //for (int i = 1; i <= number; i++)
-            //{
-            //    int number1 = 0;
-            //    int number2 = 0;
-            //    int number3 = 0;
-            //    int number4 = 0;
-            //    int number5 = 0;
-
-
-            //    if (i < 10000)
-            //    {
-            //        if (i < 1000)
-            //        {
-            //            if (i < 100)
-            //            {
-            //                if (i < 10)
-            //                {
-            //                    value = 1;
-            //                }
-            //                else
-            //                    value = 2;
-            //            }
-            //            else
-            //                value = 3;
-
-            //        }
-            //        else
-            //            value = 4;
-            //    }
-            //    else
-            //        value = 5;
-
-
-            //    switch (value)
-            //    {
-            //        case 1:
-
-            //            number1 = i;
-            //            sum = number1;
-            //            break;
-
-            //        case 2:
-            //            number1 = i / 10;
-            //            number2 = i % 10;
-            //            sum = number1 + number2;
-            //            break;
-
-            //        case 3:
-            //            number1 = i / 100;
-            //            number2 = (i % 100) / 10;
-            //            number3 = (i % 100) % 10;
-            //            sum = number1 + number2 + number3;
-            //            break;
-
-            //        case 4:
-            //            number1 = i / 1000;
-            //            number2 = i % 1000 / 100;
-            //            number3 = i % 1000 % 100 / 10;
-            //            number4 = i % 1000 % 100 % 10;
-            //            sum = number1 + number2 + number3 + number4;
-
-            //            break;
-
-            //        case 5:
-            //            number1 = i / 10000;
-            //            number2 = i % 10000 / 1000;
-            //            number3 = i % 10000 % 1000 / 100;
-            //            number4 = i % 10000 % 1000 % 100 / 10;
-            //            number5 = i % 10000 % 1000 % 100 % 10;
-            //            sum = number1 + number2 + number3 + number4 + number5;
-            //            break;
-            //    }
-
-            //    if (sum > max)
-            //    {
-            //        max = sum;
-            //        needNumber = i;
-            //    }
-
-            //}
-
-            //Console.WriteLine($"Need number ---- {needNumber}");
-            //Console.WriteLine($"Sum ---- {max}");         
         }
     }
 }
