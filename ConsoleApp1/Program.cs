@@ -6,72 +6,59 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Summ(ref int a, int b)
         {
-            List<string> products = new List<string>() { "Bread", "Milk" };
-            List<double> prices = new List<double>() { 50, 50 };
+            a = a + b;
+            Console.WriteLine(a);
+        }
 
-            List<double> cart = new List<double>() { 50, 50 };
-            Console.WriteLine("Client/Admin");
-            string s = Console.ReadLine();
-            if (s == "c")
-            {
-                Console.WriteLine("Enter urmoney");
-                double money = 2000;
-                while (true)
-                {
-                    Console.WriteLine("Our list:");
-                    for (int i = 0; i < products.Count; i++)
-                    {
-                        Console.WriteLine($"{i + 1}. {products[i]} {prices[i]}");
-                    }
-                    Console.Write("make Ur choice(1, 2, 3...):");
-                    string clientsChoice = Console.ReadLine();
-                    switch (clientsChoice)
-                    {
-                        case "1":
-                            {
-                                Console.Write("Enter count of Bread:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[0] * countOfProduct);
-                            }
-                            break;
-                    }
-                    Console.WriteLine("something else?(Y/N)");
-                    clientsChoice = Console.ReadLine();
-                    if (clientsChoice== "N")
-                    {
-                        break;
-                    }
-                }
-                double summ = 0;
-                for (int i = 0; i < cart.Count; i++)
-                {
-                    summ += cart[i];
-                }
-                Console.WriteLine(summ);
-
-            }
-            else
-            {
-                Console.WriteLine("admin");
-            }
-
-
-            //Console.WriteLine("Our list:");
-            //for (int i = 0; i < products.Count; i++)
-            //{
-            //    Console.WriteLine($"{i+1}. {products[i]} {prices[i]}");
-            //}
-            //double money = 2000;
-
-
-
-
-
-
+        static int Summ1( int a, int b)
+        {
+            return a + b;
 
         }
+
+        static void ArrayGeneration(int[] array)
+        {
+            Random rnd = new Random();   
+            
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(100);
+
+                Console.Write(array[i] + " ");
+            }
+        }
+
+        static void ArrayGeneration2()
+        {
+            Random rnd = new Random();
+            int[,] mass = new int[10,10];
+            for (int i = 0; i < mass.GetLength(0); i++)
+            {
+                for (int j = 0; j < mass.GetLength(1); j++)
+                {
+
+                    mass[i, j] = rnd.Next(100);
+
+                    Console.Write(mass[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            int[] mass = new int[10];
+            ArrayGeneration(mass);
+            int index = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            Console.WriteLine($"element {index} {mass[index-1]}");
+        
+           
+          
+        }
+        
 
     }
 }
