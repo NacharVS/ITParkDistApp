@@ -11,13 +11,13 @@ namespace ConsoleApp1
             Console.WriteLine("Введите число");
             int sum = int.Parse(Console.ReadLine());
             int combin = 0;
-            for (int i = 0; i <= 9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                for (int k = 0; k <= 9; k++)
+                for (int k = 0; k < 9; k++)
                 {
-                    for (int l = 0; l <= 9; l++)
+                    for (int l = 0; l < 9; l++)
                     {
-                        if (i + k + l == sum && i != k && k != l && i != l)
+                        if (i + k + l == sum && i != k && k != l && i != l && i<k && k<l &&i<l)
                         {
                             Console.WriteLine($"{i}{k}{l}");
                             combin++;
