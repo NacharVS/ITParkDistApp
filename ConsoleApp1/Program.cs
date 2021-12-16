@@ -6,22 +6,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите сумму вклада:");
-            double sum = double.Parse(Console.ReadLine());
-            if (sum < 0)
-                Console.WriteLine("Неправильный ввод");
-            else
-                Console.WriteLine("Введите количеситво месяцев:");
-                int months = int.Parse(Console.ReadLine());
-            if (months < 0)
-                Console.WriteLine("Неправильный ввод");
-            else
-            {
-                double profit = ((sum / 100) * 4) * months;
-                double money = (sum * (Math.Pow(1.04, months)));
-                Console.WriteLine(money);
+            int n = int.Parse(Console.ReadLine());
+            int max = 0;
+            int maxsumm = 0;
+            for (int i = 1; i <= n; i++)
+            { 
+                int a = i;
+                int summ = 0;
+                while (a > 0)
+                {
+                    summ += a % 10;
+                    a = a / 10;
+                }
+                if (maxsumm < summ)
+                {
+                    maxsumm = summ;
+                    max = i;
+                }
             }
-
+            Console.WriteLine($"Число {max} Сумма цифр {maxsumm}");
 
 
 
@@ -30,3 +33,4 @@ namespace ConsoleApp1
         }
     }
 }
+
