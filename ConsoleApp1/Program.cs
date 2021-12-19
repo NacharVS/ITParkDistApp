@@ -44,89 +44,7 @@ namespace ConsoleApp1
             Console.WriteLine($"concat string {a + b}");
         }
 
-        static void ArrayGeneration(int[] array)
-        {
-            Random rnd = new Random();
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(0, 2);
-
-                Console.Write(array[i] + " ");
-            }
-        }
-
-        static void ArrayGeneration(int[,] mass)
-        {
-            Random rnd = new Random();
-            for (int i = 0; i < mass.GetLength(0); i++)
-            {
-                for (int j = 0; j < mass.GetLength(1); j++)
-                {
-
-                    mass[i, j] = rnd.Next(0, 2);
-
-                    Console.Write(mass[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
-
-        static void ArrayGeneration(int[] array, int n)
-        {
-            Random rnd = new Random();
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(n);
-
-                Console.Write(array[i] + " ");
-            }
-        }
-
-        static void ArrayGeneration(int[,] mass, int n)
-        {
-            Random rnd = new Random();
-            for (int i = 0; i < mass.GetLength(0); i++)
-            {
-                for (int j = 0; j < mass.GetLength(1); j++)
-                {
-
-                    mass[i, j] = rnd.Next(n);
-
-                    Console.Write(mass[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
-
-        static void ArrayGeneration(int[] array, int n, int m)
-        {
-            Random rnd = new Random();
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(n, m);
-
-                Console.Write(array[i] + " ");
-            }
-        }
-
-        static void ArrayGeneration(int[,] mass, int n, int m)
-        {
-            Random rnd = new Random();
-            for (int i = 0; i < mass.GetLength(0); i++)
-            {
-                for (int j = 0; j < mass.GetLength(1); j++)
-                {
-
-                    mass[i, j] = rnd.Next(n, m);
-
-                    Console.Write(mass[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
+        
 
         static void ArraySorting(int[] array)
         {
@@ -184,7 +102,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             int[] array = new int[10];
-            ArrayGeneration(array, 100);
+            ArrayGenerations.ArrayGeneration(array, 100);
             ArraySorting(array);
             ArraySorting(array, true);
             ArraySorting(array, false);
