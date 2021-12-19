@@ -6,16 +6,42 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Summ(ref int a, int b)
+        static void Summ(params int[] numbers)
         {
-            a = a + b;
-            Console.WriteLine(a);
+            int summ = 0;
+            foreach (var item in numbers)
+            {
+                summ += item;
+            }
+            Console.WriteLine(summ);
         }
-
-        static int Summ1( int a, int b)
+        static void Multiplicationtable()
         {
-            return a + b;
-
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                {
+                    Console.WriteLine($"{i} * {j} = {i*j}");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void Summ(int a, int b)
+        {
+            Console.WriteLine($"summ int {a + b}");
+        }
+        
+        static void Summ(double a, double b)
+        {
+            Console.WriteLine($"summ double {a + b}");
+        }
+        static void Summ(long a, long b)
+        {
+            Console.WriteLine($"summ long {a + b}");
+        }
+        static void Summ(string a, string b)
+        {
+            Console.WriteLine($"concat string {a + b}");
         }
 
         static void ArrayGeneration(int[] array)
@@ -30,7 +56,7 @@ namespace ConsoleApp1
             }
         }
 
-        static void ArrayGeneration2(int[,] mass)
+        static void ArrayGeneration(int[,] mass)
         {
             Random rnd = new Random();
             for (int i = 0; i < mass.GetLength(0); i++)
@@ -48,19 +74,17 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            int[,] mass = new int[10, 7];
-            ArrayGeneration2(mass);
- 
-        
-           // 4 6 8 9 2          
-           // 2 1 5 7 3
+            int[,] array = new int[10,5];
+            ArrayGeneration(array);
+            // 4 6 8 9 2          
+            // 2 1 5 7 3
 
             // 1 1 2 
             // 7 8 9
             // 3 1 2
             // 1 1 1
             // 6 5 8
-          
+
             // 5 7 10
             // 9 9 14
 
