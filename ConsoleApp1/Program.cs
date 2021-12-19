@@ -6,29 +6,29 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            int max = 0;
-            int maxsumm = 0;
-            for (int i = 1; i <= n; i++)
-            { 
-                int a = i;
-                int summ = 0;
-                while (a > 0)
+            int summ = int.Parse(Console.ReadLine());
+            int combinations = 0;
+            if (summ >= 3 & summ <= 24)
+                for (int i = 0; i <= 9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
                 {
-                    summ += a % 10;
-                    a = a / 10;
-                }
-                if (maxsumm < summ)
-                {
-                    maxsumm = summ;
-                    max = i;
+                    for (int k = 0; k <= 9; k++)
+                    {
+                        if (i + j + k == summ && i != j && j != k && i != k && i < k && k < j && i < j)
+                        {
+                            Console.WriteLine($"{i}{j}{k}");
+                            combinations++;
+                        }
+                    }
                 }
             }
-            Console.WriteLine($"Число {max} Сумма цифр {maxsumm}");
+            Console.WriteLine($" Количество комбинации:  {combinations}");
 
 
 
 
+             
 
         }
     }
