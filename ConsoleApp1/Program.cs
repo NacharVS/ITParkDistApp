@@ -919,8 +919,103 @@ namespace ConsoleApp1
             // 6 5 8 0 0
             //6 лекция. Sorting
             int[] array = new int[10];
-            ArrayGeneration(array/*, -100, 100*/);
-            ArraySorting(array);
+            int[,] array1 = new int[10, 5];
+            ArrayGeneration(array1, 20);
+            Console.WriteLine();
+            ArrayGeneration(array, -100, 100);
+        }
+        static void Summ(params int[] numbers)
+        {
+            int summ = 0;
+            foreach (var item in numbers)
+            {
+                summ += item;
+            }
+            Console.WriteLine(summ);
+        }
+        static void Multiplicationtable()
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                {
+                    Console.WriteLine($"{i} * {j} = {i * j}");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void Summ(int a, int b)
+        {
+            Console.WriteLine($"summ int {a + b}");
+        }
+
+        static void Summ(double a, double b)
+        {
+            Console.WriteLine($"summ double {a + b}");
+        }
+        static void Summ(long a, long b)
+        {
+            Console.WriteLine($"summ long {a + b}");
+        }
+        static void Summ(string a, string b)
+        {
+            Console.WriteLine($"concat string {a + b}");
+        }
+
+        static void ArrayGeneration(int[] array)
+        {
+            Random rnd = new Random();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(2);
+
+                Console.Write(array[i] + " ");
+            }
+        }
+
+        static void ArrayGeneration(int[] array, int minValue, int maxValue)
+        {
+            Random rnd = new Random();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(minValue, maxValue);
+
+                Console.Write(array[i] + " ");
+            }
+        }
+
+        static void ArrayGeneration(int[,] mass)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < mass.GetLength(0); i++)
+            {
+                for (int j = 0; j < mass.GetLength(1); j++)
+                {
+
+                    mass[i, j] = rnd.Next(2);
+
+                    Console.Write(mass[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void ArrayGeneration(int[,] mass, int maxValue)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < mass.GetLength(0); i++)
+            {
+                for (int j = 0; j < mass.GetLength(1); j++)
+                {
+
+                    mass[i, j] = rnd.Next(maxValue);
+
+                    Console.Write(mass[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
         }
         static void ArraySorting(int[] array)
         {
@@ -957,7 +1052,7 @@ namespace ConsoleApp1
             }
 
         }
-        static void ArrayGeneration(int[] array)
+        /*static void ArrayGeneration(int[] array)
         {
             Random rnd = new Random();
             //int[] array = new int[10];
@@ -966,7 +1061,7 @@ namespace ConsoleApp1
                 array[i] = rnd.Next(100);
                 Console.Write(array[i] + " ");
             }
-        }
+        }*/
         static void ArrayGeneration2(int[,] mass)
         {
             Random rnd = new Random();
