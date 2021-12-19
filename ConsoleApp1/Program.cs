@@ -107,6 +107,8 @@ namespace ConsoleApp1
             ArraySorting(array, true);
             ArraySorting(array, false);
 
+            Homework_5.ChoosingHomework();
+
         }
 
 
