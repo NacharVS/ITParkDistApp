@@ -891,24 +891,24 @@ namespace ConsoleApp1
             Console.WriteLine(x);
             Console.WriteLine(Summ1(5, 6));*/
             //массив всегда передается в метод по ссыдке
-            int[,] mass = new int[7,7];
+            /*int[,] mass = new int[7,7];
             ArrayGeneration2(mass);
             Console.WriteLine();
             Console.Write("index?:");
             int index= int.Parse(Console.ReadLine());
-            Console.WriteLine();
+            Console.WriteLine();*/
             //Console.WriteLine($"element {index} {mass[index-1]}");
             //задча. берем 2 массива одномерных. 3*6 и 8*3.
             // сложить потовряющие индексы в массиве
             // 4 6 8 9 2
             // 2 1 5 7 3
-            
+
             // 1 1 2
             // 7 8 9
             // 3 1 2
             // 1 1 1
             // 6 5 8
-            
+
             // 5 7 10
             // 9 9 14
 
@@ -917,8 +917,47 @@ namespace ConsoleApp1
             // 3 1 2 0 0
             // 1 1 1 0 0 
             // 6 5 8 0 0
+            //6 лекция. Sorting
+            int[] array = new int[10];
+            ArrayGeneration(array/*, -100, 100*/);
+            ArraySorting(array);
         }
-        static void ArrayGeneration(int []array)
+        static void ArraySorting(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = 0; j < array.Length - 1; j++)
+                {
+                    if (array[j] > array[j + 1])
+                    {
+                        int buff = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = buff;
+                    }
+                }
+            }
+        }
+        static void ArraySortingDesc(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = 0; j < array.Length - 1; j++)
+                {
+                    if (array[j] < array[j + 1])
+                    {
+                        int buff = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = buff;
+                    }
+                    else
+                    {
+                        ArraySorting(array);
+            }
+                }
+            }
+
+        }
+        static void ArrayGeneration(int[] array)
         {
             Random rnd = new Random();
             //int[] array = new int[10];
@@ -931,7 +970,7 @@ namespace ConsoleApp1
         static void ArrayGeneration2(int[,] mass)
         {
             Random rnd = new Random();
-                        for (int i = 0; i < mass.GetLength(0); i++)
+            for (int i = 0; i < mass.GetLength(0); i++)
             {
                 for (int j = 0; j < mass.GetLength(1); j++)
                 {
