@@ -50,7 +50,19 @@ namespace ConsoleApp1
             
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = rnd.Next(100);
+                array[i] = rnd.Next(2);
+
+                Console.Write(array[i] + " ");
+            }
+        }
+
+        static void ArrayGeneration(int[] array, int minValue, int maxValue)
+        {
+            Random rnd = new Random();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(minValue, maxValue);
 
                 Console.Write(array[i] + " ");
             }
@@ -64,7 +76,23 @@ namespace ConsoleApp1
                 for (int j = 0; j < mass.GetLength(1); j++)
                 {
 
-                    mass[i, j] = rnd.Next(100);
+                    mass[i, j] = rnd.Next(2);
+
+                    Console.Write(mass[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void ArrayGeneration(int[,] mass, int maxValue)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < mass.GetLength(0); i++)
+            {
+                for (int j = 0; j < mass.GetLength(1); j++)
+                {
+
+                    mass[i, j] = rnd.Next(maxValue);
 
                     Console.Write(mass[i, j] + " ");
                 }
@@ -74,8 +102,11 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            int[,] array = new int[10,5];
-            ArrayGeneration(array);
+            int[] array = new int[10];
+            int[,] array1 = new int[10, 5];
+            ArrayGeneration(array1, 20);
+            Console.WriteLine();
+            ArrayGeneration(array, -100, 100);
             // 4 6 8 9 2          
             // 2 1 5 7 3
 
