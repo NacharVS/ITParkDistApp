@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
@@ -6,28 +7,82 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int number = int.Parse(Console.ReadLine());
-            int max = 0;
-            int MaxSumm = 0;
+            List<string> products = new List<string>() { "Bread", "Milk", "Meat", "Tomts", "Eggs" };
+            List<double> prices = new List<double>() { 50, 50, 270, 130, 90 };
 
-            for (int i = 1; i <= number; i++)
+            List<double> cart = new List<double>() { 50, 50, 270, 130, 90 };
+            Console.WriteLine("Client/Admin");
+            string s = Console.ReadLine();
+            if (s == "c")
             {
-                int a = i;
-                int summ = 0;
-
-                while (a > 0)
+                Console.WriteLine("Enter urmoney");
+                double money = double.Parse(Console.ReadLine());
+                while (true)
                 {
-                    summ += a % 10;
-                    a = a / 10;
+                    Console.WriteLine("Our list:");
+                    for (int i = 0; i < products.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {products[i]} {prices[i]}");
+                    }
+                    Console.Write("make Ur choice(1, 2, 3...):");
+                    string clientsChoice = Console.ReadLine();
+                    switch (clientsChoice)
+                    {
+                        case "1":
+                            {
+                                Console.Write("Enter count of Bread:");
+                                int countOfProduct = int.Parse(Console.ReadLine());
+                                cart.Add(prices[0] * countOfProduct);
+                            }
+                            break;
+                        case "2":
+                            {
+                                Console.Write("Enter count of Milk:");
+                                int countOfProduct = int.Parse(Console.ReadLine());
+                                cart.Add(prices[1] * countOfProduct);
+                            }
+                            break;
+                        case "3":
+                            {
+                                Console.Write("Enter count of Meat:");
+                                int countOfProduct = int.Parse(Console.ReadLine());
+                                cart.Add(prices[2] * countOfProduct);
+                            }
+                            break;
+                        case "4":
+                            {
+                                Console.Write("Enter count of Tomats:");
+                                int countOfProduct = int.Parse(Console.ReadLine());
+                                cart.Add(prices[3] * countOfProduct);
+                            }
+                            break;
+                        case "5":
+                            {
+                                Console.Write("Enter count of Eggs:");
+                                int countOfProduct = int.Parse(Console.ReadLine());
+                                cart.Add(prices[4] * countOfProduct);
+                            }
+                            break;
+                    }
+                    Console.WriteLine("something else?(Y/N)");
+                    clientsChoice = Console.ReadLine();
+                    if (clientsChoice == "n")
+                    {
+                        break;
+                    }
                 }
-
-                if (MaxSumm < summ)
+                double summ = 0;
+                for (int i = 0; i < cart.Count; i++)
                 {
-                    MaxSumm = summ;
-                    max = i;
+                    summ += cart[i];
                 }
+                Console.WriteLine(summ);
+
             }
-            Console.WriteLine($"number={max}  summ MAX={MaxSumm}");
+            else
+            {
+                Console.WriteLine("admin");
+            }
         }
 
 
