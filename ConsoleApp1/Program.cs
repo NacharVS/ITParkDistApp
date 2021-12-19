@@ -152,27 +152,33 @@ namespace ConsoleApp1
         }
 
 
-        static void ArraySorting(int[] array, bool a)
+        static void ArraySorting(int[] array, bool flag)
         {
-            for (int j = 0; j < array.Length - 1; j++)
+            if (flag)
             {
-                for (int i = 0; i < array.Length - 1 - j; i++)
+                for (int j = 0; j < array.Length - 1; j++)
                 {
-                    if (array[i] < array[i + 1])
+                    for (int i = 0; i < array.Length - 1 - j; i++)
                     {
-                        int buffer = array[i + 1];
-                        array[i + 1] = array[i];
-                        array[i] = buffer;
+                        if (array[i] < array[i + 1])
+                        {
+                            int buffer = array[i + 1];
+                            array[i + 1] = array[i];
+                            array[i] = buffer;
+                        }
                     }
+                }
+
+                Console.WriteLine();
+
+                foreach (var item in array)
+                {
+                    Console.Write($"{item} ");
                 }
             }
 
-            Console.WriteLine();
-
-            foreach (var item in array)
-            {
-                Console.Write($"{item} ");
-            }
+            else ArraySorting(array);
+                 
         }
 
         static void Main(string[] args)
@@ -181,6 +187,7 @@ namespace ConsoleApp1
             ArrayGeneration(array, 100);
             ArraySorting(array);
             ArraySorting(array, true);
+            ArraySorting(array, false);
 
         }
 
