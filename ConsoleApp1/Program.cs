@@ -6,30 +6,17 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int summ = int.Parse(Console.ReadLine());
-            int combinations = 0;
-            if (summ >= 3 & summ <= 24)
-                for (int i = 0; i <= 9; i++)
+            Console.WriteLine("Введите число: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.WriteLine("Разложение числа на простын множители: ");
+            for (int i = 2; i <= num; i++)
             {
-                for (int j = 0; j <= 9; j++)
+                while (num % i == 0)   //while (num % i == 0)
                 {
-                    for (int k = 0; k <= 9; k++)
-                    {
-                        if (i + j + k == summ && i != j && j != k && i != k && i < k && k < j && i < j)
-                        {
-                            Console.WriteLine($"{i}{j}{k}");
-                            combinations++;
-                        }
-                    }
+                    num = num / i;
+                    Console.Write(i);
                 }
             }
-            Console.WriteLine($" Количество комбинации:  {combinations}");
-
-
-
-
-             
-
         }
     }
 }
