@@ -77,11 +77,54 @@ namespace ConsoleApp1
                     summ += cart[i];
                 }
                 Console.WriteLine(summ);
+                if (money < summ)
+                {
+                    Console.WriteLine("Purchase failed");
+                }
+                else
+                {
+                    double change = money - summ;
+                    Console.WriteLine(products);
+                    Console.WriteLine($"You chenge from purchase = {change}");
+                }
 
             }
-            else
+            else if (s == "a")
             {
                 Console.WriteLine("admin");
+                while (true)
+                {
+                    Console.WriteLine("Add product or delete product? make (a/d)");
+                    string adminmake=Console.ReadLine();
+                    switch (adminmake)
+                    {
+                        case "a":
+                            {
+                                Console.WriteLine("Name new product");
+                                products.Add(Console.ReadLine());
+                                Console.WriteLine("Cost new product");
+                                prices.Add(double.Parse(Console.ReadLine()));
+                                break;
+                            }
+                            case "d":
+                            {
+                                Console.WriteLine("Our list:");
+                                for (int i = 0; i < products.Count; i++)
+                                {
+                                    Console.WriteLine($"{i + 1}. {products[i]} {prices[i]}");
+                                }
+                                Console.WriteLine("Wich remove product?");
+                                products.Remove(Console.ReadLine());
+                                break;
+                            }
+                    }
+                    Console.WriteLine("Want to continue working? (y/n)");
+                    adminmake=Console.ReadLine();
+                    if (adminmake == "n")
+                    {
+                        break;
+                    }
+                }
             }
         }
 
