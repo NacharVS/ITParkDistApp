@@ -3,25 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//домашка про магазин
 namespace ConsoleApp1
 {
-    internal class ShopHomeWork
+    internal class Lesson4Practice
     {
         public static void Shop()
         {
-            List<string> product = new List<string>();
-            product.Add("Молоко");
-            product.Add("Хлеб");
-            product.Add("Говядина");
-            product.Add("Сахар");
-            product.Add("Сыр");
-            List<double> coast = new List<double>();
-            coast.Add(39.70);
-            coast.Add(29.60);
-            coast.Add(318.90);
-            coast.Add(68.40);
-            coast.Add(111.00);
+            List<string> product = new List<string>() { "Молоко", "Хлеб", "Говядина", "Сахар", "Сыр" };
+            List<double> coast = new List<double>() { 39.70, 29.60, 318.90, 68.40, 111.00 };
             string mode = "";
             while (mode != "в")
             {
@@ -145,6 +135,56 @@ namespace ConsoleApp1
                         }
                         break;
                 }
+            }
+        }
+        public static void Shop2() //вариант 2 - разбирали с Вадимом на уроке.
+        {
+            List<string> products = new List<string>() { "Bread", "Milk" };
+            List<double> prices = new List<double>() { 50, 50 };
+            List<double> cart = new List<double>() { 50,50};
+            Console.WriteLine("Client/Admin");
+            string s = Console.ReadLine();
+            if (s == "c")
+            {
+                Console.WriteLine("client");
+                Console.WriteLine("Enter money:");
+                double money = double.Parse(Console.ReadLine());
+                while (true)
+                {
+                    Console.WriteLine("Our list:");
+                    for (int i = 0; i < products.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {products[i]} {prices[i]}");
+                    }
+                    Console.Write("make your choice(1,2,3...):");
+                    string clientChoice = Console.ReadLine();
+                    int countOfProduct = 0;
+                    switch (clientChoice)
+                    {
+                        case "1":
+                            {
+                                Console.Write("Enter count for Bread:");
+                                countOfProduct = int.Parse(Console.ReadLine());
+                                cart.Add(prices[0] * countOfProduct);
+                            }
+                            break;
+                    }
+                    Console.WriteLine("Something else?(Y/N)");
+                    clientChoice = Console.ReadLine();
+                    if (clientChoice == "N")
+                    {
+                        break;
+                    }
+                }
+                double summ = 0;
+                for (int i = 0; i < cart.Count; i++)
+                {
+                    summ += cart[i];
+                }
+            }
+            else
+            {
+                Console.WriteLine("admin");
             }
         }
     }
