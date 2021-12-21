@@ -16,7 +16,8 @@ namespace ConsoleApp1
            {
                 Console.WriteLine("Вы зашли как клиент");
                 Console.Write("Введите сумму: ");
-                int allMoney = int.Parse(Console.ReadLine());
+                double allMoney = double.Parse(Console.ReadLine());
+                double Balans;
                 
 
                 while (true)
@@ -33,12 +34,13 @@ namespace ConsoleApp1
                     Console.WriteLine($"Потвердите ваш выбор");
                     int amountOfProduct = int.Parse(Console.ReadLine());
                     
+                    
 
                      switch (productType)
                      {
                         case "1":
                             {
-                                double sumMoney = 0.5 * amountOfProduct;
+                                double sumMoney = 0.50 * amountOfProduct;
                                 if (sumMoney <= allMoney)
                                 {
 
@@ -48,6 +50,11 @@ namespace ConsoleApp1
                                     {
                                         case "Y":
                                             Console.WriteLine("Вы подтвердили покупку");
+                                            Balans = allMoney - sumMoney;
+                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
+                                            
+
+
 
                                             Console.WriteLine("Хотите преобрести кое-что еще?");
                                             switch (approveProduct)
@@ -74,7 +81,7 @@ namespace ConsoleApp1
                             break;
                         case "2":
                             {
-                                double sumMoney = 2.0 * amountOfProduct;
+                                double sumMoney = 2.00 * amountOfProduct;
                                 if (sumMoney <= allMoney)
                                 {
                                     Console.WriteLine($"Ваша выбор:Хлеб.Сумма покупки:2,00$.Потвердить покупку?(Y/N)");
@@ -83,6 +90,9 @@ namespace ConsoleApp1
                                     {
                                         case "Y":
                                             Console.WriteLine("Вы подтвердили покупку");
+
+                                            Balans = allMoney - sumMoney;
+                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
 
                                             Console.WriteLine("Хотите преобрести кое-что еще?");
                                             switch (approveProduct)
@@ -116,6 +126,10 @@ namespace ConsoleApp1
                                     {
                                         case "Y":
                                             Console.WriteLine("Вы подтвердили покупку");
+
+                                            Balans = allMoney - sumMoney;
+                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
+
                                             Console.WriteLine("Хотите преобрести кое-что еще?");
                                             switch (approveProduct)
                                             {
@@ -140,7 +154,7 @@ namespace ConsoleApp1
                             break;
                         case "4":
                             {
-                                double sumMoney = 1.0 * amountOfProduct;
+                                double sumMoney = 1.00 * amountOfProduct;
                                 if (sumMoney <= allMoney)
                                 {
                                     Console.WriteLine($"Ваша выбор:Вишнёвый сок.Сумма покупки:1,00$.Потвердить покупку?(Y/N)");
@@ -149,6 +163,9 @@ namespace ConsoleApp1
                                     {
                                         case "Y":
                                             Console.WriteLine("Вы потврердили покупку");
+                                            Balans = allMoney - sumMoney;
+                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
+
                                             Console.WriteLine("Хотите преобрести кое-что еще?");
                                             switch (approveProduct)
                                             {
@@ -173,7 +190,7 @@ namespace ConsoleApp1
                             break;
                         case "5":
                             {
-                                double sumMoney = 6.0 * amountOfProduct;
+                                double sumMoney = 6.00 * amountOfProduct;
                                 if (sumMoney <= allMoney)
                                 {
                                     Console.WriteLine($"Ваша выбор:Плавленный сыр.Сумма покупки:6,00$.Потвердить покупку?(Y/N)");
@@ -182,6 +199,10 @@ namespace ConsoleApp1
                                     {
                                         case "Y":
                                             Console.WriteLine("Вы подтвердили покупку");
+
+                                            Balans = allMoney - sumMoney;
+                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
+
                                             Console.WriteLine("Хотите преобрести кое-что еще?");
                                             switch (approveProduct)
                                             {
