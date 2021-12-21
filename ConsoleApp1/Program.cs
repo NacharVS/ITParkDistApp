@@ -10,7 +10,7 @@ namespace ConsoleApp1
             List<string> products = new List<string>() { "Bread", "Milk", "Meat", "Tomts", "Eggs" };
             List<double> prices = new List<double>() { 50, 50, 270, 130, 90 };
 
-            List<double> cart = new List<double>() { 50, 50, 270, 130, 90 };
+            List<double> cart = new List<double>() {};
             Console.WriteLine("Client/Admin");
             string s = Console.ReadLine();
             if (s == "c")
@@ -100,13 +100,32 @@ namespace ConsoleApp1
                     {
                         case "a":
                             {
-                                Console.WriteLine("Name new product");
-                                products.Add(Console.ReadLine());
-                                Console.WriteLine("Cost new product");
-                                prices.Add(double.Parse(Console.ReadLine()));
+                                string continuework = "y";
+                                while (continuework != "n")
+                                {
+                                    Console.WriteLine("Name new product");
+                                    string addproduct = Console.ReadLine();
+                                    products.Add(addproduct);
+                                    Console.WriteLine("Cost new product");
+                                    double coustnewproduct = double.Parse(Console.ReadLine());
+                                    prices.Add(coustnewproduct);
+                                    Console.WriteLine("Continue add new products? (y/n)");
+                                    continuework = Console.ReadLine();
+                                    if (continuework == "n")
+                                    {
+                                        Console.WriteLine("Our list:");
+                                        for (int i = 0; i < products.Count; i++)
+                                        {
+                                            Console.WriteLine($"{i + 1}. {products[i]} {prices[i]}");
+                                        }
+                                        break;
+                                    }
+                                    else if (continuework == "y") continue;
+                                    break;
+                                }
                                 break;
                             }
-                            case "d":
+                        case "d":
                             {
                                 Console.WriteLine("Our list:");
                                 for (int i = 0; i < products.Count; i++)
@@ -119,7 +138,7 @@ namespace ConsoleApp1
                             }
                     }
                     Console.WriteLine("Want to continue working? (y/n)");
-                    adminmake=Console.ReadLine();
+                    adminmake = Console.ReadLine();
                     if (adminmake == "n")
                     {
                         break;
