@@ -8,8 +8,32 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Выбирите тип входа:Client/Admin");
+            string client=Console.ReadLine();
+            string admin=Console.ReadLine();
+            switch (client)
+            {
+                case "C":
+                    Console.WriteLine("Вы зашли как клиент");
 
+
+
+
+
+
+
+
+
+
+
+
+
+                    break;
+                case "A":
+                    Console.WriteLine("Вы зашли как админ");
+                    break;
+            }
+            
 
             Console.Write("Введите сумму: ");
             int allMoney = int.Parse(Console.ReadLine());
@@ -37,7 +61,7 @@ namespace ConsoleApp1
                                 switch (approveProduct)
                                 {
                                     case "Y":
-                                        Console.WriteLine("Вы потврердили покупку");
+                                        Console.WriteLine("Вы подтвердили покупку");
                                         break;
                                     
 
@@ -69,7 +93,7 @@ namespace ConsoleApp1
                                 switch (approveProduct)
                                 {
                                     case "Y":
-                                        Console.WriteLine("Вы потврердили покупку");
+                                        Console.WriteLine("Вы подтвердили покупку");
                                         break;
                                     case "N":
                                         {
@@ -95,7 +119,7 @@ namespace ConsoleApp1
                                 switch (approveProduct)
                                 {
                                     case "Y":
-                                        Console.WriteLine("Вы потврердили покупку");
+                                        Console.WriteLine("Вы подтвердили покупку");
                                         break;
                                     case "N":
                                         {
@@ -147,7 +171,7 @@ namespace ConsoleApp1
                                 switch (approveProduct)
                                 {
                                     case "Y":
-                                        Console.WriteLine("Вы потврердили покупку");
+                                        Console.WriteLine("Вы подтвердили покупку");
                                         break;
                                     case "N":
                                         {
