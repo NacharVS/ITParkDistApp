@@ -4,20 +4,25 @@ using System.Threading;
 
 namespace ConsoleApp1
 {
-    
-        class Program
+    class Program
+    {
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
 
-                Console.WriteLine("Выбирите тип входа:Client/Admin");
-                string client = Console.ReadLine();
-                string admin = Console.ReadLine();
-                if (client == "Client")
+           Console.WriteLine("Выбирите тип входа:Client/Admin");
+           string client = Console.ReadLine();
+            
+           if (client == "Client")
+           {
+                Console.WriteLine("Вы зашли как клиент");
+                Console.Write("Введите сумму: ");
+                int allMoney = int.Parse(Console.ReadLine());
+                
+
+                while (true)
                 {
-                    Console.WriteLine("Вы зашли как клиен");
-                    Console.Write("Введите сумму: ");
-                    int allMoney = int.Parse(Console.ReadLine());
+                    
+                    
                     Console.WriteLine("Выберите продукт:");
                     Console.WriteLine("1. Молоко = 0.50 $");
                     Console.WriteLine("2. Хлеб = 2.00 $");
@@ -29,177 +34,205 @@ namespace ConsoleApp1
                     int amountOfProduct = int.Parse(Console.ReadLine());
                     
 
-
-                        switch (productType)
-                        {
-                            case "1":
+                     switch (productType)
+                     {
+                        case "1":
+                            {
+                                double sumMoney = 0.5 * amountOfProduct;
+                                if (sumMoney <= allMoney)
                                 {
 
-
-
-
-                                    double sumMoney = 0.5 * amountOfProduct;
-                                    if (sumMoney <= allMoney)
+                                    Console.WriteLine($"Ваша выбор:Молоко.Сумма покупки:0,50$.Потвердить покупку?(Y/N)");
+                                    string approveProduct = Console.ReadLine();
+                                    switch (approveProduct)
                                     {
+                                        case "Y":
+                                            Console.WriteLine("Вы подтвердили покупку");
 
-                                        Console.WriteLine($"Ваша выбор:Молоко.Сумма покупки:0,50$.Потвердить покупку?(Y/N)");
-                                        string approveProduct = Console.ReadLine();
-                                        switch (approveProduct)
-                                        {
-                                            case "Y":
-                                                Console.WriteLine("Вы подтвердили покупку");
-                                                break;
-                                            case "N":
-                                                {
-                                                    Console.WriteLine("Отказ  от покупки");
+                                            Console.WriteLine("Хотите преобрести кое-что еще?");
+                                            switch (approveProduct)
+                                            {
+                                                case "N":
                                                     break;
-                                                }
+                                            }
+                                            break;
 
-
-                                        }
-
-
-
-
-
-
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine($"У вас недостаточно средств");
-                                    }
-
-
-
-                                }
-                                break;
-
-
-
-                            case "2":
-                                {
-                                    double sumMoney = 2.0 * amountOfProduct;
-                                    if (sumMoney <= allMoney)
-                                    {
-                                        Console.WriteLine($"Ваша выбор:Хлеб.Сумма покупки:2,00$.Потвердить покупку?(Y/N)");
-                                        string approveProduct = Console.ReadLine();
-                                        switch (approveProduct)
-                                        {
-                                            case "Y":
-                                                Console.WriteLine("Вы подтвердили покупку");
+                                        case "N":
+                                            {
+                                                Console.WriteLine("Отказ  от покупки");
                                                 break;
-                                            case "N":
-                                                {
-                                                    Console.WriteLine("Отказ  от покупки");
-                                                    break;
-                                                }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine($"У вас недостаточно средств");
+                                            }
+
 
                                     }
                                 }
-                                break;
-                            case "3":
+                                else
                                 {
-                                    double sumMoney = 7.13 * amountOfProduct;
-                                    if (sumMoney <= allMoney)
+                                    Console.WriteLine($"У вас недостаточно средств");
+                                }
+                            }
+                            break;
+                        case "2":
+                            {
+                                double sumMoney = 2.0 * amountOfProduct;
+                                if (sumMoney <= allMoney)
+                                {
+                                    Console.WriteLine($"Ваша выбор:Хлеб.Сумма покупки:2,00$.Потвердить покупку?(Y/N)");
+                                    string approveProduct = Console.ReadLine();
+                                    switch (approveProduct)
                                     {
-                                        Console.WriteLine($"Ваша выбор:Куринное филе.Сумма покупки:7,13$.Потвердить покупку?(Y/N)");
-                                        string approveProduct = Console.ReadLine();
-                                        switch (approveProduct)
-                                        {
-                                            case "Y":
-                                                Console.WriteLine("Вы подтвердили покупку");
-                                                break;
-                                            case "N":
-                                                {
-                                                    Console.WriteLine("Отказ  от покупки");
-                                                    break;
-                                                }
-                                        }
-                                    }
+                                        case "Y":
+                                            Console.WriteLine("Вы подтвердили покупку");
 
-                                    else
-                                    {
-                                        Console.WriteLine($"У вас недостаточно средств");
+                                            Console.WriteLine("Хотите преобрести кое-что еще?");
+                                            switch (approveProduct)
+                                            {
+                                                case "N":
+                                                    break;
+                                            }
+                                            break;
+                                        case "N":
+                                            {
+                                                Console.WriteLine("Отказ  от покупки");
+                                                break;
+                                            }
                                     }
                                 }
-                                break;
-                            case "4":
+                                else
                                 {
-                                    double sumMoney = 1.0 * amountOfProduct;
-                                    if (sumMoney <= allMoney)
-                                    {
-                                        Console.WriteLine($"Ваша выбор:Вишнёвый сок.Сумма покупки:1,00$.Потвердить покупку?(Y/N)");
-                                        string approveProduct = Console.ReadLine();
-                                        switch (approveProduct)
-                                        {
-                                            case "Y":
-                                                Console.WriteLine("Вы потврердили покупку");
-                                                break;
-                                            case "N":
-                                                {
-                                                    Console.WriteLine("Отказ  от покупки");
-                                                    break;
-                                                }
-                                        }
-                                    }
+                                    Console.WriteLine($"У вас недостаточно средств");
 
-                                    else
+                                }
+                            }
+                            break;
+                        case "3":
+                            {
+                                double sumMoney = 7.13 * amountOfProduct;
+                                if (sumMoney <= allMoney)
+                                {
+                                    Console.WriteLine($"Ваша выбор:Куринное филе.Сумма покупки:7,13$.Потвердить покупку?(Y/N)");
+                                    string approveProduct = Console.ReadLine();
+                                    switch (approveProduct)
                                     {
-                                        Console.WriteLine($"У вас недостаточно средств");
+                                        case "Y":
+                                            Console.WriteLine("Вы подтвердили покупку");
+                                            Console.WriteLine("Хотите преобрести кое-что еще?");
+                                            switch (approveProduct)
+                                            {
+                                                case "N":
+                                                    break;
+                                            }
+
+                                            break;
+                                        case "N":
+                                            {
+                                                Console.WriteLine("Отказ  от покупки");
+                                                break;
+                                            }
                                     }
                                 }
-                                break;
-                            case "5":
-                                {
-                                    double sumMoney = 6.0 * amountOfProduct;
-                                    if (sumMoney <= allMoney)
-                                    {
-                                        Console.WriteLine($"Ваша выбор:Плавленный сыр.Сумма покупки:6,00$.Потвердить покупку?(Y/N)");
-                                        string approveProduct = Console.ReadLine();
-                                        switch (approveProduct)
-                                        {
-                                            case "Y":
-                                                Console.WriteLine("Вы подтвердили покупку");
-                                                break;
-                                            case "N":
-                                                {
-                                                    Console.WriteLine("Отказ  от покупки");
-                                                    break;
-                                                }
-                                        }
-                                    }
 
-                                    else
+                                else
+                                {
+                                    Console.WriteLine($"У вас недостаточно средств");
+                                }
+                            }
+                            break;
+                        case "4":
+                            {
+                                double sumMoney = 1.0 * amountOfProduct;
+                                if (sumMoney <= allMoney)
+                                {
+                                    Console.WriteLine($"Ваша выбор:Вишнёвый сок.Сумма покупки:1,00$.Потвердить покупку?(Y/N)");
+                                    string approveProduct = Console.ReadLine();
+                                    switch (approveProduct)
                                     {
-                                        Console.WriteLine($"У вас недостаточно средств");
+                                        case "Y":
+                                            Console.WriteLine("Вы потврердили покупку");
+                                            Console.WriteLine("Хотите преобрести кое-что еще?");
+                                            switch (approveProduct)
+                                            {
+                                                case "N":
+                                                    break;
+                                            }
+
+                                            break;
+                                        case "N":
+                                            {
+                                                Console.WriteLine("Отказ  от покупки");
+                                                break;
+                                            }
                                     }
                                 }
-                                break;
 
-                        }
+                                else
+                                {
+                                    Console.WriteLine($"У вас недостаточно средств");
+                                }
+                            }
+                            break;
+                        case "5":
+                            {
+                                double sumMoney = 6.0 * amountOfProduct;
+                                if (sumMoney <= allMoney)
+                                {
+                                    Console.WriteLine($"Ваша выбор:Плавленный сыр.Сумма покупки:6,00$.Потвердить покупку?(Y/N)");
+                                    string approveProduct = Console.ReadLine();
+                                    switch (approveProduct)
+                                    {
+                                        case "Y":
+                                            Console.WriteLine("Вы подтвердили покупку");
+                                            Console.WriteLine("Хотите преобрести кое-что еще?");
+                                            switch (approveProduct)
+                                            {
+                                                case "N":
+                                                    break;
+                                            }
 
+                                            break;
+                                        case "N":
+                                            {
+                                                Console.WriteLine("Отказ  от покупки");
+                                                break;
+                                            }
+                                    }
+                                }
 
+                                else
+                                {
+                                    Console.WriteLine($"У вас недостаточно средств");
+                                }
+                            }
+                            break;
 
+                            
 
-
+                     }
                     
 
 
-
-
                 }
-                
 
 
 
 
-            }
+
+
+
+
+
+
+
+
+
+           }
+
+
+
+
+
         }
-   
+    }
+
 
 }
