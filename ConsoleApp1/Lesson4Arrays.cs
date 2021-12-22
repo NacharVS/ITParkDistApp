@@ -119,7 +119,7 @@ namespace ConsoleApp1
             int b = int.Parse(Console.ReadLine());
             int[,] array = new int[a, b];
             Random rnd = new Random();
-            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во строк.
+            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во столбцов.
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
@@ -136,7 +136,7 @@ namespace ConsoleApp1
             int[,] array = new int[a, b];
             Random rnd = new Random();
             int sum = 0;
-            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во строк.
+            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во столбцов.
             {
                 sum = 0;
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -156,7 +156,7 @@ namespace ConsoleApp1
             int[,] array = new int[a, b];
             Random rnd = new Random();
             int[] sumInRow = new int[array.GetLength(0)];
-            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во строк.
+            for (int i = 0; i < array.GetLength(0); i++) //GetLengt(0) - количестов строк, (1) - кол-во столбцов.
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {

@@ -8,6 +8,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Lesson5Practice.NonSquareArraysAddition();
+           
             //6 лекция. Sorting
             /*int[] array = new int[10];
             int[,] array1 = new int[10, 5];
@@ -49,15 +51,6 @@ namespace ConsoleApp1
             // 3. Все задания выполняем в отдельных файлах.
 
         }
-        static void Summ(params int[] numbers)
-        {
-            int summ = 0;
-            foreach (var item in numbers)
-            {
-                summ += item;
-            }
-            Console.WriteLine(summ);
-        }
         static void Multiplicationtable()
         {
             for (int i = 1; i <= 9; i++)
@@ -69,11 +62,7 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
         }
-        static void Summ(int a, int b)
-        {
-            Console.WriteLine($"summ int {a + b}");
-        }
-
+        
         static void Summ(double a, double b)
         {
             Console.WriteLine($"summ double {a + b}");
@@ -86,8 +75,6 @@ namespace ConsoleApp1
         {
             Console.WriteLine($"concat string {a + b}");
         }
-
-        
         static void ArraySorting(int[] array)
         {
             for (int i = 0; i < array.Length - 1; i++)
@@ -121,39 +108,7 @@ namespace ConsoleApp1
             }
                 }
             }
-
         }
-        /*static void ArrayGeneration(int[] array)
-        {
-            Random rnd = new Random();
-            //int[] array = new int[10];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(100);
-                Console.Write(array[i] + " ");
-            }
-        }*/
-        static void ArrayGeneration2(int[,] mass)
-        {
-            Random rnd = new Random();
-            for (int i = 0; i < mass.GetLength(0); i++)
-            {
-                for (int j = 0; j < mass.GetLength(1); j++)
-                {
-                    mass[i, j] = rnd.Next(100);
-                    Console.Write(mass[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
-        static void Summ(ref int a, int b)
-        {
-            a = a + b;
-            Console.WriteLine(a);
-        }
-        static int Summ1(int a, int b)
-        {
-            return a + b;
-        }
+        
     }
 }
