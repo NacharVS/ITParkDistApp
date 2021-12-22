@@ -236,17 +236,32 @@ namespace ConsoleApp1
 
 
 
+            }
+            else
+            {
+                client = "Admin";
+                Console.WriteLine("Вы зашли как админ");
+                Console.WriteLine("Добавить товар?(Y/N)");
+                string Tovar = Console.ReadLine();
+                switch (Tovar)
+                {
+                    case "Y":
+                        break;
+
+                }
+                Console.WriteLine("Выберите продукт:");
+                Console.WriteLine("1. Печенье = 3,00 $");
+                Console.WriteLine("2. Торт = 2.00 $");
+                Console.WriteLine("3. Круасан = 5.73 $");
+                Console.WriteLine("4. Квас = 1.10 $");
+                Console.WriteLine("5. стейк = 8.00 $");
+               
+
+                
 
 
 
-
-
-
-
-
-
-
-           }
+            }
 
 
 
