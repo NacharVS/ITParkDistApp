@@ -19,5 +19,25 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
         }
+
+        public static string GetDataQuestionST(string question)
+        {
+            Console.WriteLine();
+            Console.WriteLine(question);
+            return Console.ReadLine().ToLower();
+        }
+
+        public static int GetDataQuestionIN(string question)
+        {
+            Console.WriteLine();
+            Console.WriteLine(question);
+            return int.Parse(Console.ReadLine());
+        }
+
+        public static int GetSize(string inquiry)
+        {
+            Console.WriteLine(inquiry);
+            return int.Parse(Console.ReadLine());
+        }
     }
 }

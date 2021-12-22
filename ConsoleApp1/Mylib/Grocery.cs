@@ -24,21 +24,19 @@ namespace ConsoleApp1.Mylib
             return grocery;
         }
 
-        public static void  GetGroceryList(List<Grocery> grocery)
+        public static List<Grocery> GetGroceryList(List<Grocery> groceryList)
         {
-            GroceryFormation(1, "Bread", 26, 75);
-
-            List<Grocery> groceryList = new List<Grocery>();
-
             groceryList.Add(GroceryFormation(1, "Bread", 26, 75));
             groceryList.Add(GroceryFormation(2, "Egg", 7, 65));
             groceryList.Add(GroceryFormation(3, "Milk", 60, 61));
             groceryList.Add(GroceryFormation(4, "Cheese", 450, 42));
             groceryList.Add(GroceryFormation(5, "Butter", 120, 99));
-            groceryList.Add(GroceryFormation(6, "Potatoes", 42, 47));
+            groceryList.Add(GroceryFormation(6, "Potatoe", 42, 47));
             groceryList.Add(GroceryFormation(7, "Carrots", 35, 55));
             groceryList.Add(GroceryFormation(8, "Onions", 30, 77));
             groceryList.Add(GroceryFormation(9, "Cabbage", 45, 80));
+
+            return groceryList;
         }
 
         public static void PrintGroceryList(List<Grocery> groceryList)
@@ -46,7 +44,7 @@ namespace ConsoleApp1.Mylib
             Console.WriteLine();
             for (int i = 0; i < groceryList.Count; i++)
             {
-                Console.WriteLine($"{groceryList[i].groceryID}.  {groceryList[i].name} / {groceryList[i].price} / {groceryList[i].quantityInStock}");
+                Console.WriteLine($"{groceryList[i].groceryID}.\t{groceryList[i].name}\t{groceryList[i].price}\t{groceryList[i].quantityInStock}");
             }
         }
 
@@ -65,6 +63,14 @@ namespace ConsoleApp1.Mylib
             }
             newName = Char.ToUpper(newName[0]) + newName.Substring(1);
             return false;
+        }
+
+        public static void SortingGroceryList(List<Grocery> groceryList)
+        {
+            for (int i = 0; i < groceryList.Count; i++)
+            {
+                groceryList[i].groceryID = i + 1;
+            }
         }
     }
 }
