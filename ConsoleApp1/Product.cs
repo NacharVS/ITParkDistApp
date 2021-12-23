@@ -11,23 +11,20 @@ namespace ConsoleApp1
         public string productName;
         public double price;
         public double countOfProduct;
-        public string currentShop;
+
+        public Product(string productName, double price)
+        {
+            this.productName = productName;
+            this.price = price;
+        }
 
         public Product(string productName, double price, double countOfProduct)
         {
             this.productName = productName;
             this.price = price;
             this.countOfProduct = countOfProduct;
-            currentShop = "Albatros";
         }
 
-        public Product(string productName, double price, double countOfProduct, string shop)
-        {
-            this.productName = productName;
-            this.price = price;
-            this.countOfProduct = countOfProduct;
-            currentShop = shop;
-        }
 
         public static void ShowListofProducts(List<Product> products)
         {

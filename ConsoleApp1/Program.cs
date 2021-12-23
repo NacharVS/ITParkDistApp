@@ -14,7 +14,7 @@ namespace ConsoleApp1
 
             Client.AddToCart(products, 1, 2);
             Client.AddToCart(products, 2, 1);
-            Client.AddToCart(products, 1, 3);
+            Client.AddToCart(products, 1, 2);
             Client.AddToCart(products, 1, 1);
             Console.WriteLine();
 

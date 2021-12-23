@@ -16,7 +16,17 @@ namespace ConsoleApp1
                 Console.WriteLine("Not anough");
             else
             {
-                productsList[numberInList - 1].countOfProduct -= count;
+                if(cart.Exists(x => x.productName == productsList[numberInList - 1].productName))
+                {
+                    if (productsList[numberInList - 1].countOfProduct > count)
+                    {
+                        cart[numberInList - 1].countOfProduct += count;
+                    }
+                    else
+                        Console.WriteLine("Not anough");
+                }
+                else
+                //productsList[numberInList - 1].countOfProduct -= count;
                 cart.Add(new Product(productsList[numberInList - 1].productName, productsList[numberInList - 1].price, count));
             }
             
