@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     internal class Lesson4Practice
     {
-        public static void Shop()
+        public static void Shop() //магазин товаров. Режим админа и клиента.
         {
             List<string> product = new List<string>() { "Молоко", "Хлеб", "Говядина", "Сахар", "Сыр" };
             List<double> coast = new List<double>() { 39.70, 29.60, 318.90, 68.40, 111.00 };

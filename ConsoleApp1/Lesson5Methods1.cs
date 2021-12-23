@@ -166,7 +166,7 @@ namespace ConsoleApp1
                 Console.Write(array[i] + " ");
             }
         }
-        static void ArrayGeneration2(int[,] mass)
+        static void ArrayGeneration(int[,] mass)
         {
             Random rnd = new Random();
             for (int i = 0; i < mass.GetLength(0); i++)
@@ -179,27 +179,6 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
         }
-        static void Summ(int a, int b)
-        {
-            Console.WriteLine($"summ int {a + b}");
-        }
-        static void Summ(params int[] numbers)
-        {
-            int summ = 0;
-            foreach (var item in numbers)
-            {
-                summ += item;
-            }
-            Console.WriteLine(summ);
-        }
-        static void Summ(ref int a, int b)
-        {
-            a = a + b;
-            Console.WriteLine(a);
-        }
-        static int Summ1(int a, int b)
-        {
-            return a + b;
-        }
+        
     }
 }
