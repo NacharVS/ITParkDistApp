@@ -243,57 +243,40 @@ namespace ConsoleApp1
             }
             else
             {
-                
+                //Console.WriteLine("неверный ввод");
+            }
+            if (client == "admin")
+            {
+                Console.WriteLine("Вы зашли как Admin");
+                Console.WriteLine("Хотите добавить товар или удалить(Add/Delete");
+                string delete = Console.ReadLine();
+                string delete1 = Console.ReadLine();
 
-                Console.WriteLine("Вы зашли как администратор");
-
-                
                 while (true)
                 {
-                    Console.WriteLine("Вы хотите добавить товар или удалить Добавить/Удалить ");
-                    string choice2 = Console.ReadLine();
-                    //choice2 = choice2.ToLower();
-                    Console.WriteLine("Выберите продукт чтобы удалить");
-                    
-                    Console.WriteLine("1. Молоко = 0.50 $");
-                    Console.WriteLine("2. Хлеб = 2.00 $");
-                    Console.WriteLine("3. Куринное филе = 7.13 $");
-                    Console.WriteLine("4. Сок = 1.00 $");
-                    Console.WriteLine("5. Плавленный сыр = 6.00 $");
-                    string productType = Console.ReadLine();
-                    switch (productType)
+                    switch (delete)
                     {
-                        case "Удалить":
+                        case "delete":
+                            Console.WriteLine("Выбирите товар который хотите удалить");
 
+                            Console.WriteLine("1. Молоко = 0.50 $");
+                            Console.WriteLine("2. Хлеб = 2.00 $");
+                            Console.WriteLine("3. Куринное филе = 7.13 $");
+                            Console.WriteLine("4. Сок = 1.00 $");
+                            Console.WriteLine("5. Плавленный сыр = 6.00 $");
                             break;
 
-                        //case "Добавить":
-                        //    Console.WriteLine("Выберите продукт:");
-                        //    Console.WriteLine("1. Печенье = 3,00 $");
-                        //    Console.WriteLine("2. Торт = 2.00 $");
-                        //    Console.WriteLine("3. Круасан = 5.73 $");
-                        //    Console.WriteLine("4. Квас = 1.10 $");
-                        //    Console.WriteLine("5. стейк = 8.00 $");
-
-
-                        //    string tovar2 = (Console.ReadLine());
-
-                        //    break;
+                        case "1":
+                            Console.WriteLine("Вы удалили продукт № 1");
+                            break;
                     }
-
-                    //Console.WriteLine("Хотите продолжить?(Y/N)");
-                    //string choice3 = Console.ReadLine();
-                    //choice3 = choice3.ToLower();
-                    //if (choice3 == "N")
-                    //{
-                    //    break;
-                    //}
-
-
+                    break;
                 }
 
 
 
+
+                
 
 
 
@@ -302,6 +285,7 @@ namespace ConsoleApp1
 
 
             }
+
         }
 
 
