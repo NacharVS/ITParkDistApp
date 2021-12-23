@@ -8,32 +8,34 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            List<Product>products=new List<Product>();
-            List<Product> cart = new List<Product>();
-            string name = Console.ReadLine();
-            double count = int.Parse(Console.ReadLine());
+            List<Product> products=new List<Product>();
+            Admin.A
+            //List<Product>products=new List<Product>();
+            //List<Product> cart = new List<Product>();
+            //string name = Console.ReadLine();
+            //double count = int.Parse(Console.ReadLine());
 
-            Product bread = new Product("borodinsky hleb",40,80);
-            Product beans = new Product("fasol",45.45,8.7);
-            //Console.WriteLine($"{bread.shop} {beans.shop}");
-            products.Add(bread);
-            products.Add(beans);
-            products.Add(new Product("Tvorog", 50, 40));
-            products.Add(new Product("Yogurt", 50, 40));
-            products.Add(new Product("Cheese", 50, 40));
-            products.Add(new Product(name, adminPrice, count));
-            foreach (var item in products)
-            {
-                Console.WriteLine($"{item.productName} {item.price} ");
-            }
-            string neededProd = Console.ReadLine();
-            foreach (var item in products)
-            {
-                if(item.productName==neededProd)
-                {
-                    cart.Add(item);
-                }
-            }
+            //Product bread = new Product("borodinsky hleb",40,80);
+            //Product beans = new Product("fasol",45.45,8.7);
+            ////Console.WriteLine($"{bread.shop} {beans.shop}");
+            //products.Add(bread);
+            //products.Add(beans);
+            //products.Add(new Product("Tvorog", 50, 40));
+            //products.Add(new Product("Yogurt", 50, 40));
+            //products.Add(new Product("Cheese", 50, 40));
+            //products.Add(new Product(name, adminPrice, count));
+            //foreach (var item in products)
+            //{
+            //    Console.WriteLine($"{item.productName} {item.price} ");
+            //}
+            //string neededProd = Console.ReadLine();
+            //foreach (var item in products)
+            //{
+            //    if(item.productName==neededProd)
+            //    {
+            //        cart.Add(item);
+            //    }
+            //}
 
 
             //cart.Add(products.Find(x => x.productName == "fasol"));
