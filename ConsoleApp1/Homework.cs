@@ -524,7 +524,7 @@ namespace ConsoleApp1
         {
             
             List<Grocery> groceryList = new List<Grocery>();
-            List<int> priceList = new List<int>();
+            List<Grocery> cartList = new List<Grocery>();
 
             List<string> klientProductList = new List<string>();
             List<int> klientQuantityList = new List<int>();
@@ -554,9 +554,7 @@ namespace ConsoleApp1
 
                     case "k":
                         klientChoiceProduct = true;
-                        Console.WriteLine();
-                        Console.WriteLine("Enter your account balance:");
-                        klientMoney = int.Parse(Console.ReadLine());
+                        klientMoney = Library.GetDataQuestionIN("Enter your account balance:");
                         summ = 0;
                         break;
 
@@ -659,22 +657,12 @@ namespace ConsoleApp1
                                 //Add product
                                 case "a":
 
+                                    Grocery.PrintCartList(cartList);
 
-                                    Console.WriteLine();
-
-                                    for (int i = 0; i < groceryList.Count; i++)
-                                    {
-                                        Console.WriteLine($"{i + 1}.{groceryList[i]} / {priceList[i]}");
-                                    }
-
-                                    Console.WriteLine();
-                                    Console.WriteLine("Enter product number:");
-                                    productNumber = int.Parse(Console.ReadLine()) - 1;
-
-                                    Console.WriteLine();
-                                    Console.WriteLine("Enter quantity:");
-                                    int productQuantity = int.Parse(Console.ReadLine());
-
+                                    int newCartID = cartList.Count + 1;
+                                    productNumber = Library.GetDataQuestionIN("Enter product number:") - 1;
+                                    int productQuantity = Library.GetDataQuestionIN("Enter quantity:");
+                                                                       
                                     sumProduct = productQuantity * priceList[productNumber];
 
                                     summ += sumProduct;

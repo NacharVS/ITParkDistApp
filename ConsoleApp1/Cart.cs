@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Mylib
+namespace ConsoleApp1
 {
-    class Grocery
+    class Cart
     {
-        int ID;
+        int cartID;
         string name;
         int price;
         int cost;
         int quantity;
         int quantityInStock;
 
-        public static Grocery GroceryFormation(int ID, string name, int price, int quantityInStock)
+        public static Grocery GroceryFormation(int groceryID, string name, int price, int quantityInStock)
         {
             Grocery grocery = new Grocery();
-            grocery.ID = ID;
+            grocery.groceryID = groceryID;
             grocery.name = name;
             grocery.price = price;
             grocery.quantityInStock = quantityInStock;
@@ -26,10 +26,10 @@ namespace ConsoleApp1.Mylib
             return grocery;
         }
 
-        public static Grocery CartFormation(int ID, string name, int quantity, int cost)
+        public static Grocery CartFormation(int cartID, string name, int quantity, int cost)
         {
             Grocery cart = new Grocery();
-            cart.ID = ID;
+            cart.cartID = cartID;
             cart.name = name;
             cart.quantity = quantity;
             cart.cost = cost;
@@ -51,13 +51,13 @@ namespace ConsoleApp1.Mylib
 
             return groceryList;
         }
-        
+
         public static void PrintGroceryList(List<Grocery> groceryList)
         {
             Console.WriteLine();
             for (int i = 0; i < groceryList.Count; i++)
             {
-                Console.WriteLine($"{groceryList[i].ID}.\t{groceryList[i].name}\t{groceryList[i].price}\t{groceryList[i].quantityInStock}");
+                Console.WriteLine($"{groceryList[i].groceryID}.\t{groceryList[i].name}\t{groceryList[i].price}\t{groceryList[i].quantityInStock}");
             }
         }
 
@@ -66,7 +66,7 @@ namespace ConsoleApp1.Mylib
             Console.WriteLine();
             for (int i = 0; i < cartList.Count; i++)
             {
-                Console.WriteLine($"{cartList[i].ID}.\t{cartList[i].name}\t{cartList[i].quantity}\t{cartList[i].cost}");
+                Console.WriteLine($"{cartList[i].cartID}.\t{cartList[i].name}\t{cartList[i].quantity}\t{cartList[i].cost}");
             }
         }
 
@@ -91,7 +91,7 @@ namespace ConsoleApp1.Mylib
         {
             for (int i = 0; i < groceryList.Count; i++)
             {
-                groceryList[i].ID = i + 1;
+                groceryList[i].groceryID = i + 1;
             }
         }
     }
