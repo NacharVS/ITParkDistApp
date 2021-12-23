@@ -50,6 +50,11 @@ namespace ConsoleApp1
             return cost;
         }
 
+        public static void UseCoupon()
+        {
+            // снижает общую стоимость на 10%
+        }
+
     }
 
 
