@@ -19,7 +19,7 @@ namespace ConsoleApp1
 
             //two.Product();
 
-            int[,] matrix = new int[5, 5];
+            int[,] matrix = new int[10, 10];
             ArrayOperations.ArrayGeneration(matrix);
 
             SummID[] summIDs = new SummID[10];
@@ -60,7 +60,12 @@ namespace ConsoleApp1
                     {
                         summIDs[k + 1] = sum;
                     }
+                   
                 }
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(summIDs[i].rowId);
             }
         }
     }
