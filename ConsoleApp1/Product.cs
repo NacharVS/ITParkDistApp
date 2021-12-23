@@ -28,5 +28,15 @@ namespace ConsoleApp1
             this.countOfProduct = countOfProduct;
             currentShop = shop;
         }
+
+        public static void ShowListofProducts(List<Product> products)
+        {
+            int n = 1;
+            foreach (var item in products)
+            {
+                Console.WriteLine($"{n}. product: {item.productName} - price: {item.price}");
+                n++;
+            }
+        }
     }
 }

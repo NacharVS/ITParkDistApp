@@ -4,36 +4,27 @@ using System.Collections.Generic;
 namespace ConsoleApp1
 {
     class Program
-    {        
+    {
         static void Main(string[] args)
         {
             List<Product> products = new List<Product>();
-            List<Product> cart = new List<Product>();
-            Product bread = new Product("бородинский хлеб", 40, 80);
-            Product beans = new Product("фасоль", 45.45, 8.7);
-            products.Add(bread);
-            products.Add(beans);
-            products.Add(new Product("Творог", 50, 40));
-            products.Add(new Product("Йогурт", 50, 40));
-            products.Add(new Product("Сыр", 50, 40));
-            while (true)
-            {
-                string name = Console.ReadLine();
-                double adminPrice = int.Parse(Console.ReadLine());
-                double count = int.Parse(Console.ReadLine());
+            Admin.AddProduct(products, "bread", 20, 10);
+            Admin.AddProduct(products, "milk", 20, 5);
+            Product.ShowListofProducts(products);
+
+            Client.AddToCart(products, 1, 2);
+            Client.AddToCart(products, 2, 1);
+            Client.AddToCart(products, 1, 3);
+            Client.AddToCart(products, 1, 1);
+            Console.WriteLine();
+
+            Console.WriteLine(Client.SolveCost());
+
+            Console.WriteLine();
+
+            Client.ShowCart();
 
 
-                products.Add(new Product(name, adminPrice, count));
-
-                foreach (var item in products)
-                {
-                    Console.WriteLine($"{item.productName} {item.price}");
-                }
-                Console.WriteLine("y/n");
-                string n = Console.ReadLine();
-                if (n == "n")
-                    break;
-            }
             //string neededProd = Console.ReadLine();
 
             //foreach (var item in products)
