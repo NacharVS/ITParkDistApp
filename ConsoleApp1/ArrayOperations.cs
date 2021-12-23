@@ -80,8 +80,17 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
         }
+        //печать массива
+        public static void ArrayPrint(int[] array)
+        {
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                Console.Write($"{array[i]} ");
+                Console.WriteLine();
+            }
+        }
         //печать матрицы
-        public static void ArrayPrint (int[,] array)
+        public static void ArrayPrint(int[,] array)
         {
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -91,6 +100,82 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine();
             }
+        }
+        public static void ArraySorting(int[] array) //сортировка массива по возрастанию
+        {
+            for (int j = 0; j < array.Length - 1; j++)
+            {
+                for (int i = 0; i < array.Length - 1 - j; i++)
+                {
+                    if (array[i] > array[i + 1])
+                    {
+                        int p = array[i + 1];
+                        array[i + 1] = array[i];
+                        array[i] = p;
+                    }
+                }
+            }
+            foreach (var item in array)
+            {
+                Console.Write($"{item} ");
+                Console.WriteLine();
+            }
+        }
+        public static void ArraySorting(int[] array, string descOption) //сортировка массива по убыванию
+        {
+            Random random = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(10, 100);
+                Console.Write($"{array[i]} ");
+            }
+            Console.WriteLine();
+            for (int j = 0; j < array.Length - 1; j++)
+            {
+                for (int i = 0; i < array.Length - 1 - j; i++)
+                {
+                    if (array[i] < array[i + 1])
+                    {
+                        int p = array[i + 1];
+                        array[i + 1] = array[i];
+                        array[i] = p;
+                    }
+                }
+            }
+            foreach (var item in array)
+            {
+                Console.Write($"{item} ");
+            }
+        }
+        public static void ArraySorting(int[] array, bool flag) //сортировка массива по убыванию от Вадима
+        {
+            if (flag)
+            {
+                Random random = new Random();
+                for (int i = 0; i < array.Length; i++)
+                {
+                    array[i] = random.Next(10, 100);
+                    Console.Write($"{array[i]} ");
+                }
+                Console.WriteLine();
+                for (int j = 0; j < array.Length - 1; j++)
+                {
+                    for (int i = 0; i < array.Length - 1 - j; i++)
+                    {
+                        if (array[i] < array[i + 1])
+                        {
+                            int p = array[i + 1];
+                            array[i + 1] = array[i];
+                            array[i] = p;
+                        }
+                    }
+                }
+                foreach (var item in array)
+                {
+                    Console.Write($"{item} ");
+                }
+            }
+            else ArraySorting(array);
         }
     }
 }
