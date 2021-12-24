@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using ConsoleApp1.Mylib;
 
 
 namespace ConsoleApp1

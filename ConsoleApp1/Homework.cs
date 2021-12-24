@@ -522,29 +522,23 @@ namespace ConsoleApp1
 
         public static void Homework_6_2()
         {
+
+            Admin admin = new Admin();
             
-            List<Grocery> groceryList = new List<Grocery>();
-            List<Grocery> cartList = new List<Grocery>();
-
-            List<string> klientProductList = new List<string>();
-            List<int> klientQuantityList = new List<int>();
-            List<int> klientSumList = new List<int>();
-
+            Customer customer = new Customer();
+            
             bool terminalOperation = true;
             bool adminChangeList = false;
             bool klientChoiceProduct = false;
             bool productBasket = false;
 
-            int summ = 0;
-            int klientMoney = 0;
-
             //List of products
-            Grocery.GetGroceryList(groceryList);
+            admin.GetStartProductList();
 
             //Terminal cycle
             while (terminalOperation)
             {
-                string adminOrClient = Library.GetDataQuestionST("Admin or Klient? (A/K)");
+                string adminOrClient = Library.GetDataQuestionST("Admin or customer? (A/C)");
 
                 switch (adminOrClient)
                 {
@@ -552,10 +546,12 @@ namespace ConsoleApp1
                         adminChangeList = true;
                         break;
 
-                    case "k":
+                    case "c":
                         klientChoiceProduct = true;
-                        klientMoney = Library.GetDataQuestionIN("Enter your account balance:");
-                        summ = 0;
+                
+                        customer.Money = Library.GetDataQuestionIN("Enter your account balance:");
+                        
+                                                
                         break;
 
                     default:
@@ -574,15 +570,16 @@ namespace ConsoleApp1
                         //Change the list of products
                         case "y":
                             
-                            string answerToAddOrRemove = Library.GetDataQuestionST("Do you want to add/remove grocery? (A/R)");
+                            string answerToAddOrRemove = Library.GetDataQuestionST("Do you want to add/remove products? (A/R)");
 
                             switch (answerToAddOrRemove)
                             {
                                 //Add a new product
                                 case "a":
-                                    Grocery.PrintGroceryList(groceryList);
 
-                                    int newGroceryID = groceryList.Count + 1;
+                                    admin.PrintProductList();
+
+                                    //int newGroceryID = groceryList.Count + 1;
 
                                     string newName = Library.GetDataQuestionST("Write the name of the product:");
 
@@ -590,31 +587,17 @@ namespace ConsoleApp1
 
                                     int newQuantityInStock = Library.GetDataQuestionIN("Enter a new product quantity:");
 
-                                    if (Grocery.CheckNewGrocery(groceryList, ref newName))
-                                    {
-                                        Console.WriteLine("This product is already on the list!");
-
-                                        Grocery.PrintGroceryList(groceryList);
-                                    }
-
-                                    else
-                                    {
-                                        newName = Char.ToUpper(newName[0]) + newName.Substring(1);
-
-                                        groceryList.Add(Grocery.GroceryFormation(newGroceryID, newName, newPrice, newQuantityInStock));
-
-                                        Grocery.PrintGroceryList(groceryList);
-                                    }
+                                    admin.CheckNewProduct(newName, newPrice, newQuantityInStock);
+                                    
                                     break;
 
                                 //Remove a product
                                 case "r":
-                                    Grocery.PrintGroceryList(groceryList);
+                                    admin.PrintProductList();
 
-                                    groceryList.RemoveAt(Library.GetDataQuestionIN("Enter product number:") - 1);
+                                    int numberProduct = Library.GetDataQuestionIN("Enter product number:");
 
-                                    Grocery.SortingGroceryList(groceryList);
-                                    Grocery.PrintGroceryList(groceryList);
+                                    admin.RemoveProduct(numberProduct);
                                     break;
                                 default:
                                     Console.WriteLine();
@@ -639,15 +622,15 @@ namespace ConsoleApp1
                 while (klientChoiceProduct)
                 {
                     Console.WriteLine();
-                    Console.WriteLine($"You have selected products for the amount: {summ}. You have left: {klientMoney - summ}");
+                    Console.WriteLine($"Your cart is: {customer.CartAmount}. You have left: {customer.Money - customer.CartAmount}!");
+                    customer.PrintCartList();
 
                     string answerToChangeKlienList = Library.GetDataQuestionST("Do you want to change the list of products in cart? (Y/N)");
 
                     switch(answerToChangeKlienList)
                     {
                         case "y":
-                                                
-                            int sumProduct;
+                                                      
                             int productNumber;
 
                             string addToBasket = Library.GetDataQuestionST("Do you want to add/remove a product to your cart? (A/R)");
@@ -656,41 +639,18 @@ namespace ConsoleApp1
                             {
                                 //Add product
                                 case "a":
+                                    admin.PrintProductList();
 
-                                    Grocery.PrintCartList(cartList);
-
-                                    int newCartID = cartList.Count + 1;
                                     productNumber = Library.GetDataQuestionIN("Enter product number:") - 1;
-                                    int productQuantity = Library.GetDataQuestionIN("Enter quantity:");
-                                                                       
-                                    sumProduct = productQuantity * priceList[productNumber];
+                                    double productQuantity = Library.GetDataQuestionIN("Enter quantity:");
 
-                                    summ += sumProduct;
-
-                                    //klientProductList.Add(groceryList[productNumber]);
-                                    klientQuantityList.Add(productQuantity);
-                                    klientSumList.Add(sumProduct);
-
+                                    customer.AddNewProduct(admin.productList, productNumber, productQuantity);
                                     break;
                                 //Remove product
-                                case 2:
-                                    Console.WriteLine();
-
-                                    for (int i = 0; i < klientProductList.Count; i++)
-                                    {
-                                        Console.WriteLine($"{i + 1}.{klientProductList[i]} / {klientQuantityList[i]} - {klientSumList[i]}");
-                                    }
-
-                                    Console.WriteLine();
-                                    Console.WriteLine("Enter product number:");
-                                    productNumber = int.Parse(Console.ReadLine()) - 1;
-
-                                    summ -= klientSumList[productNumber];
-
-                                    klientProductList.RemoveAt(productNumber);
-                                    klientQuantityList.RemoveAt(productNumber);
-                                    klientSumList.RemoveAt(productNumber);
-
+                                case "r":
+                                    customer.PrintCartList();
+                                    productNumber = Library.GetDataQuestionIN("Enter product number:");
+                                    customer.RemoveProduct(productNumber);
                                     break;
 
                                 //error
@@ -709,59 +669,31 @@ namespace ConsoleApp1
                         default:
                             break;
                     }
-
-
-
-                    
-
-                    
-
-                    
                 }
 
                 while (productBasket)
                 {
-                    if (klientMoney > summ)
+                    if (customer.Money > customer.CartAmount)
                     {
                         Console.WriteLine();
                         Console.WriteLine("You have selected the following products.");
                         Console.WriteLine();
 
-                        for (int i = 0; i < klientProductList.Count; i++)
-                        {
-                            Console.WriteLine($"{i + 1}.{klientProductList[i]} / {klientQuantityList[i]} - {klientSumList[i]}");
-                        }
-
-                        Console.WriteLine($"Total: {summ}");
-
+                        customer.PrintCartList();
                         productBasket = false;
 
-                        Console.WriteLine("Buy? If yes - enter 1, if no - 0.");
-                        int buy = int.Parse(Console.ReadLine());
-
+                        string buy = Library.GetDataQuestionST("Buy? (Y/N)");
                         switch (buy)
                         {
-                            case 0:
-                                klientChoiceProduct = true;
-                                break;
-
-                            case 1:
-                                Console.WriteLine();
-                                Console.WriteLine("You bought the following products.");
-                                Console.WriteLine();
-                                for (int i = 0; i < klientProductList.Count; i++)
-                                {
-                                    Console.WriteLine($"{i + 1}.{klientProductList[i]} / {klientQuantityList[i]} - {klientSumList[i]}");
-                                }
-
-                                Console.WriteLine($"Total: {summ}");
-                                Console.WriteLine();
-                                Console.WriteLine($"Your change: {klientMoney - summ}.");
-
+                            case "y":
+                                customer.Buying();
                                 terminalOperation = false;
                                 break;
 
-
+                            case "n":
+                                klientChoiceProduct = true;
+                                break;
+                            
                             //error
                             default:
                                 Console.WriteLine();
