@@ -6,23 +6,74 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите три числа");
-            int _a = int.Parse(Console.ReadLine());
-            int _b = int.Parse(Console.ReadLine());
-            int _c = int.Parse(Console.ReadLine());
+            /*ДЗ №2 задание 2
 
-            
-            int _result = _a;
+            Console.Write("Введите число");
 
-            if ((_a < _b && _b < _c) || (_a > _b && _b > _c))
+            int num = int.Parse(Console.ReadLine());
+
+
+            while (num > 1 && num % 2 == 0)
             {
-                _result = _b;
+                Console.WriteLine(2);
+                num = num / 2;
             }
-            else if ((_b < _c && _c < _a) || (_b > _c && _c > _a))
+
+            int a = 3;
+            while (num > 1)
             {
-                _result = _c;
+                while (num % a == 0)
+                {
+                    Console.WriteLine(a);
+                    num = num / a;
+                }
+                a = a + 2;
+            }*/
+
+            /*ДЗ №2 задание 1
+
+            int sum = int.Parse(Console.ReadLine());
+            int combin = 0;
+            for (int i = 0; i <= 9; i++)
+            {
+                for (int k = 0; k <= 9; k++)
+                {
+                    for (int l = 0; l <= 9; l++)
+                    {
+                        if (i + k + l == sum && i != k && k != l && i != l)
+                        {
+                            Console.WriteLine($"{i}{k}{l}");
+                            combin++;
+                        }
+                    }
+                }
             }
-            Console.WriteLine($"Среднее число   {_result}");
+            Console.WriteLine("Комбинаций=" + combin);
+            */
+
+            /*ДЗ №2 задание 1
+
+            int n = int.Parse(Console.ReadLine());
+            int max = 0;
+            int maxsum = 0;
+            for (int i = 1; i <=n; i++)
+            {
+                int a = i;
+                int sum = 0;
+                while (a>0)
+                {
+                    sum += a % 10;
+
+                    a = a / 10;
+                }
+                if (maxsum < sum)
+                {
+                    maxsum = sum;
+                    max = i;
+                }*/
+            }
         }
     }
 }
+    
+
