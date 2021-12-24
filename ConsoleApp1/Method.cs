@@ -143,7 +143,13 @@ namespace ConsoleApp1
             }
             Console.WriteLine(sum);
         }
-        public static void MultiplicationTable()
+
+        public static void SummMas(int[,] array1, int[,] array2)
+        {
+
+
+        }
+            public static void MultiplicationTable()
         {
             for (int i = 0; i <= 9; i++)
             {
@@ -154,7 +160,13 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
         }
+
+
+
+
+
     }
+
 }
     
 

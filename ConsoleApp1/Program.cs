@@ -3,52 +3,38 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-    class Program
+    public class Program
     {
 
-       
+
         static void Main(string[] args)
         {
+
+            
+                        List<Product> products = new List<Product>();
+                        Admin.AddProduct(products,"bread",20,10);
+                        Admin.AddProduct(products, "milk", 20, 5);
+
+                        Product.ShowListofProducts(products);
+
+
+                        Client.AddToCart(products, 1, 2);
+                        Client.AddToCart(products, 2, 1);
+                        Client.AddToCart(products, 1, 3);
+                        Client.AddToCart(products, 1, 1);
+                        Console.WriteLine();
+
+                        Console.WriteLine(Client.SolveCost());
+                        Console.WriteLine();
+                        Client.ShowCart();
+                        Console.WriteLine();
+                        Console.WriteLine(Client.UseCoupon());
            
-            //Сложить пересечение матриц.
-            //вывести только пересечение
-
-            int a = int.Parse(Console.ReadLine());   //2
-            int b = int.Parse(Console.ReadLine());   //5
-            int c= int.Parse(Console.ReadLine());    //3
-            int [,] array = new int [a, b];           
-            int [,] array2 = new int [b, c];          
-            Random rnd = new();
-            Random rnd2 = new();
-
-            Method.ArrayGeneration(array);
-            Console.WriteLine();
-            
-            Method.ArrayGeneration(array2);
-            Console.WriteLine();
-
-            int[,] summs = new int[a, c];
-            for (int i = 0; i < a; i++)
-            {
-                for (int j = 0; j < c; j++)
-                {
-                    summs[i,j] = array[i, j]+ array2[i, j];
-                    Console.Write($"{summs[i,j]} ");
-                }
-                Console.WriteLine();
-            }
-            
-
-
-
-
 
 
 
 
         }
-
-
     }
 
 }
