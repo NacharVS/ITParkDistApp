@@ -9,6 +9,176 @@ namespace ConsoleApp1
 {
     class Homework
     {
+        public static void Homework_2_1()
+        {
+            Console.Write("Enter the first number:");
+            int number_1 = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the second number:");
+            int number_2 = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the third number:");
+            int number_3 = int.Parse(Console.ReadLine());
+
+            int average_number = -1;
+
+            if ((number_1 > number_2 || number_1 > number_3) && (number_1 < number_2 || number_1 < number_3)) average_number = number_1;
+
+            if ((number_2 > number_1 || number_2 > number_3) && (number_2 < number_1 || number_2 < number_3)) average_number = number_2;
+
+            if ((number_3 > number_1 || number_3 > number_2) && (number_3 < number_1 || number_3 < number_2)) average_number = number_3;
+
+            if (average_number != -1) Console.WriteLine($"Average number is: {average_number}");
+
+            else Console.WriteLine("Error");
+        }
+
+        public static void Homework_2_2()
+        {
+            Console.Write("Enter a three-digit number:");
+            int number = int.Parse(Console.ReadLine());
+
+            if (number > 99 && number < 1000)
+            {
+                int even_odd = number % 2;
+                int units = number % 10;
+                int dozens = (number / 10) % 10;
+                int hundreds = number / 100;
+
+                int result;
+
+                switch (even_odd)
+                {
+                    case 0:
+                        result = hundreds + dozens + units;
+                        Console.WriteLine($"The sum of three numbers is: {result}");
+                        break;
+
+                    case 1:
+                        result = hundreds * dozens * units;
+                        Console.WriteLine($"Multiplication of three numbers is: {result}");
+                        break;
+
+                    default:
+                        Console.WriteLine("Error");
+                        break;
+                }
+
+            }
+
+            else Console.WriteLine("You entered the wrong number!");
+
+        }
+
+        public static void Homework_2_3()
+        {
+
+
+            //Output a list of shapes to the console.
+            Console.WriteLine("Select the shape number from the list:");
+            Console.WriteLine("1. square;");
+            Console.WriteLine("2. rectangle;");
+            Console.WriteLine("3. right triangle;");
+            Console.WriteLine("4. circle;");
+            Console.WriteLine("5. trapezoid.");
+
+            int numberOfShape = int.Parse(Console.ReadLine());
+            double areaOfFigure;
+
+            //Depending on the number of the figure, we calculate the area of the figure.
+            switch (numberOfShape)
+            {
+                //S square.
+                case 1:
+                    Console.WriteLine("Enter the length of the side of the square:");
+                    double sideSquare = double.Parse(Console.ReadLine());
+
+                    areaOfFigure = Math.Pow(sideSquare, 2);
+
+                    Console.WriteLine($"The area of the square with a side: {sideSquare} is: {areaOfFigure}.");
+                    break;
+
+                //S rectangle.
+                case 2:
+                    Console.WriteLine("Enter the adjacent sides of the rectangle:");
+                    double sideRectangle1 = double.Parse(Console.ReadLine());
+                    double sideRectangle2 = double.Parse(Console.ReadLine());
+
+                    areaOfFigure = sideRectangle1 * sideRectangle2;
+
+                    Console.WriteLine($"The area of the rectangle on one side: {sideRectangle1} and the other side: {sideRectangle2} is: {areaOfFigure}.");
+                    break;
+
+                //S right triangle.
+                case 3:
+                    Console.WriteLine("Enter the right triangle catheters:");
+                    double catheter1 = double.Parse(Console.ReadLine());
+                    double catheter2 = double.Parse(Console.ReadLine());
+
+                    areaOfFigure = (catheter1 * catheter2) / 2;
+
+                    Console.WriteLine($"The area of the right triangle on one catheter: {catheter1} and the other catheter: {catheter2} is: {areaOfFigure}.");
+                    break;
+
+                //S circle.
+                case 4:
+                    Console.WriteLine("Enter the radius of the circle:");
+                    double radius = double.Parse(Console.ReadLine());
+
+                    areaOfFigure = Math.PI * Math.Pow(radius, 2);
+
+                    Console.WriteLine($"The area of the circle with the radius: {radius} is: {areaOfFigure}.");
+                    break;
+
+                //S trapezoid.
+                case 5:
+                    Console.WriteLine("Enter the bases of the trapezoid:");
+                    double basesTrapezoid1 = double.Parse(Console.ReadLine());
+                    double basesTrapezoid2 = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter the height of the trapezoid:");
+                    double heightTrapezoid = double.Parse(Console.ReadLine());
+
+                    areaOfFigure = (basesTrapezoid1 + basesTrapezoid2) / 2 * heightTrapezoid;
+
+                    Console.WriteLine($"The area of a trapezoid on one base: {basesTrapezoid1}, the other base: {basesTrapezoid2} and the height: {heightTrapezoid} is: {areaOfFigure}.");
+                    break;
+
+                //Error.
+                default:
+                    Console.WriteLine("Figure number input error");
+                    break;
+            }
+        }
+
+        public static void Homework_2_4()
+        {
+            //Request data about the deposit and the number of months.
+            Console.WriteLine("Enter the deposit amount:");
+            double depositAtBeginning = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the number of months of deposit storage:");
+            int numberOfmonth = int.Parse(Console.ReadLine());
+
+            double depositAtEnd;
+
+            if (depositAtBeginning <= 0 && numberOfmonth <= 0)
+
+                if (depositAtBeginning <= 0)
+
+                    Console.WriteLine("You have entered a negative deposit!");
+
+            if (numberOfmonth <= 0)
+
+                Console.WriteLine("You entered a negative number of months!");
+
+            else
+            {
+                depositAtEnd = depositAtBeginning * Math.Pow(1 + 0.04, numberOfmonth);
+                Console.WriteLine($"The amount of the deposit after {numberOfmonth} months will become {depositAtEnd}");
+            }
+
+        }
+
         public static void Homework_3_1()
         {
             //Entering the sum of three numbers.
@@ -524,9 +694,8 @@ namespace ConsoleApp1
         {
 
             Admin admin = new Admin();
-            
             Customer customer = new Customer();
-            
+
             bool terminalOperation = true;
             bool adminChangeList = false;
             bool klientChoiceProduct = false;
@@ -548,10 +717,8 @@ namespace ConsoleApp1
 
                     case "c":
                         klientChoiceProduct = true;
-                
+
                         customer.Money = Library.GetDataQuestionIN("Enter your account balance:");
-                        
-                                                
                         break;
 
                     default:
@@ -569,7 +736,7 @@ namespace ConsoleApp1
                     {
                         //Change the list of products
                         case "y":
-                            
+
                             string answerToAddOrRemove = Library.GetDataQuestionST("Do you want to add/remove products? (A/R)");
 
                             switch (answerToAddOrRemove)
@@ -579,8 +746,6 @@ namespace ConsoleApp1
 
                                     admin.PrintProductList();
 
-                                    //int newGroceryID = groceryList.Count + 1;
-
                                     string newName = Library.GetDataQuestionST("Write the name of the product:");
 
                                     int newPrice = Library.GetDataQuestionIN("Enter a new product price:");
@@ -588,7 +753,7 @@ namespace ConsoleApp1
                                     int newQuantityInStock = Library.GetDataQuestionIN("Enter a new product quantity:");
 
                                     admin.CheckNewProduct(newName, newPrice, newQuantityInStock);
-                                    
+
                                     break;
 
                                 //Remove a product
@@ -615,7 +780,6 @@ namespace ConsoleApp1
                             Console.WriteLine("You entered the wrong answer!");
                             break;
                     }
-
                 }
 
                 //Cart selection cycle
@@ -623,15 +787,16 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine();
                     Console.WriteLine($"Your cart is: {customer.CartAmount}. You have left: {customer.Money - customer.CartAmount}!");
-                    customer.PrintCartList();
+                    //customer.PrintCartList();
 
                     string answerToChangeKlienList = Library.GetDataQuestionST("Do you want to change the list of products in cart? (Y/N)");
 
-                    switch(answerToChangeKlienList)
+                    switch (answerToChangeKlienList)
                     {
                         case "y":
-                                                      
+
                             int productNumber;
+                            double productQuantity;
 
                             string addToBasket = Library.GetDataQuestionST("Do you want to add/remove a product to your cart? (A/R)");
 
@@ -640,17 +805,17 @@ namespace ConsoleApp1
                                 //Add product
                                 case "a":
                                     admin.PrintProductList();
-
-                                    productNumber = Library.GetDataQuestionIN("Enter product number:") - 1;
-                                    double productQuantity = Library.GetDataQuestionIN("Enter quantity:");
-
+                                    productNumber = Library.GetDataQuestionIN("Enter product number:");
+                                    productQuantity = Library.GetDataQuestionIN("Enter quantity:");
                                     customer.AddNewProduct(admin.productList, productNumber, productQuantity);
+                                    customer.PrintCartList();
                                     break;
                                 //Remove product
                                 case "r":
                                     customer.PrintCartList();
                                     productNumber = Library.GetDataQuestionIN("Enter product number:");
-                                    customer.RemoveProduct(productNumber);
+                                    customer.RemoveProduct(admin.productList, productNumber);
+                                    customer.PrintCartList();
                                     break;
 
                                 //error
@@ -662,55 +827,93 @@ namespace ConsoleApp1
                             break;
 
                         case "n":
-                            klientChoiceProduct = false;
+                            //klientChoiceProduct = false;
                             productBasket = true;
                             break;
 
                         default:
                             break;
                     }
-                }
 
-                while (productBasket)
-                {
-                    if (customer.Money > customer.CartAmount)
+                    while (productBasket)
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("You have selected the following products.");
-                        Console.WriteLine();
-
-                        customer.PrintCartList();
-                        productBasket = false;
-
-                        string buy = Library.GetDataQuestionST("Buy? (Y/N)");
-                        switch (buy)
+                        if (customer.Money > customer.CartAmount)
                         {
-                            case "y":
-                                customer.Buying();
-                                terminalOperation = false;
-                                break;
+                            Console.WriteLine();
+                            Console.WriteLine("You have selected the following products.");
+                            Console.WriteLine();
 
-                            case "n":
-                                klientChoiceProduct = true;
-                                break;
-                            
-                            //error
-                            default:
-                                Console.WriteLine();
-                                Console.WriteLine("You entered the wrong answer.");
-                                break;
+                            customer.PrintCartList();
+                            productBasket = false;
+
+                            string buy = Library.GetDataQuestionST("Buy? (Y/N)");
+                            switch (buy)
+                            {
+                                case "y":
+
+                                    string buyDiscount = Library.GetDataQuestionST("Apply Discount Coupon 10%? (Y/N)");
+
+                                    switch (buyDiscount)
+                                    {
+                                        case "y":
+                                            customer.BuyingDiscount();
+                                            terminalOperation = false;
+                                            klientChoiceProduct = false;
+                                            break;
+
+                                        case "n":
+                                            customer.Buying();
+                                            terminalOperation = false;
+                                            klientChoiceProduct = false;
+                                            break;
+
+
+                                        default:
+                                            Console.WriteLine();
+                                            Console.WriteLine("You entered the wrong answer!");
+                                            break;
+                                    }
+
+                                    break;
+
+                                case "n":
+                                    klientChoiceProduct = true;
+                                    break;
+
+                                //error
+                                default:
+                                    Console.WriteLine();
+                                    Console.WriteLine("You entered the wrong answer.");
+                                    break;
+                            }
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("You don't have enough money!");
+                            productBasket = false;
+                            klientChoiceProduct = true;
                         }
                     }
 
-                    else
-                    {
-                        Console.WriteLine("You don't have enough money!");
-                        productBasket = false;
-                        klientChoiceProduct = true;
-                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
+
+                
             }
-            
+
         }
     }
 }

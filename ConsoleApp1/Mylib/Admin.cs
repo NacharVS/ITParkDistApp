@@ -30,9 +30,11 @@ namespace ConsoleApp1.Mylib
 
         public void RemoveProduct(int index)
         {
-            if (index < productList.Count())
+            index -= 1;
+
+            if ((index) < productList.Count())
             {
-                productList.RemoveAt(index - 1);
+                productList.RemoveAt(index);
                 PrintProductList();
             }
             else

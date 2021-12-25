@@ -11,7 +11,6 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Homework.Homework_6_2();
-
         }
 
 
