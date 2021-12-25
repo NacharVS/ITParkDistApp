@@ -7,8 +7,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            List<string> products = new List<string>() { "Bread", "Milk", "Butter", "Eggs", "Meat", "Juice", "Gum" };
-            List<double> prices = new List<double>() { 40, 50, 120, 80, 350, 95, 25 };
+            List<Product> products = new List<Product>();
+
+            products.Add(new Product("Bread", 40, 50));
+            products.Add(new Product("Milk", 50, 50));
+            products.Add(new Product("Butter", 120, 50));
+            products.Add(new Product("Eggs", 80, 50));
+            products.Add(new Product("Meat", 350, 50));
+            products.Add(new Product("Juice", 95, 50));
+            products.Add(new Product("Gum", 25, 50));
 
             List<double> cart = new List<double>() { 0 };
             Console.WriteLine("Enter <C> to login as client");
@@ -18,96 +25,40 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Enter how much money you have");
                 double money = double.Parse(Console.ReadLine());
+                Product.ShowListOfProducts(products);
+                Console.Write("make Ur choice(1, 2, 3...):");
                 while (true)
-                {
-                    Console.WriteLine("Our list:");
-                    for (int i = 0; i < products.Count; i++)
+                {              
                     {
-                        Console.WriteLine($"{i + 1}. {products[i]} {prices[i]}");
+                        string exit = "Y";
+                        while (exit != "N")
+                        {
+                            int clientsChoice = int.Parse(Console.ReadLine());
+                            Console.Write("Enter count:");
+                            int countOfProduct = int.Parse(Console.ReadLine());
+                            Console.WriteLine("something else?(Y/N)");
+                            exit = Console.ReadLine();
+                            Client.AddToCart(products, clientsChoice, countOfProduct);
+                            Client.ShowCart();
+                            Console.WriteLine($"Shoping summ: {Client.SolveCost()}");
+                            if (exit == "N")
+                            {
+                                break;
+                            }
+                        }
                     }
-                    Console.Write("make Ur choice(1, 2, 3...):");
-                    string clientsChoice = Console.ReadLine();
-                    switch (clientsChoice)
+                    if (Client.SolveCost() > money) ;
                     {
-                        case "1":
-                            {
-                                Console.Write("Enter count of Bread:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[0] * countOfProduct);
-                            }
-                            break;
-                        case "2":
-                            {
-                                Console.Write("Enter count of Milk:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[1] * countOfProduct);
-                            }
-                            break;
-                        case "3":
-                            {
-                                Console.Write("Enter count of Butter:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[2] * countOfProduct);
-                            }
-                            break;
-                        case "4":
-                            {
-                                Console.Write("Enter count of Eggs:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[3] * countOfProduct);
-                            }
-                            break;
-                        case "5":
-                            {
-                                Console.Write("Enter count of Meat:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[4] * countOfProduct);
-                            }
-                            break;
-                        case "6":
-                            {
-                                Console.Write("Enter count of Juice:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[5] * countOfProduct);
-                            }
-                            break;
-                        case "7":
-                            {
-                                Console.Write("Enter count of Gum:");
-                                int countOfProduct = int.Parse(Console.ReadLine());
-                                cart.Add(prices[6] * countOfProduct);
-                            }
-                            break;
+                        Console.WriteLine("Not enough!");
                     }
-                    Console.WriteLine("something else?(Y/N)");
-                    clientsChoice = Console.ReadLine();
-                    if (clientsChoice == "N")
-                    {
-                        break;
-                    }
-                }
-                double summ = 0;
-                for (int i = 0; i < cart.Count; i++)
-                {
-                    summ += cart[i];
-                }
-                {
-                    Console.WriteLine($"Amount: {summ}");
-                    if (summ <= money)
-                        summ = money - summ;
-                    Console.WriteLine($"Your balance: {summ}");
-                }
-
+                }    
             }
             else
             if (s == "A")
             {
                 Console.WriteLine("Admin");
                 Console.WriteLine("Products list:");
-                for (int i = 0; i < products.Count; i++)
-                {
-                    Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]}");
-                }
+                Product.ShowListOfProducts(products);
                 Console.Write("Add or Delete?(+/-): ");
                 string editMode = Console.ReadLine();
                 switch (editMode)
@@ -117,30 +68,24 @@ namespace ConsoleApp1
                             string exit = "Y";
                             while (exit != "N")
                             {
-
                                 Console.Write("The Products name: ");
                                 string newProduct = Console.ReadLine();
-                                products.Add(newProduct);
                                 Console.Write($"Price '{newProduct}': ");
-                                double AddNewProduct = double.Parse(Console.ReadLine());
-                                prices.Add(AddNewProduct);
+                                double priceNewProduct = double.Parse(Console.ReadLine());
+                                Console.Write($"How much? '{newProduct}': ");
+                                double countNewProduct = double.Parse(Console.ReadLine());
+                                Admin.AddProduct(products, newProduct, priceNewProduct, countNewProduct);
+                                Console.WriteLine("New List:");
+                                Product.ShowListOfProducts(products);
                                 Console.Write("Сontinue adding?(Y/N): ");
                                 exit = Console.ReadLine();
-                                if (exit == "N")
-                                {
-                                    Console.WriteLine("New Products list:");
-                                    for (int i = 0; i < products.Count; i++)
-                                    {
-                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]}");
-                                    }
-                                    break;
-                                }
-                                else
                                 if (exit == "Y") continue;
+                                if (exit == "N") break;
                                 else Console.WriteLine("Incorrect input");
                             }
+                            break;   
                         }
-                        break;
+                        
                     case "-":
                         {
                             string exit = "Y";
@@ -148,30 +93,18 @@ namespace ConsoleApp1
                             {
                                 Console.Write("What to delete?: ");
                                 int delProductNumber = int.Parse(Console.ReadLine());
-                                string delProduct = products[delProductNumber - 1];
-                                int indexRemove = products.IndexOf(delProduct);
-                                products.Remove(delProduct);
-                                prices.Remove(indexRemove);
+                                Admin.RemoveProduct(products, delProductNumber);
+                                Product.ShowListOfProducts(products);
                                 Console.Write("Continue to delete?(Y/N): ");
                                 exit = Console.ReadLine();
-                                if (exit == "N")
-                                {
-                                    Console.WriteLine("New products list :");
-                                    for (int i = 0; i < products.Count; i++)
-                                    {
-                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]}");
-                                    }
-                                    break;
-                                }
-                                else
                                 if (exit == "Y") continue;
-                                else Console.Write("Incorrect input");
+                                if (exit == "N") break;
+                                else Console.WriteLine("Incorrect input");
                             }
                         }
                         break;
-                }
+                }    
             }
-            else Console.WriteLine("Incorrect input");
         }
     }
 }
