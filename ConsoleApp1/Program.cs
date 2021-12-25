@@ -7,7 +7,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Homework5.Exercise1.Homework5.Exercise1();
+            Homework5.Exercise1.Homework5.Exercise1();
             //Homework5.Exercise2.Homework5.Shop();
 
 
