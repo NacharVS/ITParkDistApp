@@ -6,60 +6,47 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static int Summ(params int[] numbers)
-        {
-            int summ = 0;
-           foreach (int item in numbers)
-            {
-                summ += item;
-                Console.WriteLine(summ);
-            }
-            return summ;
-            
-        }
-
-        static void Summ(int a, int b)
-        {
-            Console.WriteLine($"summ int {a + b}");
-        }
-
-        static void Summ(double a, double b)
-        {
-            Console.WriteLine($"summ double {a + b}");
-        }
-        static void Summ(long a, long b)
-        {
-            Console.WriteLine($"summ long {a + b}");
-        }
-        static void Summ(string a, string b)
-        {
-            Console.WriteLine($"concat string {a + b}");
-        }
-
-        static int Summ1(int a, int b)
-        {
-            return a + b;
-
-        }
+        
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Rows of mass1: ");
-            int row1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Columns of mass1: ");
-            int column1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Rows of mass2: ");
-            int row2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Columns of mass2: ");
-            int column2 = int.Parse(Console.ReadLine());
+            List<Product> products = new List<Product>();
+            Admin.AddProduct(products, "bread", 20, 10);
+            Admin.AddProduct(products, "milk", 20, 5);
+            products.Add(new Product("Bread", 42, 20));
+            products.Add(new Product("Butter", 120, 23));
+            products.Add(new Product("Yoghurt", 36, 100));
+            products.Add(new Product("Milk", 47, 30));
+            products.Add(new Product("Coffee", 300, 50));
 
-            int[,] mass1 = new int[row1, column1];
-            ArrayMethods.ArrayGeneration2(row1, column1, mass1);
+            Product.ShowListofProducts(products);
+
+            Client.AddToCart(products, 1, 2);
+            Client.AddToCart(products, 2, 2);
+            Client.AddToCart(products, 2, 1);
+            Client.AddToCart(products, 1, 2);
+            Client.AddToCart(products, 1, 1);
             Console.WriteLine();
-            Console.WriteLine();
-            int[,] mass2 = new int[row2, column2];
-            ArrayMethods.ArrayGeneration2(row2, column2, mass2);
-        
+
+            Console.WriteLine(Client.SolveCost());
+
+
+            //Console.WriteLine("Rows of mass1: ");
+            //int row1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Columns of mass1: ");
+            //int column1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Rows of mass2: ");
+            //int row2 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Columns of mass2: ");
+            //int column2 = int.Parse(Console.ReadLine());
+
+            //int[,] mass1 = new int[row1, column1];
+            //ArrayMethods.ArrayGeneration2(row1, column1, mass1);
+            //Console.WriteLine();
+            //Console.WriteLine();
+            //int[,] mass2 = new int[row2, column2];
+            //ArrayMethods.ArrayGeneration2(row2, column2, mass2);
+
             //Shop.ShopWork();
         }
     }
@@ -68,7 +55,7 @@ namespace ConsoleApp1
 /*
 //массивы
 int[] array = new int[10];
-int max = 10;
+41int max = 10;
 int min = 100;
 
 Random random = new Random();
@@ -89,7 +76,7 @@ for(int j = 0; j < array.Length - 1; j++)
         int buffer;
         if (array[i] >= array[i + 1])
         {
-            buffer = array[i + 1];
+  041          buffer = array[i + 1];
             array[i + 1] = array[i];
             array[i] = buffer;
         }
@@ -110,7 +97,7 @@ Console.WriteLine($"min = {min}, max = {max}");
 Console.WriteLine("введите количество столбцов");
 int a = int.Parse(Console.ReadLine());
 Console.WriteLine("введите количество строк");
-int b = int.Parse(Console.ReadLine());
+int b041 = int.Parse(Console.ReadLine());
 int[,] array2 = new int[a, b];
 int summ = 0;
 int[] sumRow = new int[b];
@@ -131,7 +118,7 @@ for(int i = 0; i < array2.GetLength(1); i++)
 for (int j = 0; j < sumRow.Length - 1; j++)
 {
     for (int i = 0; i < sumRow.Length - 1 - j; i++)
-    {
+    {041
         int buffer;
         if (sumRow[i] >= sumRow[i + 1])
         {
@@ -152,7 +139,7 @@ foreach (int item in sumRow)
 
 /*
 //Combinations of 3 digits
-Console.WriteLine("Комбинации цифр для кодового замка. 3 цифры:");
+Console.041WriteLine("Комбинации цифр для кодового замка. 3 цифры:");
 Console.WriteLine("Enter the sum of digits: ");
 int summ = int.Parse(Console.ReadLine());
 int combinations = 0;
@@ -173,7 +160,7 @@ if (summ >= 3 & summ <= 24)     //проверка 0+1+2 - мин, 7+8+9 - ма�
 
             }
 
-        }
+        }041
     }
     Console.WriteLine($"The sum of digits is {summ}");
     Console.WriteLine($"count {combinations}");
@@ -194,7 +181,7 @@ Console.Write($"{number}: ");
 while(number%2 < 1)
 {
     number = number / 2;
-    Console.Write(" 2 ");
+    Console.041Write(" 2 ");
 }
 while (number % 3 < 1)
 {
@@ -215,7 +202,7 @@ if(number > 1) Console.Write(number);
 Console.WriteLine();
 Console.WriteLine();
 
-//MaxSum of digits
+//MaxSum of dig041its
 Console.WriteLine("enter number ");
 int number1 = int.Parse(Console.ReadLine());
 int sumDigit = 0;
@@ -236,7 +223,7 @@ for(int i = 1; i <= number1; i++)
         maxSumDigit = sumDigit;
         numberResult = i;
     }
-    sumDigit = 0;
+    sumDigit = 0;041
 }
 
 Console.WriteLine($"Number {numberResult}  Sum of digits is: {maxSumDigit}");
@@ -257,7 +244,7 @@ while (n > 0)
 while (number1 > 0)
 {
     reverseDigit = reverseDigit + number1 % 10 * Math.Pow(10, n1 - 1);
-    n1 = n1 - 1; 
+    n1 = n1 - 1; 041
     number1 = number1 / 10;
 
 }
@@ -278,7 +265,7 @@ Console.WriteLine($"Sum of digit is: {sumDigit}");
 //степень
 Console.WriteLine("enter a ");
 int a = int.Parse(Console.ReadLine());
-Console.WriteLine("enter b ");
+Console.WriteLine("e041nter b ");
 int b = int.Parse(Console.ReadLine());
 int result = a;
 for (int i = b; i > 1; i--)
@@ -299,7 +286,7 @@ Console.WriteLine($"The interest is {interest} per mounth");
 for (int i = mounth; i > 0; i--)
 {
     sum = sum * (1 + interest/100);
-}
+}041
 Console.WriteLine($"The sum with interest is: {sum}");
 */
 
@@ -320,7 +307,7 @@ else if (digit3 > digit1 & digit3 < digit2 | digit3 > digit2 & digit3 < digit1)
     Console.WriteLine($"The Middle digit is {digit3}");
 else Console.WriteLine("There is no correct middle digit among these digits");
 Console.WriteLine();
-
+041
 //ThreeDigitNumber
 Console.WriteLine ("Please enter three-digit number ");
 int threeDigitNumber = int.Parse (Console.ReadLine());
