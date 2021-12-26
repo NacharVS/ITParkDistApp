@@ -12,9 +12,12 @@ namespace ConsoleApp1
         {
             //26.12.21: 8 лекция
             Peasant peasant1 = new Peasant("Ivan");
-            WathingTower tower = new WathingTower();
-            peasant1.Work();
-            tower.Observe();
+            //WathingTower tower = new WathingTower();
+            Soldier soldier = new Soldier("Rodion");
+            soldier.AttackPeasant(peasant1);
+            peasant1.Move
+            //peasant1.Work();
+            //tower.Observe();
             //-------------------------------------------------------------------
             //List<Product> products=new List<Product>();
             //Admin.A
