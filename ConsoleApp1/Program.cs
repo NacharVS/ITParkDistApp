@@ -21,20 +21,20 @@ namespace ConsoleApp1
 
             Product.ShowListofProducts(products);
             Console.WriteLine();
-            
+            while (true)
+            {
                 Console.WriteLine("Do you want to log in as a client(C) or administrator(A)? A/C, no- exiting the application");
                 string choice = Console.ReadLine();
                 choice = choice.ToLower();
                 if (choice == "c")
                 {
                     Console.WriteLine("Greetings, client.");
-               
-                Console.Write("Enter the number of currency units: ");
+
+                    Console.Write("Enter the number of currency units: ");
                     double limit = double.Parse(Console.ReadLine());
                     while (true)
                     {
-                    
-                    Console.WriteLine("Enter the number of the selected item: ");
+                        Console.WriteLine("Enter the number of the selected item: ");
                         int numberInListC = int.Parse(Console.ReadLine());
                         Console.WriteLine("Enter the quantity of the selected item: ");
                         double count = int.Parse(Console.ReadLine());
@@ -42,11 +42,12 @@ namespace ConsoleApp1
                         Console.WriteLine("Do you want to continue choosing products? (Yes) Or remove some of the products from the list? (Delete) Or pay for the item (s)? (Not)");
                         string choice4 = Console.ReadLine();
                         choice4 = choice4.ToLower();
-                    if (choice4 == "delete")
-                        Console.WriteLine("Select the product number you want to remove from the list:");
-                    int numberInList = int.Parse(Console.ReadLine());
-                    Client.RemoveCart(products, numberInList);
-                    
+                        if (choice4 == "delete")
+                        {
+                            Console.WriteLine("Select the product number you want to remove from the list:");
+                            int numberInList = int.Parse(Console.ReadLine());
+                            Client.RemoveCart(products, numberInList);
+                        }
                         if (choice4 == "no")
                             break;
                     }
@@ -118,9 +119,9 @@ namespace ConsoleApp1
 
                     }
                 }
-                
 
 
+            }
             
          
         }
