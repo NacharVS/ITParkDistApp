@@ -9,8 +9,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Peasant peasant1 = new Peasant("Ivan");
-
+            WathingTower tower = new WathingTower();
             peasant1.Work();
+            tower.Observe();
             
         }
  

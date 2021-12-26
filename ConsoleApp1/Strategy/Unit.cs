@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
@@ -17,6 +13,7 @@ namespace ConsoleApp1.Strategy
             this.name = name;
             this.health = health;
             this.armor = armor;
+            Creation();
         }
 
         public void Creation()
@@ -25,7 +22,7 @@ namespace ConsoleApp1.Strategy
         }
 
         public void Termination()
-        {
+        {          
             Console.WriteLine($"{name} is terminated");
         }
     }

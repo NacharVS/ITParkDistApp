@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
@@ -11,7 +7,7 @@ namespace ConsoleApp1.Strategy
         public int CarryWeight;
 
         public Peasant(string name) : base(name, 30, 0, "Worker", 4)
-        {
+        {           
             CarryWeight = 100;
         }
 
