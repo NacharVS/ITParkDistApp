@@ -18,19 +18,34 @@ namespace ConsoleApp1
             //peasant1.Move
             //peasant1.Work();
             //tower.Observe();
+            //Random rnd = new Random();
+            //Peasant peasant1 = new Peasant("Ivan");
+            //BattleUnit soldier = new BattleUnit("Rodion");
+            //soldier.Upgrade();
+            //peasant1.Move();
+            //soldier.AttackPeasant(peasant1, rnd);
+            //peasant1.Move();
+            //soldier.AttackPeasant(peasant1, rnd);
+            //soldier.AttackPeasant(peasant1, rnd);
+            //soldier.AttackPeasant(peasant1, rnd);
+            //soldier.AttackPeasant(peasant1, rnd);
+            //soldier.AttackPeasant(peasant1, rnd);
+            //peasant1.Move();
             Random rnd = new Random();
             Peasant peasant1 = new Peasant("Ivan");
-            Soldier soldier = new Soldier("Rodion");
-            soldier.Upgrade();
-            peasant1.Move();
-            soldier.AttackPeasant(peasant1, rnd);
-            peasant1.Move();
-            soldier.AttackPeasant(peasant1, rnd);
-            soldier.AttackPeasant(peasant1, rnd);
-            soldier.AttackPeasant(peasant1, rnd);
-            soldier.AttackPeasant(peasant1, rnd);
-            soldier.AttackPeasant(peasant1, rnd);
-            peasant1.Move();
+            Archer archer = new Archer("Legolas");
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
             //-------------------------------------------------------------------
             //List<Product> products=new List<Product>();
             //Admin.A

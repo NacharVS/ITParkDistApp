@@ -11,19 +11,29 @@ namespace ConsoleApp1
         public string productName;
         public double price;
         public double countOfProduct;
-        public string shop;
-        public double 
-        
+
+        public Product(string productName, double price)
+        {
+            this.productName = productName;
+            this.price = price;
+        }
+
         public Product(string productName, double price, double countOfProduct)
         {
-            productName = productName;
-            price = price;
-            countOfProduct = countOfProduct;
-            shop = "Albatros";
+            this.productName = productName;
+            this.price = price;
+            this.countOfProduct = countOfProduct;
         }
-        public Product()
-        {
 
+
+        public static void ShowListofProducts(List<Product> productsParam)
+        {
+            int n = 1;
+            foreach (var item in productsParam)
+            {
+                Console.WriteLine($"{n}. product: {item.productName} - price: {item.price}");
+                n++;
+            }
         }
     }
 }
