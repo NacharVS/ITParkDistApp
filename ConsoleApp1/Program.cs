@@ -46,6 +46,13 @@ namespace ConsoleApp1
             peasant1.Info();
             archer.RangeAttack(peasant1, rnd);
             peasant1.Info();
+            //ДЗ
+            //HEALER
+            // 1.Добавить методы лечения юнитов для класса Healer
+            // +порог лечения, ресурс лечения (мана), кол-во лечения
+            // 2.добавить метод починки зданий для классов Peasant
+            // 3. Добавить методы лечения юнитов для класса hospital
+
             //-------------------------------------------------------------------
             //List<Product> products=new List<Product>();
             //Admin.A

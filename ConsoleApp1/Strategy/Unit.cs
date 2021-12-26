@@ -25,6 +25,7 @@ namespace ConsoleApp1.Strategy
         {
             Console.WriteLine($"{name} is terminated");
         }
+
         public void Info()
         {
             Console.WriteLine($"{name} {health}");
