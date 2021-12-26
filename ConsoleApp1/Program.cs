@@ -8,8 +8,12 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            List<Product> products=new List<Product>();
-            Admin.A
+            //26.12.21: 8 лекция
+            Peasant peasant1 = new Peasant("Ivan");
+            WathingTower tower = new WathingTower();
+            //-------------------------------------------------------------------
+            //List<Product> products=new List<Product>();
+            //Admin.A
             //List<Product>products=new List<Product>();
             //List<Product> cart = new List<Product>();
             //string name = Console.ReadLine();
