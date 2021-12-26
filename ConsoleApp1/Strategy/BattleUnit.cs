@@ -7,10 +7,10 @@ namespace ConsoleApp1.Strategy
         public int minDamage;
         public int maxDamage;
 
-        public BattleUnit(string name) : base(name, 60, 5, "Soldier", 5)
+        public BattleUnit(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam)
         {
-            minDamage = 2;
-            maxDamage = 7;
+            minDamage = min;
+            maxDamage = max;
         }
 
         public void MleeAttack(Peasant peasant, Random rnd)
@@ -20,9 +20,10 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
             if (peasant.health <= 0)
                 peasant.Termination();
+
         }
 
-        public void AttackSoldier()
+        public void Attack(BattleUnit soldier, Random rnd)
         {
 
         }
