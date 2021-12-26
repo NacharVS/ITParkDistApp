@@ -7,67 +7,43 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Products one = new Products();
-            //one.name = "Помидоры";
-            //one.price = 130;
-            //one.quantity = 400;
+            List<Product> products = new List<Product>();
+            products.Add(new Product("Bread", 42, 20));
+            products.Add(new Product("Butter", 120, 23));
+            products.Add(new Product("Yoghurt", 36, 100));
+            products.Add(new Product("Milk", 47, 30));
+            products.Add(new Product("Coffee", 300, 50));
 
-            //Products two = new Products();
-            //two.name = "Бананы";
-            //two.price = 70;
-            //two.quantity = 200;
+            Product.ShowListofProducts(products);
 
-            //two.Product();
+            Client.AddToCart(products, 2, 2);
+            Client.AddToCart(products, 2, 1);
+            Client.AddToCart(products, 3, 2);
+            Client.AddToCart(products, 3, 1);
+            Client.AddToCart(products, 3, 1);
+            Client.AddToCart(products, 5, 1);
+            Client.AddToCart(products, 5, 2);
+            Client.AddToCart(products, 4, 1);
+            Client.AddToCart(products, 1, 4);
 
-            int[,] matrix = new int[10, 10];
-            ArrayOperations.ArrayGeneration(matrix);
+            Client.ShowCart();
 
-            SummID[] summIDs = new SummID[10];
-            for (int i = 0; i < summIDs.Length; i++)
+            Console.WriteLine(Client.SolveCost());
+
+            Console.WriteLine("Применить купон?  (y/n)");
+            string choice = Console.ReadLine();
+            if (choice == "y")
             {
-                summIDs[i] = new SummID();
+                Console.WriteLine($"Итоговая стоимость - {Client.UseCoupon()}");
             }
-            for (int i = 0; i < 10; i++)
+            else
             {
-                summIDs[0].summInCurrentrow += matrix[0, i];
-                summIDs[0].rowId = 1;
-            } // тут мы заполнили первый элемент, посчитали сумму первой строчки, чтобы в следующем цикле было с чем сравнивать, соответственно дальше идём со следующей строки
-
-            for (int i = 1; i < 10; i++)
-            {
-                // создаём переменную, чтобы в неё суммировать значерия в строке
-                SummID sum = new SummID
-                {
-                    summInCurrentrow = 0, // для суммирования
-                    rowId = i + 1 // нумерация в массиве с 0, а номер строки это +1
-                };
-
-                for (int j = 0; j < 10; j++) // идём по строчке
-                {
-                    sum.summInCurrentrow += matrix[i, j]; // просуммировали строку и записали
-                }
-
-                for (int k = 0; k < i; k++) // тут идём по массиву сумм и сравниваем значения с тем, что посчитали для текущей i строки
-                {
-                    if (sum.summInCurrentrow < summIDs[k].summInCurrentrow) // если текущая меньше, то сдвигаем
-                    {
-                        for (int l = i; l > i; l--)
-                        {
-                            summIDs[l] = summIDs[l - 1];
-                        }
-                    }
-                    else // если нет, то записываем последней
-                    {
-                        summIDs[k + 1] = sum;
-                    }
-                   
-                }
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(summIDs[i].rowId);
+                Console.WriteLine($"Итоговая стоимость - {Client.SolveCost()}");
             }
         }
+ 
+
+
     }
 }
 
