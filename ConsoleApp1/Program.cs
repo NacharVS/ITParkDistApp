@@ -8,11 +8,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Random rnd = new Random();
             Peasant peasant1 = new Peasant("Ivan");
-            WathingTower tower = new WathingTower();
-            peasant1.Work();
-            tower.Observe();
-            
+            Soldier soldier = new Soldier("Rodion");
+            soldier.Upgrade();
+            peasant1.Move();
+            soldier.AttackPeasant(peasant1, rnd);
+            peasant1.Move();
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            peasant1.Move();
+
         }
  
 
