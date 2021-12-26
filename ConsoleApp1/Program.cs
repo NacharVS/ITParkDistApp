@@ -17,15 +17,14 @@ namespace ConsoleApp1
             peasant1.Info();
             archer.RangeAttack(peasant1, rnd);
             peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
+
+
+            // 1. Добавить методы лечения юнитов для класса Healer
+            // 2. Добавить методы починки зданий для класса Peasant
+            // 3. Добавить методы лечения юнитов для класса hospital
 
         }
- 
+
 
 
     }
