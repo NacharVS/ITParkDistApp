@@ -2,18 +2,18 @@
 
 namespace ConsoleApp1.Strategy
 {
-    class Soldier : MovableUnits
+    class BattleUnit : MovableUnits
     {
         public int minDamage;
         public int maxDamage;
 
-        public Soldier(string name) : base(name, 60, 5, "Soldier", 5)
+        public BattleUnit(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam)
         {
-            minDamage = 2;
-            maxDamage = 7;
+            minDamage = min;
+            maxDamage = max;
         }
 
-        public void AttackPeasant(Peasant peasant, Random rnd)
+        public void MleeAttack(Peasant peasant, Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
             peasant.health -= currentDamage;
@@ -23,7 +23,7 @@ namespace ConsoleApp1.Strategy
 
         }
 
-        public void AttackSoldier()
+        public void Attack(BattleUnit soldier, Random rnd)
         {
 
         }
