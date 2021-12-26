@@ -6,11 +6,11 @@ namespace ConsoleApp1.Strategy
     {
         public WathingTower() : base("Tower", 100, 20)
         {
-
         }
+
         public void Observe()
         {
-            Console.WriteLine($"{name} Is Observing. Statement {wall}, {health}, {armor}");
+            Console.WriteLine($"{name} is Observing. Statement {wall}, {health}, {armor}");
         }
     }
 }

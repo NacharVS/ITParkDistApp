@@ -5,7 +5,7 @@ namespace ConsoleApp1.Strategy
     abstract class Unit
     {
         public string name;
-        public int health;
+        public double health;
         public int armor;
 
         protected Unit(string name, int health, int armor)

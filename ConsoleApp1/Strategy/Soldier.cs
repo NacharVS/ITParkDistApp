@@ -6,29 +6,31 @@ namespace ConsoleApp1.Strategy
     {
         public int minDamage;
         public int maxDamage;
+
         public Soldier(string name) : base(name, 60, 5, "Soldier", 5)
         {
             minDamage = 2;
             maxDamage = 7;
         }
-        public void AttackPeasant()
+
+        public void AttackPeasant(Peasant peasant, Random rnd)
         {
-            Random rnd = new Random();
-            currentDamage = Convert.ToDouble((rnd.Next(minDamage, maxDamage)));
-            //double currentDamage= new Random().Next(minDamage, maxDamage + 1) - Peasant.armor * 0.1;
+            double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
             peasant.health -= currentDamage;
-            Console.WriteLine($"{name} attack {Peasant.name} with {currentDamage} ");
-            if (Peasant.health <= 0)
-                Peasant.Termination();
-            Console.WriteLine();
+            Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
+            if (peasant.health <= 0)
+                peasant.Termination();
+
         }
+
         public void AttackSoldier()
         {
 
         }
+
         public void Upgrade()
         {
-            if(lvl==1)
+            if (lvl == 0)
             {
                 minDamage += 1;
                 maxDamage += 2;

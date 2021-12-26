@@ -11,13 +11,26 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             //26.12.21: 8 лекция
-            Peasant peasant1 = new Peasant("Ivan");
+            //Peasant peasant1 = new Peasant("Ivan");
             //WathingTower tower = new WathingTower();
-            Soldier soldier = new Soldier("Rodion");
-            soldier.AttackPeasant(peasant1);
-            peasant1.Move
+            //Soldier soldier = new Soldier("Rodion");
+            //soldier.AttackPeasant(peasant1);
+            //peasant1.Move
             //peasant1.Work();
             //tower.Observe();
+            Random rnd = new Random();
+            Peasant peasant1 = new Peasant("Ivan");
+            Soldier soldier = new Soldier("Rodion");
+            soldier.Upgrade();
+            peasant1.Move();
+            soldier.AttackPeasant(peasant1, rnd);
+            peasant1.Move();
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            soldier.AttackPeasant(peasant1, rnd);
+            peasant1.Move();
             //-------------------------------------------------------------------
             //List<Product> products=new List<Product>();
             //Admin.A
