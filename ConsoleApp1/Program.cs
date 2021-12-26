@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using ConsoleApp1.Strategy;
+
 namespace ConsoleApp1
 {
     class Program
@@ -11,6 +13,8 @@ namespace ConsoleApp1
             //26.12.21: 8 лекция
             Peasant peasant1 = new Peasant("Ivan");
             WathingTower tower = new WathingTower();
+            peasant1.Work();
+            tower.Observe();
             //-------------------------------------------------------------------
             //List<Product> products=new List<Product>();
             //Admin.A

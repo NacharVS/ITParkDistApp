@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1
+﻿namespace ConsoleApp1.Strategy
 {
-    internal class Buildings: Unit;
-           {
+    class Buildings : Unit
+    {
         public int wall;
-        public Buildings(String name, int health, )
 
+        public Buildings(string name, int health, int armor) : base(name, health, armor)
+        {
+            wall = health;
+        }
     }
 }
