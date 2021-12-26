@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     public class Client
     {
-        public static List<Product> cart = new List<Product>();
+       public static List<Product> cart = new List<Product>();
 
         public static void AddToCart(List<Product> productsList, int numberInList, double count)
         {
@@ -32,6 +32,10 @@ namespace ConsoleApp1
 
         }
 
+        public static void RemoveCart(List<Product> productsList, int numberInList)
+        {
+            productsList.RemoveAt(numberInList - 1);
+        }
         public static void ShowCart()
         {
             foreach (var item in cart)
@@ -63,6 +67,8 @@ namespace ConsoleApp1
             
             // снижает общую стоимость на 10%
         }
+       
+
 
     }
 }

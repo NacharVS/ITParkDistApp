@@ -34,10 +34,10 @@ namespace ConsoleApp1
             
         }
 
-        public static void ShowListofProducts(List<Product> products)
+        public static void ShowListofProducts(List<Product> productsParam)
         {
             int n = 1;
-            foreach (var item in products)
+            foreach (var item in productsParam)
             {
                 Console.WriteLine($"{n}. product: {item.productName} - price: {item.price}");
                 n++;
