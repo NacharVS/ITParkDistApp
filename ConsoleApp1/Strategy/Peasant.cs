@@ -2,18 +2,19 @@
 
 namespace ConsoleApp1.Strategy
 {
-    class Peasant : MovableUnits
+    class Peasant : Citizen
     {
         public int CarryWeight;
 
-        public Peasant(string name) : base(name, 30, 0, "Worker", 4)
-        {           
+        public Peasant(string name) : base(name, 30, 0, 4)
+        {
+            profession = "Peasant";
             CarryWeight = 100;
         }
 
-        public void Work()
+        public void PlantGrower()
         {
-            Console.WriteLine($"{name} - {profession} is moving with {speed}. Can carry {CarryWeight} pounds");
+            Console.WriteLine($"{name} - {profession} is works in the field.");
         }
     }
 }

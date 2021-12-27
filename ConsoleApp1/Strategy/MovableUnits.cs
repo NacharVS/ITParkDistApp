@@ -4,20 +4,21 @@ namespace ConsoleApp1.Strategy
 {
     class MovableUnits : Unit
     {
-        public string profession; 
+        //public string profession; 
         public int speed;
         public int lvl;
 
-        public MovableUnits(string name, int health, int armor, string professionParam, int speedParam) : base(name, health, armor)
+        public MovableUnits(string name, double health, double armor, int speed) : base(name, health, armor)
         {
-            profession = professionParam;
-            speed = speedParam;
+            //profession = professionParam;
+            this.speed = speed;
             lvl = 0;
         }
 
         public void Move()
         {
-            Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {health} ");
+            Console.WriteLine($"{name} - is moving with {speed}");
+            Info();
         }
     }
 }

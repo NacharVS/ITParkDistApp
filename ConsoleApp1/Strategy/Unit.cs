@@ -6,9 +6,9 @@ namespace ConsoleApp1.Strategy
     {
         public string name;
         public double health;
-        public int armor;
+        public double armor;
 
-        protected Unit(string name, int health, int armor)
+        protected Unit(string name, double health, double armor)
         {
             this.name = name;
             this.health = health;
@@ -28,7 +28,7 @@ namespace ConsoleApp1.Strategy
 
         public void Info()
         {
-            Console.WriteLine($"{name} {health}");
+            Console.WriteLine($"Name:{name}/ Health:{health}/ armor:{armor}");
         }
     }
 }

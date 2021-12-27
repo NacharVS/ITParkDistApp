@@ -2,28 +2,25 @@
 
 namespace ConsoleApp1.Strategy
 {
-    class BattleUnit : MovableUnits
+    class Warrior : MovableUnits
     {
         public int minDamage;
         public int maxDamage;
 
-        public BattleUnit(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam)
+        public Warrior(string name, double health, double armor, int speed, int min, int max) : base(name, health, armor, speed)
         {
             minDamage = min;
             maxDamage = max;
         }
 
-        public void MleeAttack(Peasant peasant, Random rnd)
+        public void MeleeAttack(Citizen citizen, Random rnd)
         {
-            double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            peasant.health -= currentDamage;
-            Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
-            if (peasant.health <= 0)
-                peasant.Termination();
-
+            int currentDamage = rnd.Next(minDamage, maxDamage);
+            citizen.Wound(currentDamage);
+            Console.WriteLine($"{name} attack {citizen.name} with {currentDamage} points of damage");
         }
 
-        public void Attack(BattleUnit soldier, Random rnd)
+        public void Attack(Warrior soldier, Random rnd)
         {
 
         }

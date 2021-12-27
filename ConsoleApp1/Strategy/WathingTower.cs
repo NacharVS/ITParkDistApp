@@ -10,7 +10,8 @@ namespace ConsoleApp1.Strategy
 
         public void Observe()
         {
-            Console.WriteLine($"{name} is Observing. Statement {wall}, {health}, {armor}");
+            Console.WriteLine($"{name} is Observing.");
         }
+
     }
 }

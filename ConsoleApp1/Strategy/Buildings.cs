@@ -1,10 +1,10 @@
 ﻿namespace ConsoleApp1.Strategy
 {
-    class Buildings : Unit
+    abstract class Buildings : Unit
     {
-        public int wall;
+        public double wall;
 
-        public Buildings(string name, int health, int armor) : base(name, health, armor)
+        public Buildings(string name, double health, double armor) : base(name, health, armor)
         {
             wall = health;
         }
