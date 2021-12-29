@@ -10,11 +10,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //double [] array=new double [10];
-            //for (int i = 0; i < array.Length; i++)
-            //    array[i] = i + 1.1;
-            //Console.WriteLine(ArrayMaxValue.MaxIndex(array));
-            //array.All
+            newAuto car = newAuto();
+            car.Move();
             //26.12.21: 8 лекция
             //Peasant peasant1 = new Peasant("Ivan");
             //WathingTower tower = new WathingTower();
@@ -60,7 +57,7 @@ namespace ConsoleApp1
 
             //-------------------------------------------------------------------
 
-            List<Product> products = new List<Product>();
+            //List<Product> products = new List<Product>();
             //List<Product> cart = new List<Product>();
             //string name = Console.ReadLine();
             //double count = int.Parse(Console.ReadLine());
@@ -68,20 +65,20 @@ namespace ConsoleApp1
             //Product bread = new Product("borodinsky hleb", 40, 80);
             //Product beans = new Product("fasol", 45.45, 8.7);
             
-            products.Add(new Product("Tvorog", 50, 40));
-            products.Add(new Product("Yogurt", 50, 40));
-            products.Add(new Product("Cheese", 50, 40));
-            Product.ShowListofProducts(products);
-            Console.WriteLine("newList");
-            Admin.AddProduct(products, "Tea", 130, 20);
-            Product.ShowListofProducts(products);
-            Console.WriteLine("delete");
-            Admin.RemoveProduct(products, 2);
-            Product.ShowListofProducts(products);
-            Client.AddToCart(products,1,3);
-            Client.ShowCart();
-            Console.WriteLine(Client.SolveCost() );
-            Console.WriteLine(Client.UseCoupon(Client.SolveCost()));
+            //products.Add(new Product("Tvorog", 50, 40));
+            //products.Add(new Product("Yogurt", 50, 40));
+            //products.Add(new Product("Cheese", 50, 40));
+            //Product.ShowListofProducts(products);
+            //Console.WriteLine("newList");
+            //Admin.AddProduct(products, "Tea", 130, 20);
+            //Product.ShowListofProducts(products);
+            //Console.WriteLine("delete");
+            //Admin.RemoveProduct(products, 2);
+            //Product.ShowListofProducts(products);
+            //Client.AddToCart(products,1,3);
+            //Client.ShowCart();
+            //Console.WriteLine(Client.SolveCost() );
+            //Console.WriteLine(Client.UseCoupon(Client.SolveCost()));
             //products.Add(new Product(name, adminPrice, count));
             //foreach (var item in products)
             //{
