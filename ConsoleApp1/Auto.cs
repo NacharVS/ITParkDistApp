@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Auto
+    abstract class Auto
     {
         public double weight;
         public double engineVolume;
