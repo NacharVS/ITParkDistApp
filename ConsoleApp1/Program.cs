@@ -29,7 +29,6 @@ namespace ConsoleApp1
             soldier.MeeleeAttack(peasant1, rnd);
             peasant1.Move();
             
-            
             Archer archer = new Archer("Legolas");
             archer.RangeAttack(peasant1, rnd);
             peasant1.Info();
