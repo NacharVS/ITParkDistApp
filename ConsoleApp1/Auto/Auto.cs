@@ -12,6 +12,13 @@ namespace ConsoleApp1
         public double engineVolume;
         public string color;
 
+        protected Auto(double weight, double engineVolume, string color)
+        {
+            this.weight = weight;
+            this.engineVolume = engineVolume;
+            this.color = color;
+        }
+
         public void Move()
         {
             Console.WriteLine("is moving");

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
@@ -33,7 +29,7 @@ namespace ConsoleApp1.Strategy
             else
             {
                 Console.WriteLine("Arrows is empty");
-                MleeAttack(peasant, rnd);
+                MeeleeAttack(peasant, rnd);
             }
 
         }

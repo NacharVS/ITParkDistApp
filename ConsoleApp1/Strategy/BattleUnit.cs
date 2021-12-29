@@ -13,7 +13,7 @@ namespace ConsoleApp1.Strategy
             maxDamage = max;
         }
 
-        public void MleeAttack(Peasant peasant, Random rnd)
+        public void MeeleeAttack(Peasant peasant, Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
             peasant.health -= currentDamage;
