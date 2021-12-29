@@ -78,6 +78,10 @@ namespace ConsoleApp1
             Console.WriteLine("delete");
             Admin.RemoveProduct(products, 2);
             Product.ShowListofProducts(products);
+            Client.AddToCart(products,1,3);
+            Client.ShowCart();
+            Console.WriteLine(Client.SolveCost() );
+            Console.WriteLine(Client.UseCoupon(Client.SolveCost()));
             //products.Add(new Product(name, adminPrice, count));
             //foreach (var item in products)
             //{
