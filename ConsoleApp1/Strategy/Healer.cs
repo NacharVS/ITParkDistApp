@@ -8,15 +8,24 @@ namespace ConsoleApp1.Strategy
 {
     class Healer : Citizen
     {
-        int firstAidMedicines;
+        int medicines;
         int healingPowerMin;
         int healingPowerMax;
-;
-        public Healer(string name, double health, double armor, int speed) : base(name, health, armor, speed)
+
+        public Healer(string name) : base(name, 60, 0, 6)
         {
-            firstAidMedicines = 200;
+            medicines = 200;
             healingPowerMin = 3;
             healingPowerMax = 8;
+        }
+
+        public void Treatment(Citizen citizen, Random rnd)
+        {
+            int healingPowerRange = rnd.Next(healingPowerMin, healingPowerMax);
+           
+            medicines -= healingPowerRange;
+
+            citizen.GetTreatmentHealer(healingPowerRange);
         }
     }
 }

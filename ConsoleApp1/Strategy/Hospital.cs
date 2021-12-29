@@ -8,24 +8,36 @@ namespace ConsoleApp1.Strategy
 {
     class Hospital : Buildings
     {
-        int firstAidMedicines;
-        int medicalEquipment;
-        int healingPowerMin;
-        int healingPowerMax;
+        int Medicines;
+
+        int[] healingPowerMin = new int[3];
+        int[] healingPowerMax = new int[3];
+        int[] healingPowerRange = new int[3];
 
         public Hospital(string name, int health, int armor) : base(name, health, armor)
         {
-            firstAidMedicines = 1000;
-            medicalEquipment = 1000;
-            healingPowerMin = 20;
-            healingPowerMax = 40;
+            Medicines = 1000;
+            
+            healingPowerMin[0] = 20;
+            healingPowerMax[0] = 40;
+
+            healingPowerMin[1] = 5;
+            healingPowerMax[1] = 10;
+
+            healingPowerMin[2] = -5;
+            healingPowerMax[2] = 10;
         }
 
         public void Treatment(Citizen citizen, Random rnd)
         {
-            int healingPowerRange1 = rnd.Next(healingPowerMin, healingPowerMax);
-            int healingPowerRange2 = rnd.Next(healingPowerMin/5, healingPowerMax/5);
+            for (int i = 0; i < healingPowerMin.Length; i++)
+            {
+                healingPowerRange[i] = rnd.Next(healingPowerMin[i], healingPowerMax[i]);
+            }
 
+            Medicines -= healingPowerRange[0];
+
+            citizen.GetTreatmentHospital(healingPowerRange);
         }
     }
 }

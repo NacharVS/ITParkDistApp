@@ -18,21 +18,33 @@ namespace ConsoleApp1
 
             Archer archer = new Archer("Legolas");
 
-            archer.RangeAttack(peasant, rnd);
-            peasant.Info();
-            archer.RangeAttack(peasant, rnd);
-            peasant.Info();
-            archer.RangeAttack(peasant, rnd);
-            peasant.Info();
-            archer.RangeAttack(peasant, rnd);
-            peasant.Info();
-            archer.RangeAttack(peasant, rnd);
-            peasant.Info();
-            archer.RangeAttack(peasant, rnd);
-            peasant.Info();
-            archer.RangeAttack(peasant, rnd);
-            peasant.Info();
+            Healer healer = new Healer("Doctor");
 
+            Hospital hospital = new Hospital()
+
+            archer.RangeAttack(peasant, rnd);
+            peasant.Info();
+            //archer.RangeAttack(peasant, rnd);
+            //peasant.Info();
+            //archer.RangeAttack(peasant, rnd);
+            //peasant.Info();
+            //archer.RangeAttack(peasant, rnd);
+            //peasant.Info();
+            //archer.RangeAttack(peasant, rnd);
+            //peasant.Info();
+            //archer.RangeAttack(peasant, rnd);
+            //peasant.Info();
+            //archer.RangeAttack(peasant, rnd);
+            //peasant.Info();
+
+            //healer.Treatment(peasant, rnd);
+            //peasant.Info();
+            //healer.Treatment(peasant, rnd);
+            //peasant.Info();
+            //healer.Treatment(peasant, rnd);
+            //peasant.Info();
+
+            
 
             // 1. Добавить методы лечения юнитов для класса Healer
             // 2. Добавить методы починки зданий для класса Peasant

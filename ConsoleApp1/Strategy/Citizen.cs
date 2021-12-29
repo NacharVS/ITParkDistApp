@@ -9,10 +9,13 @@ namespace ConsoleApp1.Strategy
     class Citizen : MovableUnits
     {
         public string profession;
+        public double slightInjury;
+        public double severeInjury;
 
         public Citizen(string name, double health, double armor, int speed) : base(name, health, armor, speed)
         {
-
+            slightInjury = maxHealth * 30 / 100;
+            severeInjury = maxHealth * 5 / 100;
         }
 
         public void Wound(int currentDamage)
@@ -23,26 +26,49 @@ namespace ConsoleApp1.Strategy
 
         public void GetTreatmentHealer(int healingPowerRange)
         {
-            if (health > 30)
+            if (health > slightInjury && health < maxHealth)
             {
-                health += healingPowerRange;
+                if ((health + healingPowerRange) < maxHealth )
+                {
+                    health += healingPowerRange;
+                }
+                else
+                {
+                    health = maxHealth;
+                }
+
                 Console.WriteLine($"{name} - {profession} undergoing treatment");
             }
-            else if (health < 30)
+
+            else if (health < slightInjury)
             {
                 Console.WriteLine("Healer cannot treat, needed hospital");
             }
         }
 
-        public void GetTreatmentHospital(int healingPowerRange1, int healingPowerRange2)
+        public void GetTreatmentHospital(int[] healingPowerRange)
         {
-            if (health > 30)
+            if (health > slightInjury && health < maxHealth)
             {
-                health += healingPowerRange1;
+                GetTreatmentHealer(healingPowerRange[0]);
             }
-            else if (health < 30 && health > 5)
+            else if (health < slightInjury && health > severeInjury)
             {
-                health += healingPowerRange2;
+                health += healingPowerRange[1];
+                Console.WriteLine($"{name} - {profession} undergoing treatment");
+            }
+            else if (health < severeInjury)
+            {
+                Console.WriteLine($"{name} - {profession} in reanimation");
+                if ((health + healingPowerRange[2]) > 0)
+                {
+                    health += healingPowerRange[2];
+                }
+                else
+                {
+                    health = 0;
+                    Termination();
+                }               
             }
         }
     }
