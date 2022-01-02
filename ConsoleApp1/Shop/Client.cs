@@ -9,21 +9,14 @@ namespace ConsoleApp1
     class Client
     {
         public static List<Product> cart = new List<Product>();
-
         public static void AddToCart(List<Product> productsList, int numberInList, double count)
         {
-            if (productsList[numberInList - 1].countOfProduct < count)
-                Console.WriteLine("To low quantity of product in the warehouse");
-            else
-            {
+            
                 if (cart.Exists(x => x.productName == productsList[numberInList - 1].productName))
                 {
-                    if (productsList[numberInList - 1].countOfProduct > count)
-                    {
+                    
                         cart[cart.FindIndex(x => x.productName == productsList[numberInList - 1].productName)].countOfProduct += count;
-                    }
-                    else
-                        Console.WriteLine("To low quantity of product in the warehouse");
+                    
                 }
                 else
                 {
@@ -31,9 +24,33 @@ namespace ConsoleApp1
                     cart.Add(new Product(productsList[numberInList - 1].productName, productsList[numberInList - 1].price, count));
                 }
 
-            }
+            
 
         }
+        //public static void AddToCart(List<Product> productsList, int numberInList, double count)
+        //{
+        //    if (productsList[numberInList - 1].countOfProduct < count)
+        //        Console.WriteLine("To low quantity of product in the warehouse");
+        //    else
+        //    {
+        //        if (cart.Exists(x => x.productName == productsList[numberInList - 1].productName))
+        //        {
+        //            if (productsList[numberInList - 1].countOfProduct > count)
+        //            {
+        //                cart[cart.FindIndex(x => x.productName == productsList[numberInList - 1].productName)].countOfProduct += count;
+        //            }
+        //            else
+        //                Console.WriteLine("To low quantity of product in the warehouse");
+        //        }
+        //        else
+        //        {
+        //            productsList[numberInList - 1].countOfProduct -= count;
+        //            cart.Add(new Product(productsList[numberInList - 1].productName, productsList[numberInList - 1].price, count));
+        //        }
+
+        //    }
+
+        //}
         public static void ShowCart()
         {
             foreach (var item in cart)

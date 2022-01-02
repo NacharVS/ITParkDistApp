@@ -31,7 +31,7 @@ namespace ConsoleApp1
             int n = 1;
             foreach (var item in productsParam)
             {
-                Console.WriteLine($"{n}. product: {item.productName} - price: {item.price}");
+                Console.WriteLine($"{n}) {item.productName} - {item.price} р/кг");
                 n++;
             }
         }

@@ -170,6 +170,7 @@ namespace ConsoleApp1
                     Console.Write($"{array[i]} ");
                 }
                 Console.WriteLine();
+                Console.WriteLine();
                 for (int j = 0; j < array.Length - 1; j++)
                 {
                     for (int i = 0; i < array.Length - 1 - j; i++)
