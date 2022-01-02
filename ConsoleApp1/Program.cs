@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Homework5.Exercise2.Classes;
+using System;
 using System.Collections.Generic;
 
 namespace ConsoleApp1
@@ -7,23 +8,33 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Homework5.Exercise1.Homework5.Exercise1();
+            Homework5.Exercise2.Homework5.Shop();
+
+
+
+
+            //Product.ShowListofProducts(products);
+
+            //Client.AddToCart(products, 2, 2);
+            //Client.AddToCart(products, 2, 1);
+            //Client.AddToCart(products, 3, 2);
+            //Client.AddToCart(products, 3, 1);
+            //Client.AddToCart(products, 3, 1);
+            //Client.AddToCart(products, 5, 1);
+            //Client.AddToCart(products, 5, 2);
+            //Client.AddToCart(products, 4, 1);
+            //Client.AddToCart(products, 1, 4);
+
+            //Client.ShowCart();
+
+            //Console.WriteLine(Client.SolveCost());
+
+
+
+
+
+            //Homework5.Exercise1.Homework5.Exercise1();
             //Homework5.Exercise2.Homework5.Shop();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             //List<string[]> List = new List<string[]>();
