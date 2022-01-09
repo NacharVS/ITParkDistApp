@@ -13,7 +13,7 @@ namespace ConsoleApp1
         {
             if (productsList[numberInList - 1].countOfProduct < count)
             {
-                Console.WriteLine("Not anough");
+                Console.WriteLine("Not enough");
                 Console.WriteLine("To low quantity of product in the warehouse");
             }
                 
@@ -23,12 +23,13 @@ namespace ConsoleApp1
                 {
                     if (productsList[numberInList - 1].countOfProduct > count)
                     {
-                        cart[numberInList - 1].countOfProduct += count;
+                        //cart[numberInList - 1].countOfProduct += count;
+                        productsList[numberInList - 1].countOfProduct -= count;
                         cart[cart.FindIndex(x => x.productName == productsList[numberInList - 1].productName)].countOfProduct += count;
                     }
                     else
                     {
-                        Console.WriteLine("Not anough");
+                        Console.WriteLine("Not enough");
                         Console.WriteLine("To low quantity of product in the warehouse");
                     }
                         
@@ -43,42 +44,14 @@ namespace ConsoleApp1
 
         }
 
-        public static void AddToCartOrigin(List<Product> productsList, int numberInList, double count)
-        {
-            if (productsList[numberInList - 1].countOfProduct < count)
-                Console.WriteLine("To low quantity of product in the warehouse");
-            else
-            {
-                if (cart.Count == 0)
-                {
-                    cart.Add(new Product(productsList[numberInList].productName, productsList[numberInList].price));
-                    productsList[numberInList].countOfProduct -= count;
-                }
-                else
-
-                    for (int i = 0; i <= cart.Count - 1; i++)
-                    {
-                        if (cart[i].productName == productsList[numberInList - 1].productName)
-                        {
-                            cart[i].countOfProduct += count;
-                            productsList[numberInList - 1].countOfProduct -= count;
-                        }
-                        else
-                        {
-                            cart.Add(new Product(productsList[numberInList - 1].productName, productsList[numberInList - 1].price * count));
-                            productsList[numberInList - 1].countOfProduct -= count;
-                        }
-
-                    }
-            }
-
-        }
 
         public static void ShowCart()
         {
+            int n = 0;
             foreach (var item in cart)
             {
-                Console.WriteLine($"{item.productName} {item.countOfProduct}");
+                n++;
+                Console.WriteLine($"{n} - {item.productName} - {item.countOfProduct} - {item.countOfProduct * item.price}");
             }
         }
         public static double SolveCost()
@@ -90,12 +63,33 @@ namespace ConsoleApp1
             }
             return cost;
         }
-        public static void UseCoupon()
+        public static double UseCoupon()  // снижает общую стоимость на 10%
         {
-            // снижает общую стоимость на 10%
+            double bonus = 0;
+            foreach (var item in cart)
+            {
+                bonus += item.countOfProduct * item.price * 0.1;
+            }
+            return bonus;
+
         }
 
-
+        public static void RemoveCart(List<Product> productsList, int numberInList, double count)
+        {
+            if (numberInList > 0 & numberInList <= productsList.Count)
+            {
+                if (productsList[numberInList - 1].countOfProduct <= count)
+                {
+                    productsList.RemoveAt(numberInList - 1);
+                }
+                else
+                {
+                    productsList[numberInList - 1].countOfProduct -= count;
+                }
+            }
+            else Console.WriteLine("incorrect input"); 
+            
+        }
 
     }
 }

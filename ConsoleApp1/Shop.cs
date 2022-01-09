@@ -130,7 +130,7 @@ namespace ConsoleApp1
                             index = -1;
                         }
 
-                        else Console.WriteLine("You are runing out of money");
+                        else Console.WriteLine("You are running out of money");
                         Console.WriteLine($"the sum you have spent - {resultSum}, the change is {sum - resultSum}");
                         Console.WriteLine("Do you want to buy anything else? (YES/NO)");
                         string buying = Console.ReadLine();

@@ -10,47 +10,29 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            List<Product> products = new List<Product>();
-            Admin.AddProduct(products, "bread", 20, 10);
-            Admin.AddProduct(products, "milk", 20, 5);
-            products.Add(new Product("Bread", 42, 20));
-            products.Add(new Product("Butter", 120, 23));
-            products.Add(new Product("Yoghurt", 36, 100));
-            products.Add(new Product("Milk", 47, 30));
-            products.Add(new Product("Coffee", 300, 50));
-
-            Product.ShowListofProducts(products);
-
-            Client.AddToCart(products, 1, 2);
-            Client.AddToCart(products, 2, 2);
-            Client.AddToCart(products, 2, 1);
-            Client.AddToCart(products, 1, 2);
-            Client.AddToCart(products, 1, 1);
-            Console.WriteLine();
-
-            Console.WriteLine(Client.SolveCost());
-
-
-            //Console.WriteLine("Rows of mass1: ");
-            //int row1 = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Columns of mass1: ");
-            //int column1 = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Rows of mass2: ");
-            //int row2 = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Columns of mass2: ");
-            //int column2 = int.Parse(Console.ReadLine());
-
-            //int[,] mass1 = new int[row1, column1];
-            //ArrayMethods.ArrayGeneration2(row1, column1, mass1);
-            //Console.WriteLine();
-            //Console.WriteLine();
-            //int[,] mass2 = new int[row2, column2];
-            //ArrayMethods.ArrayGeneration2(row2, column2, mass2);
-
-            //Shop.ShopWork();
+            Store.StoreWorks.StoreWork();
+            
         }
     }
 }
+
+//Console.WriteLine("Rows of mass1: ");
+//int row1 = int.Parse(Console.ReadLine());
+//Console.WriteLine("Columns of mass1: ");
+//int column1 = int.Parse(Console.ReadLine());
+//Console.WriteLine("Rows of mass2: ");
+//int row2 = int.Parse(Console.ReadLine());
+//Console.WriteLine("Columns of mass2: ");
+//int column2 = int.Parse(Console.ReadLine());
+
+//int[,] mass1 = new int[row1, column1];
+//ArrayMethods.ArrayGeneration2(row1, column1, mass1);
+//Console.WriteLine();
+//Console.WriteLine();
+//int[,] mass2 = new int[row2, column2];
+//ArrayMethods.ArrayGeneration2(row2, column2, mass2);
+
+//Shop.ShopWork();
 
 /*
 //массивы
@@ -455,7 +437,7 @@ switch (food)
         break;
     case "coffee":
         if (4 * howMatch <= money)
-            Console.WriteLine($" - You've bought {howMatch} g of coffe. It costs {4 * howMatch} $");
+            Console.WriteLine($" - You've bought {howMatch} g of coffee. It costs {4 * howMatch} $");
         else Console.WriteLine("It's not enough. See you later");
         break;
     default:
