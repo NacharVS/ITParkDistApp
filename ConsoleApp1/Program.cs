@@ -20,27 +20,25 @@ namespace ConsoleApp1
 
             Healer healer = new Healer("Doctor");
 
-            Hospital hospital = new Hospital()
+            //Hospital hospital = new Hospital();
 
             archer.RangeAttack(peasant, rnd);
-            peasant.Info();
-            //archer.RangeAttack(peasant, rnd);
-            //peasant.Info();
-            //archer.RangeAttack(peasant, rnd);
-            //peasant.Info();
-            //archer.RangeAttack(peasant, rnd);
-            //peasant.Info();
-            //archer.RangeAttack(peasant, rnd);
-            //peasant.Info();
+            
+            archer.RangeAttack(peasant, rnd);
+            
+            archer.RangeAttack(peasant, rnd);
+            
+            archer.RangeAttack(peasant, rnd);
+            
+            archer.RangeAttack(peasant, rnd);
+            
             //archer.RangeAttack(peasant, rnd);
             //peasant.Info();
             //archer.RangeAttack(peasant, rnd);
             //peasant.Info();
 
-            //healer.Treatment(peasant, rnd);
-            //peasant.Info();
-            //healer.Treatment(peasant, rnd);
-            //peasant.Info();
+            healer.Treatment(peasant, rnd);
+            
             //healer.Treatment(peasant, rnd);
             //peasant.Info();
 

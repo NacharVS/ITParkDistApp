@@ -12,7 +12,7 @@ namespace ConsoleApp1.Strategy
 
         int[] healingPowerMin = new int[3];
         int[] healingPowerMax = new int[3];
-        int[] healingPowerRange = new int[3];
+        int healingPowerRange;
 
         public Hospital(string name, int health, int armor) : base(name, health, armor)
         {
@@ -30,14 +30,29 @@ namespace ConsoleApp1.Strategy
 
         public void Treatment(Citizen citizen, Random rnd)
         {
-            for (int i = 0; i < healingPowerMin.Length; i++)
+            while (citizen.health < citizen.maxHealth || citizen.health == 0)
             {
-                healingPowerRange[i] = rnd.Next(healingPowerMin[i], healingPowerMax[i]);
+                if (citizen.health > citizen.slightInjury && citizen.health < citizen.maxHealth)
+                {
+                    healingPowerRange = rnd.Next(healingPowerMin[0], healingPowerMax[0]);
+                    //citizen.GetTreatmentHealer(healingPowerRange[0]);
+                }
+                else if (citizen.health < citizen.slightInjury && citizen.health > citizen.severeInjury)
+                {
+                    healingPowerRange = rnd.Next(healingPowerMin[1], healingPowerMax[1]);
+                }
+                else if (citizen.health < citizen.severeInjury && citizen.health > 0)
+                {
+                    healingPowerRange = rnd.Next(healingPowerMin[2], healingPowerMax[2]);
+                }
+                else
+                {
+                    Console.WriteLine($"Hospital cannot treat, {citizen.name} is dead!");
+                }
+
+                Medicines -= healingPowerRange;
+                citizen.GetTreatmentHospital(healingPowerRange);
             }
-
-            Medicines -= healingPowerRange[0];
-
-            citizen.GetTreatmentHospital(healingPowerRange);
         }
     }
 }

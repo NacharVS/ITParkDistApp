@@ -21,11 +21,27 @@ namespace ConsoleApp1.Strategy
 
         public void Treatment(Citizen citizen, Random rnd)
         {
-            int healingPowerRange = rnd.Next(healingPowerMin, healingPowerMax);
-           
-            medicines -= healingPowerRange;
+            if (citizen.health > citizen.slightInjury)
+            {
+                while (citizen.health < citizen.maxHealth)
+                {
+                    int healingPowerRange = rnd.Next(healingPowerMin, healingPowerMax);
 
-            citizen.GetTreatmentHealer(healingPowerRange);
+                    medicines -= healingPowerRange;
+
+                    citizen.GetTreatmentHealer(healingPowerRange);
+                }
+            }
+
+            else if (citizen.health < citizen.slightInjury && citizen.health > 0)
+            {
+                Console.WriteLine("Healer cannot treat, needed hospital");
+            }
+
+            else
+            {
+                Console.WriteLine($"Healer cannot treat, {citizen.name} is dead!");
+            }
         }
     }
 }
