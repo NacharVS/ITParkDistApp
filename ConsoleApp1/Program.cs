@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Strategy;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -6,12 +7,25 @@ namespace ConsoleApp1
 {
     class Program
     {
-        
-
+       
         static void Main(string[] args)
         {
-            Store.StoreWorks.StoreWork();
-            
+            //Store.StoreWorks.StoreWork();
+
+            Random rnd = new Random();
+            Peasant peasant1 = new Peasant ("Ivan");
+            Archer archer = new Archer("Legolas");
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+
+
+            // 1. Добавить методы лечения юнитов для класса Healer
+            // 2. Добавить методы починки зданий для класса Peasant
+            // 3. Добавить методы лечения юнитов для класса hospital
         }
     }
 }
