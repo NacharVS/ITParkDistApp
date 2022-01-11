@@ -3,6 +3,7 @@
     abstract class Buildings : Unit
     {
         public double wall;
+        public int materials;
 
         public Buildings(string name, double health, double armor) : base(name, health, armor)
         {

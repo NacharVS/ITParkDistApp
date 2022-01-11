@@ -15,7 +15,7 @@ namespace ConsoleApp1.Strategy
         public Citizen(string name, double health, double armor, int speed) : base(name, health, armor, speed)
         {
             slightInjury = maxHealth * 30 / 100;
-            severeInjury = maxHealth * 5 / 100;
+            severeInjury = maxHealth * 10 / 100;
         }
 
         public void Wound(int currentDamage)
@@ -50,21 +50,27 @@ namespace ConsoleApp1.Strategy
 
         public void GetTreatmentHospital(int healingPowerRange)
         {
-            if ((health + healingPowerRange) < maxHealth && (health + healingPowerRange) > 0)
+            if ((health + healingPowerRange) > 0)
             {
-                health += healingPowerRange;
+                if ((health + healingPowerRange) < maxHealth && (health + healingPowerRange) > 0)
+                {
+                    health += healingPowerRange;
+                }
+                else if ((health + healingPowerRange) > maxHealth)
+                {
+                    health = maxHealth;
+                }
+
+                Console.WriteLine($"{name} - {profession} undergoing treatment");
             }
-            else if ((health + healingPowerRange) > maxHealth)
-            {
-                health = maxHealth;
-            }
+                       
             else
             {
                 health = 0;
                 Termination();
             }
 
-            Console.WriteLine($"{name} - {profession} undergoing treatment");
+            Info();
         }
     }
 }

@@ -21,18 +21,23 @@ namespace ConsoleApp1.Strategy
 
         public void RangeAttack(Citizen citizen, Random rnd)
         {
-            if (_arrows > 0)
+            if (citizen.health > 0)
             {
-                _arrows--;
-                int currentDamage = rnd.Next(_minRangeDamage, _maxRangeDamage);
-                Console.WriteLine($"{name} attack {citizen.name} with {currentDamage} points of damage");
-                citizen.Wound(currentDamage);
+                if (_arrows > 0)
+                {
+                    _arrows--;
+                    int currentDamage = rnd.Next(_minRangeDamage, _maxRangeDamage);
+                    Console.WriteLine($"{name} attack {citizen.name} with {currentDamage} points of damage");
+                    citizen.Wound(currentDamage);
+                }
+                else
+                {
+                    Console.WriteLine("Arrows is empty");
+                    MeleeAttack(citizen, rnd);
+                }
             }
-            else
-            {
-                Console.WriteLine("Arrows is empty");
-                MeleeAttack(citizen, rnd);
-            }
+            
+            
               
         }
     }
