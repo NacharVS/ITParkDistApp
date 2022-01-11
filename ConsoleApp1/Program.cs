@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -6,6 +10,47 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+
+
+            List<string> products = new List<string>() { "Beear", "Vodka", "Seledka" };
+            List<double> prices = new List<double>() { 100, 450, 250 };
+            List<string> currency_name = new List<string>() { "Р", "Р", "Р" };
+            Console.WriteLine();
+            Console.Write("Client and Admin:");
+            string s = Console.ReadLine();
+           
+            if (s == "Client")
+            {
+                while (true)
+                {
+                    Console.WriteLine("Enter the amount of money");
+                    double money = 2500;
+                    Console.WriteLine("Spicok");
+                    for (int i = 0; i < products.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {products[i]} {prices[i]} {currency_name[i]}");
+
+                    }
+                    Console.WriteLine("make your choice(ot 1 do 3)");
+                }
+                
+            }
+
+
+            else
+            {
+                if(s == "Admin")
+                {
+                    Console.WriteLine("Admin");
+
+                }
+                else
+                {
+                    Console.WriteLine("Error entered incorrectly");
+                }
+            }
+            
+
             /*ДЗ №2 задание 2
 
             Console.Write("Введите число");
@@ -71,9 +116,9 @@ namespace ConsoleApp1
                     maxsum = sum;
                     max = i;
                 }*/
-            }
+        }
         }
     }
-}
+
     
 
