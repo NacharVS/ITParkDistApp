@@ -15,11 +15,19 @@ namespace ConsoleApp1
             Random rnd = new Random();
             Peasant peasant1 = new Peasant ("Ivan");
             Archer archer = new Archer("Legolas");
+            WathingTower wathingTower = new WathingTower();
+            Hospital hospital = new Hospital("imBurdenko", 30, 20);
             archer.RangeAttack(peasant1, rnd);
             peasant1.Info();
             archer.RangeAttack(peasant1, rnd);
             peasant1.Info();
+            peasant1.Repare(wathingTower);
             archer.RangeAttack(peasant1, rnd);
+            peasant1.Repare(wathingTower);
+            peasant1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            hospital.Cure(peasant1);
+            peasant1.Repare(wathingTower);
             peasant1.Info();
 
 
