@@ -12,22 +12,23 @@ namespace ConsoleApp1
         {
 
 
-            List<string> products = new List<string>() { "Beer", "Vodka", "Seledka", "Lavash" , "Juice" };
+            List<string> products = new List<string>() { "Beer", "Vodka", "Seledka", "Lavash", "Juice" };
             List<double> prices = new List<double>() { 100, 450, 250, 50, 190 };
-            List<string> currency_name = new List<string>() { "Р", "Р", "Р" , "Р" , "Р" };
+            List<string> currency_name = new List<string>() { "р", "р", "р", "р", "р" };
 
-            List<double> shopping_basket = new List<double>() { 100, 450, 250 };
+            List<double> shopping_basket = new List<double>() { };
 
             Console.WriteLine();
             Console.Write("Client and Admin:  ");
             string s = Console.ReadLine();
-           
+
             if (s == "Client")
             {
+                Console.Write("Your credit limit: ");
+                double credit = double.Parse(Console.ReadLine());
+
                 while (true)
                 {
-                    Console.Write("Your credit limit: ");
-                    double credit = double.Parse(Console.ReadLine());
 
                     Console.WriteLine("Spicok");
                     for (int i = 0; i < products.Count; i++)
@@ -47,7 +48,7 @@ namespace ConsoleApp1
                                 {
                                     Console.WriteLine("Error Credit limit");
                                 }
-                                shopping_basket.Add (prices[0] * coli_product); 
+                                shopping_basket.Add(prices[0] * coli_product);
                             }
                             break;
 
@@ -105,30 +106,112 @@ namespace ConsoleApp1
                     {
                         break;
                     }
-                        
+
 
                 }
-                
-            }
-
-
-            else
-            {
-                if(s == "Admin")
+                double summ = 0;
+                for (int i = 0; i < shopping_basket.Count; i++)
                 {
-                    Console.WriteLine("Admin");
-
+                    summ += shopping_basket[i];
                 }
+                Console.WriteLine();
+
+                if (summ > credit)
+                {
+                    Console.WriteLine("Error Credit limit");
+                }
+
                 else
                 {
-                    Console.WriteLine("Error entered incorrectly");
+                    Console.WriteLine($"Total: {summ}");
                 }
+
             }
-            
+
+
+
+            if (s == "Admin")
+            {
+
+                Console.WriteLine("Spicok");
+                for (int i = 0; i < products.Count; i++)
+                {
+                    Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
+                }
+                Console.Write("Add and Remove (+/-): ");
+                string edit = Console.ReadLine();
+                switch (edit)
+                {
+                    case "+":
+                        {
+                            string add = "+";
+                            while (add != "-")
+                            {
+                                Console.Write("Name of the added position?: ");
+
+                                string newProduct = Console.ReadLine();
+
+                                products.Add(newProduct);
+                                Console.Write($"price in Руб per kg. '{newProduct}': ");
+
+                                double coastNewProduct = double.Parse(Console.ReadLine());
+                                prices.Add(coastNewProduct);
+
+                                Console.Write("Continue adding?(y/n): ");
+                                add = Console.ReadLine();
+                                if (add == "n")
+                                {
+                                    Console.WriteLine("Changed product list:");
+                                    for (int i = 0; i < products.Count; i++)
+                                    {
+                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
+                                    }
+                                    break;
+                                }
+                                else if (add == "y") continue;
+                                else Console.WriteLine("Input error: only 'y' and 'n'");
+                            }
+                        }
+                        break;
+                    case "-":
+                        {
+                            string exit = "+";
+                            while (exit != "-")
+                            {
+                                Console.Write("Remove position(№): ");
+                                int delProductNumber = int.Parse(Console.ReadLine());
+
+                                string delProduct = products[delProductNumber - 1];
+
+                                int indexRemove = products.IndexOf(delProduct);
+                                products.Remove(delProduct);
+
+                                prices.Remove(indexRemove);
+                                Console.Write("Continue remove?(y/n): ");
+
+                                exit = Console.ReadLine();
+                                if (exit == "n")
+                                {
+                                    Console.WriteLine("Changed product list:");
+                                    for (int i = 0; i < products.Count; i++)
+                                    {
+                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
+                                    }
+                                    break;
+                                }
+                                else Console.Write(" Input error: only  'y' and 'n'");
+                            }
+                        }
+                        break;
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Input Error: only  'Client' and 'Admin'");
+            }
 
 
         }
     }
-
-    
-
+}
