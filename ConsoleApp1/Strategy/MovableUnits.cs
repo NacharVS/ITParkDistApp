@@ -12,6 +12,7 @@ namespace ConsoleApp1.Strategy
         public string profession;
         public int speed;
         public int lvl;
+        public int maxHealth = 30;
 
         public MovableUnits(string name, int health, int armor, string professionParam, int speedParam) : base(name, health, armor)
         {

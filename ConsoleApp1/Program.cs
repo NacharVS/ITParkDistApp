@@ -17,18 +17,29 @@ namespace ConsoleApp1
             Archer archer = new Archer("Legolas");
             WathingTower wathingTower = new WathingTower();
             Hospital hospital = new Hospital("imBurdenko", 30, 20);
+            Healer healer1 = new Healer("House");
+
             archer.RangeAttack(peasant1, rnd);
             peasant1.Info();
+
+            archer.RangeAttack(healer1, rnd);
+            healer1.Info();
+
             archer.RangeAttack(peasant1, rnd);
             peasant1.Info();
             peasant1.Repare(wathingTower);
             archer.RangeAttack(peasant1, rnd);
             peasant1.Repare(wathingTower);
             peasant1.Info();
+            
+            healer1.Cure(peasant1);
+            
             archer.RangeAttack(peasant1, rnd);
             hospital.Cure(peasant1);
+            hospital.Cure(healer1);
             peasant1.Repare(wathingTower);
             peasant1.Info();
+            healer1.Info();
 
 
             // 1. Добавить методы лечения юнитов для класса Healer
