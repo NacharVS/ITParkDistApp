@@ -10,6 +10,7 @@ namespace ConsoleApp1.Strategy
         {
             profession = "Peasant";
             CarryWeight = 100;
+            profession = "Peasant";
         }
 
         public void PlantGrower()

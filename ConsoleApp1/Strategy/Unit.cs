@@ -9,11 +9,11 @@ namespace ConsoleApp1.Strategy
         public double health;
         public double armor;
 
-        protected Unit(string name, double health, double armor)
+        protected Unit(string name, double maxHealth, double armor)
         {
             this.name = name;
-            this.maxHealth = health;
-            this.health = health;
+            this.maxHealth = maxHealth;
+            this.health = maxHealth;
             this.armor = armor;
             Creation();
         }

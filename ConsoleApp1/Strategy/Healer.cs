@@ -17,6 +17,7 @@ namespace ConsoleApp1.Strategy
             medicines = 200;
             healingPowerMin = 3;
             healingPowerMax = 8;
+            profession = "Healer";
         }
 
         public void Treatment(Citizen citizen, Random rnd)
