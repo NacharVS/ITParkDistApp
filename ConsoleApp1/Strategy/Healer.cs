@@ -13,27 +13,30 @@ namespace ConsoleApp1.Strategy
             maxHeal = max;
             Mana = mana;
         }
-
         public void UnitHeal (Healer healer, Peasant peasant, Random rnd)
         {
-            var currentUnitHP = peasant.health;
+            var currentUnitHP = peasant.Health;
             double currentHeal = Convert.ToDouble(rnd.Next(minHeal, maxHeal));
             int maxMana = healer.Mana;
             if (currentUnitHP >= 30)
                 Console.WriteLine($"{peasant.name} with full HP");
             else if ((30-currentUnitHP)>= currentHeal)
             {
-                peasant.health += currentHeal;
+                peasant.Health += currentHeal;
                 healer.Mana -= 50;
                 Console.WriteLine($"{name} heal {peasant.name} with {currentHeal} points of heal. (mana:{healer.Mana}/200)");
             }
             else
             {
                 healer.Mana -= 50;
-                peasant.health += (30 - currentUnitHP);
+                peasant.Health += (30 - currentUnitHP);
                 Console.WriteLine($"{name} heal {peasant.name} up to {(30 - currentUnitHP)} points of heal. (mana:{healer.Mana}/200)");
             }
-            
+        }
+        public void Heal (MovableUnits unit, Random rnd)
+        {
+            double currentHeal = Convert.ToDouble(rnd.Next(minHeal, maxHeal));
+            unit.Health += currentHeal;
         }
     }
 }

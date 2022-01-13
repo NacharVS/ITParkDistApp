@@ -19,17 +19,17 @@ namespace ConsoleApp1.Strategy
         public void BuildingsRepair(Buildings buildings, Random rnd)
         {
 
-            var currentBuildingHP = buildings.health;
+            var currentBuildingHP = buildings.Health;
             if (currentBuildingHP >= 2000)
                 Console.WriteLine($"{buildings.name} with full HP");
             else if ((2000- currentBuildingHP) >=50)
             {
-                buildings.health += 50;
+                buildings.Health += 50;
                 Console.WriteLine($"{name} repair {buildings.name} up to 50 points");
             }
             else
             {
-                buildings.health += (2000 - currentBuildingHP);
+                buildings.Health += (2000 - currentBuildingHP);
                 Console.WriteLine($"{name} repair {buildings.name} up to {(2000 - currentBuildingHP)} points");
             }
 

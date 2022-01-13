@@ -13,12 +13,11 @@ namespace ConsoleApp1.Strategy
             profession = professionParam;
             speed = speedParam;
             lvl = 0;
-        
          }
 
         public void Move()
         {
-            Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {health} ");
+            Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {Health} ");
         }
     }
 }
