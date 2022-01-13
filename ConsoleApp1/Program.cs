@@ -11,12 +11,15 @@ namespace ConsoleApp1
             Random rnd = new Random();
             Peasant peasant1 = new Peasant("Ivan");
             Archer archer = new Archer("Legolas");
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
+            Healer healer = new Healer("Gendalf", 20);
+            archer.RangeAttack(healer, rnd);
+            healer.Info();
+            archer.RangeAttack(healer, rnd);
+            healer.Info();
+            archer.RangeAttack(healer, rnd);
+            healer.Info();
+            healer.Heal(healer);
+            healer.Info();
 
 
             // 1. Добавить методы лечения юнитов для класса Healer

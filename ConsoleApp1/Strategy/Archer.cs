@@ -19,21 +19,21 @@ namespace ConsoleApp1.Strategy
             _maxRangeDamage = 12;
         }
 
-        public void RangeAttack(Peasant peasant, Random rnd)
+        public void RangeAttack(MovableUnits unit, Random rnd)
         {
             if (_arrows > 0)
             {
                 double currentDamage = Convert.ToDouble(rnd.Next(_minRangeDamage, _maxRangeDamage));
-                peasant.health -= currentDamage;
-                Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
+                unit.health -= currentDamage;
+                Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
                 _arrows --;
-                if (peasant.health <= 0)
-                    peasant.Termination();
+                if (unit.health <= 0)
+                    unit.Termination();
             }
             else
             {
                 Console.WriteLine("Arrows is empty");
-                MleeAttack(peasant, rnd);
+                MleeAttack(unit, rnd);
             }
               
         }

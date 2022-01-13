@@ -13,13 +13,13 @@ namespace ConsoleApp1.Strategy
             maxDamage = max;
         }
 
-        public void MleeAttack(Peasant peasant, Random rnd)
+        public void MleeAttack(MovableUnits unit, Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            peasant.health -= currentDamage;
-            Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
-            if (peasant.health <= 0)
-                peasant.Termination();
+            unit.health -= currentDamage;
+            Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
+            if (unit.health <= 0)
+                unit.Termination();
 
         }
 
