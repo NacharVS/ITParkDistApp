@@ -17,7 +17,7 @@ namespace ConsoleApp1.Strategy
 
         public void Move()
         {
-            Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {health} ");
+            Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {Health} ");
         }
     }
 }

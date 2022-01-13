@@ -8,13 +8,41 @@ namespace ConsoleApp1
 {
     class Student
     {
-        public string name;
-        public int age;
-        public string colledgeName;
+        private string _name;
+        public int _age;
+        public static string CollegeName { get { return "KFU"; } }
 
-        public void Studing()
+
+
+        public string Name 
         {
-            Console.WriteLine($"Student {name} is studing in {colledgeName}");
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                _name = value;
+            }
         }
+        public int Age 
+        { 
+            get
+            {
+                return DateTime.Now.Year - _age;
+            }
+
+            set
+            {
+                if (value < 18)
+                {
+                    Console.WriteLine("Age too small");
+                }
+                else
+                    _age = value;
+            } 
+        }
+        
     }
 }

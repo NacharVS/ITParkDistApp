@@ -9,6 +9,7 @@ namespace ConsoleApp1.Strategy
     class Healer : MovableUnits
     {
         public double healAmount;
+
         public Healer(string name, double healAmountParam) : base(name, 50, 5, "Healer", 7)
         {
             healAmount = healAmountParam;
@@ -16,7 +17,12 @@ namespace ConsoleApp1.Strategy
 
         public void Heal(MovableUnits unit)
         {
-            unit.health += healAmount;
+            if(unit.Health + healAmount >= unit._maxHealth)
+            {
+                unit.Health = unit._maxHealth;
+            }
+            else
+            unit.Health += healAmount;
         }
     }
 }
