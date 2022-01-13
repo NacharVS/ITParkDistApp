@@ -15,5 +15,24 @@ namespace ConsoleApp1.Strategy
         {
             Console.WriteLine($"{name} - {profession} is moving with {speed}. Can carry {CarryWeight} pounds");
         }
+
+        public void BuildingsRepair(Buildings buildings, Random rnd)
+        {
+
+            var currentBuildingHP = buildings.health;
+            if (currentBuildingHP >= 2000)
+                Console.WriteLine($"{buildings.name} with full HP");
+            else if ((2000- currentBuildingHP) >=50)
+            {
+                buildings.health += 50;
+                Console.WriteLine($"{name} repair {buildings.name} up to 50 points");
+            }
+            else
+            {
+                buildings.health += (2000 - currentBuildingHP);
+                Console.WriteLine($"{name} repair {buildings.name} up to {(2000 - currentBuildingHP)} points");
+            }
+
+        }
     }
 }

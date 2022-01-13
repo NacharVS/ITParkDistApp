@@ -18,7 +18,7 @@ namespace ConsoleApp1.Strategy
 
         public void Creation()
         {
-            Console.WriteLine($"{name} is created");
+            Console.WriteLine($"{name} is created with {health}");
         }
 
         public void Termination()

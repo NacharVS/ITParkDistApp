@@ -15,16 +15,27 @@ namespace ConsoleApp1.Strategy
 
         public void MeeleeAttack(Peasant peasant, Random rnd)
         {
-            double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            peasant.health -= currentDamage;
-            Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
             if (peasant.health <= 0)
                 peasant.Termination();
+            else
+            {
+                double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+                peasant.health -= currentDamage;
+                Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
+            }
 
         }
 
-        public void Attack(BattleUnit soldier, Random rnd)
+        public void MeeleeAttack(Buildings building, Random rnd)
         {
+            if (building.health <= 0)
+                building.Termination();
+            else
+            {
+                double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+                building.health -= currentDamage;
+                Console.WriteLine($"{name} attack {building.name} with {currentDamage} points of damage");
+            }
 
         }
 

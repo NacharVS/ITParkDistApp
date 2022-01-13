@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp1.Strategy
+﻿using System;
+
+namespace ConsoleApp1.Strategy
 {
     class Buildings : Unit
     {
@@ -7,6 +9,10 @@
         public Buildings(string name, int health, int armor) : base(name, health, armor)
         {
             wall = health;
+        }
+        public void Termination()
+        {
+            Console.WriteLine($"{name} is terminated");
         }
     }
 }

@@ -2,8 +2,38 @@
 
 namespace ConsoleApp1.Strategy
 {
-    internal class Healer
+    internal class Healer : MovableUnits
     {
+        public int minHeal;
+        public int maxHeal;
+        public int Mana;
+        public Healer (string name, int health, int armor, string professionParam, int speedParam, int min, int max, int mana) : base(name, health, armor, professionParam, speedParam)
+        {
+            minHeal = min;
+            maxHeal = max;
+            Mana = mana;
+        }
 
+        public void UnitHeal (Healer healer, Peasant peasant, Random rnd)
+        {
+            var currentUnitHP = peasant.health;
+            double currentHeal = Convert.ToDouble(rnd.Next(minHeal, maxHeal));
+            int maxMana = healer.Mana;
+            if (currentUnitHP >= 30)
+                Console.WriteLine($"{peasant.name} with full HP");
+            else if ((30-currentUnitHP)>= currentHeal)
+            {
+                peasant.health += currentHeal;
+                healer.Mana -= 50;
+                Console.WriteLine($"{name} heal {peasant.name} with {currentHeal} points of heal. (mana:{healer.Mana}/200)");
+            }
+            else
+            {
+                healer.Mana -= 50;
+                peasant.health += (30 - currentUnitHP);
+                Console.WriteLine($"{name} heal {peasant.name} up to {(30 - currentUnitHP)} points of heal. (mana:{healer.Mana}/200)");
+            }
+            
+        }
     }
 }
