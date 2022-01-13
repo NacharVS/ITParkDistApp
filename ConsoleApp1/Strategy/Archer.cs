@@ -14,17 +14,17 @@ namespace ConsoleApp1.Strategy
 
         public Archer(string name) : base(name, 45, 0, 7, 1, 2)
         {
-            _arrows = 5;
-            _minRangeDamage = 4;
-            _maxRangeDamage = 12;
+            Arrows = 5;
+            MinRangeDamage = 4;
+            MaxRangeDamage = 12;
         }
 
         public void RangeAttack(MovableUnits unit, Random rnd)
         {
-            if (_arrows > 0)
+            if (Arrows > 0)
             {
-                _arrows--;
-                int currentDamage = rnd.Next(_minRangeDamage, _maxRangeDamage);
+                Arrows--;
+                int currentDamage = rnd.Next(MinRangeDamage, MaxRangeDamage);
                 Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
                 unit.Wound(currentDamage);
             }

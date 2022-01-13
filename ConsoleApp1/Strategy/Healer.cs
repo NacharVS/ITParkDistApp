@@ -22,9 +22,9 @@ namespace ConsoleApp1.Strategy
 
         public void Treatment(MovableUnits unit, Random rnd)
         {
-            if (unit.health > unit.slightInjury)
+            if (unit.Health > unit.slightInjury)
             {
-                while (unit.health < unit.maxHealth)
+                while (unit.Health < unit.MaxHealth)
                 {
                     int healingPowerRange = rnd.Next(healingPowerMin, healingPowerMax);
 
@@ -34,7 +34,7 @@ namespace ConsoleApp1.Strategy
                 }
             }
 
-            else if (unit.health < unit.slightInjury && unit.health > 0)
+            else if (unit.Health < unit.slightInjury && unit.Health > 0)
             {
                 Console.WriteLine("Healer cannot treat, needed hospital");
             }

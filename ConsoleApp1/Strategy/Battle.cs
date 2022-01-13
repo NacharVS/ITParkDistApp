@@ -10,10 +10,10 @@ namespace ConsoleApp1.Strategy
     {
         public static void Fight(Warrior warrior1, Warrior warrior2, Random rnd)
         {
-            while (warrior1.health > 0 && warrior2.health > 0)
+            while (warrior1.Health > 0 && warrior2.Health > 0)
             {
-                warrior1.health -= warrior2.MeleeAttack(rnd);
-                warrior2.health -= warrior1.MeleeAttack(rnd);
+                warrior1.Health -= warrior2.MeleeAttack(rnd);
+                warrior2.Health -= warrior1.MeleeAttack(rnd);
                 warrior1.Info();
                 warrior2.Info();
             }
