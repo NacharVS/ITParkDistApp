@@ -20,28 +20,28 @@ namespace ConsoleApp1.Strategy
             profession = "Healer";
         }
 
-        public void Treatment(Citizen citizen, Random rnd)
+        public void Treatment(MovableUnits unit, Random rnd)
         {
-            if (citizen.health > citizen.slightInjury)
+            if (unit.health > unit.slightInjury)
             {
-                while (citizen.health < citizen.maxHealth)
+                while (unit.health < unit.maxHealth)
                 {
                     int healingPowerRange = rnd.Next(healingPowerMin, healingPowerMax);
 
                     medicines -= healingPowerRange;
 
-                    citizen.GetTreatmentHealer(healingPowerRange);
+                    unit.GetTreatmentHealer(healingPowerRange);
                 }
             }
 
-            else if (citizen.health < citizen.slightInjury && citizen.health > 0)
+            else if (unit.health < unit.slightInjury && unit.health > 0)
             {
                 Console.WriteLine("Healer cannot treat, needed hospital");
             }
 
             else
             {
-                Console.WriteLine($"Healer cannot treat, {citizen.name} is dead!");
+                Console.WriteLine($"Healer cannot treat, {unit.name} is dead!");
             }
         }
     }

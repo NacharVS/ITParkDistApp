@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class Archer : Warrior
+    class Archer : BattleUnit
     {
         private int _arrows;
         private int _minRangeDamage;
@@ -19,26 +19,23 @@ namespace ConsoleApp1.Strategy
             _maxRangeDamage = 12;
         }
 
-        public void RangeAttack(Citizen citizen, Random rnd)
+        public void RangeAttack(MovableUnits unit, Random rnd)
         {
-            if (citizen.health > 0)
+            if (_arrows > 0)
             {
-                if (_arrows > 0)
-                {
-                    _arrows--;
-                    int currentDamage = rnd.Next(_minRangeDamage, _maxRangeDamage);
-                    Console.WriteLine($"{name} attack {citizen.name} with {currentDamage} points of damage");
-                    citizen.Wound(currentDamage);
-                }
-                else
-                {
-                    Console.WriteLine("Arrows is empty");
-                    MeleeAttack(citizen, rnd);
-                }
+                _arrows--;
+                int currentDamage = rnd.Next(_minRangeDamage, _maxRangeDamage);
+                Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
+                unit.Wound(currentDamage);
             }
-            
-            
-              
+            else
+            {
+                Console.WriteLine("Arrows is empty");
+                MeleeAttack(unit, rnd);
+            }
+
+
+
         }
     }
 }

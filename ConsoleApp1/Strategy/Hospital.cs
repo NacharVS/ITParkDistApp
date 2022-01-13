@@ -28,30 +28,30 @@ namespace ConsoleApp1.Strategy
             healingPowerMax[2] = 10;
         }
 
-        public void Treatment(Citizen citizen, Random rnd)
+        public void Treatment(MovableUnits unit, Random rnd)
         {
-            while ((citizen.health < citizen.maxHealth) && (citizen.health > 0))
+            while ((unit.health < unit.maxHealth) && (unit.health > 0))
             {
-                if ((citizen.health > citizen.slightInjury) && (citizen.health < citizen.maxHealth))
+                if ((unit.health > unit.slightInjury) && (unit.health < unit.maxHealth))
                 {
                     healingPowerRange = rnd.Next(healingPowerMin[0], healingPowerMax[0]);
                 }
-                else if ((citizen.health <= citizen.slightInjury) && (citizen.health > citizen.severeInjury))
+                else if ((unit.health <= unit.slightInjury) && (unit.health > unit.severeInjury))
                 {
                     healingPowerRange = rnd.Next(healingPowerMin[1], healingPowerMax[1]);
                 }
-                else if ((citizen.health <= citizen.severeInjury) && (citizen.health > 0))
+                else if ((unit.health <= unit.severeInjury) && (unit.health > 0))
                 {
                     healingPowerRange = rnd.Next(healingPowerMin[2], healingPowerMax[2]);
                 }
                 medicines -= healingPowerRange;
-                citizen.GetTreatmentHospital(healingPowerRange);
+                unit.GetTreatmentHospital(healingPowerRange);
                 healingPowerRange = 0;
             }
 
-            if (citizen.health <= 0)
+            if (unit.health <= 0)
             {
-                Console.WriteLine($"Hospital cannot treat, {citizen.name} is dead!");
+                Console.WriteLine($"Hospital cannot treat, {unit.name} is dead!");
             }
         }
 
