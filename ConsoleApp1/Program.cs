@@ -1,293 +1,217 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Для_обучения
 {
-
-
-
-
     class Program
     {
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Выбирите тип входа:Client/Admin");
-            string client = Console.ReadLine();
 
-            if (client == "Client")
+            List<string> products = new List<string>() { "bread", "Vodka", "Seledka", "seeds", "Tea" };
+            List<double> prices = new List<double>() { 100, 450, 250, 50, 190 };
+            List<string> currency_name = new List<string>() { "р", "р", "р", "р", "р" };
+
+            List<double> shopping_basket = new List<double>() { };
+
+            Console.WriteLine();
+            Console.Write("Client / Admin:  ");
+            string s = Console.ReadLine();
+
+            if (s == "Client")
             {
-                Console.WriteLine("Вы зашли как клиент");
-                Console.Write("Введите сумму: ");
-                double allMoney = double.Parse(Console.ReadLine());
-                double Balans;
-
+                Console.Write("Enter the amount: ");
+                double credit = double.Parse(Console.ReadLine());
 
                 while (true)
                 {
 
+                    Console.WriteLine("Spicok");
+                    for (int i = 0; i < products.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {products[i]} {prices[i]} {currency_name[i]}");
 
-                    Console.WriteLine("Выберите продукт:");
-                    Console.WriteLine("1. Молоко = 0.50 $");
-                    Console.WriteLine("2. Хлеб = 2.00 $");
-                    Console.WriteLine("3. Куринное филе = 7.13 $");
-                    Console.WriteLine("4. Сок = 1.00 $");
-                    Console.WriteLine("5. Плавленный сыр = 6.00 $");
-                    string productType = Console.ReadLine();
-                    Console.WriteLine($"Потвердите ваш выбор");
-                    int amountOfProduct = int.Parse(Console.ReadLine());
-
-
-
-                    switch (productType)
+                    }
+                    Console.WriteLine("Make your choice(ot 1 do 5)");
+                    string client_choise = Console.ReadLine();
+                    switch (client_choise)
                     {
                         case "1":
                             {
-                                double sumMoney = 0.50 * amountOfProduct;
-                                if (sumMoney <= allMoney)
+                                Console.WriteLine("Enter coli.bread");
+                                int coli_product = int.Parse(Console.ReadLine());
+                                if (prices[0] * coli_product > credit)
                                 {
-
-                                    Console.WriteLine($"Ваша выбор:Молоко.Сумма покупки:0,50$.Потвердить покупку?(Y/N)");
-                                    string approveProduct = Console.ReadLine();
-                                    switch (approveProduct)
-                                    {
-                                        case "Y":
-                                            Console.WriteLine("Вы подтвердили покупку");
-                                            Balans = allMoney - sumMoney;
-                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
-
-
-
-
-                                            Console.WriteLine("Хотите преобрести кое-что еще?");
-                                            switch (approveProduct)
-                                            {
-                                                case "N":
-                                                    break;
-                                            }
-                                            break;
-
-                                        case "N":
-                                            {
-                                                Console.WriteLine("Отказ  от покупки");
-                                                break;
-                                            }
-
-
-                                    }
+                                    Console.WriteLine("Error limit");
                                 }
-                                else
-                                {
-                                    Console.WriteLine($"У вас недостаточно средств");
-                                }
+                                shopping_basket.Add(prices[0] * coli_product);
                             }
                             break;
+
                         case "2":
                             {
-                                double sumMoney = 2.00 * amountOfProduct;
-                                if (sumMoney <= allMoney)
+                                Console.WriteLine("Enter coli. Vodka");
+                                int coli_product = int.Parse(Console.ReadLine());
+                                if (prices[1] * coli_product > credit)
                                 {
-                                    Console.WriteLine($"Ваша выбор:Хлеб.Сумма покупки:2,00$.Потвердить покупку?(Y/N)");
-                                    string approveProduct = Console.ReadLine();
-                                    switch (approveProduct)
-                                    {
-                                        case "Y":
-                                            Console.WriteLine("Вы подтвердили покупку");
-
-                                            Balans = allMoney - sumMoney;
-                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
-
-                                            Console.WriteLine("Хотите преобрести кое-что еще?");
-                                            switch (approveProduct)
-                                            {
-                                                case "N":
-                                                    break;
-                                            }
-                                            break;
-                                        case "N":
-                                            {
-                                                Console.WriteLine("Отказ  от покупки");
-                                                break;
-                                            }
-                                    }
+                                    Console.WriteLine("Error limit");
                                 }
-                                else
-                                {
-                                    Console.WriteLine($"У вас недостаточно средств");
-
-                                }
+                                shopping_basket.Add(prices[1] * coli_product);
                             }
                             break;
+
                         case "3":
                             {
-                                double sumMoney = 7.13 * amountOfProduct;
-                                if (sumMoney <= allMoney)
+                                Console.WriteLine("Enter coli. Seledka");
+                                int coli_product = int.Parse(Console.ReadLine());
+                                if (prices[2] * coli_product > credit)
                                 {
-                                    Console.WriteLine($"Ваша выбор:Куринное филе.Сумма покупки:7,13$.Потвердить покупку?(Y/N)");
-                                    string approveProduct = Console.ReadLine();
-                                    switch (approveProduct)
-                                    {
-                                        case "Y":
-                                            Console.WriteLine("Вы подтвердили покупку");
-
-                                            Balans = allMoney - sumMoney;
-                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
-
-                                            Console.WriteLine("Хотите преобрести кое-что еще?");
-                                            switch (approveProduct)
-                                            {
-                                                case "N":
-                                                    break;
-                                            }
-
-                                            break;
-                                        case "N":
-                                            {
-                                                Console.WriteLine("Отказ  от покупки");
-                                                break;
-                                            }
-                                    }
+                                    Console.WriteLine("Error limit");
                                 }
-
-                                else
-                                {
-                                    Console.WriteLine($"У вас недостаточно средств");
-                                }
+                                shopping_basket.Add(prices[2] * coli_product);
                             }
                             break;
+
                         case "4":
                             {
-                                double sumMoney = 1.00 * amountOfProduct;
-                                if (sumMoney <= allMoney)
+                                Console.WriteLine("Enter coli. seeds");
+                                int coli_product = int.Parse(Console.ReadLine());
+                                if (prices[3] * coli_product > credit)
                                 {
-                                    Console.WriteLine($"Ваша выбор:Вишнёвый сок.Сумма покупки:1,00$.Потвердить покупку?(Y/N)");
-                                    string approveProduct = Console.ReadLine();
-                                    switch (approveProduct)
-                                    {
-                                        case "Y":
-                                            Console.WriteLine("Вы потврердили покупку");
-                                            Balans = allMoney - sumMoney;
-                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
-
-                                            Console.WriteLine("Хотите преобрести кое-что еще?");
-                                            switch (approveProduct)
-                                            {
-                                                case "N":
-                                                    break;
-                                            }
-
-                                            break;
-                                        case "N":
-                                            {
-                                                Console.WriteLine("Отказ  от покупки");
-                                                break;
-                                            }
-                                    }
+                                    Console.WriteLine("Error limit");
                                 }
-
-                                else
-                                {
-                                    Console.WriteLine($"У вас недостаточно средств");
-                                }
+                                shopping_basket.Add(prices[3] * coli_product);
                             }
                             break;
+
                         case "5":
                             {
-                                double sumMoney = 6.00 * amountOfProduct;
-                                if (sumMoney <= allMoney)
+                                Console.WriteLine("Enter coli. Tea");
+                                int coli_product = int.Parse(Console.ReadLine());
+                                if (prices[4] * coli_product > credit)
                                 {
-                                    Console.WriteLine($"Ваша выбор:Плавленный сыр.Сумма покупки:6,00$.Потвердить покупку?(Y/N)");
-                                    string approveProduct = Console.ReadLine();
-                                    switch (approveProduct)
-                                    {
-                                        case "Y":
-                                            Console.WriteLine("Вы подтвердили покупку");
-
-                                            Balans = allMoney - sumMoney;
-                                            Console.WriteLine("Ваш баланс составляет:" + Balans);
-
-                                            Console.WriteLine("Хотите преобрести кое-что еще?");
-                                            switch (approveProduct)
-                                            {
-                                                case "N":
-                                                    break;
-                                            }
-
-                                            break;
-                                        case "N":
-                                            {
-                                                Console.WriteLine("Отказ  от покупки");
-                                                break;
-                                            }
-                                    }
+                                    Console.WriteLine("Error limit");
                                 }
-
-                                else
-                                {
-                                    Console.WriteLine($"У вас недостаточно средств");
-                                }
+                                shopping_basket.Add(prices[4] * coli_product);
                             }
                             break;
-
-
-
+                    }
+                    Console.Write("Anything else? (Y/N)");
+                    client_choise = Console.ReadLine();
+                    if (client_choise == "N")
+                    {
+                        break;
                     }
 
 
+                }
+                double summ = 0;
+                for (int i = 0; i < shopping_basket.Count; i++)
+                {
+                    summ += shopping_basket[i];
+                }
+                Console.WriteLine();
 
+                if (summ > credit)
+                {
+                    Console.WriteLine("Error limit");
                 }
 
+                else
+                {
+                    Console.WriteLine($"Total: {summ}");
+                }
 
+            }
+
+
+
+            if (s == "Admin")
+            {
+
+                Console.WriteLine("Spicok");
+                for (int i = 0; i < products.Count; i++)
+                {
+                    Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
+                }
+                Console.Write("Add and Remove (+/-): ");
+                string edit = Console.ReadLine();
+                switch (edit)
+                {
+                    case "+":
+                        {
+                            string add = "+";
+                            while (add != "-")
+                            {
+                                Console.Write("Name of the added position?: ");
+
+                                string newProduct = Console.ReadLine();
+
+                                products.Add(newProduct);
+                                Console.Write($"price in Руб per kg. '{newProduct}': ");
+
+                                double coastNewProduct = double.Parse(Console.ReadLine());
+                                prices.Add(coastNewProduct);
+
+                                Console.Write("Continue adding?(y/n): ");
+                                add = Console.ReadLine();
+                                if (add == "n")
+                                {
+                                    Console.WriteLine("Changed product list:");
+                                    for (int i = 0; i < products.Count; i++)
+                                    {
+                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
+                                    }
+                                    break;
+                                }
+                                else if (add == "y") continue;
+                                else Console.WriteLine("Input error: only 'y' and 'n'");
+                            }
+                        }
+                        break;
+                    case "-":
+                        {
+                            string exit = "+";
+                            while (exit != "-")
+                            {
+                                Console.Write("Remove position(№): ");
+                                int delProductNumber = int.Parse(Console.ReadLine());
+
+                                string delProduct = products[delProductNumber - 1];
+
+                                int indexRemove = products.IndexOf(delProduct);
+                                products.Remove(delProduct);
+
+                                prices.Remove(indexRemove);
+                                Console.Write("Continue remove?(y/n): ");
+
+                                exit = Console.ReadLine();
+                                if (exit == "n")
+                                {
+                                    Console.WriteLine("Changed product list:");
+                                    for (int i = 0; i < products.Count; i++)
+                                    {
+                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
+                                    }
+                                    break;
+                                }
+                                else Console.Write(" Input error: only  'y' and 'n'");
+                            }
+                        }
+                        break;
+                }
 
             }
             else
             {
-                //Console.WriteLine("неверный ввод");
+                Console.WriteLine("Input Error: only  'Client' and 'Admin'");
             }
-            if (client == "admin")
-            {
-                Console.WriteLine("Вы зашли как Admin");
-                Console.WriteLine("Хотите добавить товар или удалить(Add/Delete");
-                string delete = Console.ReadLine();
-                string delete1 = Console.ReadLine();
 
-                while (true)
-                {
-                    switch (delete)
-                    {
-                        case "delete":
-                            Console.WriteLine("Выбирите товар который хотите удалить");
-
-                            Console.WriteLine("1. Молоко = 0.50 $");
-                            Console.WriteLine("2. Хлеб = 2.00 $");
-                            Console.WriteLine("3. Куринное филе = 7.13 $");
-                            Console.WriteLine("4. Сок = 1.00 $");
-                            Console.WriteLine("5. Плавленный сыр = 6.00 $");
-                            break;
-
-                        case "1":
-                            Console.WriteLine("Вы удалили продукт № 1");
-                            break;
-                    }
-                    break;
-                }
-
-
-
-
-                
-
-
-
-
-
-
-
-            }
 
         }
-
-
     }
 }
