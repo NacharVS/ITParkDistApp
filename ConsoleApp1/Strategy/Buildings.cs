@@ -16,6 +16,21 @@ namespace ConsoleApp1.Strategy
             _needMaterials = 0;
         }
 
+        public double Wall
+        {
+            get
+            {
+                _wall = Health;
+                return _wall;
+            }
+            set
+            {
+                Health = _wall = value;
+            }
+        }    
+
+        public double MaxWall { get; }
+
         //public void GetRepair(int constructionSkill)
         //{
         //    if (materials > constructionSkill)

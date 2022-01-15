@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class Archer : Shooter
+    class Catapult : Shooter
     {
-        public Archer(string name) : base(name, 50, 1, 7, 1, 4, 4, 12, 100)
+        public Catapult() : base("Catapult", 100, 1, 2, 1, 4, 20, 40, 100)
         {
-            _arrows = 5;
+            _arrows = 100;
         }
 
         public override double Attack(Random rnd)
@@ -21,7 +21,7 @@ namespace ConsoleApp1.Strategy
             }
             else
             {
-                return MeleeAttack(rnd);
+                return 0;
             }
         }
     }

@@ -36,7 +36,7 @@ namespace ConsoleApp1.Strategy
 
         public int Lvl { get => _lvl; set => _lvl = value; }
         
-        public void Wound(int damage)
+        public void Wound(double damage)
         {
             Health -= damage;
             Console.WriteLine($"{Name} - {Profession} is under attack!");

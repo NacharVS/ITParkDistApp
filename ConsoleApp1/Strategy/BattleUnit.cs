@@ -14,10 +14,7 @@ namespace ConsoleApp1.Strategy
         }
 
         abstract public double Attack(Random rnd);
-        //{
-        //    return 0;
-        //}
-
+        
         protected double MeleeAttack(Random rnd)
         {
             double damage = rnd.Next(_minDamage, _maxDamage);

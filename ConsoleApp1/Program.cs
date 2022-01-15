@@ -14,6 +14,9 @@ namespace ConsoleApp1
         {
             Random rnd = new Random();
 
+            WathingTower wathingTower = new WathingTower();
+            Catapult catapult = new Catapult();
+
             Healer healer1 = new Healer("Gendalf");
 
             Warrior warrior1 = new Warrior("Bob1");
@@ -30,16 +33,26 @@ namespace ConsoleApp1
             //healer1.Treatment(archer1, rnd);
             //healer1.Treatment(archer2, rnd);
 
-            Battle.Fight(archer1, warrior1, rnd);
-            healer1.Treatment(archer1, rnd);
+            //Battle.Fight(archer1, warrior1, rnd);
+            //healer1.Treatment(archer1, rnd);
+            //healer1.Treatment(warrior1, rnd);
+
+            //Battle.Fight(archer2, warrior2, rnd);
+            //healer1.Treatment(archer2, rnd);
+            //healer1.Treatment(warrior2, rnd);
+
+            //Battle.BuildingAttack(wathingTower, catapult, rnd);
+            //healer1.Treatment(archer1, rnd);
+            //healer1.Treatment(warrior1, rnd);
+
+            //Battle.Fight(warrior1, catapult, rnd);
+            //healer1.Treatment(warrior1, rnd);
+            //healer1.Treatment(catapult, rnd);
+
+            Battle.MovingAttack(catapult, warrior1, rnd);
             healer1.Treatment(warrior1, rnd);
+            healer1.Treatment(catapult, rnd);
 
-            Battle.Fight(archer2, warrior2, rnd);
-            healer1.Treatment(archer2, rnd);
-            healer1.Treatment(warrior2, rnd);
-
-
-            
 
 
 
