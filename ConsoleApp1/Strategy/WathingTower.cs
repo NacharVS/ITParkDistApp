@@ -4,7 +4,7 @@ namespace ConsoleApp1.Strategy
 {
     class WathingTower : Buildings
     {
-        public WathingTower() : base("WathingTower", 200, 20)
+        public WathingTower(string name) : base(name, 200, 20)
         {
         }
 

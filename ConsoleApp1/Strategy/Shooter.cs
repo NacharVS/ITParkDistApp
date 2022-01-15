@@ -23,15 +23,18 @@ namespace ConsoleApp1.Strategy
 
         public double DistanceAttack(Random rnd)
         {
-            _arrows--;
-            int damage = rnd.Next(_minDistanceDamage, _maxDistanceDamage);
-            
-            if (_arrows <= 0)
+            if (_arrows > 0)
+            {
+                _arrows--;
+                int damage = rnd.Next(_minDistanceDamage, _maxDistanceDamage);
+                return damage;
+            }
+                        
+            else
             {
                 Console.WriteLine("Arrows is empty");
+                return 0;
             }
-
-            return damage;
         }
     }
 }

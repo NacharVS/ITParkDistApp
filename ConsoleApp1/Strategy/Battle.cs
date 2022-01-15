@@ -8,20 +8,29 @@ namespace ConsoleApp1.Strategy
 {
     class Battle
     {
+        
         public static void Fight(BattleUnit unit1, BattleUnit unit2, Random rnd)
         {
             while (unit1.Health > 0 && unit2.Health > 0)
             {
                 if (unit2.Health > 0)
                 {
-                    unit1.Health -= unit2.Attack(rnd) - unit1.Armor;
+                    if (unit2.Attack(rnd) - unit1.Armor > 0)
+                    {
+                        unit1.Health -= unit2.Attack(rnd) - unit1.Armor;
+                    }
+
                     unit1.Info();
                 }
 
                 if (unit1.Health >0)
                 {
-                    unit2.Health -= unit1.Attack(rnd) - unit2.Armor;
-                    unit1.Info();
+                    if (unit1.Attack(rnd) - unit2.Armor > 0)
+                    {
+                        unit2.Health -= unit1.Attack(rnd) - unit2.Armor;
+                    }
+                    
+                    unit2.Info();
                 }
             }
 
@@ -39,8 +48,11 @@ namespace ConsoleApp1.Strategy
         {
             while (building.Wall > 0 && shooter.Health > 0)
             {
-                building.Health -= shooter.DistanceAttack(rnd) - building.Armor;
-
+                if (shooter.DistanceAttack(rnd) - building.Armor > 0)
+                {
+                    building.Health -= shooter.DistanceAttack(rnd) - building.Armor;
+                }
+                
                 building.Info();
                 shooter.Info();
             }
@@ -50,10 +62,27 @@ namespace ConsoleApp1.Strategy
         {
             while (shooter.Health > 0 && unit.Health > 0)
             {
-                unit.Health -= shooter.DistanceAttack(rnd) - unit.Armor - unit.Speed;
-
+                if (shooter.DistanceAttack(rnd) - unit.Armor - unit.Speed > 0)
+                {
+                    unit.Health -= shooter.DistanceAttack(rnd) - unit.Armor - unit.Speed;
+                }
+                
                 unit.Info();
                 shooter.Info();
+            }
+        }
+
+        public static void ArcherTowerAttack(ArcherTower archerTower, BattleUnit unit, Random rnd)
+        {
+            while (archerTower.Archer[0].Arrows > 0 && unit.Health > 0)
+            {
+                if (archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed > 0)
+                {
+                    unit.Health -= archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed;
+                }
+                
+                unit.Info();
+                archerTower.Info();
             }
         }
     }
