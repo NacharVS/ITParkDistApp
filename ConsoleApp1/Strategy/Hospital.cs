@@ -8,56 +8,39 @@ namespace ConsoleApp1.Strategy
 {
     class Hospital : Buildings
     {
-        int medicines;
+        private int _medicines;
+        private int _healingPowerMin;
+        private int _healingPowerMax;
 
-        int[] healingPowerMin = new int[3];
-        int[] healingPowerMax = new int[3];
-        int healingPowerRange;
-
-        public Hospital(string name) : base(name, 2000, 300)
+        public Hospital() : base("Hospital", 2000, 300)
         {
-            medicines = 1000;
-            
-            healingPowerMin[0] = 20;
-            healingPowerMax[0] = 40;
-
-            healingPowerMin[1] = 5;
-            healingPowerMax[1] = 10;
-
-            healingPowerMin[2] = -5;
-            healingPowerMax[2] = 10;
+            _medicines = 1000;
+            _healingPowerMin = 10;
+            _healingPowerMax = 30;
         }
 
         public void Treatment(MovableUnits unit, Random rnd)
         {
-            while ((unit.health < unit.maxHealth) && (unit.health > 0))
+            if (unit.Health > 0)
             {
-                if ((unit.health > unit.slightInjury) && (unit.health < unit.maxHealth))
+                while (unit.Health < unit.MaxHealth)
                 {
-                    healingPowerRange = rnd.Next(healingPowerMin[0], healingPowerMax[0]);
+                    int healingPowerRange = rnd.Next(_healingPowerMin, _healingPowerMax);
+                    _medicines -= healingPowerRange;
+
+                    unit.GetTreatment(healingPowerRange);
                 }
-                else if ((unit.health <= unit.slightInjury) && (unit.health > unit.severeInjury))
-                {
-                    healingPowerRange = rnd.Next(healingPowerMin[1], healingPowerMax[1]);
-                }
-                else if ((unit.health <= unit.severeInjury) && (unit.health > 0))
-                {
-                    healingPowerRange = rnd.Next(healingPowerMin[2], healingPowerMax[2]);
-                }
-                medicines -= healingPowerRange;
-                unit.GetTreatmentHospital(healingPowerRange);
-                healingPowerRange = 0;
             }
 
-            if (unit.health <= 0)
+            else
             {
-                Console.WriteLine($"Hospital cannot treat, {unit.name} is dead!");
+                Console.WriteLine($"Healer cannot treat, {unit.Name} - {unit.Profession} is dead!");
             }
         }
 
         public new void Info()
         {
-            Console.WriteLine($"Name:{name}/ Health:{health}/ armor:{armor}/ medicines:{medicines}");
+            Console.WriteLine($"Name:{Name}/ Health:{Health}/ armor:{Armor}/ medicines:{_medicines}");
         }
     }
 }

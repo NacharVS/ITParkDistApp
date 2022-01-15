@@ -4,22 +4,23 @@ namespace ConsoleApp1.Strategy
 {
     abstract class Unit
     {
-        public string name;
+        private string _name;
         private double _maxHealth;
         private double _health;
-        public double armor;
-
-        public double MaxHealth { get; set; }
+        private double _armor;
         
-
         protected Unit(string name, double maxHealth, double armor)
         {
-            this.name = name;
+            _name = name;
             _health = maxHealth;
             _maxHealth = maxHealth;
-            this.armor = armor;
+            _armor = armor;
             Creation();
         }
+        
+        public string Name { get => _name;}
+        
+        public double MaxHealth { get => _maxHealth;}
 
         public double Health
         {
@@ -27,7 +28,6 @@ namespace ConsoleApp1.Strategy
             {
                 return _health;
             }
-
             set
             {
                 if (value <= 0)
@@ -45,19 +45,21 @@ namespace ConsoleApp1.Strategy
             }
         }
 
+        public double Armor { get => _armor; }
+
         public void Creation()
         {
-            Console.WriteLine($"{name} is created");
+            Console.WriteLine($"{_name} is created");
         }
 
-        public void Termination()
+        protected void Termination()
         {          
-            Console.WriteLine($"{name} is terminated");
+            Console.WriteLine($"{_name} is terminated");
         }
 
         public void Info()
         {
-            Console.WriteLine($"Name:{name}/ Health:{_health}/ armor:{armor}");
+            Console.WriteLine($"Name:{_name}/ Health:{_health}/ armor:{_armor}");
         }
     }
 }

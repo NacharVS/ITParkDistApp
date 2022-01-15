@@ -2,32 +2,35 @@
 
 namespace ConsoleApp1.Strategy
 {
-    class BattleUnit : MovableUnits
+    abstract class BattleUnit : MovableUnits
     {
-        public int minDamage;
-        public int maxDamage;
+        protected int _minDamage;
+        protected int _maxDamage;
 
         public BattleUnit(string name, double health, double armor, int speed, int min, int max) : base(name, health, armor, speed)
         {
-            minDamage = min;
-            maxDamage = max;
+            _minDamage = min;
+            _maxDamage = max;
         }
 
-        public void MeleeAttack(MovableUnits unit, Random rnd)
+        abstract public double Attack(Random rnd);
+        //{
+        //    return 0;
+        //}
+
+        protected double MeleeAttack(Random rnd)
         {
-            int currentDamage = rnd.Next(minDamage, maxDamage);
-            unit.Wound(currentDamage);
-            Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
+            double damage = rnd.Next(_minDamage, _maxDamage);
+            return damage;
         }
 
-        
         public void Upgrade()
         {
-            if(lvl == 0)
+            if(Lvl == 0)
             {
-                minDamage += 1;
-                maxDamage += 2;
-                lvl++;
+                _minDamage += 1;
+                _maxDamage += 2;
+                Lvl++;
             }
         }
     }

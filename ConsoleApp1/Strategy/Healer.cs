@@ -8,41 +8,38 @@ namespace ConsoleApp1.Strategy
 {
     class Healer : Citizen
     {
-        int medicines;
-        int healingPowerMin;
-        int healingPowerMax;
+        private int _medicines;
+        private int _healingPowerMin;
+        private int _healingPowerMax;
 
         public Healer(string name) : base(name, 60, 0, 6)
         {
-            medicines = 200;
-            healingPowerMin = 3;
-            healingPowerMax = 8;
-            profession = "Healer";
+            Profession = "Healer";
+
+            _medicines = 200;
+            _healingPowerMin = 3;
+            _healingPowerMax = 8;
         }
 
         public void Treatment(MovableUnits unit, Random rnd)
         {
-            if (unit.Health > unit.slightInjury)
+            if (unit.Health > 0)
             {
                 while (unit.Health < unit.MaxHealth)
                 {
-                    int healingPowerRange = rnd.Next(healingPowerMin, healingPowerMax);
+                    int healingPowerRange = rnd.Next(_healingPowerMin, _healingPowerMax);
+                    _medicines -= healingPowerRange;
 
-                    medicines -= healingPowerRange;
-
-                    unit.GetTreatmentHealer(healingPowerRange);
+                    unit.GetTreatment(healingPowerRange);
                 }
+                unit.Info();
             }
-
-            else if (unit.Health < unit.slightInjury && unit.Health > 0)
-            {
-                Console.WriteLine("Healer cannot treat, needed hospital");
-            }
-
+           
             else
             {
-                Console.WriteLine($"Healer cannot treat, {unit.name} is dead!");
+                Console.WriteLine($"Healer cannot treat, {unit.Name} - {unit.Profession} is dead!");
             }
+            
         }
     }
 }

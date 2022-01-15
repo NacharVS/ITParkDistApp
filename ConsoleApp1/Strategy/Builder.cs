@@ -8,28 +8,28 @@ namespace ConsoleApp1.Strategy
 {
     class Builder : Citizen
     {
-        public int constructionSkill;
+        private int _constructionSkill;
 
         public Builder(string name) : base(name, 30, 0, 4)
         {
-            constructionSkill = 10;
-            profession = "Builder";
+            Profession = "Builder";
+            _constructionSkill = 10;
         }
 
-        public void Repair(Buildings buildings)
-        {
-            if ((buildings.wall < buildings.maxWall) && (buildings.wall > 0))
-            {
-                while (buildings.wall < buildings.maxWall)
-                {
-                    buildings.GetRepair(constructionSkill);
-                }
-            }
+        //public void Repair(Buildings buildings)
+        //{
+        //    if ((buildings.wall > 0))
+        //    {
+        //        while (buildings.wall < buildings.maxWall)
+        //        {
+        //            buildings.GetRepair(_constructionSkill);
+        //        }
+        //    }
 
-            else if (buildings.wall == 0)
-            {
-                Console.WriteLine($"Builder cannot repair, {buildings.name} is destroyed!");
-            }
-        }
+        //    else if (buildings.wall == 0)
+        //    {
+        //        Console.WriteLine($"Builder cannot repair, {buildings.Name} is destroyed!");
+        //    }
+        //}
     }
 }

@@ -14,18 +14,32 @@ namespace ConsoleApp1
         {
             Random rnd = new Random();
 
+            Healer healer1 = new Healer("Gendalf");
+
             Warrior warrior1 = new Warrior("Bob1");
             Warrior warrior2 = new Warrior("Bob2");
-            Battle.Fight(warrior1, warrior2, rnd);
 
-            //Peasant peasant = new Peasant("Ivan");
+            Archer archer1 = new Archer("Legolaz1");
+            Archer archer2 = new Archer("Legolaz2");
 
-            //Archer archer = new Archer("Legolas");
+            //Battle.Fight(warrior1, warrior2, rnd);
+            //healer1.Treatment(warrior1, rnd);
+            //healer1.Treatment(warrior2, rnd);
+
+            //Battle.Fight(archer1, archer2, rnd);
+            //healer1.Treatment(archer1, rnd);
+            //healer1.Treatment(archer2, rnd);
+
+            Battle.Fight(archer1, warrior1, rnd);
+            healer1.Treatment(archer1, rnd);
+            healer1.Treatment(warrior1, rnd);
+
+            Battle.Fight(archer2, warrior2, rnd);
+            healer1.Treatment(archer2, rnd);
+            healer1.Treatment(warrior2, rnd);
 
 
-
-            //healer.Treatment(peasant, rnd);
-            //peasant.Info();
+            
 
 
 

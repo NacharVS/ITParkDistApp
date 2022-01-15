@@ -2,82 +2,55 @@
 
 namespace ConsoleApp1.Strategy
 {
-    class MovableUnits : Unit
+    abstract class MovableUnits : Unit
     {
-        //public string profession; 
-        public int speed;
-        public int lvl;
-        public double slightInjury;
-        public double severeInjury;
-        public string profession;
+        private int _speed;
+        private string _profession;
+        private int _lvl;
 
-        public MovableUnits(string name, double health, double armor, int speed) : base(name, health, armor)
+        public MovableUnits(string name, double maxHealth, double armor, int speed) : base(name, maxHealth, armor)
         {
-            //profession = professionParam;
-            this.speed = speed;
-            lvl = 0;
-            slightInjury = maxHealth * 30 / 100;
-            severeInjury = maxHealth * 10 / 100;
+            _speed = speed;
+           _lvl = 0;
         }
 
-        public void Wound(int currentDamage)
+        public int Speed
         {
-            if ((health - currentDamage) > 0)
+            get
             {
-                health -= currentDamage;
+                return _speed;
             }
-            else
-            {
-                health = 0;
-                Termination();
-            }
-            Info();
         }
 
-        public void GetTreatmentHealer(int healingPowerRange)
+        public string Profession
         {
-            if ((health + healingPowerRange) < maxHealth)
+            get
             {
-                health += healingPowerRange;
+                return _profession;
             }
-            else
+            protected set
             {
-                health = maxHealth;
+                _profession = value;
             }
-
-            Console.WriteLine($"{name} - {profession} undergoing treatment");
-            Info();
         }
 
-
-        public void GetTreatmentHospital(int healingPowerRange)
+        public int Lvl { get => _lvl; set => _lvl = value; }
+        
+        public void Wound(int damage)
         {
-            if ((health + healingPowerRange) > 0)
-            {
-                if ((health + healingPowerRange) < maxHealth && (health + healingPowerRange) > 0)
-                {
-                    health += healingPowerRange;
-                }
-                else if ((health + healingPowerRange) > maxHealth)
-                {
-                    health = maxHealth;
-                }
-
-                Console.WriteLine($"{name} - {profession} undergoing treatment");
-            }
-
-            else
-            {
-                health = 0;
-                Termination();
-            }
-
-            Info();
+            Health -= damage;
+            Console.WriteLine($"{Name} - {Profession} is under attack!");
         }
 
+        public void GetTreatment(int healingPower)
+        {
+            Health += healingPower;
+            Console.WriteLine($"{Name} - {Profession} is under treatment");
+        }
+                
         public void Move()
         {
-            Console.WriteLine($"{name} - is moving with {speed}");
+            Console.WriteLine($"{Name}- is moving with {Speed}");
             Info();
         }
     }

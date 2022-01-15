@@ -8,14 +8,13 @@ namespace ConsoleApp1.Strategy
 
         public Peasant(string name) : base(name, 30, 0, 4)
         {
-            profession = "Peasant";
+            Profession = "Peasant";
             CarryWeight = 100;
-            profession = "Peasant";
         }
 
         public void PlantGrower()
         {
-            Console.WriteLine($"{name} - {profession} is works in the field.");
+            Console.WriteLine($"{Name} - {Profession} is works in the field.");
         }
     }
 }

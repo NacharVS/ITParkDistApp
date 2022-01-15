@@ -8,15 +8,24 @@ namespace ConsoleApp1.Strategy
 {
     class Battle
     {
-        public static void Fight(Warrior warrior1, Warrior warrior2, Random rnd)
+        public static void Fight(BattleUnit unit1, BattleUnit unit2, Random rnd)
         {
-            while (warrior1.Health > 0 && warrior2.Health > 0)
+            while (unit1.Health > 0 && unit2.Health > 0)
             {
-                warrior1.Health -= warrior2.MeleeAttack(rnd);
-                warrior2.Health -= warrior1.MeleeAttack(rnd);
-                warrior1.Info();
-                warrior2.Info();
+                unit1.Health -= unit2.Attack(rnd)- unit1.Armor;
+                unit2.Health -= unit1.Attack(rnd)- unit2.Armor;
+                unit1.Info();
+                unit2.Info();
             }
+            if (unit2.Health <= 0)
+            {
+                Console.WriteLine($"Won {unit1.Name}!");
+            }
+            else if (unit1.Health <= 0)
+            {
+                Console.WriteLine($"Won {unit2.Name}!");
+            }
+
         }
     }
 }

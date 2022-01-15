@@ -4,43 +4,35 @@ namespace ConsoleApp1.Strategy
 {
     abstract class Buildings : Unit
     {
-        public double wall;
-        public double maxWall;
-        public double materials;
-        public double needMaterials;
+        private double _wall;
+        private double _maxWall;
+        private double _materials;
+        private double _needMaterials;
 
-        public Buildings(string name, double health, double armor) : base(name, health, armor)
+        public Buildings(string name, double maxHealth, double armor) : base(name, maxHealth, armor)
         {
-            wall = health;
-            maxWall = maxHealth;
+            _wall = maxHealth;
+            _maxWall = maxHealth;
+            _needMaterials = 0;
         }
 
-        public void GetRepair(int constructionSkill)
-        {
-            if (materials > constructionSkill)
-            {
-                if ((wall + constructionSkill) < maxWall)
-                {
-                    wall += constructionSkill;
-                    materials -= constructionSkill;
-                }
-                else
-                {
-                    wall = maxWall;
-                }
+        //public void GetRepair(int constructionSkill)
+        //{
+        //    if (materials > constructionSkill)
+        //    {
+        //        if ((wall + constructionSkill) < maxWall)
+        //        {
+        //            wall += constructionSkill;
+        //            materials -= constructionSkill;
+        //        }
+        //        else
+        //        {
+        //            wall = maxWall;
+        //        }
 
-                Console.WriteLine($"{name} is being renovated.");
-                Info();
-            }
-
-            
-            
-            
-            
-            
-            
-        }
-
-
+        //        Console.WriteLine($"{name} is being renovated.");
+        //        Info();
+        //    }
+        //}
     }
 }

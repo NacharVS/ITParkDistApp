@@ -8,15 +8,14 @@ namespace ConsoleApp1.Strategy
 {
     class Warrior : BattleUnit
     {
-        public Warrior(string name) : base(name, 80, 0, 5, 2, 8)
+        public Warrior(string name) : base(name, 60, 3, 5, 2, 10)
         {
 
         }
 
-        public double MeleeAttack(Random rnd)
+        public override double Attack(Random rnd)
         {
-            double currentDamage = rnd.Next(minDamage, maxDamage);
-            return currentDamage;
+            return MeleeAttack(rnd);
         }
     }
 }

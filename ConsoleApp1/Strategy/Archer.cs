@@ -6,36 +6,24 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class Archer : BattleUnit
+    class Archer : Shooter
     {
-        private int _arrows;
-        private int _minRangeDamage;
-        private int _maxRangeDamage;
-
-        public Archer(string name) : base(name, 45, 0, 7, 1, 2)
+        public Archer(string name) : base(name, 50, 1, 7, 1, 4, 4, 12)
         {
-            Arrows = 5;
-            MinRangeDamage = 4;
-            MaxRangeDamage = 12;
+
         }
 
-        public void RangeAttack(MovableUnits unit, Random rnd)
+        public override double Attack(Random rnd)
         {
             if (Arrows > 0)
             {
-                Arrows--;
-                int currentDamage = rnd.Next(MinRangeDamage, MaxRangeDamage);
-                Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
-                unit.Wound(currentDamage);
+                return DistanceAttack(rnd);
             }
             else
             {
                 Console.WriteLine("Arrows is empty");
-                MeleeAttack(unit, rnd);
+                return MeleeAttack(rnd);
             }
-
-
-
         }
     }
 }
