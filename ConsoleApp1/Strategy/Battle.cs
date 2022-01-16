@@ -8,46 +8,23 @@ namespace ConsoleApp1.Strategy
 {
     class Battle
     {
-        public static void UnitAttack (BattleUnit unit1, MovableUnits unit2)
+        public static void Fight(BattleUnit unit1, BattleUnit unit2)
         {
-            while (unit1.Health > 0 & unit2.Health > 0)
+            while(unit1.Health > 0 && unit2.Health > 0)
             {
-                var rnd = new Random();
-                unit1.MeeleeAttack(unit2, rnd);
+                unit1.Health -= unit2.MleeAttack(new Random());
+                unit2.Health -= unit1.MleeAttack(new Random());
                 unit1.Info();
                 unit2.Info();
             }
         }
-        public static void UnitAttack(BattleUnit unit1, BattleUnit unit2)
+        public static void Fight(Archer archer, BattleUnit unit2)
         {
-            while (unit1.Health > 0 & unit2.Health > 0)
+            while (archer.Health > 0 && unit2.Health > 0)
             {
-                var rnd = new Random();
-                unit1.MeeleeAttack(unit2, rnd);
-                unit2.Info();
-                unit2.MeeleeAttack(unit1, rnd);
-                unit1.Info();
-            }
-        }
-        public static void UnitAttack(Archer unit1, BattleUnit unit2)
-        {
-            while (unit1.Health > 0 & unit2.Health > 0)
-            {
-                var rnd = new Random();
-                unit1.RangeAttack(unit2, rnd);
-                unit2.Info();
-                unit2.MeeleeAttack(unit1, rnd);
-                unit1.Info();
-            }
-        }
-        public static void UnitAttack(BattleUnit unit1, Archer unit2)
-        {
-            while (unit1.Health > 0 & unit2.Health > 0)
-            {
-                var rnd = new Random();
-                unit2.RangeAttack(unit1, rnd);
-                unit1.Info();
-                unit1.MeeleeAttack(unit2, rnd);
+                archer.Health = archer.Health - unit2.MleeAttack(new Random()); // 5
+                unit2.Health -= archer.RangeAttack(new Random());
+                archer.Info();
                 unit2.Info();
             }
         }
