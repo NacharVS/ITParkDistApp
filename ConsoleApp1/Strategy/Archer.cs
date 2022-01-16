@@ -12,7 +12,7 @@ namespace ConsoleApp1.Strategy
         private int _minRangeDamage;
         private int _maxRangeDamage;
 
-        public Archer(string name) : base(name, 535, 0, "shooter", 7, 8, 13)
+        public Archer(string name,int health, int armor ) : base(name, health, armor, "shooter", 7, 8, 13)
         {
             _arrows = 5;
             _minRangeDamage = 16;
@@ -28,7 +28,7 @@ namespace ConsoleApp1.Strategy
             }
             else
             {
-                return MleeAttack(rnd);
+                return MeeleeAttack(rnd);
             }
 
         }

@@ -11,15 +11,20 @@ namespace ConsoleApp1.Strategy
         private int _minBuildingDamage;
         private int _maxBuildingDamage;
         internal override bool IsCatapult => true;
-        public Catapult(string name) : base(name, 700, 2, "catapult", 3, 20, 30)
+        public Catapult(string name,int health, int minDamage, int maxDamage ) : base(name, health, 2, "catapult", 3, minDamage, maxDamage)
         {
-            this._minBuildingDamage = 40;
-            this._maxBuildingDamage = 60;
+            this._minBuildingDamage = minDamage*2;
+            this._maxBuildingDamage = maxDamage*2;
         }
-        public double BuildingAttack(Random rnd)
+        public override double BuildingAttack(Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(_minBuildingDamage, _maxBuildingDamage));
+            Console.WriteLine($"{name} building attack with {currentDamage} damage");
             return currentDamage;
+        }
+        public override void Info()
+        {
+            Console.WriteLine($"Name: {name} HP: {Math.Round(Health)}");
         }
     }
 }

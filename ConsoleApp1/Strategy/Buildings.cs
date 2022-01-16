@@ -31,7 +31,8 @@ namespace ConsoleApp1.Strategy
         }
         public override void Info()
         {
-            Console.WriteLine($"{name} Wall: {Math.Round(Wall)} HP: {Math.Round(Health)}");
+            if(Health>0)
+                Console.WriteLine("\t({0}: Wall={1}, HP={2})", name, Math.Round(Wall), Math.Round(Health));
         }
     }
 }

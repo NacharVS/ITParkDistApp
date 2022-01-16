@@ -8,8 +8,7 @@ namespace ConsoleApp1.Strategy
         private double _health;
         internal double _maxHealth;
         public int armor;
-        public double damageReduction;
-        internal bool IsCatapult;
+        internal virtual bool IsCatapult { get => false; }
 
         public virtual double Health
         {
@@ -26,37 +25,34 @@ namespace ConsoleApp1.Strategy
                     _health = _maxHealth;
                 }
                 else
-                    _health = value * (
-                        100 * (armor * 0.06) / (1 + armor * 0.06)
-                        );
-
+                    _health = value/* * ()*/;
             }
         }
-
         protected Unit(string name, int health, int armor)
         {
             this.name = name;
             this._health = health;
             this.armor = armor;
             _maxHealth = health;
-            this.damageReduction = Math.Ceiling(100 * (armor * 0.06) / (1 + armor * 0.06));
-            IsCatapult = false;
             Creation();
         }
-
         public void Creation()
         {
-            Console.WriteLine($"{name} is created with {Health} HP and {armor} Armor");
+            Console.WriteLine($"{name} is created with {Health} HP, {armor} Armor, {DamageReduction()} Damage Reduction");
         }
-
         public void Termination()
         {
-            Console.WriteLine($"{name} is terminated");
+            Console.WriteLine($"{name} is terminated with {_health} HP");
         }
-
         public virtual void Info()
         {
             Console.WriteLine($"{name} {Math.Round(Health)}");
+        }
+        public double DamageReduction()
+        {
+            double damageReduction = (100-(100 * (armor * 0.06) / (1 + armor * 0.06)))/100;
+            Console.WriteLine($"   Damage reduction {name} is {damageReduction:0.00}");
+            return damageReduction;
         }
     }
 }
