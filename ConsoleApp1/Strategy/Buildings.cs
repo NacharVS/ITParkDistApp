@@ -2,11 +2,23 @@
 {
     class Buildings : Unit
     {
-        public int wall;
+        private double _wall;
 
         public Buildings(string name, int health, int armor) : base(name, health, armor)
         {
-            wall = health;
+            Wall = health;
+        }
+
+        public double Wall { get => _wall; set => _wall = value; }
+
+        private void WallIsDestroyed()
+        {
+            System.Console.WriteLine("Wall is destroyed");
+        }
+
+        public override void Info()
+        {
+            System.Console.WriteLine($"{name} {_wall} {Health}");
         }
     }
 }

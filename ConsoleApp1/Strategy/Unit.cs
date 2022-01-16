@@ -4,12 +4,13 @@ namespace ConsoleApp1.Strategy
 {
     abstract class Unit
     {
+        internal virtual bool IsCatapult { get => false; }
         public string name;
         private double _health;
         internal double _maxHealth;
-        public int armor;
+        public int Armor { get; set; }
 
-        internal double Health 
+        public virtual double Health 
         {
             get { return _health; }
             set
@@ -48,7 +49,7 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{name} is terminated");
         }
 
-        public void Info()
+        public virtual void Info()
         {
             Console.WriteLine($"{name} {Health}");
         }

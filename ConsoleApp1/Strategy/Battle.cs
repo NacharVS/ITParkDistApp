@@ -28,5 +28,46 @@ namespace ConsoleApp1.Strategy
                 unit2.Info();
             }
         }
+
+        public static void Fight(Buildings building, BattleUnit unit2)
+        {
+            while (building.Health > 0)
+            {
+                if (building.Wall > 0)
+                {
+                    building.Wall = building.Wall - unit2.MleeAttack(new Random()); // 5                    
+                    building.Info();
+                    unit2.Info();
+                }
+                else
+                {
+                    building.Health = building.Health - unit2.MleeAttack(new Random()); // 5                    
+                    building.Info();
+                    unit2.Info();
+                }
+            }
+        }
+            public static void Fight(ArcherTower tower, BattleUnit unit2)
+        {
+            if (tower.CanAttack)
+            {
+                //while (tower.Health > 0 && unit2.Health > 0)
+                //{
+                    tower.Health = tower.Health - unit2.MleeAttack(new Random()); // 5
+                    unit2.Health -= tower.Attack(new Random());
+                    tower.Info();
+                    unit2.Info();
+                //}
+            }
+            else
+            {
+                tower.Health = tower.Health - unit2.MleeAttack(new Random()); // 5               
+                tower.Info();
+                unit2.Info();
+            }
+
+
+
+        }
     }
 }

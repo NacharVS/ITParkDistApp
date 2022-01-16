@@ -8,8 +8,12 @@ namespace ConsoleApp1.Strategy
 {
     class Catapult : BattleUnit
     {
-        public Catapult(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam, min, max)
+        internal override bool IsCatapult => true;
+
+        public Catapult() : base("Catapult", 200, 20, "WallBreaker", 4, 30, 90)
         {
         }
+
+
     }
 }

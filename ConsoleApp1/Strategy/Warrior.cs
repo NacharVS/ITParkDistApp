@@ -10,6 +10,8 @@ namespace ConsoleApp1.Strategy
     {
         private bool _rage;
 
+        
+
         public Warrior(string name) : base(name, 90, 10, "soldier", 5, 2, 8)
         {
         }
