@@ -49,5 +49,10 @@ namespace ConsoleApp1.Strategy
         //        Info();
         //    }
         //}
+
+        public override void Info()
+        {
+            Console.WriteLine($"Name:{Name}/ Wall:{_wall} / Health:{Health}/ armor:{Armor}");
+        }
     }
 }

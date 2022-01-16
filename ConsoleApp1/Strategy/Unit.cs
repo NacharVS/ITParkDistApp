@@ -57,7 +57,7 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{_name} is terminated");
         }
 
-        public void Info()
+        public virtual void Info()
         {
             Console.WriteLine($"Name:{_name}/ Health:{_health}/ armor:{_armor}");
         }
