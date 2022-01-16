@@ -25,6 +25,7 @@ namespace ConsoleApp1.Strategy
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
             return currentDamage;
         }
+        
 
         public void Upgrade()
         {

@@ -8,8 +8,18 @@ namespace ConsoleApp1.Strategy
 {
     class Catapult : BattleUnit
     {
-        public Catapult(string name) : base(name, 120, 6, "catapult", 3, 12, 21)
+        private int _minBuildingDamage;
+        private int _maxBuildingDamage;
+        internal override bool IsCatapult => true;
+        public Catapult(string name) : base(name, 700, 2, "catapult", 3, 20, 30)
         {
+            this._minBuildingDamage = 40;
+            this._maxBuildingDamage = 60;
+        }
+        public double BuildingAttack(Random rnd)
+        {
+            double currentDamage = Convert.ToDouble(rnd.Next(_minBuildingDamage, _maxBuildingDamage));
+            return currentDamage;
         }
     }
 }

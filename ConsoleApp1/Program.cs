@@ -12,11 +12,11 @@ namespace ConsoleApp1
         {
             Random rnd = new Random();
 
-            //Peasant peasant1 = new Peasant("Ivan");
-            //Archer archer = new Archer("Legolas");
-            //Healer healer = new Healer("Gendalf", 20);
+            Peasant peasant1 = new Peasant("Ivan");
+            Archer archer = new Archer("Legolas");
+            Healer healer = new Healer("Gendalf", 20);
             Warrior war1 = new Warrior("Bob");
-            //Warrior war2 = new Warrior("John");
+            Warrior war2 = new Warrior("John");
             //Battle.Fight(archer, war2);
             //healer.Heal(war2);
             //war2.Info();
@@ -29,16 +29,30 @@ namespace ConsoleApp1
             Catapult catapult = new Catapult("Catapult");
             Buildings building = new Buildings("Castle", 1100, 15);
             Battle.Fight(catapult, building);
-            ArcherTower archerTower1 = new ArcherTower("ArcherTower1", 200,8, 10, 20);
-            Console.Write("How many archers in a ArchTower?(0-5):");
-            int archAmount = Convert.ToInt32(Console.ReadLine());
-            Battle.Fight(archerTower1, archAmount, catapult);
-
+            ArcherTower archerTower1 = new ArcherTower("Guard Tower",500,5, 20, 30);
+            //Console.Write("How many archers in a ArchTower?(0-5):");
+            //int archAmount = Convert.ToInt32(Console.ReadLine());
+            //Battle.Fight(archerTower1, archAmount, catapult);
+            //healer.Heal(war1);
+            //war1.Info();
+            //healer.Heal(catapult);
+            //catapult.Info();
+            //healer.Heal(war1);
+            //war1.Info();
+            //healer.Heal(catapult);
+            //catapult.Info();
+            //Battle.Fight(catapult, war1);
             //13.01.2022 Инкапсуляция свойств. Лекция 9
             //var std1 = new Student();
             //std1.Age = 20;
             //Console.WriteLine(std1.Age);
-
+            //Lection 16.01.22
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    archerTower1.LoadArchers(archer);
+            //}
+            //Battle.Fight(archerTower1, war1);
+            Console.Read();
             //ДЗ 13.01.2022
             //1) доработать методы боя с учетом показателя брони (формулу на свое усмотрение).
             //2) нового юнита добавим Catapult - ломает здания. Реализовать атаку.

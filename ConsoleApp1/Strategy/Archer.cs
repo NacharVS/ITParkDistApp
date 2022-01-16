@@ -12,11 +12,11 @@ namespace ConsoleApp1.Strategy
         private int _minRangeDamage;
         private int _maxRangeDamage;
 
-        public Archer(string name) : base(name, 45, 2, "shooter", 7, 1, 2)
+        public Archer(string name) : base(name, 535, 0, "shooter", 7, 8, 13)
         {
             _arrows = 5;
-            _minRangeDamage = 4;
-            _maxRangeDamage = 12;
+            _minRangeDamage = 16;
+            _maxRangeDamage = 26;
         }
 
         public double RangeAttack(Random rnd)

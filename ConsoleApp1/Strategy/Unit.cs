@@ -9,8 +9,9 @@ namespace ConsoleApp1.Strategy
         internal double _maxHealth;
         public int armor;
         public double damageReduction;
+        internal bool IsCatapult;
 
-        internal double Health
+        public virtual double Health
         {
             get { return _health; }
             set
@@ -25,7 +26,9 @@ namespace ConsoleApp1.Strategy
                     _health = _maxHealth;
                 }
                 else
-                    _health = value;
+                    _health = value * (
+                        100 * (armor * 0.06) / (1 + armor * 0.06)
+                        );
 
             }
         }
@@ -37,6 +40,7 @@ namespace ConsoleApp1.Strategy
             this.armor = armor;
             _maxHealth = health;
             this.damageReduction = Math.Ceiling(100 * (armor * 0.06) / (1 + armor * 0.06));
+            IsCatapult = false;
             Creation();
         }
 
@@ -50,7 +54,7 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{name} is terminated");
         }
 
-        public void Info()
+        public virtual void Info()
         {
             Console.WriteLine($"{name} {Math.Round(Health)}");
         }
