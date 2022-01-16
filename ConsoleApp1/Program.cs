@@ -74,9 +74,9 @@ namespace ConsoleApp1
             //healer.UnitHeal(healer, peasant1, rnd);
             //peasant1.Info();
             MovableUnits unit1 = new Archer("Fedot");
-            //Battle.UnitAttack(soldier, peasant1);
+            Battle.UnitAttack(soldier, peasant1);
             //Battle.UnitAttack(soldier, archer);
-            Battle.UnitAttack(archer, soldier);
+            //Battle.UnitAttack(archer, soldier);
             //ДЗ
             //HEALER
             // 1.Добавить методы лечения юнитов для класса Healer

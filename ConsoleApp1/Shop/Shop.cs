@@ -103,17 +103,17 @@ namespace ConsoleApp1
                             string couponFlag = Console.ReadLine();
                             if (couponFlag == "+")
                             {
-                                Console.WriteLine($"Сумма вашей корзины: {Convert.ToString(Client.UseCoupon(Client.SolveCost()))}");
+                                Console.WriteLine($"Сумма вашей корзины: {Convert.ToString(Client.UseCoupon(Client.SolveCost())):0.00}");
                                 if (Client.UseCoupon(Client.SolveCost()) <= allMoney)
-                                    Console.WriteLine($"Удачная покупка! (Ваших денег: {allMoney} р. достаточно для покупок на {Client.UseCoupon(Client.SolveCost())} р. Сдача: {allMoney - Client.UseCoupon(Client.SolveCost())} р.)");
-                                else Console.WriteLine($"Не хватает денег! (Сумма покупок: {Client.UseCoupon(Client.SolveCost())} р. больше, чем у вас денег: {allMoney} р.");
+                                    Console.WriteLine($"Удачная покупка! (Ваших денег: {allMoney:0.00} р. достаточно для покупок на {Client.UseCoupon(Client.SolveCost()):0.00} р. Сдача: {allMoney - Client.UseCoupon(Client.SolveCost()):0.00} р.)");
+                                else Console.WriteLine($"Не хватает денег! (Сумма покупок: {Client.UseCoupon(Client.SolveCost()):0.00} р. больше, чем у вас денег: {allMoney:0.00} р.");
                             }
                             else
                             {
-                                Console.WriteLine($"Сумма вашей корзины: {Convert.ToString(Client.SolveCost())}");
+                                Console.WriteLine($"Сумма вашей корзины: {Convert.ToString(Client.SolveCost()):0.00}");
                                 if (Client.SolveCost() <= allMoney)
-                                    Console.WriteLine($"Удачная покупка! (Ваших денег: {allMoney} р. достаточно для покупок на {Client.SolveCost()} р. Сдача: {allMoney - Client.SolveCost()} р.)");
-                                else Console.WriteLine($"Не хватает денег! (Сумма покупок: {Client.SolveCost()} р. больше, чем у вас денег: {allMoney} р.");
+                                    Console.WriteLine($"Удачная покупка! (Ваших денег: {allMoney:0.00} р. достаточно для покупок на {Client.SolveCost():0.00} р. Сдача: {allMoney - Client.SolveCost():0.00} р.)");
+                                else Console.WriteLine($"Не хватает денег! (Сумма покупок: {Client.SolveCost():0.00} р. больше, чем у вас денег: {allMoney:0.00} р.");
                             }
                         }
                         break;
