@@ -34,7 +34,7 @@ namespace ConsoleApp1.Strategy
         {
             this.name = name;
             this._health = health;
-            this.armor = armor;
+            this.Armor = armor;
             _maxHealth = health;
             Creation();
         }
