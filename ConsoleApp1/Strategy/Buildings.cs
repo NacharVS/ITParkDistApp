@@ -10,9 +10,5 @@ namespace ConsoleApp1.Strategy
         {
             wall = health;
         }
-        public void Termination()
-        {
-            Console.WriteLine($"{name} is terminated");
-        }
     }
 }

@@ -12,17 +12,27 @@ namespace ConsoleApp1
         {
             Random rnd = new Random();
 
-            Peasant peasant1 = new Peasant("Ivan");
-            Archer archer = new Archer("Legolas");
-            Healer healer = new Healer("Gendalf", 20);
+            //Peasant peasant1 = new Peasant("Ivan");
+            //Archer archer = new Archer("Legolas");
+            //Healer healer = new Healer("Gendalf", 20);
             Warrior war1 = new Warrior("Bob");
-            Warrior war2 = new Warrior("John");
-            Battle.Fight(archer, war2);
-            healer.Heal(war2);
-            healer.Heal(war2);
-            healer.Heal(war2);
-            healer.Heal(war2);
-            war2.Info();
+            //Warrior war2 = new Warrior("John");
+            //Battle.Fight(archer, war2);
+            //healer.Heal(war2);
+            //war2.Info();
+            //healer.Heal(war2);
+            //war2.Info();
+            //healer.Heal(war2);
+            //war2.Info();
+            //healer.Heal(war2);
+            //war2.Info();
+            Catapult catapult = new Catapult("Catapult");
+            Buildings building = new Buildings("Castle", 1100, 15);
+            Battle.Fight(catapult, building);
+            ArcherTower archerTower1 = new ArcherTower("ArcherTower1", 200,8, 10, 20);
+            Console.Write("How many archers in a ArchTower?(0-5):");
+            int archAmount = Convert.ToInt32(Console.ReadLine());
+            Battle.Fight(archerTower1, archAmount, catapult);
 
             //13.01.2022 Инкапсуляция свойств. Лекция 9
             //var std1 = new Student();

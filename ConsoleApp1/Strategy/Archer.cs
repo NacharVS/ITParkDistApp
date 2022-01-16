@@ -12,7 +12,7 @@ namespace ConsoleApp1.Strategy
         private int _minRangeDamage;
         private int _maxRangeDamage;
 
-        public Archer(string name) : base(name, 45, 0, "shooter", 7, 1, 2)
+        public Archer(string name) : base(name, 45, 2, "shooter", 7, 1, 2)
         {
             _arrows = 5;
             _minRangeDamage = 4;

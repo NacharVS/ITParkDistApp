@@ -8,6 +8,7 @@ namespace ConsoleApp1.Strategy
         private double _health;
         internal double _maxHealth;
         public int armor;
+        public double damageReduction;
 
         internal double Health
         {
@@ -35,12 +36,13 @@ namespace ConsoleApp1.Strategy
             this._health = health;
             this.armor = armor;
             _maxHealth = health;
+            this.damageReduction = Math.Ceiling(100 * (armor * 0.06) / (1 + armor * 0.06));
             Creation();
         }
 
         public void Creation()
         {
-            Console.WriteLine($"{name} is created");
+            Console.WriteLine($"{name} is created with {Health} HP and {armor} Armor");
         }
 
         public void Termination()
@@ -50,7 +52,7 @@ namespace ConsoleApp1.Strategy
 
         public void Info()
         {
-            Console.WriteLine($"{name} {Health}");
+            Console.WriteLine($"{name} {Math.Round(Health)}");
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    internal class Catapult : BattleUnit
+    class Catapult : BattleUnit
     {
-        public Catapult(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam, min, max)
+        public Catapult(string name) : base(name, 120, 6, "catapult", 3, 12, 21)
         {
         }
     }

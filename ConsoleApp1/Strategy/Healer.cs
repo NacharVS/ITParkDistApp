@@ -1,42 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    internal class Healer : MovableUnits
+    class Healer : MovableUnits
     {
-        public int minHeal;
-        public int maxHeal;
-        public int Mana;
-        public Healer (string name, int health, int armor, string professionParam, int speedParam, int min, int max, int mana) : base(name, health, armor, professionParam, speedParam)
+        public double healAmount;
+
+        public Healer(string name, double healAmountParam) : base(name, 50, 5, "Healer", 7)
         {
-            minHeal = min;
-            maxHeal = max;
-            Mana = mana;
+            healAmount = healAmountParam;
         }
-        public void UnitHeal (Healer healer, Peasant peasant, Random rnd)
+
+        public void Heal(MovableUnits unit)
         {
-            var currentUnitHP = peasant.Health;
-            double currentHeal = Convert.ToDouble(rnd.Next(minHeal, maxHeal));
-            int maxMana = healer.Mana;
-            if (currentUnitHP >= 30)
-                Console.WriteLine($"{peasant.name} with full HP");
-            else if ((30-currentUnitHP)>= currentHeal)
+            if (unit.Health + healAmount >= unit._maxHealth)
             {
-                peasant.Health += currentHeal;
-                healer.Mana -= 50;
-                Console.WriteLine($"{name} heal {peasant.name} with {currentHeal} points of heal. (mana:{healer.Mana}/200)");
+                unit.Health = unit._maxHealth;
             }
             else
-            {
-                healer.Mana -= 50;
-                peasant.Health += (30 - currentUnitHP);
-                Console.WriteLine($"{name} heal {peasant.name} up to {(30 - currentUnitHP)} points of heal. (mana:{healer.Mana}/200)");
-            }
-        }
-        public void Heal (MovableUnits unit, Random rnd)
-        {
-            double currentHeal = Convert.ToDouble(rnd.Next(minHeal, maxHeal));
-            unit.Health += currentHeal;
+                unit.Health += healAmount;
         }
     }
 }

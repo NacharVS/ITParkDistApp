@@ -7,10 +7,10 @@ namespace ConsoleApp1.Strategy
         public int minDamage;
         public int maxDamage;
 
-        public BattleUnit(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam)
+        public BattleUnit(string name, int health, int armor, string professionParam, int speedParam, int minDamage, int maxDamage) : base(name, health, armor, professionParam, speedParam)
         {
-            minDamage = min;
-            maxDamage = max;
+            this.minDamage = minDamage;
+            this.maxDamage = maxDamage;
         }
 
         public double MleeAttack(Random rnd)
@@ -20,9 +20,10 @@ namespace ConsoleApp1.Strategy
 
         }
 
-        public void Attack(BattleUnit soldier, Random rnd)
+        public double Attack(Random rnd)
         {
-
+            double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+            return currentDamage;
         }
 
         public void Upgrade()
