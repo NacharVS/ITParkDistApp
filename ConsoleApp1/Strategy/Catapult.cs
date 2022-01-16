@@ -14,6 +14,10 @@ namespace ConsoleApp1.Strategy
         {
         }
 
+        public override void Info()
+        {
+            Console.WriteLine($"{profession} {Health} {name} {minDamage} {maxDamage}");
+        }
 
     }
 }

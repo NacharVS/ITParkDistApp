@@ -31,20 +31,27 @@ namespace ConsoleApp1.Strategy
 
         public static void Fight(Buildings building, BattleUnit unit2)
         {
-            while (building.Health > 0)
+            if (unit2.IsCatapult)
             {
-                if (building.Wall > 0)
+                while (building.Health > 0)
                 {
-                    building.Wall = building.Wall - unit2.MleeAttack(new Random()); // 5                    
-                    building.Info();
-                    unit2.Info();
+                    if (building.Wall > 0)
+                    {
+                        building.Wall = building.Wall - unit2.MleeAttack(new Random()); // 5                    
+                        building.Info();
+                        unit2.Info();
+                    }
+                    else
+                    {
+                        building.Health = building.Health - unit2.MleeAttack(new Random()); // 5                    
+                        building.Info();
+                        unit2.Info();
+                    }
                 }
-                else
-                {
-                    building.Health = building.Health - unit2.MleeAttack(new Random()); // 5                    
-                    building.Info();
-                    unit2.Info();
-                }
+            }
+            else
+            {
+                Console.WriteLine($"{unit2.name} can not attack Building");
             }
         }
             public static void Fight(ArcherTower tower, BattleUnit unit2)

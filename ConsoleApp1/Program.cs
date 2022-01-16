@@ -14,7 +14,10 @@ namespace ConsoleApp1
             Archer archer = new Archer("Legolas");
             Healer healer = new Healer("Gendalf", 20);
             Warrior war1 = new Warrior("Bob");
+            Warrior war2 = new Warrior("John");
             WathingTower wTower = new WathingTower();
+            Catapult catapult = new Catapult();
+            catapult.Info();
             //Warrior war2 = new Warrior("John");
             //Battle.Fight(archer, war2);
             //healer.Heal(war2);
@@ -23,13 +26,13 @@ namespace ConsoleApp1
             //healer.Heal(war2);
             //war2.Info();
             ArcherTower archerTower = new ArcherTower();
-            Console.WriteLine(wTower.ToString());
+
             //for (int i = 0; i < 1; i++)
             //{
             //    archerTower.LoadArchers(archer);
             //}
 
-            //Battle.Fight(wTower, war1);
+            Battle.Fight(war1, war2);
 
             //Console.Read();
 
