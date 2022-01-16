@@ -13,7 +13,7 @@ namespace ConsoleApp1.Strategy
             profession = professionParam;
             speed = speedParam;
             lvl = 0;
-         }
+        }
 
         public void Move()
         {

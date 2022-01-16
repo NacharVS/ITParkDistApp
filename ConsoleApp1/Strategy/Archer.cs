@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
@@ -15,21 +19,16 @@ namespace ConsoleApp1.Strategy
             _maxRangeDamage = 12;
         }
 
-        public void RangeAttack(MovableUnits unit, Random rnd)
+        public double RangeAttack(Random rnd)
         {
             if (_arrows > 0)
             {
                 double currentDamage = Convert.ToDouble(rnd.Next(_minRangeDamage, _maxRangeDamage));
-                unit.Health -= currentDamage;
-                Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
-                _arrows--;
-                if (unit.Health <= 0)
-                    unit.Termination();
+                return currentDamage;
             }
             else
             {
-                Console.WriteLine("Arrows is empty");
-                MeeleeAttack(unit, rnd);
+                return MleeAttack(rnd);
             }
 
         }

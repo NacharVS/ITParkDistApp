@@ -5,29 +5,27 @@ namespace ConsoleApp1.Strategy
     abstract class Unit
     {
         public string name;
-        private  double _health;
+        private double _health;
         internal double _maxHealth;
         public int armor;
 
-        internal double Health 
+        internal double Health
         {
-            get { return _health; } 
+            get { return _health; }
             set
             {
-                double diff = _health + value;
-                if(value<=0)
+                if (value <= 0)
                 {
                     _health = 0;
                     Termination();
                 }
-                else if (value>_maxHealth)
+                else if (value > _maxHealth)
                 {
                     _health = _maxHealth;
                 }
                 else
-                {
+                    _health = value;
 
-                }
             }
         }
 
@@ -42,7 +40,7 @@ namespace ConsoleApp1.Strategy
 
         public void Creation()
         {
-            Console.WriteLine($"{name} is created with {Health}");
+            Console.WriteLine($"{name} is created");
         }
 
         public void Termination()

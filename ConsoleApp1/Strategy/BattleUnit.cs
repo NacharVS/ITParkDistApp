@@ -13,29 +13,15 @@ namespace ConsoleApp1.Strategy
             maxDamage = max;
         }
 
-        public void MeeleeAttack(MovableUnits unit, Random rnd)
+        public double MleeAttack(Random rnd)
         {
-            if (unit.Health <= 0)
-                unit.Termination();
-            else
-            {
-                double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-                unit.Health -= currentDamage;
-                Console.WriteLine($"{name} attack {unit.name} with {currentDamage} points of damage");
-            }
+            double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+            return currentDamage;
 
         }
 
-        public void MeeleeAttack(Buildings building, Random rnd)
+        public void Attack(BattleUnit soldier, Random rnd)
         {
-            if (building.Health <= 0)
-                building.Termination();
-            else
-            {
-                double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-                building.Health -= currentDamage;
-                Console.WriteLine($"{name} attack {building.name} with {currentDamage} points of damage");
-            }
 
         }
 

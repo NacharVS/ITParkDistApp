@@ -2,9 +2,9 @@
 
 namespace ConsoleApp1.Strategy
 {
-    class WatchingTower : Buildings
+    class WathingTower : Buildings
     {
-        public WatchingTower() : base("Tower", 100, 20)
+        public WathingTower() : base("Tower", 100, 20)
         {
         }
 
