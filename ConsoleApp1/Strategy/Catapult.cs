@@ -8,6 +8,8 @@ namespace ConsoleApp1.Strategy
 {
     class Catapult : Shooter
     {
+        internal override bool IsCatapult => true;
+
         public Catapult() : base("Catapult", 100, 1, 2, 1, 4, 20, 40)
         {
             _arrows = 100;
@@ -27,7 +29,7 @@ namespace ConsoleApp1.Strategy
 
         public override void Info()
         {
-            Console.WriteLine($"Name:{Name}/ health:{Healse}/ armor:{Armor}/ speed:{Speed} ");
+            Console.WriteLine($"Name:{Name}/ health:{Health}/ armor:{Armor}/ speed:{Speed} ");
         }
     }
 }

@@ -4,6 +4,8 @@ namespace ConsoleApp1.Strategy
 {
     abstract class Unit
     {
+        internal virtual bool IsCatapult => false;
+
         private string _name;
         private double _maxHealth;
         private double _health;
