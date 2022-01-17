@@ -22,7 +22,7 @@ namespace ConsoleApp1.Strategy
         
         public double MaxHealth { get => _maxHealth;}
 
-        public double Health
+        public virtual double Health
         {
             get
             {
@@ -30,6 +30,9 @@ namespace ConsoleApp1.Strategy
             }
             set
             {
+                double damage = _health - value;
+                value += damage * ((0.06 * _armor) / (1 + 0.06 * _armor));
+                                                
                 if (value <= 0)
                 {
                     _health = 0;

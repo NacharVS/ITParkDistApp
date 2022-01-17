@@ -55,7 +55,7 @@ namespace ConsoleApp1
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(catapult, rnd);
 
-            Battle.ArcherTowerAttack(archerTower, warrior1, rnd);
+            Battle.Fight(archerTower, warrior1, rnd);
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(catapult, rnd);
 

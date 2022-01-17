@@ -13,25 +13,11 @@ namespace ConsoleApp1.Strategy
         {
             while (unit1.Health > 0 && unit2.Health > 0)
             {
-                if (unit2.Health > 0)
-                {
-                    if (unit2.Attack(rnd) - unit1.Armor > 0)
-                    {
-                        unit1.Health -= unit2.Attack(rnd) - unit1.Armor;
-                    }
-
-                    unit1.Info();
-                }
-
-                if (unit1.Health >0)
-                {
-                    if (unit1.Attack(rnd) - unit2.Armor > 0)
-                    {
-                        unit2.Health -= unit1.Attack(rnd) - unit2.Armor;
-                    }
-                    
-                    unit2.Info();
-                }
+                unit1.Health -= unit2.Attack(rnd);
+                unit2.Health -= unit1.Attack(rnd);
+                unit1.Info();
+                
+                unit2.Info();
             }
 
             if (unit2.Health <= 0)
@@ -44,51 +30,49 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        public static void BuildingAttack(Buildings building, Shooter shooter, Random rnd)
+        public static void Fight(Buildings building, Shooter shooter, Random rnd)
         {
             while (building.Wall > 0 && shooter.Health > 0)
             {
-                if (shooter.DistanceAttack(rnd) - building.Armor > 0)
-                {
-                    building.Health -= shooter.DistanceAttack(rnd) - building.Armor;
-                }
+                building.Wall -= shooter.DistanceAttack(rnd);
                 
                 building.Info();
                 shooter.Info();
             }
         }
 
-        public static void MovingAttack(Shooter shooter, BattleUnit unit, Random rnd)
+        public static void Fight(Shooter shooter, BattleUnit unit, Random rnd)
         {
             while (shooter.Health > 0 && unit.Health > 0)
             {
-                if (shooter.DistanceAttack(rnd) - unit.Armor - unit.Speed > 0)
-                {
-                    unit.Health -= shooter.DistanceAttack(rnd) - unit.Armor - unit.Speed;
-                }
-                
+                unit.Health -= shooter.DistanceAttack(rnd);
+
                 unit.Info();
                 shooter.Info();
             }
         }
 
-        public static void ArcherTowerAttack(ArcherTower archerTower, BattleUnit unit, Random rnd)
+        public static void Fight(ArcherTower archerTower, BattleUnit unit, Random rnd)
         {
-            if (archerTower.CanAttack)
+            while (archerTower.Wall > 0 && unit.Health > 0)
             {
-                while (archerTower.Archer[0].Arrows > 0 && unit.Health > 0)
+                if (archerTower.CanAttack)
                 {
-                    if (archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed > 0)
-                    {
-                        unit.Health -= archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed;
-                    }
+                    archerTower.Wall -= unit.MeleeAttack(rnd);
+                    unit.Health -= archerTower.Attack(rnd);
 
                     unit.Info();
                     archerTower.Info();
                 }
+
+                else
+                {
+                    archerTower.Wall = archerTower.Health - unit.MeleeAttack(rnd);               
+                    
+                    archerTower.Info();
+                    unit.Info();
+                }
             }
-            
-            
         }
     }
 }

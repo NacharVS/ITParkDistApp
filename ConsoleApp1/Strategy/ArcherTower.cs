@@ -34,7 +34,7 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        public double DistanceAttack(Random rnd)
+        public double Attack(Random rnd)
         {
             double damage = 0;
             for (int i = 0; i < archers.Count; i++)

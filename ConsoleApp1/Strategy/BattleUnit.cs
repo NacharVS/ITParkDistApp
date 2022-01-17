@@ -13,9 +13,23 @@ namespace ConsoleApp1.Strategy
             _maxDamage = max;
         }
 
+        public override double Health
+        {
+            get => base.Health;
+
+            set
+            {
+                
+                
+                
+                base.Health = value;
+
+            }        
+        }
+
         abstract public double Attack(Random rnd);
         
-        protected double MeleeAttack(Random rnd)
+        public double MeleeAttack(Random rnd)
         {
             double damage = rnd.Next(_minDamage, _maxDamage);
             return damage;

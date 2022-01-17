@@ -11,9 +11,8 @@ namespace ConsoleApp1.Strategy
         protected int _arrows;
         protected int _minDistanceDamage;
         protected int _maxDistanceDamage;
-        private double _accuracy;
-
-        protected Shooter(string name, double health, double armor, int speed, int min, int max, int minDistance, int maxDistance, double accuracy) : base(name, health, armor, speed, min, max)
+        
+        protected Shooter(string name, double health, double armor, int speed, int min, int max, int minDistance, int maxDistance) : base(name, health, armor, speed, min, max)
         {
             _minDistanceDamage = minDistance;
             _maxDistanceDamage = maxDistance;
