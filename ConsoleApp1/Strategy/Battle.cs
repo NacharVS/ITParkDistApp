@@ -74,16 +74,21 @@ namespace ConsoleApp1.Strategy
 
         public static void ArcherTowerAttack(ArcherTower archerTower, BattleUnit unit, Random rnd)
         {
-            while (archerTower.Archer[0].Arrows > 0 && unit.Health > 0)
+            if (archerTower.CanAttack)
             {
-                if (archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed > 0)
+                while (archerTower.Archer[0].Arrows > 0 && unit.Health > 0)
                 {
-                    unit.Health -= archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed;
+                    if (archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed > 0)
+                    {
+                        unit.Health -= archerTower.DistanceAttack(rnd) - unit.Armor - unit.Speed;
+                    }
+
+                    unit.Info();
+                    archerTower.Info();
                 }
-                
-                unit.Info();
-                archerTower.Info();
             }
+            
+            
         }
     }
 }

@@ -6,43 +6,40 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class ArcherTower : WathingTower
+    class ArcherTower : Buildings
     {
-        private Archer[] _archer = new Archer[5];
-        private string[] _archersName = new string[] { "Legolaz1", "Legolaz2", "Legolaz3", "Legolaz4", "Legolaz5" };
-        private int _garrison;
+        private List<Archer> archers = new List<Archer>();
 
-        public ArcherTower(string name, int garrison) : base(name)
+        public ArcherTower() : base("Archer Tower", 150, 30)
         {
-            _garrison = garrison;
-
-            if (garrison < 0)
-            {
-                Console.WriteLine($"Max archers is {_archer.Length}, min archers is 0.");
-            }
-
-            else if (garrison > _archer.Length)
-            {
-                Console.WriteLine($"Max archers is {_archer.Length}, min archers is 0.");
-            }
-
-            else if (garrison <= _archer.Length && garrison >= 0)
-            {
-                for (int i = 0; i < garrison; i++)
-                {
-                    _archer[i] = new Archer(_archersName[i]);
-                }
-            }
+            IsFull = false;
+            CanAttack = false;
         }
 
-        public Archer[] Archer { get => _archer; set => _archer = value; }
+        public bool IsFull { get; set; }
+
+        public bool CanAttack { get; private set; }
+
+        public void LoadArchers(Archer archer)
+        {
+            if (archers.Count >= 5)
+            {
+                Console.WriteLine("Tower is full");
+                IsFull = true;
+            }
+            else
+            {
+                archers.Add(archer);
+                CanAttack = true;
+            }
+        }
 
         public double DistanceAttack(Random rnd)
         {
             double damage = 0;
-            for (int i = 0; i < _garrison; i++)
+            for (int i = 0; i < archers.Count; i++)
             {
-                damage += _archer[i].DistanceAttack(rnd);
+                damage += archers[i].DistanceAttack(rnd);
             }
 
             return damage;

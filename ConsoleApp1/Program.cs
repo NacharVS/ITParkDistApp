@@ -17,7 +17,7 @@ namespace ConsoleApp1
             WathingTower wathingTower = new WathingTower("WathingTower");
             Catapult catapult = new Catapult();
 
-            ArcherTower archerTower = new ArcherTower("ArcherTower", 1);
+            ArcherTower archerTower = new ArcherTower();
 
             Healer healer1 = new Healer("Gendalf");
 
