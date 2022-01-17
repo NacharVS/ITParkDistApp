@@ -27,9 +27,9 @@ namespace ConsoleApp1
             Archer archer1 = new Archer("Legolaz1");
             Archer archer2 = new Archer("Legolaz2");
 
-            //Battle.Fight(warrior1, warrior2, rnd);
-            //healer1.Treatment(warrior1, rnd);
-            //healer1.Treatment(warrior2, rnd);
+            Battle.Fight(warrior1, warrior2, rnd);
+            healer1.Treatment(warrior1, rnd);
+            healer1.Treatment(warrior2, rnd);
 
             //Battle.Fight(archer1, archer2, rnd);
             //healer1.Treatment(archer1, rnd);
@@ -55,7 +55,7 @@ namespace ConsoleApp1
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(catapult, rnd);
 
-            Battle.Fight(archerTower, warrior1, rnd);
+            //Battle.Fight(archerTower, warrior1, rnd);
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(catapult, rnd);
 

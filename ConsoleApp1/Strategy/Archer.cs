@@ -8,7 +8,7 @@ namespace ConsoleApp1.Strategy
 {
     class Archer : Shooter
     {
-        public Archer(string name) : base(name, 50, 1, 7, 1, 4, 4, 12, 100)
+        public Archer(string name) : base(name, 50, 1, 7, 1, 4, 4, 12)
         {
             _arrows = 5;
         }
