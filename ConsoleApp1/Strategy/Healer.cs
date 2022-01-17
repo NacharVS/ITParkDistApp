@@ -6,36 +6,36 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class Healer : BattleUnit
+    class Healer : MovableUnits
     {
         private double _healing;
         private int _mana;
 
-        public Healer(string name) : base(name, 45, 0, "witchdoctor", 7, 1, 2)
+        public Healer(string name) : base(name, 45, 0, "Witchdoctor", 7)
         {
             _mana = 20;
         }
 
-        public void HealingUnit(Peasant peasant)
+        public void HealingUnit(MovableUnits unit)
         {
             if (_mana > 0)
             {
-                _healing = 0.1 * peasant.health;
-                if ((0 < peasant.health) && (30 > peasant.health))
+                _healing = 0.1 * unit.health;
+                if ((0 < unit.health) && (_maxHealth > unit.health))
                 {
                     _mana -= 10;
-                    peasant.health += _healing;
-                    Console.WriteLine($"{name} heals {peasant.name} by {_healing} hp.{name} has {_mana} mana");  
+                    unit.health += _healing;
+                    Console.WriteLine($"{name} heals {unit.name} by {_healing} hp.{name} has {_mana} mana");  
                 }
                 else
-                if (peasant.health <= 0)
+                if (unit.health <= 0)
                 {
-                    Console.WriteLine($"{peasant.name} is death.");
+                    Console.WriteLine($"{unit.name} is death.");
                 }
                 else
-                    if (peasant.health >= 30)
+                    if (unit.health >= unit._maxHealth)
                 {
-                    Console.WriteLine($"{peasant.name} has max health.");
+                    Console.WriteLine($"{unit.name} has max health.");
                 }
             }
             else

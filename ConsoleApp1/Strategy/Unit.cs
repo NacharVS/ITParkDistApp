@@ -7,12 +7,14 @@ namespace ConsoleApp1.Strategy
         public string name;
         public double health;
         public int armor;
+        internal double _maxHealth;
 
         protected Unit(string name, int health, int armor)
         {
             this.name = name;
             this.health = health;
             this.armor = armor;
+            _maxHealth = health;
             Creation();
         }
 
