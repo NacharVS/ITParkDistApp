@@ -52,6 +52,32 @@ namespace ConsoleApp1.Strategy
             }
         }
 
+        public static void Fight(Buildings building, BattleUnit unit, Random rnd)
+        {
+            if (unit.IsCatapult)
+            {
+                while (building.Health > 0)
+                {
+                    if (building.Wall > 0)
+                    {
+                        building.Wall -= unit.MeleeAttack(rnd);                    
+                        building.Info();
+                        unit.Info();
+                    }
+                    else
+                    {
+                        building.Health -= unit.MeleeAttack(rnd);                 
+                        building.Info();
+                        unit.Info();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{unit.Name} can not attack Building");
+            }
+        }
+
         public static void Fight(ArcherTower archerTower, BattleUnit unit, Random rnd)
         {
             while (archerTower.Wall > 0 && unit.Health > 0)
