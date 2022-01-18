@@ -9,8 +9,10 @@ namespace ConsoleApp1.Strategy
     class Battle
     {
         
-        public static void Fight(BattleUnit unit1, BattleUnit unit2, Random rnd)
+        public static void Fight(BattleUnit unit1, BattleUnit unit2)
         {
+            Random rnd = new Random();
+
             while (unit1.Health > 0 && unit2.Health > 0)
             {
                 unit1.Health -= unit2.Attack(rnd);
