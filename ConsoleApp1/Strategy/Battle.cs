@@ -12,8 +12,8 @@ namespace ConsoleApp1.Strategy
         {
             while (unit1.health > 0 && unit2.health > 0)
             {
-                unit1.health -= unit2.MleeAttack(new Random());
-                unit2.health -= unit1.MleeAttack(new Random());
+                unit1.health -= unit2.MleeAttack(new Random())- unit1.armor;
+                unit2.health -= unit1.MleeAttack(new Random())- unit2.armor;
                 unit1.Info();
                 unit2.Info();
             }
@@ -22,8 +22,8 @@ namespace ConsoleApp1.Strategy
         {
             while (archer.health > 0 && unit2.health > 0)
             {
-                archer.health = archer.health - unit2.MleeAttack(new Random()); // 5
-                unit2.health -= archer.RangeAttack(new Random());
+                archer.health -= unit2.MleeAttack(new Random())-archer.armor; 
+                unit2.health -= archer.RangeAttack(new Random())-unit2.armor;
                 archer.Info();
                 unit2.Info();
             }

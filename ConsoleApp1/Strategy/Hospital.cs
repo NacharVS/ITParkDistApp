@@ -8,38 +8,39 @@ namespace ConsoleApp1.Strategy
 {
     class Hospital : Buildings
     {
-        private double healing;
-        private int medicament;
-        public Hospital (string name) : base("Hospital", 35, 0)
+        private double _healing;
+        private int _medicament;
+        public Hospital(string name) : base(name, 35, 0 )
         {
-            medicament = 200;
+            _medicament = 200;
         }
-        public void HospitalHealing(Peasant peasant)
+        public void HospitalHealing(MovableUnits unit)
         {
-            if (medicament > 0)
+            if (_medicament > 0)
             {
-                healing = 15;
-                if ((0 < peasant.health )&&(30>peasant.health))
+                _healing = unit._maxHealth-unit.health;
+                if ((0 < unit.health) && (unit.health < _maxHealth))
                 {
-                    medicament -= 15;
-                    peasant.health += healing;
-                    Console.WriteLine($"{name} heals {peasant.name} by {healing} hp.{name} has {medicament} medicaments");
+                    _medicament -= 15;
+                    unit.health = unit._maxHealth;
+                    Console.WriteLine($"{name} heals {unit.name} by {_healing} hp.{name} has {_medicament} medicaments");
                 }
                 else
-                if (peasant.health <= 0)
+                if (unit.health <= 0)
                 {
-                    Console.WriteLine($"{peasant.name} is death.");
+                    Console.WriteLine($"{unit.name} is death.");
                 }
                 else
-                    if (peasant.health >= 30)
+                    if (unit.health >= unit._maxHealth)
                 {
-                    Console.WriteLine($"{peasant.name} has max health.");
+                    Console.WriteLine($"{unit.name} has max health.");
+
                 }
-            }
-            else
-                if (medicament <= 0)
-            {
-                Console.WriteLine($"{name} don't have medicament.");
+                else
+                if (_medicament <= 0)
+                {
+                    Console.WriteLine($"{name} don't have medicament.");
+                }
             }
         }
     }
