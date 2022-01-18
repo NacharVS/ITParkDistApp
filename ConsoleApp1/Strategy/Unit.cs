@@ -22,7 +22,7 @@ namespace ConsoleApp1.Strategy
         
         public string Name { get => _name;}
         
-        public virtual double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+        public double MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
         public virtual double Health
         {

@@ -15,8 +15,6 @@ namespace ConsoleApp1.Strategy
 
         public void BoostHealth(MovableUnits unit)
         {
-            unit.MaxHealth *= 1.5;
-
             if (!unit.IsBoostHealth)
             {
                 unit.MaxHealth *= 1.5;
@@ -30,7 +28,7 @@ namespace ConsoleApp1.Strategy
         {
             if (!unit.IsFrenzy)
             {
-                unit.MultiplierDamage *= 1.5;
+                unit.Frenzy = 1.5;
                 unit.Armor *= 0.5;
 
                 unit.IsFrenzy = true;

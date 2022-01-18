@@ -8,6 +8,9 @@ namespace ConsoleApp1.Strategy
 {
     class Warrior : BattleUnit
     {
+        //private bool _rage;
+        //private int _rageK;
+        
         public Warrior(string name) : base(name, 90, 3, 5, 2, 10)
         {
 
@@ -23,13 +26,13 @@ namespace ConsoleApp1.Strategy
 
                 if (Health < 0.3 * MaxHealth && Health > 0)
                 {
-                    MultiplierDamage = 2;
+                    Rage = 2;
                     Console.WriteLine($"{Name} RAGE!");
                 }
 
                 else
                 {
-                    MultiplierDamage = 1;
+                    Rage = 1;
                 }
             }
         }
