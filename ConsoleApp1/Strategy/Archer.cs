@@ -20,41 +20,58 @@ namespace ConsoleApp1.Strategy
             _maxRangeDamage = 12;
         }
 
-        public void RangeAttack(MovableUnits peasant, Random rnd)
+
+        //public void RangeAttack(MovableUnits peasant, Random rnd)
+        //{
+        //    if (_arrows > 0)
+        //    {
+        //        double currentDamage = Convert.ToDouble(rnd.Next(_minRangeDamage, _maxRangeDamage));
+        //        peasant.health -= currentDamage;
+        //        Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
+        //        _arrows--;
+        //        if (peasant.health <= 0)
+        //            peasant.Termination();
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Arrows is empty");
+        //        MleeAttack(peasant, rnd);
+        //    }
+        //}
+
+
+        public double RangeAttack(Random rnd)
         {
             if (_arrows > 0)
             {
                 double currentDamage = Convert.ToDouble(rnd.Next(_minRangeDamage, _maxRangeDamage));
-                peasant.health -= currentDamage;
-                Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
-                _arrows--;
-                if (peasant.health <= 0)
-                    peasant.Termination();
+                return currentDamage;
             }
             else
             {
-                Console.WriteLine("Arrows is empty");
-                MleeAttack(peasant, rnd);
+                return MleeAttack(rnd);
             }
+
         }
 
-            //public void RangeAttack(Healer healer, Random rnd)
-            //{
-            //    if (_arrows > 0)
-            //    {
-            //        double currentDamage = Convert.ToDouble(rnd.Next(_minRangeDamage, _maxRangeDamage));
-            //        healer.health -= currentDamage;
-            //        Console.WriteLine($"{name} attack {healer.name} with {currentDamage} points of damage");
-            //        _arrows--;
-            //        if (healer.health <= 0)
-            //            healer.Termination();
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Arrows is empty");
-            //        //MleeAttack(peasant, rnd);
-            //    }
 
-            //}
+        //public void RangeAttack(Healer healer, Random rnd)
+        //{
+        //    if (_arrows > 0)
+        //    {
+        //        double currentDamage = Convert.ToDouble(rnd.Next(_minRangeDamage, _maxRangeDamage));
+        //        healer.health -= currentDamage;
+        //        Console.WriteLine($"{name} attack {healer.name} with {currentDamage} points of damage");
+        //        _arrows--;
+        //        if (healer.health <= 0)
+        //            healer.Termination();
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Arrows is empty");
+        //        //MleeAttack(peasant, rnd);
+        //    }
+
+        //}
     }
 }

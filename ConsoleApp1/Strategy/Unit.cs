@@ -9,15 +9,38 @@ namespace ConsoleApp1.Strategy
 {
     abstract class Unit
     {
+        internal virtual bool IsCatapult { get => false; }
         public string name;
-        public double health;
-        public int armor;
+        private double _health;
+        internal double _maxHealth;
+        public int Armor { get; set; }
+
+        public virtual double Health
+        {
+            get { return _health; }
+            set
+            {
+                if (value <= 0)
+                {
+                    _health = 0;
+                    Termination();
+                }
+                else if (value > _maxHealth)
+                {
+                    _health = _maxHealth;
+                }
+                else
+                    _health = value;
+
+            }
+        }
 
         protected Unit(string name, int health, int armor)
         {
             this.name = name;
-            this.health = health;
-            this.armor = armor;
+            this._health = health;
+            this.Armor = armor;
+            _maxHealth = health;
             Creation();
         }
 
@@ -31,9 +54,11 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{name} is terminated");
         }
 
-        public void Info()
+        public virtual void Info()
         {
-            Console.WriteLine($"{name} {health}");
+            Console.WriteLine($"{name} {Health}");
         }
+       
+
     }
 }

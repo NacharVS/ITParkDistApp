@@ -18,13 +18,10 @@ namespace ConsoleApp1.Strategy
             maxDamage = max;
         }
 
-        public void MleeAttack(MovableUnits peasant, Random rnd)
+        public virtual double MleeAttack(Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            peasant.health -= currentDamage;
-            Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
-            if (peasant.health <= 0)
-                peasant.Termination();
+            return currentDamage;
 
         }
 
@@ -42,5 +39,37 @@ namespace ConsoleApp1.Strategy
                 lvl++;
             }
         }
+
+        
+
+
+        //public void MleeAttack(MovableUnits peasant, Random rnd)
+        //{
+        //    double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+        //    peasant.health -= currentDamage;
+        //    Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
+        //    if (peasant.health <= 0)
+        //        peasant.Termination();
+
+        //}
+
+        //public void Attack(BattleUnit soldier, Random rnd)
+        //{
+        //    double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+        //    soldier.health -= currentDamage;
+
+        //    double currentDamage1 = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+        //    this.health -= currentDamage1;
+
+        //    Console.WriteLine($"{name} attack {soldier.name} with {currentDamage} points of damage");
+        //    if (soldier.health <= 0)
+        //        soldier.Termination();
+
+        //    Console.WriteLine($"{soldier.name} attack {name} with {currentDamage1} points of damage");
+        //    if (this.health <= 0)
+        //        this.Termination();
+        //}
+
+        
     }
 }

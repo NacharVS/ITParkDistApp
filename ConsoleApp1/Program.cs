@@ -13,38 +13,59 @@ namespace ConsoleApp1
             //Store.StoreWorks.StoreWork();
 
             Random rnd = new Random();
-            Peasant peasant1 = new Peasant ("Ivan");
+            
+            Peasant peasant1 = new Peasant("Ivan");
             Archer archer = new Archer("Legolas");
-            WathingTower wathingTower = new WathingTower();
-            Hospital hospital = new Hospital("imBurdenko", 30, 20);
-            Healer healer1 = new Healer("House");
-
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-
-            archer.RangeAttack(healer1, rnd);
-            healer1.Info();
-
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            peasant1.Repare(wathingTower);
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Repare(wathingTower);
-            peasant1.Info();
+            Healer healer = new Healer("Gendalf", 20);
+            Warrior war1 = new Warrior("Bob");
+            Warrior war2 = new Warrior("John");
+            WathingTower wTower = new WathingTower();
+            Catapult catapult = new Catapult();
+            catapult.Info();
             
-            healer1.Cure(peasant1);
-            
-            archer.RangeAttack(peasant1, rnd);
-            hospital.Cure(peasant1);
-            hospital.Cure(healer1);
-            peasant1.Repare(wathingTower);
-            peasant1.Info();
-            healer1.Info();
+            ArcherTower archerTower = new ArcherTower();
 
+            Battle.Fight(war1, war2);
 
-            // 1. Добавить методы лечения юнитов для класса Healer
-            // 2. Добавить методы починки зданий для класса Peasant
-            // 3. Добавить методы лечения юнитов для класса hospital
+            //Peasant peasant1 = new Peasant ("Ivan");
+            //Archer archer = new Archer("Legolas");
+            //Archer archer2 = new Archer("Fedot");
+            //WathingTower wathingTower = new WathingTower();
+            //Hospital hospital = new Hospital("imBurdenko", 30, 20);
+            //Healer healer1 = new Healer("House");
+
+            //archer.RangeAttack(peasant1, rnd);
+            //peasant1.Info();
+
+            //archer.Attack(archer2, rnd);
+            //archer.Info();
+            //archer2.Info();
+
+            //archer.RangeAttack(healer1, rnd);
+            //healer1.Info();
+
+            //archer.RangeAttack(peasant1, rnd);
+            //peasant1.Info();
+            //peasant1.Repare(wathingTower);
+            //archer.RangeAttack(peasant1, rnd);
+            //peasant1.Repare(wathingTower);
+            //peasant1.Info();
+
+            //healer1.Cure(peasant1);
+
+            //archer.RangeAttack(peasant1, rnd);
+            //hospital.Cure(peasant1);
+            //hospital.Cure(healer1);
+            //peasant1.Repare(wathingTower);
+            //peasant1.Info();
+            //healer1.Info();
+
+            // Реализовать новый юнит Shaman которыйможет накидывать ряд усилений. 
+            // 1. BoostHealth - Увеличивает максимальное здоровье на 50%
+            // 2. Frenzy - Увеличивает показатель урона на 1,5 и снижает показатель защиты 0.5
+            // 3. StoneSkin - увеличивает показатель защиты в 2 раза, и снижает скорость в 2 раза
+            // *все усиления могут накладывать только 1 раз на 1 юнита (не стакаються)
+
         }
     }
 }
@@ -404,78 +425,4 @@ else
 }
 */
 
-/*
-string s = Console.ReadLine();
-s = s.ToLower();
-switch (s)
-{
-    case "monday": Console.WriteLine(1);
-        break;
-    case "tuesday": Console.WriteLine(2);
-        break;
-    case "wednesday": Console.WriteLine(3);
-        break;
-    case "thursday": Console.WriteLine(4);
-        break;
-    default : Console.WriteLine("incorrect input");
-        break;
-}
-*/
-/*
-Console.WriteLine("enter season ");
-string season = Console.ReadLine();
-season = season.ToLower();
-switch (season)
-{
-    case "spring": Console.WriteLine(" - March, Aprile, May");
-        break;
-    case "summer": Console.WriteLine(" - June, July, August");
-        break;
-    case "autumn": Console.WriteLine(" - September, October, November");
-        break;
-    case "winter": Console.WriteLine(" - December, January, February");
-        break;
-    default : Console.WriteLine("incorrect input");
-        break;
-}
-*/
-/*
-Console.WriteLine("Please enter how macth money you want to spend ");
-double money = double.Parse ( Console.ReadLine() );
-
-Console.WriteLine("Sugar = 1$, bread = 2$, butter = 3$, coffee = 4$");
-Console.WriteLine("Choose some food");
-string food = Console.ReadLine();
-food = food.ToLower();
-
-Console.WriteLine("How match food you want to buy?");
-double howMatch = double.Parse(Console.ReadLine());
-
-switch (food)
-{
-    case "sugar":
-        if (1 * howMatch <= money)
-            Console.WriteLine($" - You've bought {howMatch} kg of sugar. It costs {1 * howMatch} $");
-        else Console.WriteLine("It's not enough. See you later");
-        break;
-    case "bread":
-        if (2 * howMatch <= money)
-            Console.WriteLine($" - You've bought {howMatch} bars of bread. It costs {2 * howMatch} $");
-        else Console.WriteLine("It's not enough. See you later");
-        break;
-    case "butter":
-        if (3 * howMatch <= money)
-            Console.WriteLine($" - You've bought {howMatch} bars of butter. It costs {3 * howMatch} $");
-        else Console.WriteLine("It's not enough. See you later");
-        break;
-    case "coffee":
-        if (4 * howMatch <= money)
-            Console.WriteLine($" - You've bought {howMatch} g of coffee. It costs {4 * howMatch} $");
-        else Console.WriteLine("It's not enough. See you later");
-        break;
-    default:
-        Console.WriteLine("incorrect input");
-        break;
-}
-*/
 

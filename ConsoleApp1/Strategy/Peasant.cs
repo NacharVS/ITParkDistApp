@@ -13,7 +13,7 @@ namespace ConsoleApp1.Strategy
 
         public Peasant(string name) : base(name, 30, 0, "Worker", 4)
         {
-            CarryWeight = 30;
+            CarryWeight = 100;
         }
 
         public void Work()
@@ -21,17 +21,19 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{name} - {profession} is moving with {speed}. Can carry {CarryWeight} pounds");
         }
 
-        public void Repare(Buildings building)
-        {
-            if (this.health > 5)
-            {
-                building.wall += this.CarryWeight;
-                Console.WriteLine($"{building.name} has been repared by {this.name} with power {this.CarryWeight}." +
-                    $" Walls are {building.wall}");
-            }
-            else Console.WriteLine($"{building.name} has not been repared by {this.name} " +
-                    $" Walls are {building.wall}");
-        }
+
+
+        //public void Repare(Buildings building)
+        //{
+        //    if (this.health > 5)
+        //    {
+        //        building.wall += this.CarryWeight;
+        //        Console.WriteLine($"{building.name} has been repared by {this.name} with power {this.CarryWeight}." +
+        //            $" Walls are {building.wall}");
+        //    }
+        //    else Console.WriteLine($"{building.name} has not been repared by {this.name} " +
+        //            $" Walls are {building.wall}");
+        //}
 
     }
 }
