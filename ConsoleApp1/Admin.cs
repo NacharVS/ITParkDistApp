@@ -8,14 +8,14 @@ namespace ConsoleApp1
 {
     class Admin
     {
-        public static void AddProduct(List<Product> products, string new_Name, double new_Price, int newColi_Product)
+        public static void AddProduct(List<Product> productsParam, string NewName, double NewPrice, int newColi_Product)
         {
-            products.Add(new Product(new_Name, new_Price, newColi_Product));
+            productsParam.Add(new Product(NewName, NewPrice, newColi_Product));
         }
         
-        public static void DeliteProduct(List<Product> products, int numberInlist)
+        public static void DeliteProduct(List<Product> productsParam, int numberInlist)
         {
-            products.RemoveAt(numberInlist - 1);
+            productsParam.RemoveAt(numberInlist - 1);
         }
 
 
