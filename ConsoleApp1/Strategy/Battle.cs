@@ -47,10 +47,22 @@ namespace ConsoleApp1.Strategy
         {
             while (archer.Health > 0 && unit2.Health > 0)
             {
-                archer.Health = archer.Health - unit2.MleeAttack(new Random()); // 5
-                unit2.Health -= archer.RangeAttack(new Random());
-                archer.Info();
-                unit2.Info();
+                if (unit2.Armor > 0)
+                {
+                    archer.Health -= unit2.MleeAttack(new Random());
+                    unit2.Armor -= archer.MleeAttack(new Random());
+                    archer.Info();
+                    unit2.Info();
+                }
+                
+                else
+                {
+                    archer.Health = archer.Health - unit2.MleeAttack(new Random()); // 5
+                    unit2.Health -= archer.RangeAttack(new Random());
+                    archer.Info();
+                    unit2.Info();
+                }
+                
             }
         }
 
@@ -83,13 +95,25 @@ namespace ConsoleApp1.Strategy
         {
             if (tower.CanAttack)
             {
-                //while (tower.Health > 0 && unit2.Health > 0)
-                //{
-                tower.Health = tower.Health - unit2.MleeAttack(new Random()); // 5
-                unit2.Health -= tower.Attack(new Random());
-                tower.Info();
-                unit2.Info();
-                //}
+                while (tower.Health > 0 && unit2.Health > 0)
+                {
+                if (unit2.Armor > 0)
+                {
+                    tower.Health = tower.Health - unit2.MleeAttack(new Random()); ;
+                    unit2.Armor -= tower.Attack(new Random());
+                    tower.Info();
+                    unit2.Info();
+                }
+
+                else
+                {
+                    tower.Health = tower.Health - unit2.MleeAttack(new Random()); // 5
+                    unit2.Health -= tower.Attack(new Random());
+                    tower.Info();
+                    unit2.Info();
+                }
+                                
+                }
             }
             else
             {

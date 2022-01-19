@@ -20,6 +20,11 @@ namespace ConsoleApp1
             Warrior war1 = new Warrior("Bob");
             Warrior war2 = new Warrior("John");
             WathingTower wTower = new WathingTower();
+            
+            ArcherTower aTower = new ArcherTower();
+            aTower.LoadArchers(archer);
+            Warrior war3 = new Warrior("Jack");
+
             Catapult catapult = new Catapult();
             catapult.Info();
             
@@ -37,6 +42,10 @@ namespace ConsoleApp1
             shaman.Frenzy(war2);
 
             Battle.Fight(war1, war2);
+
+            Console.WriteLine();
+            Battle.Fight(aTower, war3);
+            Console.WriteLine();
 
 
             Hospital hospital = new Hospital("imBurdenko", 30, 20);
