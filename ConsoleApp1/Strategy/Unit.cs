@@ -7,7 +7,8 @@ namespace ConsoleApp1.Strategy
         public string name;
         private double _health;
         internal double _maxHealth;
-        public int armor;
+        internal double _maxArmor;
+        public double armor;
         internal virtual bool IsCatapult { get => false; }
 
         public virtual double Health
@@ -20,10 +21,10 @@ namespace ConsoleApp1.Strategy
                     _health = 0;
                     Termination();
                 }
-                else if (value > _maxHealth)
-                {
-                    _health = _maxHealth;
-                }
+                //else if (value > _maxHealth)
+                //{
+                //    _health = _maxHealth;
+                //}
                 else
                     _health = value/* * ()*/;
             }
@@ -33,12 +34,13 @@ namespace ConsoleApp1.Strategy
             this.name = name;
             this._health = health;
             this.armor = armor;
-            _maxHealth = health;
+            this._maxHealth = health;
+            this._maxArmor = armor;
             Creation();
         }
         public void Creation()
         {
-            Console.WriteLine($"{name} is created with {Health} HP, {armor} Armor, {DamageReduction()} Damage Reduction");
+            Console.WriteLine($"{name} is created with {Health} HP, {armor} armor ({DamageReduction()} incoming damage multiplier)");
         }
         public void Termination()
         {
@@ -46,12 +48,12 @@ namespace ConsoleApp1.Strategy
         }
         public virtual void Info()
         {
-            Console.WriteLine($"{name} {Math.Round(Health)}");
+            Console.WriteLine($"\t({name} HP={Math.Round(Health)})");
         }
         public double DamageReduction()
         {
-            double damageReduction = (100-(100 * (armor * 0.06) / (1 + armor * 0.06)))/100;
-            Console.WriteLine($"   Damage reduction {name} is {damageReduction:0.00}");
+            double damageReduction = Math.Ceiling(100-(100 * (armor * 0.06) / (1 + armor * 0.06)))/100;
+            //Console.WriteLine($"   Damage reduction {name} is {damageReduction:0.00}");
             return damageReduction;
         }
     }

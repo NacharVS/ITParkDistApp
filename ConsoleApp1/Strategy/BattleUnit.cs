@@ -16,19 +16,19 @@ namespace ConsoleApp1.Strategy
         public virtual double MeeleeAttack(Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            Console.WriteLine($"{name} meele attack with {currentDamage} damage");
+            Console.WriteLine($"    {name} attacks (meelee) with {currentDamage} damage");
             return currentDamage;
         }
         public virtual double Attack(Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            Console.WriteLine($"{name} normal attack with {currentDamage} damage");
+            Console.WriteLine($"    {name} attacks (normal) with {currentDamage} damage");
             return currentDamage;
         }
         public virtual double BuildingAttack(Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            Console.WriteLine($"{name} building attack with {currentDamage} damage");
+            Console.WriteLine($"    {name} attacks (building) with {currentDamage} damage");
             return currentDamage;
         }
         public void Upgrade()

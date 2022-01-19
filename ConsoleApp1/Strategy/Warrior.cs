@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace ConsoleApp1.Strategy
 {
     class Warrior : BattleUnit
+
     {
+        public int minDamage;
+        public int maxDamage;
         private bool _rage = false;
         //public override double Health
         //{
@@ -30,8 +33,10 @@ namespace ConsoleApp1.Strategy
         //}
         public bool Rage { get => _rage; set => _rage = value; }
 
-        public Warrior(string name, int health, int armor) : base(name, health, armor, "soldier", 5, 7, 18)
+        public Warrior(string name, int health, int armor, int minDamage, int maxDamage) : base(name, health, armor, "soldier", 5, minDamage, maxDamage)
         {
+            this.minDamage = minDamage;
+            this.maxDamage = maxDamage;
         }
 
         public override double MeeleeAttack(Random rnd)

@@ -8,30 +8,39 @@ namespace ConsoleApp1.Strategy
 {
     class Battle
     {
-        public static void Fight(BattleUnit unit1, Buildings building)
+        public static void Fight(BattleUnit unit1, Buildings building, Random rnd)
         {
-            Console.WriteLine($"DMG reduction {building.name}(ARM:{building.armor}): {building.DamageReduction()}");
+            //Console.WriteLine($"DMG reduction {building.name}(ARM:{building.armor}): {building.DamageReduction()}");
+            Console.WriteLine($"Fight begin between {unit1.name}({unit1.Health}) and {building.name}({building.Health}/{building.Wall})!");
+            double atck2 = 0;
             while (building.Health > 0)
             {
-                if (building.Wall > 0)
+                
+                var atck = unit1.BuildingAttack(rnd) * building.DamageReduction(); ;
+                if (building.Wall > 0 & atck <= building.Wall)
                 {
-                    building.Wall -= unit1.BuildingAttack(new Random()) * building.DamageReduction();
-                    building.Info();
+                    building.Wall -= atck;
+                    atck2 = atck - building.Wall;
+                }
+                else if (atck > building.Wall & atck2 != 0)
+                {
+                    building.Wall = 0;
+                    building.Health -= atck2;
+                    atck2 = 0;
                 }
                 else
-                {
-                    building.Health -= unit1.BuildingAttack(new Random()) * building.DamageReduction();
-                    building.Info();
-                }
+                    building.Health -= atck;
+                building.Info();
             }
         }
-        public static void Fight(BattleUnit unit1, BattleUnit unit2)
+        public static void Fight(BattleUnit unit1, BattleUnit unit2, Random rnd)
         {
-            Console.WriteLine($"DMG reduction {unit1.name}(ARM:{unit1.armor}): {unit1.DamageReduction()}\nDMG reduction {unit2.name}(ARM:{unit2.armor}): {unit2.DamageReduction()}");
+            //Console.WriteLine($"DMG reduction {unit1.name}(ARM:{unit1.armor}): {unit1.DamageReduction()}\nDMG reduction {unit2.name}(ARM:{unit2.armor}): {unit2.DamageReduction()}");
+            Console.WriteLine($"Fight begin between {unit1.name}({unit1.Health}) and {unit2.name}({unit2.Health})!");
             while (unit1.Health > 0 & unit2.Health > 0)
             {
-                unit1.Health -= unit2.MeeleeAttack(new Random()) * unit1.DamageReduction();
-                unit2.Health -= unit1.MeeleeAttack(new Random()) * unit2.DamageReduction();
+                unit1.Health -= unit2.MeeleeAttack(rnd) * unit1.DamageReduction();
+                unit2.Health -= unit1.MeeleeAttack(rnd) * unit2.DamageReduction();
                 unit1.Info();
                 unit2.Info();
             }

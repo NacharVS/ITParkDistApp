@@ -18,7 +18,7 @@ namespace ConsoleApp1.Strategy
                 if (value <= 0)
                 {
                     _wall = 0;
-                    Console.WriteLine("Wall is broken");
+                    Console.WriteLine("Wall is broken!");
                 }
                 else if (value > _maxHealth)
                 {

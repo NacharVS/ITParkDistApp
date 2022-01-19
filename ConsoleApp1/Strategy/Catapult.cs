@@ -19,12 +19,12 @@ namespace ConsoleApp1.Strategy
         public override double BuildingAttack(Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(_minBuildingDamage, _maxBuildingDamage));
-            Console.WriteLine($"{name} building attack with {currentDamage} damage");
+            Console.WriteLine($"    {name} attacks (building) with {currentDamage} damage");
             return currentDamage;
         }
         public override void Info()
         {
-            Console.WriteLine($"Name: {name} HP: {Math.Round(Health)}");
+            Console.WriteLine($"\t({name} HP={Math.Round(Health)})");
         }
     }
 }
