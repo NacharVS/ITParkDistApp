@@ -28,7 +28,7 @@ namespace ConsoleApp1.Strategy
         {
             if (!unit.IsFrenzy)
             {
-                unit.Frenzy = 1.5;
+                unit.Frenzy *= 1.5;
                 unit.Armor *= 0.5;
 
                 unit.IsFrenzy = true;
