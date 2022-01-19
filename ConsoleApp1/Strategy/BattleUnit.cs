@@ -7,31 +7,27 @@ namespace ConsoleApp1.Strategy
         protected int _minDamage;
         protected int _maxDamage;
 
+        private bool _isFrenzy;
+        private double _multiplierDamage;
+
         public BattleUnit(string name, double health, double armor, int speed, int min, int max) : base(name, health, armor, speed)
         {
             _minDamage = min;
             _maxDamage = max;
+
+            _isFrenzy = false;
+            _multiplierDamage = 1;
         }
 
-        public override double Health
-        {
-            get => base.Health;
+        internal bool IsFrenzy { get => _isFrenzy; set => _isFrenzy = value; }
 
-            set
-            {
-                
-                
-                
-                base.Health = value;
-
-            }        
-        }
+        internal double MultiplierDamage { get => _multiplierDamage; set => _multiplierDamage = value; }
 
         abstract public double Attack(Random rnd);
         
         public double MeleeAttack(Random rnd)
         {
-            double damage = rnd.Next(_minDamage, _maxDamage);
+            double damage = _multiplierDamage * rnd.Next(_minDamage, _maxDamage);
             return damage;
         }
 

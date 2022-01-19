@@ -4,38 +4,33 @@ namespace ConsoleApp1.Strategy
 {
     abstract class MovableUnits : Unit
     {
-        private int _speed;
+        private double _speed;
         private string _profession;
         private int _lvl;
+
+        private bool _isBoostHealth;
+        private bool _isStoneSkin;
+
 
         public MovableUnits(string name, double maxHealth, double armor, int speed) : base(name, maxHealth, armor)
         {
             _speed = speed;
-           _lvl = 0;
+            _lvl = 0;
+
+            _isBoostHealth = false;
+            _isStoneSkin = false;
         }
 
-        public int Speed
-        {
-            get
-            {
-                return _speed;
-            }
-        }
+        public double Speed { get => _speed; set => _speed = value; }
 
-        public string Profession
-        {
-            get
-            {
-                return _profession;
-            }
-            protected set
-            {
-                _profession = value;
-            }
-        }
+        public string Profession { get => _profession; set => _profession = value; }
 
         public int Lvl { get => _lvl; set => _lvl = value; }
-        
+
+        internal bool IsBoostHealth { get; set; }
+
+        internal bool IsStoneSkin { get; set; }
+
         public void Wound(double damage)
         {
             Health -= damage;
@@ -52,6 +47,11 @@ namespace ConsoleApp1.Strategy
         {
             Console.WriteLine($"{Name}- is moving with {Speed}");
             Info();
+        }
+
+        public override void Info()
+        {
+            Console.WriteLine($"Name:{Name}/ Health:{Health}/ armor:{Armor}/ speed:{_speed}");
         }
     }
 }

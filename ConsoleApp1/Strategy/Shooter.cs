@@ -25,7 +25,7 @@ namespace ConsoleApp1.Strategy
             if (_arrows > 0)
             {
                 _arrows--;
-                int damage = rnd.Next(_minDistanceDamage, _maxDistanceDamage);
+                double damage = rnd.Next(_minDistanceDamage, _maxDistanceDamage);
                 return damage;
             }
                         

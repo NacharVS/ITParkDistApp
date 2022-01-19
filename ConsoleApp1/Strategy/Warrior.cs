@@ -8,8 +8,6 @@ namespace ConsoleApp1.Strategy
 {
     class Warrior : BattleUnit
     {
-        private bool _rage;
-        
         public Warrior(string name) : base(name, 90, 3, 5, 2, 10)
         {
 
@@ -25,28 +23,20 @@ namespace ConsoleApp1.Strategy
 
                 if (Health < 0.3 * MaxHealth && Health > 0)
                 {
-                    _rage = true;
+                    MultiplierDamage = 2;
+                    Console.WriteLine($"{Name} RAGE!");
                 }
 
                 else
                 {
-                    _rage = false;
+                    MultiplierDamage = 1;
                 }
             }
         }
 
         public override double Attack(Random rnd)
         {
-            if (_rage)
-            {
-                Console.WriteLine($"{Name} RAGE!");
-                return base.MeleeAttack(rnd) * 2;
-            }
-
-            else
-            {
-                return base.MeleeAttack(rnd);
-            }
+            return base.MeleeAttack(rnd);
         }
     }
 }

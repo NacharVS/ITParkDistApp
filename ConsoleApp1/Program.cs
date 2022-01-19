@@ -14,22 +14,29 @@ namespace ConsoleApp1
         {
             Random rnd = new Random();
 
-            WathingTower wathingTower = new WathingTower("WathingTower");
-            Catapult catapult = new Catapult();
+            //WathingTower wathingTower = new WathingTower("WathingTower");
+            //Catapult catapult = new Catapult();
 
-            ArcherTower archerTower = new ArcherTower();
+            //ArcherTower archerTower = new ArcherTower();
 
-            Healer healer1 = new Healer("Gendalf");
+            //Healer healer1 = new Healer("Gendalf");
 
             Warrior warrior1 = new Warrior("Bob1");
             Warrior warrior2 = new Warrior("Bob2");
 
-            Archer archer1 = new Archer("Legolaz1");
-            Archer archer2 = new Archer("Legolaz2");
+            Shaman shaman = new Shaman("Gendalf");
 
-            Battle.Fight(warrior1, warrior2, rnd);
-            healer1.Treatment(warrior1, rnd);
-            healer1.Treatment(warrior2, rnd);
+            shaman.StoneSkin(warrior1);
+            shaman.Frenzy(warrior2);
+
+            //Archer archer1 = new Archer("Legolaz1");
+            //Archer archer2 = new Archer("Legolaz2");
+
+
+
+            Battle.Fight(warrior1, warrior2);
+            //healer1.Treatment(warrior1, rnd);
+            //healer1.Treatment(warrior2, rnd);
 
             //Battle.Fight(archer1, archer2, rnd);
             //healer1.Treatment(archer1, rnd);
@@ -62,11 +69,11 @@ namespace ConsoleApp1
 
 
 
-            // 1. Доработать методы боя с учётом Armor;
-            // 2. Доработать методы лечения;
-            // 3. Добавить новый unit Catapult, может ломать здания и других юнитов;
-            // 4. Атака катапультой по зданию и по движущимся юнитам;
-            // 5. Добавить Unit ArcherTower наследуется от WathingTower, в башне может быть до 5-и лучников; без лучников не атакует.
+            // Реализовать новый юнит Shaman которыйможет накидывать ряд усилений. 
+            // 1. BoostHealth - Увеличивает максимальное здоровье на 50%
+            // 2. Frenzy - Увеличивает показатель урона на 1,5 и снижает показатель защиты 0.5
+            // 3. StoneSkin - увеличивает показатель защиты в 2 раза, и снижает скорость в 2 раза
+            // *все усиления могут накладывать только 1 раз на 1 юнита (не стакаються)
 
         }
 
