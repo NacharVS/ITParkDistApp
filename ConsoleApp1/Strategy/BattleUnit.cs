@@ -24,6 +24,10 @@ namespace ConsoleApp1.Strategy
             return currentDamage;
 
         }
+        public override void Info()
+        {
+            Console.WriteLine($"{profession} {name} health {Health} armor {Armor} ");
+        }
 
         public void Attack(BattleUnit soldier, Random rnd)
         {
@@ -40,18 +44,18 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        
 
 
-        //public void MleeAttack(MovableUnits peasant, Random rnd)
-        //{
-        //    double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-        //    peasant.health -= currentDamage;
-        //    Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
-        //    if (peasant.health <= 0)
-        //        peasant.Termination();
 
-        //}
+        public void MleeAttack(MovableUnits peasant, Random rnd)
+        {
+            double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+            peasant.Health -= currentDamage;
+            Console.WriteLine($"{name} attack {peasant.name} with {currentDamage} points of damage");
+            if (peasant.Health <= 0)
+                peasant.Termination();
+
+        }
 
         //public void Attack(BattleUnit soldier, Random rnd)
         //{
@@ -70,6 +74,6 @@ namespace ConsoleApp1.Strategy
         //        this.Termination();
         //}
 
-        
+
     }
 }

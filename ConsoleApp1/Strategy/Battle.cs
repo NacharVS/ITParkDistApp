@@ -12,10 +12,35 @@ namespace ConsoleApp1.Strategy
         {
             while (unit1.Health > 0 && unit2.Health > 0)
             {
-                unit1.Health -= unit2.MleeAttack(new Random());
-                unit2.Health -= unit1.MleeAttack(new Random());
-                unit1.Info();
-                unit2.Info();
+                if (unit1.Armor > 0 && unit2.Armor > 0)
+                {
+                    unit1.Armor -= unit2.MleeAttack(new Random());
+                    unit2.Armor -= unit1.MleeAttack(new Random());
+                    unit1.Info();
+                    unit2.Info();
+                }
+                else if (unit1.Armor <= 0 && unit2.Armor > 0)
+                {
+                    unit1.Health -= unit2.MleeAttack(new Random());
+                    unit2.Armor -= unit1.MleeAttack(new Random());
+                    unit1.Info();
+                    unit2.Info();
+                }
+                else if (unit1.Armor > 0 && unit2.Armor <= 0)
+                {                    
+                    unit1.Armor -= unit2.MleeAttack(new Random());
+                    unit2.Health -= unit1.MleeAttack(new Random());
+                    unit1.Info();
+                    unit2.Info();
+                }
+                else 
+                {
+                    unit1.Health -= unit2.MleeAttack(new Random());
+                    unit2.Health -= unit1.MleeAttack(new Random());
+                    unit1.Info();
+                    unit2.Info();
+                }
+                                
             }
         }
         public static void Fight(Archer archer, BattleUnit unit2)

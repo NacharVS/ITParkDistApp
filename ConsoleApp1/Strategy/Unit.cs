@@ -13,7 +13,25 @@ namespace ConsoleApp1.Strategy
         public string name;
         private double _health;
         internal double _maxHealth;
-        public int Armor { get; set; }
+        private double _armor;
+        public virtual double Armor 
+        {
+            get { return _armor; }
+            set { _armor = value; } 
+        }
+
+        //public override virtual int Armor
+        //{
+        //    get { return armor; }
+        //}
+        public virtual double MaxHealth
+        {
+            get { return _maxHealth; }
+            set
+            {
+                _maxHealth = value;
+            }
+        }
 
         public virtual double Health
         {
@@ -35,7 +53,7 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        protected Unit(string name, int health, int armor)
+        public Unit(string name, int health, int armor)
         {
             this.name = name;
             this._health = health;

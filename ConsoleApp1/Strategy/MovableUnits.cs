@@ -13,6 +13,8 @@ namespace ConsoleApp1.Strategy
         public int speed;
         public int lvl;
 
+        
+
         public MovableUnits(string name, int health, int armor, string professionParam, int speedParam) : base(name, health, armor)
         {
             profession = professionParam;
@@ -24,5 +26,7 @@ namespace ConsoleApp1.Strategy
         {
             Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {Health} ");
         }
+
+
     }
 }

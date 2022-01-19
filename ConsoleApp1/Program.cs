@@ -25,40 +25,57 @@ namespace ConsoleApp1
             
             ArcherTower archerTower = new ArcherTower();
 
+            Shaman shaman = new Shaman("Carlos");
+            shaman.Info();
+
+            war1.Info();
+            war2.Info();
+            shaman.BoostHealth(war1);
+            shaman.BoostHealth(war1);
+            shaman.StoneSkin(war2);
+            shaman.Frenzy(war2);
+            shaman.Frenzy(war2);
+
             Battle.Fight(war1, war2);
 
-            //Peasant peasant1 = new Peasant ("Ivan");
-            //Archer archer = new Archer("Legolas");
-            //Archer archer2 = new Archer("Fedot");
-            //WathingTower wathingTower = new WathingTower();
-            //Hospital hospital = new Hospital("imBurdenko", 30, 20);
-            //Healer healer1 = new Healer("House");
 
-            //archer.RangeAttack(peasant1, rnd);
-            //peasant1.Info();
+            Hospital hospital = new Hospital("imBurdenko", 30, 20);
+            Healer healer1 = new Healer("House", 3);
 
-            //archer.Attack(archer2, rnd);
-            //archer.Info();
-            //archer2.Info();
+            Archer archer2 = new Archer("Fedot");
 
-            //archer.RangeAttack(healer1, rnd);
-            //healer1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
 
-            //archer.RangeAttack(peasant1, rnd);
-            //peasant1.Info();
-            //peasant1.Repare(wathingTower);
-            //archer.RangeAttack(peasant1, rnd);
-            //peasant1.Repare(wathingTower);
-            //peasant1.Info();
+            archer.Attack(archer2, rnd);
+            archer.Info();
+            archer2.Info();
 
-            //healer1.Cure(peasant1);
+            archer.RangeAttack(healer1, rnd);
+            healer1.Info();
 
-            //archer.RangeAttack(peasant1, rnd);
-            //hospital.Cure(peasant1);
-            //hospital.Cure(healer1);
-            //peasant1.Repare(wathingTower);
-            //peasant1.Info();
-            //healer1.Info();
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Info();
+            peasant1.Repare(wTower);
+            archer.RangeAttack(peasant1, rnd);
+            peasant1.Repare(wTower);
+            peasant1.Info();
+
+            healer1.Cure(peasant1);
+
+            archer.RangeAttack(peasant1, rnd);
+            hospital.Cure(peasant1);
+            hospital.Cure(healer1);
+            peasant1.Repare(wTower);
+            peasant1.Info();
+            healer1.Info();
+
+            //1. Доработать методы боя с учетом показателя Armor. 
+            //2. Реализовать атаку катапульты по зданиям.
+            //3.* Реализовать атаку катапульты по движущимся юнитам
+            //4.** Доработать ArcherTower. 
+            //В башне может быть до 5 лучников, чем больше лучников - тем больше урон. 
+            //Если лучников нет, башня не атакует, если емть хотя бы 1 то атакует.
 
             // Реализовать новый юнит Shaman которыйможет накидывать ряд усилений. 
             // 1. BoostHealth - Увеличивает максимальное здоровье на 50%
