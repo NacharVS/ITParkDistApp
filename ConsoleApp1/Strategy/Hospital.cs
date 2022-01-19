@@ -35,12 +35,12 @@ namespace ConsoleApp1.Strategy
                 {
                     Console.WriteLine($"{unit.name} has max health.");
 
-                }
-                else
+                }   
+            }
+            else
                 if (_medicament <= 0)
-                {
-                    Console.WriteLine($"{name} don't have medicament.");
-                }
+            {
+                Console.WriteLine($"{name} don't have medicament.");
             }
         }
     }

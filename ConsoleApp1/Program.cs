@@ -16,6 +16,7 @@ namespace ConsoleApp1
             Hospital hospital = new Hospital("First aid tent");
             Soldier soldier = new Soldier("Swordsman");
             WathingTower wathingTower = new WathingTower("ShootingTower");
+            Shaman jinn = new Shaman("Jinn");
             Console.WriteLine();
             archer.Info();
             peasant1.Info();
@@ -24,6 +25,7 @@ namespace ConsoleApp1
             Console.WriteLine();
             Console.WriteLine("Step 1");
             Battle.Fight(archer, soldier);
+            jinn.BoostHealth(soldier);
             
             healer.HealingUnit(peasant1);
             soldier.CrushinAttack(wathingTower, rnd);
@@ -87,14 +89,6 @@ namespace ConsoleApp1
             //peasant2.repairsBuilding(wathingTower);
             //Console.WriteLine();
             
-
-
-
-
-            // 1. Добавить методы лечения юнитов для класса Healer
-            // 2. Добавить методы починки зданий для класса Peasant
-            // 3. Добавить методы лечения юнитов для класса hospital
-
         }
 
 

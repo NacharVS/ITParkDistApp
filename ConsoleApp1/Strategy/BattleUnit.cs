@@ -15,8 +15,11 @@ namespace ConsoleApp1.Strategy
 
         public virtual double MleeAttack(Random rnd)
         {
-            double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            return currentDamage;
+            
+            {
+                double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
+                return currentDamage;
+            }
 
         }
 
