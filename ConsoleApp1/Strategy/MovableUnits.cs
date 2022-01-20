@@ -4,6 +4,9 @@ namespace ConsoleApp1.Strategy
 {
     class MovableUnits : Unit
     {
+        public delegate void HealDelegate(string unitName, double unitHealth, double healCount);
+        public delegate void DamageDelegate(string unitName, double unitHealth, double damageCount);
+
         public string profession; 
         public int speed;
         public int lvl;
@@ -15,6 +18,16 @@ namespace ConsoleApp1.Strategy
 
             set
             {
+                double diff = Health - value;
+                if(diff > 0)
+                {
+                    DamageEvent?.Invoke(name, Health, (int)diff);                    
+                }
+                else
+                {
+                    HealEvent?.Invoke(name, Health, (int)diff);
+                }
+
                 if (value <= 0)
                 {
                     if (Salvation)
@@ -34,8 +47,7 @@ namespace ConsoleApp1.Strategy
                     _health = _maxHealth;
                 }
                 else
-                    _health = value;
-
+                    _health = value;              
             }
         }
 
@@ -54,8 +66,12 @@ namespace ConsoleApp1.Strategy
 
         private void SalvationActivate()
         {
-            _health = _maxHealth;
+            Health = _maxHealth;
             Console.WriteLine($"{name} is salvated!");
         }
+
+
+        public event HealDelegate HealEvent;
+        public event DamageDelegate DamageEvent;
     }
 }

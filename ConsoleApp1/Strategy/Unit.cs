@@ -4,6 +4,7 @@ namespace ConsoleApp1.Strategy
 {
     abstract class Unit
     {
+        
         internal virtual bool IsCatapult { get => false; }
 
         public string name;
@@ -21,15 +22,18 @@ namespace ConsoleApp1.Strategy
                 if (value <= 0)
                 {
                     _health = 0;
-                    Termination();
+                   
                 }
                 else if (value > _maxHealth)
                 {
                     _health = _maxHealth;
                 }
                 else
+                {
                     _health = value;
-                
+
+                }
+
             }
         }
 
@@ -56,5 +60,6 @@ namespace ConsoleApp1.Strategy
         {
             Console.WriteLine($"{name} {Health} {_maxHealth}");
         }
+
     }
 }
