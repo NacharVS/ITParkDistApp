@@ -79,10 +79,25 @@ namespace ConsoleApp1
                         Console.WriteLine($"Площадь круга: {area}");
                     }
                     break;*/
-           
+            // 1 pelmen = 2 testo + 1 farsh
+            int testo = int.Parse(Console.ReadLine());
+            int farsh = int.Parse(Console.ReadLine());
+            int pelmeneyCount = 0;
 
-
-
+            for (int i = testo + farsh; i / 3 >= 1; i = i - 3) 
+            {
+                if (testo >= 2 & farsh >= 1)
+                {
+                    pelmeneyCount++;
+                    testo -= 2;
+                    farsh -= 1;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Console.WriteLine($"пельменей получилось {pelmeneyCount} осталось фарш:{farsh} тесто {testo}");
 
 
         }
