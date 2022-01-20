@@ -26,7 +26,7 @@ namespace ConsoleApp1
             Console.WriteLine("Step 1");
             Battle.Fight(archer, soldier);
             jinn.BoostHealth(soldier);
-            
+            jinn.StoneSkin(soldier);
             healer.HealingUnit(peasant1);
             soldier.CrushinAttack(wathingTower, rnd);
             wathingTower.TowerAttack(soldier);

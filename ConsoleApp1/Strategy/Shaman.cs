@@ -19,7 +19,7 @@ namespace ConsoleApp1.Strategy
         }
         public void BoostHealth(MovableUnits unit)
         {
-            if ((_mana > 0) && (boostFrenzy = false) && (booststoneSkin = false))
+            if ((_mana > 0) ||(boostFrenzy = true)|| (booststoneSkin = true))
             {
                 if (0 < unit.health)
                 {
@@ -70,7 +70,7 @@ namespace ConsoleApp1.Strategy
         }
         public void StoneSkin(MovableUnits unit)
         {
-            if ((_mana > 0)&& (boostHealth = false) && (boostFrenzy = false))
+            if ((_mana > 0)|| (boostHealth = false) || (boostFrenzy = false))
             {
                 if (0 < unit.health)
                 {
