@@ -15,6 +15,8 @@ namespace ConsoleApp1.Strategy
 
         public void BoostHealth(MovableUnits unit)
         {
+            unit.MaxHealth *= 1.5;
+
             if (!unit.IsBoostHealth)
             {
                 unit.MaxHealth *= 1.5;

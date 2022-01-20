@@ -31,6 +31,23 @@ namespace ConsoleApp1.Strategy
 
         internal bool IsStoneSkin { get; set; }
 
+        public override double MaxHealth
+        {
+            get => base.MaxHealth;
+            set
+            {
+                if (!_isBoostHealth)
+                {
+                    MaxHealth *= 1.5;
+                    Health = MaxHealth;
+
+                    _isBoostHealth = true;
+                }
+
+                base.MaxHealth = value;
+            }
+        }
+
         public void Wound(double damage)
         {
             Health -= damage;

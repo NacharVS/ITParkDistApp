@@ -15,8 +15,8 @@ namespace ConsoleApp1.Strategy
 
             while (unit1.Health > 0 && unit2.Health > 0)
             {
-                unit1.Health -= unit2.Attack(rnd);
-                unit2.Health -= unit1.Attack(rnd);
+                unit1.Health = unit1.Health - unit2.Attack(rnd);
+                unit2.Health = unit2.Health - unit1.Attack(rnd);
                 unit1.Info();
                 
                 unit2.Info();
