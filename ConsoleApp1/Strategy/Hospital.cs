@@ -18,8 +18,7 @@ namespace ConsoleApp1.Strategy
         {
             if (_medicament > 0)
             {
-                _healing = unit._maxHealth-unit.health;
-                if ((0 < unit.health) && (unit.health < _maxHealth))
+                if ((0 < unit.health) && (unit.health < unit._maxHealth))
                 {
                     _medicament -= 15;
                     unit.health = unit._maxHealth;

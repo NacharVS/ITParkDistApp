@@ -10,9 +10,9 @@ namespace ConsoleApp1.Strategy
     {
         private int _mana;
         private double _boostfrenzy;
-        public bool boostHealth { get; private set; }
-        public bool boostFrenzy { get; private set; }
-        public bool booststoneSkin { get; private set; }
+        public bool boostHealth = false;
+        public bool boostFrenzy = false;
+        public bool booststoneSkin = false;
         public Shaman(string name) : base(name, 50, 1, "Jinn", 7)
         {
             _mana = 50;
@@ -47,11 +47,11 @@ namespace ConsoleApp1.Strategy
             {
                 if (0 < unit.health)
                 {
-                    //unit.minDamage = 2+unit.minDamage;
-                    //unit.maxDamage = 2+unit.maxDamage;
+                    //unit.minDamage = 2 + unit.minDamage;
+                    //unit.maxDamage = 2 + unit.maxDamage;
                     //_mana -= 10;
                     //unit.minDamage = MleeAttack(Random rnd)) +2;
-                    //unit.maxDamage = Convert.ToDouble(rnd.Next(unit.maxDamage)) +2;
+                    //unit.maxDamage = Convert.ToDouble(rnd.Next(unit.maxDamage)) + 2;
                     boostFrenzy = true;
                     Console.WriteLine($"{name} boost Frenzy for {unit.name}. {unit.name} has {unit.maxDamage} damage but armor is halved {unit.armor}");
                     Console.WriteLine($"{name} spent -10 mana. {name} has {_mana} mana.");
@@ -70,7 +70,7 @@ namespace ConsoleApp1.Strategy
         }
         public void StoneSkin(MovableUnits unit)
         {
-            if ((_mana > 0)|| (boostHealth = false) || (boostFrenzy = false))
+            if ((_mana > 0)|| (!boostHealth) || (!boostFrenzy))
             {
                 if (0 < unit.health)
                 {
