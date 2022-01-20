@@ -80,7 +80,7 @@ namespace ConsoleApp1
                     }
                     break;*/
             // 1 pelmen = 2 testo + 1 farsh
-            int testo = int.Parse(Console.ReadLine());
+            /*int testo = int.Parse(Console.ReadLine());
             int farsh = int.Parse(Console.ReadLine());
             int pelmeneyCount = 0;
 
@@ -97,7 +97,8 @@ namespace ConsoleApp1
                     break;
                 }
             }
-            Console.WriteLine($"пельменей получилось {pelmeneyCount} осталось фарш:{farsh} тесто {testo}");
+            Console.WriteLine($"пельменей получилось {pelmeneyCount} осталось фарш:{farsh} тесто {testo}");*/
+
 
 
         }
