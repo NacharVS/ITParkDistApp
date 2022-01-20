@@ -38,6 +38,7 @@ namespace ConsoleApp1.Strategy
                 _minDamage += 1;
                 _maxDamage += 2;
                 Lvl++;
+
             }
         }
     }
