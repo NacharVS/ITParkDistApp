@@ -19,16 +19,9 @@ namespace ConsoleApp1
             Catapult catapult = new Catapult();
             ArcherTower archerTower = new ArcherTower();
             Shaman shaman = new Shaman("Peter");
-            shaman.HealhBuff(war1);
-            war1.Info();
-            shaman.HealhBuff(war1);
-            war1.Info();
-            healer.Heal(war1);
-            healer.Heal(war1);
-            healer.Heal(war1);
-            war1.Info();
-            shaman.FrenzyBuff(war1);
-            war1.Info();
+            healer.SalvationBuff(war1);
+            shaman.FrenzyBuff(war2);
+            Battle.Fight(war1, war2);
 
             // Health = Health + 5;
 

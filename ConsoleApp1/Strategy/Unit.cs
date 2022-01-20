@@ -7,7 +7,7 @@ namespace ConsoleApp1.Strategy
         internal virtual bool IsCatapult { get => false; }
 
         public string name;
-        private double _health;
+        internal double _health;
         internal double _maxHealth;
         public int Armor { get; set; }
 

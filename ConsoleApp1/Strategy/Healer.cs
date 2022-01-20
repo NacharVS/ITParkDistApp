@@ -24,5 +24,10 @@ namespace ConsoleApp1.Strategy
             else
             unit.Health += healAmount;
         }
+
+        public void SalvationBuff(MovableUnits unit)
+        {
+            unit.Salvation = !unit.Salvation;
+        }
     }
 }
