@@ -38,12 +38,12 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"Shaman begin casts the Frenzy on {unit.name}(current damage:{unit.minDamage}-{unit.maxDamage}, armor:{unit.armor})");
             if (mana > 0)
             {
-                if (!unit.frenzyStatus)
+                if (!unit.FrenzyStatus)
                 {
                     unit.armor = unit.armor*0.5;
                     unit.minDamage = unit.minDamage*1.5;
                     unit.maxDamage = unit.maxDamage*1.5;
-                    unit.frenzyStatus = true;
+                    unit.FrenzyStatus = true;
                     Console.WriteLine($"  Shaman increase {unit.name}'s damage by 2 (current damage:{unit.minDamage}-{unit.maxDamage}) and decrease armor ({unit.armor})");
                     mana -= 50;
                 }

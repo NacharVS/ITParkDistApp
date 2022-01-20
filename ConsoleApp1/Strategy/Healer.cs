@@ -40,9 +40,6 @@ namespace ConsoleApp1.Strategy
             }
             unit.Info();
         }
-        public void Adrenalin ()
-        {
-
-        }
+        
     }
 }

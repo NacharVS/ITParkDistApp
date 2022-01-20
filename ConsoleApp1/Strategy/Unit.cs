@@ -5,14 +5,16 @@ namespace ConsoleApp1.Strategy
     abstract class Unit
     {
         public string name;
-        private double _health;
+        internal double _health;
         internal double _maxHealth;
         internal double _maxArmor;
         public double armor;
         public bool hpBoostStatus;
-        public bool frenzyStatus;
+        private bool frenzyStatus;
         public bool stoneSkinStatus;
+        public bool salvationBuffStatus;
         internal virtual bool IsCatapult { get => false; }
+        public frenzyStatus
 
         public virtual double Health
         {
@@ -32,6 +34,9 @@ namespace ConsoleApp1.Strategy
                     _health = value/* * ()*/;
             }
         }
+
+        public bool FrenzyStatus { get => frenzyStatus; set => frenzyStatus = value; }
+
         protected Unit(string name, int health, int armor)
         {
             this.name = name;
@@ -40,8 +45,9 @@ namespace ConsoleApp1.Strategy
             this._maxHealth = health;
             this._maxArmor = armor;
             this.hpBoostStatus = false;
-            this.frenzyStatus = false;
+            this.FrenzyStatus = false;
             this.stoneSkinStatus = false;
+            this.salvationBuffStatus = false;
             Creation();
         }
         public void Creation()
