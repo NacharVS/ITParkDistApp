@@ -7,6 +7,10 @@ namespace ConsoleApp1.Strategy
         public int minDamage;
         public int maxDamage;
 
+        public bool IsHealthBoosted = false;
+        
+
+
         public BattleUnit(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam)
         {
             minDamage = min;

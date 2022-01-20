@@ -17,30 +17,14 @@ namespace ConsoleApp1
             Warrior war2 = new Warrior("John");
             WathingTower wTower = new WathingTower();
             Catapult catapult = new Catapult();
-            catapult.Info();
-            //Warrior war2 = new Warrior("John");
-            //Battle.Fight(archer, war2);
-            //healer.Heal(war2);
-            //healer.Heal(war2);
-            //healer.Heal(war2);
-            //healer.Heal(war2);
-            //war2.Info();
             ArcherTower archerTower = new ArcherTower();
+            Shaman shaman = new Shaman("Peter");
+            shaman.HealhBuff(war1);
+            war1.Info();
+            healer.Heal(war1);
+            war1.Info();
 
-            //for (int i = 0; i < 1; i++)
-            //{
-            //    archerTower.LoadArchers(archer);
-            //}
 
-            Battle.Fight(war1, war2);
-
-            //Console.Read();
-
-            // Реализовать новый юнит Shaman которыйможет накидывать ряд усилений. 
-            // 1. BoostHealth - Увеличивает максимальное здоровье на 50%
-            // 2. Frenzy - Увеличивает показатель урона на 1,5 и снижает показатель защиты 0.5
-            // 3. StoneSkin - увеличивает показатель защиты в 2 раза, и снижает скорость в 2 раза
-            // *все усиления могут накладывать только 1 раз на 1 юнита (не стакаються)
         }
 
 

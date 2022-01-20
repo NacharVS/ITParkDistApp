@@ -5,10 +5,13 @@ namespace ConsoleApp1.Strategy
     abstract class Unit
     {
         internal virtual bool IsCatapult { get => false; }
+
         public string name;
         private double _health;
         internal double _maxHealth;
         public int Armor { get; set; }
+
+      
 
         public virtual double Health 
         {
@@ -51,7 +54,7 @@ namespace ConsoleApp1.Strategy
 
         public virtual void Info()
         {
-            Console.WriteLine($"{name} {Health}");
+            Console.WriteLine($"{name} {Health} {_maxHealth}");
         }
     }
 }
