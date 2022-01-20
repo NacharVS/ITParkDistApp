@@ -4,6 +4,7 @@ namespace ConsoleApp1.Strategy
 {
     class MovableUnits : Unit
     {
+        public delegate void FrenzyDelegate(string unitName,int armor, double minDamage, double maxDamage);
         public string profession;
         public int speed;
         public int lvl;
@@ -46,5 +47,6 @@ namespace ConsoleApp1.Strategy
         {
             Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {Health} ");
         }
+        public event FrenzyDelegate FrenzyEvent;
     }
 }

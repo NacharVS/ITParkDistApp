@@ -14,7 +14,7 @@ namespace ConsoleApp1.Strategy
         public bool stoneSkinStatus;
         public bool salvationBuffStatus;
         internal virtual bool IsCatapult { get => false; }
-        public frenzyStatus
+        
 
         public virtual double Health
         {
