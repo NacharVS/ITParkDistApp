@@ -9,6 +9,9 @@ namespace ConsoleApp1.Strategy
         internal double _maxHealth;
         internal double _maxArmor;
         public double armor;
+        public bool hpBoostStatus;
+        public bool frenzyStatus;
+        public bool stoneSkinStatus;
         internal virtual bool IsCatapult { get => false; }
 
         public virtual double Health
@@ -36,6 +39,9 @@ namespace ConsoleApp1.Strategy
             this.armor = armor;
             this._maxHealth = health;
             this._maxArmor = armor;
+            this.hpBoostStatus = false;
+            this.frenzyStatus = false;
+            this.stoneSkinStatus = false;
             Creation();
         }
         public void Creation()

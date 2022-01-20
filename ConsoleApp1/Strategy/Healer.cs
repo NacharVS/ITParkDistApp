@@ -26,8 +26,8 @@ namespace ConsoleApp1.Strategy
             {
                 if (unit.Health + healAmount >= unit._maxHealth)
                 {
-                    unit.Health = unit._maxHealth;
-                    Console.WriteLine($"  {unit.name}'s HP is FULL! ({unit._maxHealth})");
+                    //unit.Health = unit._maxHealth;
+                    Console.WriteLine($"  {unit.name}'s HP is FULL! ({unit.Health})");
                     break;
                 }
                 else if(unit.Health + healAmount < unit._maxHealth)
@@ -38,8 +38,11 @@ namespace ConsoleApp1.Strategy
                 }
                 else if(mana<=0) Console.Write($"\t{name}'s mana is empty: {mana}/{_maxMana} =>");
             }
-            
             unit.Info();
+        }
+        public void Adrenalin ()
+        {
+
         }
     }
 }

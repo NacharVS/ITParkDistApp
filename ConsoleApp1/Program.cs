@@ -30,13 +30,14 @@ namespace ConsoleApp1
             var building= new Buildings("Town Hall",1500,5);
             Battle.Fight(catapult, building, rnd);
             shaman.HealthBoost(war1);
-            shaman.Frenzy(war1);
-            shaman.HealthBoost(catapult);
-            shaman.HealthBoost(war2);
+            //shaman.Frenzy(war1);
+            //shaman.HealthBoost(catapult);
+            //shaman.HealthBoost(war2);
             healer.Heal(war1);
             Battle.Fight(catapult, war2, rnd);
             //Battle.Fight(war1,war2, rnd);
-            healer.Heal(war1);            
+            healer.Heal(war1);
+            shaman.StoneSkin(war1);
             //Battle.Fight(catapult, war2);
             //Battle.Fight(catapult, archer);
             //Battle.Fight(catapult, healer);
@@ -73,7 +74,7 @@ namespace ConsoleApp1
 
             //новый юнит - накидывает бафы на юнитов
             //1.Boost.Health - увеличивает здовроьве на 50%
-            //2.Frenzy - увеличивает показатель урона на 1.5 и снижает защиту на 0,5
+            //2.Frenzy - увеличивает показатель урона в 1.5 и снижает защиту на 0,5
             //3.StoneSkin - увеличивает защиту в 2 раза и снижает скорость в 2 раза
             //*все усиления могут накладываться 1 раз
         }

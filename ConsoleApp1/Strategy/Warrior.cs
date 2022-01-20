@@ -12,25 +12,25 @@ namespace ConsoleApp1.Strategy
         public int minDamage;
         public int maxDamage;
         private bool _rage = false;
-        //public override double Health
-        //{
-        //    get { return Health; }
-        //    set
-        //    {
-        //        if (value < Health * 0.4)
-        //        {
-        //            _rage = true;
-        //            Console.WriteLine($"{name} RAGE!");
-        //            Health = value;
-        //        }
-        //        else if (value > _maxHealth * 0.4 && _rage == true)
-        //        {
-        //            _rage = false;
-        //            Console.WriteLine($"{name} rage is over.");
-        //            Health = value;
-        //        }
-        //    }
-        //}
+        public override double Health
+        {
+            get { return _maxHealth; }
+            set
+            {
+                if (value < _maxHealth * 0.4)
+                {
+                    _rage = true;
+                    Console.WriteLine($"{name} RAGE!");
+                    Health = value;
+                }
+                else if (value > _maxHealth * 0.4 && _rage == true)
+                {
+                    _rage = false;
+                    Console.WriteLine($"{name} rage is over.");
+                    Health = value;
+                }
+            }
+        }
         public bool Rage { get => _rage; set => _rage = value; }
 
         public Warrior(string name, int health, int armor, int minDamage, int maxDamage) : base(name, health, armor, "soldier", 5, minDamage, maxDamage)

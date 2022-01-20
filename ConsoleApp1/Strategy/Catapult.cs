@@ -16,6 +16,7 @@ namespace ConsoleApp1.Strategy
             this._minBuildingDamage = minDamage*2;
             this._maxBuildingDamage = maxDamage*2;
         }
+
         public override double BuildingAttack(Random rnd)
         {
             double currentDamage = Convert.ToDouble(rnd.Next(_minBuildingDamage, _maxBuildingDamage));

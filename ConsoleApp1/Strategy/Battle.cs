@@ -15,8 +15,7 @@ namespace ConsoleApp1.Strategy
             double atck2 = 0;
             while (building.Health > 0)
             {
-                
-                var atck = unit1.BuildingAttack(rnd) * building.DamageReduction(); ;
+                var atck = unit1.BuildingAttack(rnd) * building.DamageReduction();
                 if (building.Wall > 0 & atck <= building.Wall)
                 {
                     building.Wall -= atck;
