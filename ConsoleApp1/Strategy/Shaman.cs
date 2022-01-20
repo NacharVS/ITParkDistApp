@@ -20,5 +20,16 @@ namespace ConsoleApp1.Strategy
                 unit.IsHealthBoosted = !unit.IsHealthBoosted;
             }              
         }
+
+        public void FrenzyBuff(BattleUnit unit)
+        {
+            if (!unit.IsFrenzy)
+            {
+                unit.minDamage = Convert.ToInt32(unit.minDamage * 1.5);
+                unit.maxDamage = Convert.ToInt32(unit.maxDamage * 1.5);
+                unit.Armor = Convert.ToInt32(unit.Armor * 0.5);
+                unit.IsFrenzy = !unit.IsFrenzy;
+            }
+        }
     }
 }

@@ -21,9 +21,16 @@ namespace ConsoleApp1
             Shaman shaman = new Shaman("Peter");
             shaman.HealhBuff(war1);
             war1.Info();
+            shaman.HealhBuff(war1);
+            war1.Info();
+            healer.Heal(war1);
+            healer.Heal(war1);
             healer.Heal(war1);
             war1.Info();
+            shaman.FrenzyBuff(war1);
+            war1.Info();
 
+            // Health = Health + 5;
 
         }
 

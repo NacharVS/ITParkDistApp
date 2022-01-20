@@ -8,7 +8,8 @@ namespace ConsoleApp1.Strategy
         public int maxDamage;
 
         public bool IsHealthBoosted = false;
-        
+        public bool IsFrenzy = false;
+
 
 
         public BattleUnit(string name, int health, int armor, string professionParam, int speedParam, int min, int max) : base(name, health, armor, professionParam, speedParam)
@@ -37,6 +38,11 @@ namespace ConsoleApp1.Strategy
                 maxDamage += 2;
                 lvl++;
             }
+        }
+
+        public override void Info()
+        {
+            Console.WriteLine($"{ name}  {Health } {_maxHealth } { minDamage} {maxDamage} {Armor}");
         }
     }
 }
