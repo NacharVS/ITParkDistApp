@@ -11,206 +11,106 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
+            List<Product> products = new List<Product>();
+            products.Add(new Product("Beer", 100, 27));
+            products.Add(new Product("Vodka", 450, 30));
+            products.Add(new Product("Seledka", 250, 11));
+            products.Add(new Product("Lavash", 50, 18));
+            products.Add(new Product("Juice", 190, 25));
+                            //Выбор входа----------------------------------------
+            Console.Write("Client and Admin:  ");
 
-            List<string> products = new List<string>() { "bread", "Vodka", "Seledka", "seeds", "Tea" };
-            List<double> prices = new List<double>() { 100, 450, 250, 50, 190 };
-            List<string> currency_name = new List<string>() { "р", "р", "р", "р", "р" };
 
-            List<double> shopping_basket = new List<double>() { };
-
-            Console.WriteLine();
-            Console.Write("Client / Admin:  ");
             string s = Console.ReadLine();
-
-            if (s == "Client")
-            {
-                Console.Write("Enter the amount: ");
-                double credit = double.Parse(Console.ReadLine());
-
-                while (true)
-                {
-
-                    Console.WriteLine("Spicok");
-                    for (int i = 0; i < products.Count; i++)
-                    {
-                        Console.WriteLine($"{i + 1}. {products[i]} {prices[i]} {currency_name[i]}");
-
-                    }
-                    Console.WriteLine("Make your choice(ot 1 do 5)");
-                    string client_choise = Console.ReadLine();
-                    switch (client_choise)
-                    {
-                        case "1":
-                            {
-                                Console.WriteLine("Enter coli.bread");
-                                int coli_product = int.Parse(Console.ReadLine());
-                                if (prices[0] * coli_product > credit)
-                                {
-                                    Console.WriteLine("Error limit");
-                                }
-                                shopping_basket.Add(prices[0] * coli_product);
-                            }
-                            break;
-
-                        case "2":
-                            {
-                                Console.WriteLine("Enter coli. Vodka");
-                                int coli_product = int.Parse(Console.ReadLine());
-                                if (prices[1] * coli_product > credit)
-                                {
-                                    Console.WriteLine("Error limit");
-                                }
-                                shopping_basket.Add(prices[1] * coli_product);
-                            }
-                            break;
-
-                        case "3":
-                            {
-                                Console.WriteLine("Enter coli. Seledka");
-                                int coli_product = int.Parse(Console.ReadLine());
-                                if (prices[2] * coli_product > credit)
-                                {
-                                    Console.WriteLine("Error limit");
-                                }
-                                shopping_basket.Add(prices[2] * coli_product);
-                            }
-                            break;
-
-                        case "4":
-                            {
-                                Console.WriteLine("Enter coli. seeds");
-                                int coli_product = int.Parse(Console.ReadLine());
-                                if (prices[3] * coli_product > credit)
-                                {
-                                    Console.WriteLine("Error limit");
-                                }
-                                shopping_basket.Add(prices[3] * coli_product);
-                            }
-                            break;
-
-                        case "5":
-                            {
-                                Console.WriteLine("Enter coli. Tea");
-                                int coli_product = int.Parse(Console.ReadLine());
-                                if (prices[4] * coli_product > credit)
-                                {
-                                    Console.WriteLine("Error limit");
-                                }
-                                shopping_basket.Add(prices[4] * coli_product);
-                            }
-                            break;
-                    }
-                    Console.Write("Anything else? (Y/N)");
-                    client_choise = Console.ReadLine();
-                    if (client_choise == "N")
-                    {
-                        break;
-                    }
-
-
-                }
-                double summ = 0;
-                for (int i = 0; i < shopping_basket.Count; i++)
-                {
-                    summ += shopping_basket[i];
-                }
-                Console.WriteLine();
-
-                if (summ > credit)
-                {
-                    Console.WriteLine("Error limit");
-                }
-
-                else
-                {
-                    Console.WriteLine($"Total: {summ}");
-                }
-
-            }
-
-
-
             if (s == "Admin")
             {
-
-                Console.WriteLine("Spicok");
-                for (int i = 0; i < products.Count; i++)
-                {
-                    Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
-                }
-                Console.Write("Add and Remove (+/-): ");
+                Product.SwowListOfProduct(products);
+                Console.WriteLine("ADD/Remove(+/-)");
                 string edit = Console.ReadLine();
                 switch (edit)
                 {
                     case "+":
-                        {
-                            string add = "+";
-                            while (add != "-")
-                            {
-                                Console.Write("Name of the added position?: ");
+                        //Добавление нового продукта----------------------------------------------
 
-                                string newProduct = Console.ReadLine();
+                        Console.WriteLine("New product name");
+                        string NewProductName = Console.ReadLine();
 
-                                products.Add(newProduct);
-                                Console.Write($"price in Руб per kg. '{newProduct}': ");
+                        Console.WriteLine("New product price");
+                        double NewProductPrice = double.Parse(Console.ReadLine());
 
-                                double coastNewProduct = double.Parse(Console.ReadLine());
-                                prices.Add(coastNewProduct);
+                        Console.WriteLine("New product count");
+                        int NewProductcount = int.Parse(Console.ReadLine());
 
-                                Console.Write("Continue adding?(y/n): ");
-                                add = Console.ReadLine();
-                                if (add == "n")
-                                {
-                                    Console.WriteLine("Changed product list:");
-                                    for (int i = 0; i < products.Count; i++)
-                                    {
-                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
-                                    }
-                                    break;
-                                }
-                                else if (add == "y") continue;
-                                else Console.WriteLine("Input error: only 'y' and 'n'");
-                            }
-                        }
+
+                        Admin.AddProduct(products, NewProductName, NewProductPrice, NewProductcount);
+                        Console.WriteLine("New List");
+                        Product.SwowListOfProduct(products);
                         break;
+                    //Удаление продукта---------------------------------------------------------
                     case "-":
-                        {
-                            string exit = "+";
-                            while (exit != "-")
-                            {
-                                Console.Write("Remove position(№): ");
-                                int delProductNumber = int.Parse(Console.ReadLine());
 
-                                string delProduct = products[delProductNumber - 1];
+                        Console.WriteLine("Remove product №:");
+                        int RemoveProduct = int.Parse(Console.ReadLine());
 
-                                int indexRemove = products.IndexOf(delProduct);
-                                products.Remove(delProduct);
+                        Admin.RemoveProduct(products, RemoveProduct);
+                        Console.WriteLine("New List");
+                        Product.SwowListOfProduct(products);
 
-                                prices.Remove(indexRemove);
-                                Console.Write("Continue remove?(y/n): ");
-
-                                exit = Console.ReadLine();
-                                if (exit == "n")
-                                {
-                                    Console.WriteLine("Changed product list:");
-                                    for (int i = 0; i < products.Count; i++)
-                                    {
-                                        Console.WriteLine($" {i + 1}.{products[i]} - {prices[i]} р");
-                                    }
-                                    break;
-                                }
-                                else Console.Write(" Input error: only  'y' and 'n'");
-                            }
-                        }
                         break;
+                }
+            }
+            if (s == "Client")
+            {
+                Console.Write("Your credit limit: ");
+                double Summa = double.Parse(Console.ReadLine());
+
+                //Выбор продукта-------------------------------------------------------------------------
+                Console.WriteLine("Сhoose a product:1 of 5");
+                Product.SwowListOfProduct(products);
+
+                int choiceProduct = int.Parse(Console.ReadLine());
+                Console.WriteLine("Product Quantity");
+                int countedProduct = int.Parse(Console.ReadLine());
+                Client.AddToCart(products, choiceProduct, countedProduct);
+
+                Console.WriteLine("Your choice");
+
+
+                while (true)
+                {
+                    Console.WriteLine("Do you want to buy something else?(Y/N)");
+
+                    string still = Console.ReadLine();
+                    switch (still)
+                    {
+                        case "Y":
+
+                            Console.WriteLine("Сhoose a product:1 of 5");
+                            Product.SwowListOfProduct(products);
+
+                            int NextchoiceProduct = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Product Quantity");
+                            int NextcountedProduct = int.Parse(Console.ReadLine());
+                            Client.AddToCart(products, NextchoiceProduct, NextcountedProduct);
+
+                            break;
+                    }
+                    if (still == "N")
+                    {
+                        break;
+                    }
+
+                }
+
+                Console.WriteLine("Your choice");
+                Client.ShowCart();
+                Console.WriteLine($"Purchase amount: {Client.Summ()}p.");
+                if (Summa < Client.Summ())
+                {
+                    Console.WriteLine("Not enough money");
                 }
 
             }
-            else
-            {
-                Console.WriteLine("Input Error: only  'Client' and 'Admin'");
-            }
-
 
         }
     }
