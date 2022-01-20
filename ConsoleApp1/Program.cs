@@ -6,6 +6,34 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //Среднее число
+            /*
+            Console.WriteLine("введите три налуральных числа:");
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
+            if (a > b & a > c)
+                Console.WriteLine("среднее число:" + c);
+            else
+                if (b > a & b < c)
+                Console.WriteLine("среднее число:" + b);
+            else
+                if (c > b & c < a)
+                Console.WriteLine("среднее число:" + c);*/
+
+            // Сумма/Произведение
+
+            /* Console.WriteLine("Ведите трехзначное число:");
+             int number = int.Parse(Console.ReadLine());
+             int ed = number % 10;
+             int des = number / 10 % 10;
+             int hun = number / 100;
+             if (number % 2 <= 0)
+                 Console.WriteLine($"четное. Сумма цифр:{ed + des + hun}");
+             else
+                 Console.WriteLine($"нечетное. Произведение цифр:{ed * des * hun}");*/
+            // Площадь фигур
+            /*
             Console.WriteLine("Выберите фигуру:");
             Console.WriteLine("1.Квадрат:");
             Console.WriteLine("2.Треугольник:");
@@ -50,23 +78,27 @@ namespace ConsoleApp1
                         double area = Math.PI* Math.Pow(radius, 2);
                         Console.WriteLine($"Площадь круга: {area}");
                     }
-                    break;
-
-            }
-            
-
-
-
-
-
-
-
-
+                    break;*/
+           
 
 
 
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
-}
+    }
