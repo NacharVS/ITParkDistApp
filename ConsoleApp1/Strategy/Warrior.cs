@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ConsoleApp1.Strategy
 {
     class Warrior : BattleUnit
     {
-        //private bool _rage;
-        //private int _rageK;
-        
-        public Warrior(string name) : base(name, 90, 3, 5, 2, 10)
-        {
-
-        }
+        public Warrior(string name) : base(name, 90, 3, 5, 2, 10) { }
 
         public override double Health
         {
@@ -37,9 +28,7 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        public override double Attack(Random rnd)
-        {
-            return base.MeleeAttack(rnd);
-        }
+        public override double Attack(Random rnd) => base.MeleeAttack(rnd);
+
     }
 }
