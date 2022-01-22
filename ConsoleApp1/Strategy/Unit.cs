@@ -33,11 +33,14 @@ namespace ConsoleApp1.Strategy
             set
             {
                 double damage = _health - value;
-                value += damage * ((0.06 * _armor) / (1 + 0.06 * _armor));
 
-                value = (int)(value * 100);
-                value = value / 100;
-                                                
+                if (damage > 0)
+                {
+                    value -= damage * ((0.06 * _armor) / (1 + 0.06 * _armor));
+                    value = (int)(value * 100);
+                    value = value / 100;
+                }
+
                 if (value <= 0)
                 {
                     _health = 0;

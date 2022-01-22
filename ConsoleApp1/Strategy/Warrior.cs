@@ -29,6 +29,5 @@ namespace ConsoleApp1.Strategy
         }
 
         public override double Attack(Random rnd) => base.MeleeAttack(rnd);
-
     }
 }
