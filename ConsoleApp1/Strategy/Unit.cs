@@ -36,7 +36,7 @@ namespace ConsoleApp1.Strategy
 
                 if (damage > 0)
                 {
-                    value -= damage * ((0.06 * _armor) / (1 + 0.06 * _armor));
+                    value += damage * ((0.06 * _armor) / (1 + 0.06 * _armor));
                     value = (int)(value * 100);
                     value = value / 100;
                 }
@@ -53,6 +53,8 @@ namespace ConsoleApp1.Strategy
                 }
 
                 else _health = value;
+
+                HealthChangedEvent?.Invoke();
             }
         }
 
@@ -72,5 +74,7 @@ namespace ConsoleApp1.Strategy
         {
             Console.WriteLine($"Name:{_name}/ Health:{_health}/ armor:{_armor}");
         }
+
+        public event Action HealthChangedEvent;
     }
 }
