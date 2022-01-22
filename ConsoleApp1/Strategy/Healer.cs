@@ -41,5 +41,13 @@ namespace ConsoleApp1.Strategy
             }
             
         }
+
+        public void SalvationBuff(MovableUnits unit)
+        {
+            if (!unit.Salvation)
+            {
+                unit.Salvation = !unit.Salvation;
+            }
+        }
     }
 }

@@ -15,26 +15,29 @@ namespace ConsoleApp1
             Random rnd = new Random();
 
             //WathingTower wathingTower = new WathingTower("WathingTower");
-            //Catapult catapult = new Catapult();
+            Catapult catapult = new Catapult();
 
             //ArcherTower archerTower = new ArcherTower();
 
-            //Healer healer1 = new Healer("Gendalf");
+            Healer healer = new Healer("Gendalf");
 
             Warrior warrior1 = new Warrior("Bob1");
             Warrior warrior2 = new Warrior("Bob2");
 
-            Shaman shaman = new Shaman("Gendalf");
+            //Shaman shaman = new Shaman("Gendalf");
 
-            shaman.StoneSkin(warrior1);
-            shaman.Frenzy(warrior2);
+            //shaman.StoneSkin(warrior1);
+            //shaman.Frenzy(warrior2);
 
             //Archer archer1 = new Archer("Legolaz1");
             //Archer archer2 = new Archer("Legolaz2");
+            healer.SalvationBuff(warrior1);
+            healer.SalvationBuff(warrior1);
+
             warrior1.HealthChangedEvent += Message;
             
 
-            Battle.Fight(warrior1, warrior2);
+            Battle.Fight(warrior1, catapult);
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(warrior2, rnd);
 
