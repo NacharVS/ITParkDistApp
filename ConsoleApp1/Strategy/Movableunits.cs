@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Strategy
+namespace ConsoleApp1
 {
                            //ДВИЖУЮЩИЕСЯ ЮНИТЫ (ЛУЧНИКИ,СОЛДАТЫ И Т.Д.)------------------------
     class MovableUnits : Unit              /*НАСЛЕДУЕМ ОТ КСЛАССА Unit*/

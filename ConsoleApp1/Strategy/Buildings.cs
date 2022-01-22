@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Strategy
+namespace ConsoleApp1
 {
                               //НЕДВИЖУЮЩИЕСЯ ЮНИТЫ (ЗДАНИЯ,БАШНИ)------------------------
     class Buildings : Unit           /*НАСЛЕДУЕМ ОТ КСЛАССА Unit*/
