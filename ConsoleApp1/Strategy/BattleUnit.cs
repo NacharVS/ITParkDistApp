@@ -18,7 +18,7 @@ namespace ConsoleApp1.Strategy
             maxDamage = max;
         }
 
-        public double MleeAttack(Random rnd)    /*Метод атаки на Peasant1(Крестиянина)*/   /*Сюда мы передаем экзимпляр крестьянина*/  /*Рукопашная атака*/
+        public virtual double MleeAttack(Random rnd)   /*Рукопашная атака*/
         {
 
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));

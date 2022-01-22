@@ -31,7 +31,7 @@ namespace ConsoleApp1.Strategy
             }
             else
             {
-                Console.WriteLine($"У лучника {name} закончились стрелы");
+                Console.WriteLine($"У лучника {name} закончились стрелы.");
 
                 return MleeAttack(rnd);
 

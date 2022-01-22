@@ -8,12 +8,13 @@ namespace ConsoleApp1.Strategy
 {
     class Unit
     {
+        internal virtual bool IsCatapult { get => false; }   /*Катапульта*/
         public string name; /*Имя*/
         private double _healt;  /*здоровье*/
         public int armor; /*сопротивление урона(броня)*/
         internal double _maxHealth;
 
-        internal double Healt        /*  Метод здоровья*/
+        public virtual double Healt        /*  Метод здоровья*/
         {
             get { return _healt; }
             set
@@ -56,9 +57,19 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{name} уничтожился");
         }
         //Метод информации текущего юнита
-        public void Info()
+        public virtual void Info()
         {
-            Console.WriteLine($"{name} {Healt}");
+            if (_healt > 0)
+            {
+                Console.WriteLine($"{name} {Healt}");
+            }
+            else
+            {
+                if (_healt <= 0)
+                {
+                    Console.WriteLine($"{name} погиб");
+                }
+            }
         }
     }
 }

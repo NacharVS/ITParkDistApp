@@ -12,13 +12,13 @@ namespace ConsoleApp1.Strategy
         public double healAmount;  /* переменная коэфицент здоровья*/
         public Healer(string name, double healAmountParam) : base(name, 50, 5, "Врач", 7)   /*Конструктор*/
         {
-            healAmount = healAmountParam;
+            healAmount = healAmountParam; /* Сила исциления*/
         }
 
         public void Heal(MovableUnits unit)        /* Метод лечения*/    /*Передаем экзимпляр MovableUnits*/
         {
 
-            Console.WriteLine($"{profession} {name} вылечил {unit.name}a");
+            Console.WriteLine($"{profession} {name} вылечил {unit.name}a.");
             if (unit.Healt + healAmount >= _maxHealth)
             {
                 unit.Healt = _maxHealth;

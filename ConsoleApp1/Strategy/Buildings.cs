@@ -9,11 +9,22 @@ namespace ConsoleApp1.Strategy
                               //НЕДВИЖУЮЩИЕСЯ ЮНИТЫ (ЗДАНИЯ,БАШНИ)------------------------
     class Buildings : Unit           /*НАСЛЕДУЕМ ОТ КСЛАССА Unit*/
     {
-        public int wall;     /*броня у здания*/
+        private double _wall;     /*броня у здания*/
 
         public Buildings(string name, int healt, int armor) : base(name, healt, armor)   /* <---КОНСТРУКТОР*/
         {
-            wall = healt;   /* Количество здоровья у здания*/
+            Wall = healt;   /* Количество здоровья у здания*/
+        }
+
+        public double Wall { get => _wall; set => _wall = value; }
+
+        private void WallIsDestroyed()
+        {
+            System.Console.WriteLine("Башня разрушилась");
+        }
+        public override void Info()
+        {
+            Console.WriteLine($"{name} {_wall} {Healt}");
         }
     }
 }

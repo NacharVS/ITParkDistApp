@@ -21,7 +21,7 @@ namespace ConsoleApp1.Strategy
 
         public void Move()   /*Метод передвижения двигующегося юнита*/
         {
-            Console.WriteLine($"{profession} {name} передвигается со скоростью {speed}.Здоровье:{Healt}");
+            Console.WriteLine($"{profession} {name} передвигается со скоростью {speed}.Здоровье:{Healt} HP" );
         }
     }
 }
