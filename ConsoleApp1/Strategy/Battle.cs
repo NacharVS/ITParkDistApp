@@ -8,7 +8,6 @@ namespace ConsoleApp1.Strategy
 {
     class Battle
     {
-        
         public static void Fight(BattleUnit unit1, BattleUnit unit2)
         {
             Random rnd = new Random();
@@ -32,8 +31,10 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        public static void Fight(Buildings building, Shooter shooter, Random rnd)
+        public static void Fight(Buildings building, Shooter shooter)
         {
+            Random rnd = new Random();
+
             while (building.Wall > 0 && shooter.Health > 0)
             {
                 building.Wall -= shooter.DistanceAttack(rnd);
@@ -43,8 +44,10 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        public static void Fight(Shooter shooter, BattleUnit unit, Random rnd)
+        public static void Fight(Shooter shooter, BattleUnit unit)
         {
+            Random rnd = new Random();
+
             while (shooter.Health > 0 && unit.Health > 0)
             {
                 unit.Health -= shooter.DistanceAttack(rnd);
@@ -54,8 +57,10 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        public static void Fight(Buildings building, BattleUnit unit, Random rnd)
+        public static void Fight(Buildings building, BattleUnit unit)
         {
+            Random rnd = new Random();
+
             if (unit.IsCatapult)
             {
                 while (building.Health > 0)
@@ -80,8 +85,10 @@ namespace ConsoleApp1.Strategy
             }
         }
 
-        public static void Fight(ArcherTower archerTower, BattleUnit unit, Random rnd)
+        public static void Fight(ArcherTower archerTower, BattleUnit unit)
         {
+            Random rnd = new Random();
+
             while (archerTower.Wall > 0 && unit.Health > 0)
             {
                 if (archerTower.CanAttack)

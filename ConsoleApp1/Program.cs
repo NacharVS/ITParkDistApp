@@ -38,31 +38,31 @@ namespace ConsoleApp1
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(warrior2, rnd);
 
-            //Battle.Fight(archer1, archer2, rnd);
+            //Battle.Fight(archer1, archer2);
             //healer1.Treatment(archer1, rnd);
             //healer1.Treatment(archer2, rnd);
 
-            //Battle.Fight(archer1, warrior1, rnd);
+            //Battle.Fight(archer1, warrior1);
             //healer1.Treatment(archer1, rnd);
             //healer1.Treatment(warrior1, rnd);
 
-            //Battle.Fight(archer2, warrior2, rnd);
+            //Battle.Fight(archer2, warrior2);
             //healer1.Treatment(archer2, rnd);
             //healer1.Treatment(warrior2, rnd);
 
-            //Battle.BuildingAttack(wathingTower, catapult, rnd);
+            //Battle.BuildingAttack(wathingTower, catapult);
             //healer1.Treatment(archer1, rnd);
             //healer1.Treatment(warrior1, rnd);
 
-            //Battle.Fight(warrior1, catapult, rnd);
+            //Battle.Fight(warrior1, catapult);
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(catapult, rnd);
 
-            //Battle.MovingAttack(catapult, warrior1, rnd);
+            //Battle.MovingAttack(catapult, warrior1);
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(catapult, rnd);
 
-            //Battle.Fight(archerTower, warrior1, rnd);
+            //Battle.Fight(archerTower, warrior1);
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(catapult, rnd);
 
