@@ -15,7 +15,12 @@ namespace ConsoleApp1
             Healer healer = new Healer("Gendalf", 20);
             Warrior war1 = new Warrior("Bob");          
             Warrior war2 = new Warrior("John");
-            war1.DamageEvent += Damage;
+
+            war1.DamageEvent += (string name, double health, double damagecount) =>
+            {
+                Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
+            }; //реализация анонимного метода через лямбда-выражение
+
             war1.HealEvent += Heal;
             WathingTower wTower = new WathingTower();
             Catapult catapult = new Catapult();
@@ -31,10 +36,10 @@ namespace ConsoleApp1
         }
 
 
-        public static void Damage(string name, double health, double damagecount)
-        {
-            Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
-        }
+        //public static void Damage(string name, double health, double damagecount)
+        //{
+        //    Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
+        //}
 
         public static void Heal(string name, double health, double healcount)
         {
