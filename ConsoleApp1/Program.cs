@@ -17,36 +17,39 @@ namespace ConsoleApp1
             var shaman = new Shaman("Shaman", 335, 200, 0);
             var war1 = new Warrior("Footman", 420, 2,12,13);
             var war2 = new Warrior("Knight", 835,5,30,38);
-            war1.DamageEvent += (string name, double health, double damageCount) =>
-              {
-                  Console.WriteLine();
-              };
+            war1.DamageEvent += (string name, double health, double damagecount) =>
+            {
+                Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
+            }; //реализация анонимного метода через лямбда-выражение
+
             war1.MaxHealthEvent += (string name, double diff) =>
-              {
-                  Console.WriteLine($"Health of {name} increased by {diff}");
-              };
+            {
+                Console.WriteLine($"Health of {name} increased by {diff}");
+            };
+           // war1.HealEvent += Heal;
+
             //Battle.Fight(archer, war2);
-            //healer.Heal(war2);
-            //war2.Info();
-            //healer.Heal(war2);
-            //war2.Info();
-            //healer.Heal(war2);
-            //war2.Info();
-            //healer.Heal(war2);
-            //war2.Info();
+            
             var catapult = new Catapult("Catapult",700,45,55);
             var building= new Buildings("Town Hall",1500,5);
             Battle.Fight(catapult, building, rnd);
             shaman.HealthBoost(war1);
             shaman.Frenzy(war1);
             war1.FrenzyEvent += Frenzy;
+
+            //Console.WriteLine(Peasant._id);
+            //Console.WriteLine((int)war1._id+8);
+
+            Summ<int>(5, 9);
+            Summ<string>("456", "789");
+            Summ<Warrior>(war1, war2);
             //shaman.HealthBoost(catapult);
             //shaman.HealthBoost(war2);
-            healer.Heal(war1);
+            //healer.Heal(war1);
             //Battle.Fight(catapult, war2, rnd);
             //Battle.Fight(war1,war2, rnd);
-            healer.Heal(war1);
-            shaman.StoneSkin(war1);
+            //healer.Heal(war1);
+            //shaman.StoneSkin(war1);
             //Battle.Fight(catapult, war2);
             //Battle.Fight(catapult, archer);
             //Battle.Fight(catapult, healer);
@@ -73,7 +76,7 @@ namespace ConsoleApp1
             //    archerTower1.LoadArchers(archer);
             //}
             //Battle.Fight(archerTower1, war1);
-            Console.Read();
+            //Console.Read();
             //ДЗ 13.01.2022
             //1) доработать методы боя с учетом показателя брони (формулу на свое усмотрение).
             //2) нового юнита добавим Catapult - ломает здания. Реализовать атаку.
@@ -86,11 +89,16 @@ namespace ConsoleApp1
             //2.Frenzy - увеличивает показатель урона в 1.5 и снижает защиту на 0,5
             //3.StoneSkin - увеличивает защиту в 2 раза и снижает скорость в 2 раза
             //*все усиления могут накладываться 1 раз
-            
+
         }
         public static void Frenzy(string name,int armor, double minDamage, double maxDamage)
         {
             Console.WriteLine($"{name} casts Frenzy arm:{armor}, mnDmg:{minDamage}, mxDmg:{maxDamage}");
+        }
+        public static void Summ<T>(T a, T b)
+        {
+            Console.WriteLine(a);
+            Console.WriteLine(b);
         }
     }
 }

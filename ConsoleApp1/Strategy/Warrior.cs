@@ -37,8 +37,8 @@ namespace ConsoleApp1.Strategy
         {
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
+            //_id = 12345;
         }
-
         public override double MeeleeAttack(Random rnd)
         {
             if (_rage == false)
@@ -49,7 +49,6 @@ namespace ConsoleApp1.Strategy
             {
                 return base.MeeleeAttack(rnd) * 2;
             }
-
         }
     }
 }

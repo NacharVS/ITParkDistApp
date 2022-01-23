@@ -13,9 +13,8 @@ namespace ConsoleApp1.Strategy
         private bool frenzyStatus;
         public bool stoneSkinStatus;
         public bool salvationBuffStatus;
+        //public T _id { get; set; }
         internal virtual bool IsCatapult { get => false; }
-        
-
         public virtual double Health
         {
             get { return _health; }

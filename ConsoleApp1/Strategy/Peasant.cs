@@ -9,6 +9,7 @@ namespace ConsoleApp1.Strategy
         public Peasant(string name) : base(name, 30, 0, "Worker", 4)
         {
             CarryWeight = 100;
+            //_id = "asdfg";
         }
 
         public void Work()
