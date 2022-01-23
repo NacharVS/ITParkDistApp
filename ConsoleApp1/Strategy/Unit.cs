@@ -34,6 +34,7 @@ namespace ConsoleApp1.Strategy
                     _health = value/* * ()*/;
             }
         }
+        public virtual double MaxHealth { get; set; }
 
         public bool FrenzyStatus { get => frenzyStatus; set => frenzyStatus = value; }
 

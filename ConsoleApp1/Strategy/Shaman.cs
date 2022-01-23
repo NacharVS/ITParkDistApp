@@ -17,6 +17,10 @@ namespace ConsoleApp1.Strategy
             this._maxMana = mana;
         }
 
+        public void HealBuff(BattleUnit unit)
+        {
+
+        }
         public void HealthBoost(MovableUnits unit)
         {
             Console.WriteLine($"Shaman begin casts the HealthBoost on {unit.name}(current HP:{unit.Health})");

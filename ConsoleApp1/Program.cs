@@ -17,6 +17,14 @@ namespace ConsoleApp1
             var shaman = new Shaman("Shaman", 335, 200, 0);
             var war1 = new Warrior("Footman", 420, 2,12,13);
             var war2 = new Warrior("Knight", 835,5,30,38);
+            war1.DamageEvent += (string name, double health, double damageCount) =>
+              {
+                  Console.WriteLine();
+              };
+            war1.MaxHealthEvent += (string name, double diff) =>
+              {
+                  Console.WriteLine($"Health of {name} increased by {diff}");
+              };
             //Battle.Fight(archer, war2);
             //healer.Heal(war2);
             //war2.Info();

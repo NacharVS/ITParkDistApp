@@ -4,10 +4,12 @@ namespace ConsoleApp1.Strategy
 {
     class MovableUnits : Unit
     {
-        public delegate void FrenzyDelegate(string unitName,int armor, double minDamage, double maxDamage);
+        public delegate void FrenzyDelegate(string unitName, int armor, double minDamage, double maxDamage);
+        public delegate void MaxHealthChangeDelegate(string name, double diff);
         public string profession;
         public int speed;
         public int lvl;
+        Salvation;
         public override double Health
         {
             get { return _health; }
@@ -24,6 +26,16 @@ namespace ConsoleApp1.Strategy
                 //}
                 //else
                 //    _health = value/* * ()*/;
+            }
+        }
+        public override double MaxHealth
+        {
+            get => base.MaxHealth;
+            set
+            {
+                var diff = _maxHealth - value;
+                _maxHealth = value;
+                MaxHealthEvent?.Invoke(name, Math.Abs(diff));
             }
         }
 
@@ -48,5 +60,7 @@ namespace ConsoleApp1.Strategy
             Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {Health} ");
         }
         public event FrenzyDelegate FrenzyEvent;
+        public event DamageEvent DamageEvent;
+        public event MaxHealthChangeDelegate MaxHealthEvent;
+        }
     }
-}
