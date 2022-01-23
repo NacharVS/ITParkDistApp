@@ -10,11 +10,15 @@ namespace ConsoleApp1.Strategy
     {
         public double healAmount;
 
-
         public int medicine;        //запас лекарств текущий
         public int maxMedicine;     //запас лекарств макс. сразу из госпиталя
         private int _stepMedicine;  //шаг лечения за раз
         private int _minHealth;     //мин здоровье, при котором лечит другого, иначе лечит себя
+
+        //public Healer(string name, double healAmountParam) : base(name, 50, 5, "Healer", 7)
+        //{
+        //    healAmount = healAmountParam;
+        //}
 
         public Healer(string name, double healAmountParam) : base(name, 50, 5, "Healer", 7)
         {
@@ -34,6 +38,11 @@ namespace ConsoleApp1.Strategy
             }
             else
                 unit.Health += healAmount;
+        }
+        
+        public void SalvationBuff(MovableUnits unit)
+        {
+            unit.Salvation = !unit.Salvation;
         }
 
 

@@ -10,15 +10,19 @@ namespace ConsoleApp1.Strategy
     abstract class Unit
     {
         internal virtual bool IsCatapult { get => false; }
+
+
         public string name;
-        private double _health;
+        internal double _health;
         internal double _maxHealth;
-        private double _armor;
-        public virtual double Armor 
-        {
-            get { return _armor; }
-            set { _armor = value; } 
-        }
+        public double Armor { get; set; }
+
+        
+        //public virtual double Armor 
+        //{
+        //    get { return _armor; }
+        //    set { _armor = value; } 
+        //}
 
         //public override virtual int Armor
         //{

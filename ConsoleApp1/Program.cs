@@ -13,71 +13,70 @@ namespace ConsoleApp1
             //Store.StoreWorks.StoreWork();
 
             Random rnd = new Random();
-            
+
             Peasant peasant1 = new Peasant("Ivan");
             Archer archer = new Archer("Legolas");
             Healer healer = new Healer("Gendalf", 20);
             Warrior war1 = new Warrior("Bob");
             Warrior war2 = new Warrior("John");
+            war1.DamageEvent += Damage;
+            war1.HealEvent += Heal;
             WathingTower wTower = new WathingTower();
-            
-            ArcherTower aTower = new ArcherTower();
-            aTower.LoadArchers(archer);
-            Warrior war3 = new Warrior("Jack");
-
             Catapult catapult = new Catapult();
-            catapult.Info();
-            
             ArcherTower archerTower = new ArcherTower();
-
-            Shaman shaman = new Shaman("Carlos");
-            shaman.Info();
-
-            war1.Info();
-            war2.Info();
-            shaman.BoostHealth(war1);
-            shaman.BoostHealth(war1);
-            shaman.StoneSkin(war2);
-            shaman.Frenzy(war2);
-            shaman.Frenzy(war2);
-
+            Shaman shaman = new Shaman("Peter");
+            healer.SalvationBuff(war1);
+            shaman.FrenzyBuff(war2);
             Battle.Fight(war1, war2);
 
-            Console.WriteLine();
-            Battle.Fight(aTower, war3);
-            Console.WriteLine();
+
+            // Health = Health + 5;
+
+        }
 
 
-            Hospital hospital = new Hospital("imBurdenko", 30, 20);
-            Healer healer1 = new Healer("House", 3);
+        public static void Damage(string name, double health, double damagecount)
+        {
+            Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
+        }
 
-            Archer archer2 = new Archer("Fedot");
+        public static void Heal(string name, double health, double healcount)
+        {
+            Console.WriteLine($"{name} with {health} HP. Healed by {Math.Abs(healcount)}");
+        }
 
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
 
-            archer.Attack(archer2, rnd);
-            archer.Info();
-            archer2.Info();
+        
+            //Hospital hospital = new Hospital("imBurdenko", 30, 20);
+            //Healer healer1 = new Healer("House", 3);
 
-            archer.RangeAttack(healer1, rnd);
-            healer1.Info();
+            //Archer archer2 = new Archer("Fedot");
 
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            peasant1.Repare(wTower);
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Repare(wTower);
-            peasant1.Info();
+            //archer.RangeAttack(peasant1, rnd);
+            //peasant1.Info();
 
-            healer1.Cure(peasant1);
+            //archer.Attack(archer2, rnd);
+            //archer.Info();
+            //archer2.Info();
 
-            archer.RangeAttack(peasant1, rnd);
-            hospital.Cure(peasant1);
-            hospital.Cure(healer1);
-            peasant1.Repare(wTower);
-            peasant1.Info();
-            healer1.Info();
+            //archer.RangeAttack(healer1, rnd);
+            //healer1.Info();
+
+            //archer.RangeAttack(peasant1, rnd);
+            //peasant1.Info();
+            //peasant1.Repare(wTower);
+            //archer.RangeAttack(peasant1, rnd);
+            //peasant1.Repare(wTower);
+            //peasant1.Info();
+
+            //healer1.Cure(peasant1);
+
+            //archer.RangeAttack(peasant1, rnd);
+            //hospital.Cure(peasant1);
+            //hospital.Cure(healer1);
+            //peasant1.Repare(wTower);
+            //peasant1.Info();
+            //healer1.Info();
 
             //1. Доработать методы боя с учетом показателя Armor. 
             //2. Реализовать атаку катапульты по зданиям.
@@ -92,7 +91,6 @@ namespace ConsoleApp1
             // 3. StoneSkin - увеличивает показатель защиты в 2 раза, и снижает скорость в 2 раза
             // *все усиления могут накладывать только 1 раз на 1 юнита (не стакаються)
 
-        }
     }
 }
 

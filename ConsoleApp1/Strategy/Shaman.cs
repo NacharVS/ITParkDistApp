@@ -6,37 +6,31 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class Shaman : MovableUnits
+    class Shaman : BattleUnit
     {
-        private List<Unit> bootHealth = new List<Unit>();                   //списки воспользовавшимися
-        private List<BattleUnit> frenzy = new List<BattleUnit>();
-        private List<MovableUnits> stoneSkin = new List<MovableUnits>();
-        public Shaman(string name) : base(name, 50, 5, "Shaman", 7)
+        public Shaman(string name) : base(name, 50, 5, "Shaman", 7, 1, 3)
         {
-
         }
 
-        public void BoostHealth(Unit unit)
+        public void HealhBuff(BattleUnit unit)
         {
-            if (bootHealth.Contains(unit) == false)
+            if (!unit.IsHealthBoosted)
             {
-                unit.MaxHealth *= 1.5;
-                unit.Health *= 1.5;
-                
-                bootHealth.Add(unit);
+                unit._maxHealth = unit._maxHealth + unit._maxHealth * 0.5;
+                unit.IsHealthBoosted = !unit.IsHealthBoosted;
                 Console.WriteLine($"health of {unit.name} has been upgraded {unit.Health}");
             }
             else Console.WriteLine($"{unit.name} cannot use Shaman to improve his health anymore");
-            
         }
-        public void Frenzy(BattleUnit unit)
+
+        public void FrenzyBuff(BattleUnit unit)
         {
-            if (frenzy.Contains(unit) == false)
+            if (!unit.IsFrenzy)
             {
                 unit.minDamage = Convert.ToInt32(unit.minDamage * 1.5);
                 unit.maxDamage = Convert.ToInt32(unit.maxDamage * 1.5);
                 unit.Armor = Convert.ToInt32(unit.Armor * 0.5);
-                frenzy.Add(unit);
+                unit.IsFrenzy = !unit.IsFrenzy;
                 Console.WriteLine($"Damage of {unit.name} has been upgraded");
                 unit.Info();
             }
@@ -44,20 +38,60 @@ namespace ConsoleApp1.Strategy
 
         }
 
-        public void StoneSkin(MovableUnits unit)
+        public void StoneSkin(BattleUnit unit)
         {
-            if (stoneSkin.Contains(unit) == false)
+            if (!unit.IsStoneSkin)
             {
                 unit.Armor *= 2;
                 unit.speed = Convert.ToInt32(unit.speed * 0.5);
-                
-                stoneSkin.Add(unit);
+                                
                 Console.WriteLine($"Armor of {unit.name} has been upgraded");
                 unit.Info();
             }
             else Console.WriteLine($"{unit.name} cannot use Shaman to improve his armor anymore");
 
         }
+
+
+
+
+        //private List<Unit> bootHealth = new List<Unit>();                   //списки воспользовавшимися
+        //private List<BattleUnit> frenzy = new List<BattleUnit>();
+        //private List<MovableUnits> stoneSkin = new List<MovableUnits>();
+        //public Shaman(string name) : base(name, 50, 5, "Shaman", 7)
+        //{
+
+        //}
+
+        //public void BoostHealth(Unit unit)
+        //{
+        //    if (bootHealth.Contains(unit) == false)
+        //    {
+        //        unit.MaxHealth *= 1.5;
+        //        unit.Health *= 1.5;
+
+        //        bootHealth.Add(unit);
+        //        Console.WriteLine($"health of {unit.name} has been upgraded {unit.Health}");
+        //    }
+        //    else Console.WriteLine($"{unit.name} cannot use Shaman to improve his health anymore");
+
+        //}
+        //public void Frenzy(BattleUnit unit)
+        //{
+        //    if (frenzy.Contains(unit) == false)
+        //    {
+        //        unit.minDamage = Convert.ToInt32(unit.minDamage * 1.5);
+        //        unit.maxDamage = Convert.ToInt32(unit.maxDamage * 1.5);
+        //        unit.Armor = Convert.ToInt32(unit.Armor * 0.5);
+        //        frenzy.Add(unit);
+        //        Console.WriteLine($"Damage of {unit.name} has been upgraded");
+        //        unit.Info();
+        //    }
+        //    else Console.WriteLine($"{unit.name} cannot use Shaman to improve his damage anymore");
+
+        //}
+
+
 
 
     }
