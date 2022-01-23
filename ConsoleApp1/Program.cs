@@ -34,9 +34,9 @@ namespace ConsoleApp1
             //healer.SalvationBuff(warrior1);
             //healer.SalvationBuff(warrior1);
 
-            warrior1.MaxHealthChangedEvent += (string name, double health, double damagecount) =>
+            warrior1.MaxHealthChangedEvent += (string name, double health, double diffHealth) =>
             {
-                Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
+                Console.WriteLine($"{name} with {health} HP. Increased by {diffHealth}");
             }; 
 
 
