@@ -6,6 +6,7 @@ namespace ConsoleApp1.Strategy
     {
         public delegate void HealDelegate(string unitName, double unitHealth, double healCount);
         public delegate void DamageDelegate(string unitName, double unitHealth, double damageCount);
+        public delegate void MaxHealthChangedDelegate(string unitName, double unitMaxHealthDiff);
 
         public string profession; 
         public int speed;
@@ -51,6 +52,17 @@ namespace ConsoleApp1.Strategy
             }
         }
 
+        public override double MaxHealth 
+        {   
+            get => _health;
+            set
+            {
+                double diff = _maxHealth - value;
+                _maxHealth = value;
+                MaxHealthEvent?.Invoke(name, Math.Abs(diff));
+            }
+        }
+
         public MovableUnits(string name, int health, int armor, string professionParam, int speedParam) : base(name, health, armor)
         {
             profession = professionParam;
@@ -73,5 +85,6 @@ namespace ConsoleApp1.Strategy
 
         public event HealDelegate HealEvent;
         public event DamageDelegate DamageEvent;
+        public event MaxHealthChangedDelegate MaxHealthEvent;
     }
 }

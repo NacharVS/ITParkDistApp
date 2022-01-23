@@ -13,7 +13,7 @@ namespace ConsoleApp1
             Peasant peasant1 = new Peasant("Ivan");
             Archer archer = new Archer("Legolas");
             Healer healer = new Healer("Gendalf", 20);
-            Warrior war1 = new Warrior("Bob");          
+            var war1 = new Warrior("Bob");          
             Warrior war2 = new Warrior("John");
 
             war1.DamageEvent += (string name, double health, double damagecount) =>
@@ -21,14 +21,20 @@ namespace ConsoleApp1
                 Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
             }; //реализация анонимного метода через лямбда-выражение
 
+            war1.MaxHealthEvent += (string name, double diff) =>
+            {
+                Console.WriteLine($"Health of {name} increased by {diff}");
+            };
+
             war1.HealEvent += Heal;
-            WathingTower wTower = new WathingTower();
+            var wTower = new WathingTower();
             Catapult catapult = new Catapult();
-            ArcherTower archerTower = new ArcherTower();
+            var archerTower = new ArcherTower();
             Shaman shaman = new Shaman("Peter");
+            shaman.HealhBuff(war1);
             healer.SalvationBuff(war1);
             shaman.FrenzyBuff(war2);
-            Battle.Fight(war1, war2);
+            //Battle.Fight(war1, war2);
             
 
             // Health = Health + 5;

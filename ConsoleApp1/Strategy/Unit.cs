@@ -37,6 +37,8 @@ namespace ConsoleApp1.Strategy
             }
         }
 
+        public virtual double MaxHealth { get; set; }
+
         protected Unit(string name, int health, int armor)
         {
             this.name = name;

@@ -16,7 +16,8 @@ namespace ConsoleApp1.Strategy
         {
             if (!unit.IsHealthBoosted)
             {
-                unit._maxHealth = unit._maxHealth + unit._maxHealth * 0.5;
+                
+                unit.MaxHealth = unit.MaxHealth + unit.MaxHealth * 0.5;
                 unit.IsHealthBoosted = !unit.IsHealthBoosted;
             }              
         }
