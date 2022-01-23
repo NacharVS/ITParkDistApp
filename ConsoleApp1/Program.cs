@@ -41,6 +41,11 @@ namespace ConsoleApp1
             Console.WriteLine($"{name} with {health} HP. Healed by {Math.Abs(healcount)}");
         }
 
+        public static void HealthBuffMessage(string name, double diff)
+        {
+            Console.WriteLine($"Health of {name} increased by {diff}");
+        }
+
 
     }
 }
