@@ -4,7 +4,7 @@ namespace ConsoleApp1.Strategy
 {
     abstract class MovableUnits : Unit
     {
-        public delegate void MaxHealthChangedDelegate(string unitName, double diffMaxHealth);
+        public delegate void MaxHealthChangedDelegate(string unitName, double health, double diffMaxHealth);
 
 
         private double _speed;
@@ -34,7 +34,7 @@ namespace ConsoleApp1.Strategy
                 double diff = value - MaxHealth;
                 if (diff > 0)
                 {
-                    MaxHealthChangedEvent?.Invoke(Name, diff);
+                    MaxHealthChangedEvent?.Invoke(Name, Health, diff);
                 }
                 base.MaxHealth = value;
             }
