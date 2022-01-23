@@ -15,29 +15,30 @@ namespace ConsoleApp1
             Random rnd = new Random();
 
             //WathingTower wathingTower = new WathingTower("WathingTower");
-            Catapult catapult = new Catapult();
+            //Catapult catapult = new Catapult();
 
             //ArcherTower archerTower = new ArcherTower();
 
-            Healer healer = new Healer("Gendalf");
+            //Healer healer = new Healer("Gendalf");
 
             Warrior warrior1 = new Warrior("Bob1");
             Warrior warrior2 = new Warrior("Bob2");
 
-            //Shaman shaman = new Shaman("Gendalf");
+            Shaman shaman = new Shaman("Gendalf");
 
             //shaman.StoneSkin(warrior1);
             //shaman.Frenzy(warrior2);
 
             //Archer archer1 = new Archer("Legolaz1");
             //Archer archer2 = new Archer("Legolaz2");
-            healer.SalvationBuff(warrior1);
-            healer.SalvationBuff(warrior1);
+            //healer.SalvationBuff(warrior1);
+            //healer.SalvationBuff(warrior1);
 
-            warrior1.HealthChangedEvent += Message;
-            
+            warrior1.MaxHealthChangedEvent += MessageMaxHealth;
 
-            Battle.Fight(warrior1, catapult);
+            shaman.BoostHealth(warrior1);
+
+            Battle.Fight(warrior1, warrior2);
             //healer1.Treatment(warrior1, rnd);
             //healer1.Treatment(warrior2, rnd);
 
@@ -74,7 +75,12 @@ namespace ConsoleApp1
                 Console.WriteLine($"Health has changed.");
             }
 
-            
+            void MessageMaxHealth(string name, double diff)
+            {
+                Console.WriteLine($"{name} - MaxHealth has changed to {diff}.");
+            }
+
+
 
             // Реализовать новый юнит Shaman которыйможет накидывать ряд усилений. 
             // 1. BoostHealth - Увеличивает максимальное здоровье на 50%

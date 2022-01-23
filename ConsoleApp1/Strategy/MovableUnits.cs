@@ -4,6 +4,9 @@ namespace ConsoleApp1.Strategy
 {
     abstract class MovableUnits : Unit
     {
+        public delegate void MaxHealthChangedDelegate(string unitName, double diffMaxHealth);
+
+
         private double _speed;
         private string _profession;
         private int _lvl;
@@ -21,6 +24,20 @@ namespace ConsoleApp1.Strategy
             _isBoostHealth = false;
             _isStoneSkin = false;
             _salvation = false;
+        }
+
+        public override double MaxHealth
+        {
+            get => base.MaxHealth;
+            set
+            {
+                double diff = value - MaxHealth;
+                if (diff > 0)
+                {
+                    MaxHealthChangedEvent?.Invoke(Name, diff);
+                }
+                base.MaxHealth = value;
+            }
         }
 
         public override double Health
@@ -80,5 +97,7 @@ namespace ConsoleApp1.Strategy
         {
             return MaxHealth;
         }
+
+        public event MaxHealthChangedDelegate MaxHealthChangedEvent;
     }
 }
