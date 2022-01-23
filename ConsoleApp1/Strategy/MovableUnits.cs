@@ -10,6 +10,7 @@ namespace ConsoleApp1.Strategy
 
         private bool _isBoostHealth;
         private bool _isStoneSkin;
+        private bool _salvation;
 
 
         public MovableUnits(string name, double maxHealth, double armor, int speed) : base(name, maxHealth, armor)
@@ -19,6 +20,25 @@ namespace ConsoleApp1.Strategy
 
             _isBoostHealth = false;
             _isStoneSkin = false;
+            _salvation = false;
+        }
+
+        public override double Health
+        {
+            get => base.Health;
+            set
+            {
+                if (value <= 0)
+                {
+                    if (_salvation)
+                    {
+                        value = SalvationAktivate();
+                        _salvation = false;
+                    }
+                }
+                            
+                base.Health = value;
+            }
         }
 
         public double Speed { get => _speed; set => _speed = value; }
@@ -30,6 +50,8 @@ namespace ConsoleApp1.Strategy
         internal bool IsBoostHealth { get; set; }
 
         internal bool IsStoneSkin { get; set; }
+
+        internal bool Salvation { get => _salvation; set => _salvation = value; }
 
         public void Wound(double damage)
         {
@@ -52,6 +74,11 @@ namespace ConsoleApp1.Strategy
         public override void Info()
         {
             Console.WriteLine($"Name:{Name}/ Health:{Health}/ armor:{Armor}/ speed:{_speed}");
+        }
+
+        private double SalvationAktivate()
+        {
+            return MaxHealth;
         }
     }
 }
