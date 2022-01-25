@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ConsoleApp1.Стратегия;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Стратегия
+namespace ConsoleApp1.Strategia
 {
     class Archer : BattleUnit    // Лучник
     {
@@ -20,23 +21,23 @@ namespace ConsoleApp1.Стратегия
             maxRangeDamage = 12;
         }
 
-        public void RangeAttack(Peasant peasant, Random rnd) //атака стрелой лучника
+        public void RangeAttack(MovadelUnits unit, Random rnd) //атака стрелой лучника
         {
             if (arrows > 0)
             {
                 double currentDamage = Convert.ToDouble(rnd.Next(minRangeDamage, maxRangeDamage));
-                peasant.health -= currentDamage;
-                Console.WriteLine($"{name} attack, {peasant.name} with, {currentDamage} point of damage");
+                unit.health -= currentDamage;
+                Console.WriteLine($"{name} attack, {unit.name} with, {currentDamage} point of damage");
                 arrows -- ;
-                if (peasant.health <= 0)
+                if (unit.health <= 0)
                 {
-                    peasant.Termination();
+                    unit.Termination();
                 }
             }
             else
             {
                 Console.WriteLine("Arrows is empty");
-                MleeAttack(peasant, rnd);
+                MleeAttack(rnd);
             }
         }
         

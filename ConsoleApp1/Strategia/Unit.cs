@@ -8,9 +8,10 @@ namespace ConsoleApp1.Стратегия
 {
     abstract class Unit
     {
-        public string name;       //тип здания
+        public string name;          //тип здания
         public double health;        //уровень жизни
         public double armor;         //уровень брони
+        internal double _maxHealt;
        
 
         protected Unit(string name, int health, int armor) //конструктор игрока
@@ -18,6 +19,7 @@ namespace ConsoleApp1.Стратегия
             this.name = name;
             this.health = health;
             this.armor = armor;
+            _maxHealt = health;
             Creation();
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Стратегия
 {
-    class BattleUnit : MovadelUnits   //Солдат
+    class BattleUnit : MovadelUnits   //Сражающиеся юниты
     {
         public int minDamage; //мин урон который может нанести 
         public int maxDamage; //мак урон который может нанести
@@ -17,16 +17,18 @@ namespace ConsoleApp1.Стратегия
             maxDamage = max;
         }
 
-        public void MleeAttack(Peasant peasant, Random rnd) //аттака крестьянина
+        public double MleeAttack(Random rnd) //аттака крестьянина
         {
             
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
-            peasant.health -= currentDamage;
-            Console.WriteLine($"{name} attack, {peasant.name} with, {currentDamage} point damage");
-            if (peasant.health <= 0)
-            {
-                peasant.Termination();
-            }
+            return currentDamage;
+
+            //unit.health -= currentDamage;
+            //Console.WriteLine($"{name} attack, {unit.name} with, {currentDamage} point damage");
+            //if (unit.health <= 0)
+            //{
+            //    unit.Termination();
+            //}
             
         }
       
