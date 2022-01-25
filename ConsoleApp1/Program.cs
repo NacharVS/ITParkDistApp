@@ -31,6 +31,10 @@ namespace ConsoleApp1
             peasant2.repairsBuilding(wathingTower);
             hospital.HospitalHealing(soldier);
             jinn.BoostHealth(soldier);
+            jinn.Frenzy(soldier);
+            jinn.StoneSkin(soldier);
+            jinn.BoostHealth(soldier);
+            jinn.Frenzy(soldier);
             jinn.StoneSkin(soldier);
             Console.WriteLine();
             archer.Info();

@@ -8,6 +8,11 @@ namespace ConsoleApp1.Strategy
         public int speed;
         public int lvl;
 
+        public bool IsHealthBoosted = false;
+        public bool IsFrenzy = false;
+        public bool IsStoneSkin = false;
+
+
         public MovableUnits(string name, int health, int armor, string professionParam, int speedParam) : base(name, health, armor)
         {
             profession = professionParam;
