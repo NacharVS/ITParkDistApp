@@ -21,23 +21,16 @@ namespace ConsoleApp1.Strategia
             maxRangeDamage = 12;
         }
 
-        public void RangeAttack(MovadelUnits unit, Random rnd) //атака стрелой лучника
+        public double RangeAttack(Random rnd) //атака стрелой лучника
         {
             if (arrows > 0)
             {
                 double currentDamage = Convert.ToDouble(rnd.Next(minRangeDamage, maxRangeDamage));
-                unit.health -= currentDamage;
-                Console.WriteLine($"{name} attack, {unit.name} with, {currentDamage} point of damage");
-                arrows -- ;
-                if (unit.health <= 0)
-                {
-                    unit.Termination();
-                }
+                return currentDamage;
             }
             else
             {
-                Console.WriteLine("Arrows is empty");
-                MleeAttack(rnd);
+                return MleeAttack(rnd);
             }
         }
         

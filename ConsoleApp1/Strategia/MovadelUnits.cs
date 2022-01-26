@@ -11,6 +11,8 @@ namespace ConsoleApp1.Стратегия
         public int speed;           // скорость
         public string profession;   // профессия
         public int lvl;             //уровень силы(урона)
+        
+
         public MovadelUnits(string name, int health, int armor, int speedParam, string professionParam) : base(name, health, armor)
         {
             speed = speedParam;
@@ -20,7 +22,7 @@ namespace ConsoleApp1.Стратегия
 
         public void Move()
         {
-            Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {health} ");
+            Console.WriteLine($"{name} - {profession} is moving with {speed}. Has {Health} ");
         }
     }
 }

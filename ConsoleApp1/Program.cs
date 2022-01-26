@@ -13,17 +13,10 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            Peasant peasant1 = new Peasant("Ivan");
+            Warrior war = new Warrior("Ivan");
             Archer archer = new Archer("Albertto");
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-            archer.RangeAttack(peasant1, rnd);
-            peasant1.Info();
-
+            Battle.Fite(archer, war);
+            
 
 
 

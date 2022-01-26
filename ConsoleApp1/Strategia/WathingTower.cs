@@ -15,7 +15,7 @@ namespace ConsoleApp1.Стратегия
 
         public void Observe()          // Наблюдение
         {
-            Console.WriteLine($"{name} isObserve. Statement {wall},{health},{armor}");
+            Console.WriteLine($"{name} isObserve. Statement {wall},{Health},{armor}");
         }
     }
 }

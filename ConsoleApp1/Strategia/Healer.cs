@@ -17,13 +17,13 @@ namespace ConsoleApp1.Стратегия
 
         public void Heal(MovadelUnits unit )
         {
-            if(unit.health + healAmount >= unit._maxHealt)
+            if(unit.Health + healAmount >= unit._maxHealt)
             {
-                unit.health = unit._maxHealt;
+                unit.Health = unit._maxHealt;
             }
             else
             {
-                unit.health += healAmount;
+                unit.Health += healAmount;
             }
             
             
