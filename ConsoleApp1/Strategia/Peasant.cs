@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Стратегия
+namespace ConsoleApp1.Strategia
 {
     class Peasant : MovadelUnits  //Рабочий крестьянин 
     {

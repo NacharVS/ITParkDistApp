@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Стратегия
+namespace ConsoleApp1.Strategia
 {
     class WathingTower : Bildings        // Сторожевая Башня
     {
@@ -15,7 +15,7 @@ namespace ConsoleApp1.Стратегия
 
         public void Observe()          // Наблюдение
         {
-            Console.WriteLine($"{name} isObserve. Statement {wall},{Health},{armor}");
+            Console.WriteLine($"{name} isObserve. Statement {Health},{armor}");
         }
     }
 }

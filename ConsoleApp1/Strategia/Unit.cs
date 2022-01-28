@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Стратегия
+namespace ConsoleApp1.Strategia
 
 {
     abstract class Unit
     {
+        internal virtual bool IsCatapult { get => false; }
         public string name;          //тип здания
         private double _health;        //уровень жизни
         public double armor;         //уровень брони
         internal double _maxHealt;   //макс уровень жизни
 
-        internal double Health 
+        public virtual double Health 
         {
             get { return _health; }
             set 
@@ -54,10 +55,20 @@ namespace ConsoleApp1.Стратегия
         {
             Console.WriteLine($"{name} is created");
         }
-
-        public void Info()
+        public virtual void Info()
         {
-            Console.WriteLine($"{name} {Health}");
+            if (_health > 0)
+            {
+                Console.WriteLine($"{name} {Health}");
+            }
+            else
+            {
+                if (_health <= 0)
+                {
+                    Console.WriteLine($"{name} погиб");
+                }
+            }
         }
+
     }
 }

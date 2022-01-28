@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Стратегия
+namespace ConsoleApp1.Strategia
 {
     class BattleUnit : MovadelUnits   //Сражающиеся юниты
     {
@@ -17,23 +17,31 @@ namespace ConsoleApp1.Стратегия
             maxDamage = max;
         }
 
-        public double MleeAttack(Random rnd) //аттака крестьянина
+        public virtual double MleeAttack(Random rnd) //аттака крестьянина
         {
             
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
             return currentDamage;
 
-            //unit.health -= currentDamage;
-            //Console.WriteLine($"{name} attack, {unit.name} with, {currentDamage} point damage");
-            //if (unit.health <= 0)
-            //{
-            //    unit.Termination();
-            //}
-            
         }
-      
+        public void Attack(BattleUnit solder, Random rnd)     /*Метод атаки на Soldie(Солдата)*/
+        {
 
-        
+        }
+
+        public void Upgrade()           /*Метод улучшения*/
+        {
+            if (lvl == 0)
+            {
+                minDamage += 1;           /*Улутшает минимальнй и максимальный урон после каждой атаки*/
+                maxDamage += 2;
+                lvl++;
+            }
+        }
+
+
+
+
 
     }
 }

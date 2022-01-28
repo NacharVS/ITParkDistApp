@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.Стратегия;
+﻿using ConsoleApp1.Strategia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +30,7 @@ namespace ConsoleApp1.Strategia
             }
             else
             {
+                Console.WriteLine($" Archer{name} ran out of arrows.");
                 return MleeAttack(rnd);
             }
         }

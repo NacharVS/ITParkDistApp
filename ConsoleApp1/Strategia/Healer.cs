@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Стратегия
+namespace ConsoleApp1.Strategia
 {
     class Healer : MovadelUnits     // Полевой лекарь
     {
@@ -17,9 +17,9 @@ namespace ConsoleApp1.Стратегия
 
         public void Heal(MovadelUnits unit )
         {
-            if(unit.Health + healAmount >= unit._maxHealt)
+            if(unit.Health + healAmount >=_maxHealt)
             {
-                unit.Health = unit._maxHealt;
+                unit.Health = _maxHealt;
             }
             else
             {

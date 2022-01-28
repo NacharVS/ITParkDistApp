@@ -1,5 +1,4 @@
 ﻿using ConsoleApp1.Strategia;
-using ConsoleApp1.Стратегия;
 using System;
 using System.Collections.Generic;
 using System.Linq;
