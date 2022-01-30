@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using ConsoleApp1.InterfacesLab;
-using ConsoleApp1.Strategy;
+using ConsoleApp1.StrategyInterfaces;
+using ConsoleApp1.StrategyNew;
 
 namespace ConsoleApp1
 {
@@ -12,12 +13,18 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             //Лекиця 30/01/2022
-            Pistol pistol = new Pistol();
-            iWeapon weapon1 = new Pistol();
-            iWeapon weapon2 = new Shotgun();
-            iWeapon weapon3 = new Machinegun();
-            iReload rld = pistol;
-            weapon1.Shoot();
+            Archer archer = new Archer(new ShortBow(10), new ShortSword);
+            for (int i = 0; i < 20; i++)
+            {
+                archer.Attack();
+            }
+            //Warrior unit1 = new Warrior();
+            //unit1.weapon = new StoneAxe();
+            //unit1.Attack(unit1.weapon.Damage);
+            //unit1.weapon = new ShortSword();
+            //unit1.Attack(unit1.weapon.Damage);
+            //unit1.weapon = new IronDagger();
+            //unit1.Attack(unit1.weapon.Damage);
             //weapon2.Shoot();
             //weapon3.Shoot();
 

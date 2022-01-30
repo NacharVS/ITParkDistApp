@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StrategyNew
 {
-    internal class ArcherTower : IBattleUnit
+    class ArcherTower : IBattleUnit
     {
-       public double Damage { get; set; }
+        public double Damage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IMleeWeapon weapon { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void Attack(double dmg)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

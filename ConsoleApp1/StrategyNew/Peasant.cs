@@ -2,12 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1.StrategyNew
 {
-    internal class Peasant : IMovableUnit
+    class Peasant : IMovableUnit
     {
         public double Health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Armor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -27,6 +25,7 @@ namespace ConsoleApp1.StrategyNew
         {
             throw new NotImplementedException();
         }
+
         private void Death()
         {
             Console.WriteLine("IsDead");

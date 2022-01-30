@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StrategyInterfaces
 {
-    interface IBattleUnit
+    interface IMleeWeapon
     {
-        void Attack(double dmg);
+        double Damage { get; set; }
+        int AttackSpeed { get; set; }
+
     }
 }

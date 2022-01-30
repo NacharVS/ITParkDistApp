@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StrategyInterfaces
 {
-    interface IBattleUnit
+    interface IRangeWeapon
     {
-        void Attack(double dmg);
+        double RangeDamage { get; set; }
+        bool IsEmpty { get; }
     }
 }
