@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1.StategyInterfaces
+﻿namespace ConsoleApp1.StategyInterfaces
 {
     interface IUnit
     {
+        double Health { get; set; }
+        int MovingSpeed { get; set; }
     }
 }
