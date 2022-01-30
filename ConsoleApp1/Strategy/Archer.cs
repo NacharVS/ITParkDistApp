@@ -18,9 +18,17 @@ namespace ConsoleApp1.Strategy
             this.mWeapon = mWeapon;
         }
 
-        public void Attack(double dmg)
+        public void Attack()
         {
-            throw new NotImplementedException();
+            if (rWeapon.IsEmpty)
+            {
+                Console.WriteLine($"attack {mWeapon.Damage}");
+            }
+            else
+            {
+                Console.WriteLine($"Range damag {rWeapon.RangeDamage}");
+                rWeapon.Shoot();
+            }
         }
     }
 }

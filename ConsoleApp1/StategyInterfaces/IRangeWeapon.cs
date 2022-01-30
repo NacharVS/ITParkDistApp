@@ -9,6 +9,9 @@ namespace ConsoleApp1.StategyInterfaces
     interface IRangeWeapon 
     {
         double RangeDamage { get; set; }
+        bool IsEmpty { get; set; }
+
+        void Shoot();
 
     }
 }

@@ -10,6 +10,6 @@ namespace ConsoleApp1.StategyInterfaces
     {
 
 
-        void Attack(double dmg);
+        void Attack();
     }
 }
