@@ -12,13 +12,13 @@ namespace ConsoleApp1
         public double healAmount;  /* переменная коэфицент здоровья*/
         public Healer(string name, double healAmountParam) : base(name, 50, 5, "Врач", 7)   /*Конструктор*/
         {
-            healAmount = healAmountParam; /* Сила исциления*/
+            healAmount = healAmountParam;    /*Сила исциления*/
         }
 
         public void Heal(MovableUnits unit)        /* Метод лечения*/    /*Передаем экзимпляр MovableUnits*/
         {
 
-            Console.WriteLine($"{profession} {name} вылечил {unit.name}a.");
+            Console.WriteLine($"{profession} {name} вылечил {unit.name}a");
             if (unit.Healt + healAmount >= _maxHealth)
             {
                 unit.Healt = _maxHealth;
@@ -28,6 +28,11 @@ namespace ConsoleApp1
                 unit.Healt += healAmount;
             }
 
+        }
+
+        public void SalvationBuff(MovableUnits unit) /*Метод при достижения НР 0 восстанавливать 100% НР униту,но Buff спадает*/
+        {
+            unit.Salvation = !unit.Salvation;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace ConsoleApp1
                 unit2.Info();
             }
         }
+
         public static void Fight(ArcherTower tower, BattleUnits unit2)  /*  Метод боя двух юнитов*/  /*Башня со стрелками и солдат*/
         {
 
@@ -53,7 +54,6 @@ namespace ConsoleApp1
 
 
         }
-
         public static void Fight(Buildings building, BattleUnits unit2)  /*  Метод урона по зданиям*/
         {
             if (unit2.IsCatapult)
@@ -85,5 +85,10 @@ namespace ConsoleApp1
             }
 
         }
+
+
+
+
+
     }
 }

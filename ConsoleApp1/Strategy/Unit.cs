@@ -8,10 +8,13 @@ namespace ConsoleApp1
 {
     class Unit
     {
+        /*Action ShowStatementDelegate;*/                /* Делигат которое показывает состояние чего-то*/
+        //public T _id { get; set; }
+
         internal virtual bool IsCatapult { get => false; }   /*Катапульта*/
-        public string name; /*Имя*/
-        private double _healt;  /*здоровье*/
-        public int armor; /*сопротивление урона(броня)*/
+        public string name;     /*Имя*/
+        internal double _healt;  /*здоровье*/
+        public int armor { get; set; }       /*сопротивление урона(броня)*/
         internal double _maxHealth;
 
         public virtual double Healt        /*  Метод здоровья*/
@@ -31,9 +34,14 @@ namespace ConsoleApp1
                 else
                 {
                     _healt = value;
+
+
                 }
+
             }
         }
+
+        public virtual double MaxHealth { get; set; }
 
         protected Unit(string name, int health, int armor)  /* <---КОНСТРУКТОР*/
         {
@@ -44,7 +52,6 @@ namespace ConsoleApp1
             _maxHealth = Healt;
             Creation();
         }
-
         //МЕТОД СОЗДАНИЯ------------------------------------------------------------
         public void Creation()
         {
@@ -54,14 +61,15 @@ namespace ConsoleApp1
         //МЕТОД УНИЧТОЖЕНИЯ------------------------------------------------------------
         public void Termination() /*Уничтожение*/
         {
-            Console.WriteLine($"{name} уничтожился");
+
         }
         //Метод информации текущего юнита
+
         public virtual void Info()
         {
             if (_healt > 0)
             {
-                Console.WriteLine($"{name} {Healt}");
+                Console.WriteLine($"{name} {Healt} {_maxHealth}");
             }
             else
             {
@@ -70,6 +78,9 @@ namespace ConsoleApp1
                     Console.WriteLine($"{name} погиб");
                 }
             }
+
         }
+
+
     }
 }

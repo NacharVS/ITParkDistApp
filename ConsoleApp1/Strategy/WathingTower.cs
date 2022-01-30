@@ -14,7 +14,7 @@ namespace ConsoleApp1
 
         }
 
-        public void Observe()   /*Метод наблюдения для башни*/
+        public void Observe()   /* Метод наблюдения для башни*/
         {
             Console.WriteLine($"{name} наблюдает.Здоровье башни {Healt } HP,состояние брони:{armor}");
         }

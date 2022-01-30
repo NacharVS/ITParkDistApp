@@ -9,7 +9,7 @@ namespace ConsoleApp1
                   //Воин
     class Warrior : BattleUnits
     {
-        private bool _rage = false;   /*Ярость война*/
+        private bool _rage = false;   /* Ярость война */
 
         public Warrior(string name) : base(name, 90, 10, "солдат", 5, 2, 8)  /*Конструктор для война*/
         {

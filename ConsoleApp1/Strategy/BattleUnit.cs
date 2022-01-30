@@ -11,6 +11,9 @@ namespace ConsoleApp1
     {
         public int minDamage;     /*Параметр показания урона */ /*минимальный урон*/
         public int maxDamage;                                   /*максимальный урон*/
+        public bool IsFrenzy = false;
+
+        public bool IsHealthBoosted = false;     /*  Переменая увеличивает максимальное здоровье на 50%*/
 
         public BattleUnits(string name, int healt, int armor, string profissionParam, int speedParam, int min, int max) : base(name, healt, armor, profissionParam, speedParam)
         {
@@ -18,13 +21,11 @@ namespace ConsoleApp1
             maxDamage = max;
         }
 
-        public virtual double MleeAttack(Random rnd)   /*Рукопашная атака*/
+        public virtual double MleeAttack(Random rnd)    /*Рукопашная атака*/
         {
 
             double currentDamage = Convert.ToDouble(rnd.Next(minDamage, maxDamage));
             return currentDamage;
-
-
 
 
         }
@@ -42,6 +43,11 @@ namespace ConsoleApp1
                 maxDamage += 2;
                 lxl++;
             }
+        }
+
+        public override void Info()
+        {
+            Console.WriteLine($"{name} {Healt} {_maxHealth} {minDamage}  {maxDamage} {armor}");
         }
     }
 }

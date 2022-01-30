@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-             //Башня с лучником
+           //Башня с лучником
     class ArcherTower : Buildings
     {
-        private List<Archer> archers = new List<Archer>();              /*Список из класса Archer(Лучник)*/
+        private List<Archer> archers = new List<Archer>();
 
         public ArcherTower() : base("1-ая башня с лучником", 150, 30)    /*Конструктор башни с лучниками*/
         {
@@ -51,5 +51,7 @@ namespace ConsoleApp1
 
             return totalDamage;
         }
+
+
     }
 }

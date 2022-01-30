@@ -20,7 +20,6 @@ namespace ConsoleApp1
             _maxRangeDamage = 12;           /*максимальный наносимый урон*/
 
         }
-
         public double RangeAttack(Random rnd)  /*Метод атаки на крестьянина*/
         {
 
@@ -31,7 +30,7 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine($"У лучника {name} закончились стрелы.");
+                Console.WriteLine($"У лучника {name} закончились стрелы");
 
                 return MleeAttack(rnd);
 

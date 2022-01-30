@@ -10,10 +10,10 @@ namespace ConsoleApp1
     class Buildings : Unit           /*НАСЛЕДУЕМ ОТ КСЛАССА Unit*/
     {
         private double _wall;     /*броня у здания*/
-
         public Buildings(string name, int healt, int armor) : base(name, healt, armor)   /* <---КОНСТРУКТОР*/
         {
             Wall = healt;   /* Количество здоровья у здания*/
+
         }
 
         public double Wall { get => _wall; set => _wall = value; }

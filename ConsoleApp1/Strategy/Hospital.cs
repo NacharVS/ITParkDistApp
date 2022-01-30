@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-               //Госпиталь
+                 //Госпиталь
     class Hospital : Buildings
     {
         public Hospital(string name, int healt, int armor) : base(name, healt, armor)
