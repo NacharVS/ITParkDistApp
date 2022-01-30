@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    internal interface iWeapon
+    interface iWeapon
     {
+        int Damage { get; set; }
+        void Shoot();
     }
-}
+} 

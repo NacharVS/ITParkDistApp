@@ -8,5 +8,6 @@ namespace ConsoleApp1.StrategyInterfaces
 {
     internal interface IWeapon
     {
+        bool IsRange { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using ConsoleApp1.InterfacesLab;
 using ConsoleApp1.Strategy;
 
 namespace ConsoleApp1
@@ -10,39 +11,49 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var rnd = new Random();
-            //Peasant peasant1 = new Peasant("Ivan");
-            var archer = new Archer("Rifleman", 535,0);
-            var healer = new Healer("Priest",290,200,0);
-            var shaman = new Shaman("Shaman", 335, 200, 0);
-            var war1 = new Warrior("Footman", 420, 2,12,13);
-            var war2 = new Warrior("Knight", 835,5,30,38);
-            war1.DamageEvent += (string name, double health, double damagecount) =>
-            {
-                Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
-            }; //реализация анонимного метода через лямбда-выражение
+            //Лекиця 30/01/2022
+            Pistol pistol = new Pistol();
+            iWeapon weapon1 = new Pistol();
+            iWeapon weapon2 = new Shotgun();
+            iWeapon weapon3 = new Machinegun();
+            iReload rld = pistol;
+            weapon1.Shoot();
+            //weapon2.Shoot();
+            //weapon3.Shoot();
 
-            war1.MaxHealthEvent += (string name, double diff) =>
-            {
-                Console.WriteLine($"Health of {name} increased by {diff}");
-            };
-           // war1.HealEvent += Heal;
+            //var rnd = new Random();
+            //Peasant peasant1 = new Peasant("Ivan");
+            //var archer = new Archer("Rifleman", 535,0);
+            //var healer = new Healer("Priest",290,200,0);
+            //var shaman = new Shaman("Shaman", 335, 200, 0);
+            //var war1 = new Warrior("Footman", 420, 2,12,13);
+            //var war2 = new Warrior("Knight", 835,5,30,38);
+            //war1.DamageEvent += (string name, double health, double damagecount) =>
+            //{
+            //    Console.WriteLine($"{name} with {health} HP. Injured by {damagecount}");
+            //}; //реализация анонимного метода через лямбда-выражение
+
+            //war1.MaxHealthEvent += (string name, double diff) =>
+            //{
+            //    Console.WriteLine($"Health of {name} increased by {diff}");
+            //};
+            // war1.HealEvent += Heal;
 
             //Battle.Fight(archer, war2);
-            
-            var catapult = new Catapult("Catapult",700,45,55);
-            var building= new Buildings("Town Hall",1500,5);
-            Battle.Fight(catapult, building, rnd);
-            shaman.HealthBoost(war1);
-            shaman.Frenzy(war1);
-            war1.FrenzyEvent += Frenzy;
 
-            //Console.WriteLine(Peasant._id);
-            //Console.WriteLine((int)war1._id+8);
+            //var catapult = new Catapult("Catapult",700,45,55);
+            //var building= new Buildings("Town Hall",1500,5);
+            //Battle.Fight(catapult, building, rnd);
+            //shaman.HealthBoost(war1);
+            //shaman.Frenzy(war1);
+            //war1.FrenzyEvent += Frenzy;
 
-            Summ<int>(5, 9);
-            Summ<string>("456", "789");
-            Summ<Warrior>(war1, war2);
+            ////Console.WriteLine(Peasant._id);
+            ////Console.WriteLine((int)war1._id+8);
+
+            //Summ<int>(5, 9);
+            //Summ<string>("456", "789");
+            //Summ<Warrior>(war1, war2);
             //shaman.HealthBoost(catapult);
             //shaman.HealthBoost(war2);
             //healer.Heal(war1);

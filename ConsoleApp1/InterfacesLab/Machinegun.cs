@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    internal class Machinegun
+    class Machinegun : iWeapon
     {
+        private int _damage;
+        private double _range;
+        public int Damage { get => 10; set => _damage = value; }
+
+        public void Shoot()
+        {
+            Console.WriteLine($"Machinegun shooting with {Damage}");
+        }
     }
 }

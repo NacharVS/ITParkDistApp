@@ -7,7 +7,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    internal class Pistol : Weapon
+    class Pistol : iWeapon
     {
+        private int _damage;
+        public int Damage { get => 3; set => _damage=value; }
+
+        public void Shoot()
+        {
+            Console.WriteLine($"Pistol shooting with {Damage}"); ;
+        }
     }
 }

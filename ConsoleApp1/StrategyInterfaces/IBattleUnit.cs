@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StrategyInterfaces
 {
-    internal class IBattelUnit
+    internal class IBattleUnit
     {
+        IWeapon weapon { get; set; }
+        void Attack(double dmg);
+
     }
 }
