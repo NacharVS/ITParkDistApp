@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.InterfacesLab;
+using ConsoleApp1.StategyInterfaces;
 using ConsoleApp1.Strategy;
 using System;
 using System.Collections.Generic;
@@ -7,23 +8,16 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
-            Pistol pistol111222333 = new Pistol();
-            IWeapon weapon1 = pistol111222333;
-            IWeapon weapon2 = new Shotgun();
-            IWeapon weapon3 = new Machinegun();
-            IReload rld = pistol111222333;
-            weapon1.Shoot();
-            rld.Reload();
-
-            List<IWeapon> weapons = new List<IWeapon>();
-
-            weapons.Add(new Pistol());
-            weapons.Add(new Machinegun());
-            weapons.Add(new Shotgun());
-
-
+            Archer archer = new Archer(new ShortBow(10), new IronDagger());
+            Warrior unit1 = new Warrior();
+            unit1.weapon = new StoneAxe();
+            unit1.Attack(unit1.weapon.Damage);
+            unit1.weapon = new ShortSword();
+            unit1.Attack(unit1.weapon.Damage);
+            unit1.weapon = new IronDagger();
+            unit1.Attack(unit1.weapon.Damage);
 
 
 
