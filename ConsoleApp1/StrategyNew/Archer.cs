@@ -27,7 +27,7 @@ namespace ConsoleApp1.StrategyNew
             else
             {
                 Console.WriteLine($"range damage {rWeapon.RangeDamage}");
-                rWeapon.
+                rWeapon.Shoot();
             }
         }
     }
