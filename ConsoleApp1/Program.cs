@@ -12,12 +12,17 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //Лекция 14. 01.02.2022
+
+            var Bob = new Machinegun();
+            Bob.
+
             //Лекиця 30/01/2022
-            Archer archer = new Archer(new ShortBow(10), new ShortSword());
-            for (int i = 0; i < 20; i++)
-            {
-                archer.Attack();
-            }
+            //Archer archer = new Archer(new ShortBow(10), new ShortSword());
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    archer.Attack();
+            //}
             //Warrior unit1 = new Warrior();
             //unit1.weapon = new StoneAxe();
             //unit1.Attack(unit1.weapon.Damage);
