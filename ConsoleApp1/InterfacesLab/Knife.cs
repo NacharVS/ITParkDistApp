@@ -22,7 +22,7 @@ namespace ConsoleApp1.InterfacesLab
 
         public void Hit()
         {
-            Console.WriteLine($"{GetType().Name} inflicted {MleeDamage} of MleeDamage");
+            Console.WriteLine($"{GetType().Name} inflicted {MleeDamage} of MeeleeDamage");
             DicreaseDurability(2);
         }
 
