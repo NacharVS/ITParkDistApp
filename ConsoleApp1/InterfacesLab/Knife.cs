@@ -6,20 +6,50 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    internal class Knife : IMeeleeWeapon
+    class Knife : IMeeleeWeapon, IThrowable
     {
-        private int _throwDamage=5;
-        private int _hitDamage=10;
-        public int Damage { get => 5; set => throw new NotImplementedException(); }
+        public int MleeDamage => 3;
 
-        public void MeeleeWeaponHit()
+        private int _durability;
+
+        public Knife(int durability)
         {
-            Console.WriteLine($"{GetType().Name} hit by {_hitDamage} damage");
+            _durability = durability;
         }
 
-        public void MeeleeWeaponThrow()
+        public int ThrowDamage { get => 5; set => throw new NotImplementedException(); }
+        public int Durability { get => _durability; set => _durability = value; }
+
+        public void Hit()
         {
-            Console.WriteLine($"{GetType().Name} throw by {_throwDamage} damage");
+            Console.WriteLine($"{GetType().Name} inflicted {MleeDamage} of MleeDamage");
+            DicreaseDurability(2);
+        }
+
+        public void Repair()
+        {
+            Durability += 3;
+        }
+
+        public void Throw()
+        {
+            Console.WriteLine($"{GetType().Name} inflicted {ThrowDamage} of range damage");
+        }
+
+        public void UpgradeDamage()
+        {
+            Console.WriteLine($"new mDamage{MleeDamage + 5}");
+            Console.WriteLine($"new TDamage{ThrowDamage + 5}");
+        }
+
+        private void DicreaseDurability(int value)
+        {
+            Durability -= value;
+        }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine($"{GetType().Name} durability {Durability}");
         }
     }
 }

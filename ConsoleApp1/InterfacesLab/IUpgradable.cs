@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    internal class iReload
+    internal interface IUpgradable
     {
+        void UpgradeDamage();
     }
 }

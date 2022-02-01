@@ -14,8 +14,23 @@ namespace ConsoleApp1
         {
             //Лекция 14. 01.02.2022
 
-            var Bob = new Machinegun();
-            Bob.
+            var machinegun = Mechanic.MakeMachinegun(10, 30);
+            //Shotgun shotgun = new Shotgun();
+            //Pistol pistol = new Pistol();
+            Knife knife = new Knife(20);
+
+            Gunslinger Bob = new Gunslinger();
+            Bob.pocket = knife;
+            Mechanic Igor = new Mechanic();
+            Bob.HitByKnife();
+            Bob.HitByKnife();
+            Bob.HitByKnife();
+            knife.ShowInfo();
+            Igor.Repair(knife);
+            knife.ShowInfo();
+
+            // 1. Реализовать классы Pistol, Shotgun по примеру MachineGun.
+            // Добавить еще 2 класса: сюрикен и кастет, и реализовать по примеру Knife
 
             //Лекиця 30/01/2022
             //Archer archer = new Archer(new ShortBow(10), new ShortSword());

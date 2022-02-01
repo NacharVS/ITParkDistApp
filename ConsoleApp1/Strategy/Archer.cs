@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class Archer : BattleUnit
+    class Archer : IBattleUnit
     {
         IRangeWeapon rWeapon;
         IMleeWeapon mWeapon;

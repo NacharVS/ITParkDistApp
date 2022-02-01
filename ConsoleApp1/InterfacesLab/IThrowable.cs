@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    interface IWeapon : IReloadable, IRepairable, IUpgradable
+    interface IThrowable
     {
-        int Damage { get; set; }
+        int ThrowDamage { get; set; }
 
-        void SingleShoot();
-
-        void ShowInfo();
+        void Throw();
     }
-} 
+}

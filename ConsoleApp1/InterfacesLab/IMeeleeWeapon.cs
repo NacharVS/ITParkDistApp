@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    internal interface IMeeleeWeapon
+    interface IMeeleeWeapon : IRepairable, IUpgradable
     {
-        int Damage { get; set; }
-        void MeeleeWeaponThrow();
-        void MeeleeWeaponHit();
+        int MleeDamage { get; }
+        void Hit();
+        void ShowInfo();
     }
 }

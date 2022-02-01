@@ -7,14 +7,40 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    class Pistol : iWeapon
+    class Pistol : IWeapon
     {
         private int _damage;
         public int Damage { get => 3; set => _damage=value; }
+        public int Durability { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void Reload()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Repair()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Shoot()
         {
             Console.WriteLine($"Pistol shooting with {Damage}"); ;
+        }
+
+        public void ShowInfo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SingleShoot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpgradeDamage()
+        {
+            throw new NotImplementedException();
         }
     }
 }

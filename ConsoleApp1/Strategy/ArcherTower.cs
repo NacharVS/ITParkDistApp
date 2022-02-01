@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.StrategyInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,48 +7,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Strategy
 {
-    class ArcherTower : Buildings
+    class ArcherTower : IBattleUnit
     {
-        private int _minDamage;
-        private int _maxDamage;
-        public ArcherTower(string name, int health, int armor, int minDamage, int maxDamage) : base(name, health, armor)
+        public double Damage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IMleeWeapon weapon { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void Attack(double dmg)
         {
-            this._minDamage = minDamage;
-            this._maxDamage = maxDamage;
-            IsFull = false;
-            CanAttack = false;
+            throw new NotImplementedException();
         }
 
-        //My Attack
-        public double Attack(Random rnd, int archerAmount)
+        public void Attack()
         {
-            double currentDamage = Convert.ToDouble(rnd.Next(_minDamage, _maxDamage));
-            return currentDamage;
-        }
-        private List<Archer> archers=new List<Archer>();
-        public bool IsFull { get; set; }
-        public bool CanAttack { get;private set; }
-        public void LoadArchers(Archer archer)
-        {
-            if (archers.Count >= 5)
-            {
-                Console.WriteLine("Tower is full");
-                IsFull = true;
-            }
-            else
-                archers.Add(archer);
-        }
-        public double Attack(Random rnd)
-        {
-            double totalDamage = 0;
-            if (archers.Count>0)
-            {
-                foreach(var item in archers)
-                {
-                    totalDamage += item.RangeAttack(rnd);
-                }
-            }
-            return totalDamage;
+            throw new NotImplementedException();
         }
     }
 }
