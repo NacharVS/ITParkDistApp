@@ -16,5 +16,9 @@ namespace ConsoleApp1.StrategyNew
         {
             throw new NotImplementedException();
         }
+        public void Attack()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

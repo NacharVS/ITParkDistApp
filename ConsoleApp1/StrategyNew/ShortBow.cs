@@ -9,6 +9,7 @@ namespace ConsoleApp1.StrategyInterfaces
     class ShortBow : IRangeWeapon
     {
         public double RangeDamage { get => 20; set => throw new NotImplementedException(); }
+        private bool _isEmpty;
         public bool IsEmpty { get => _isEmpty; set => _isEmpty=value; }
         private int _arrowsCount;
 

@@ -13,7 +13,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             //Лекиця 30/01/2022
-            Archer archer = new Archer(new ShortBow(10), new ShortSword);
+            Archer archer = new Archer(new ShortBow(10), new ShortSword());
             for (int i = 0; i < 20; i++)
             {
                 archer.Attack();

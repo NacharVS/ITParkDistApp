@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.StrategyInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,29 +9,26 @@ namespace ConsoleApp1.Strategy
 {
     class Archer : BattleUnit
     {
-        private int _arrows;
-        private int _minRangeDamage;
-        private int _maxRangeDamage;
+        IRangeWeapon rWeapon;
+        IMleeWeapon mWeapon;
 
-        public Archer(string name,int health, int armor ) : base(name, health, armor, "shooter", 7, 18, 24)
+        public Archer(IRangeWeapon rWeapon, IMleeWeapon mWeapon)
         {
-            _arrows = 5;
-            _minRangeDamage = 16;
-            _maxRangeDamage = 26;
+            this.rWeapon = rWeapon;
+            this.mWeapon = mWeapon;
         }
 
-        public double RangeAttack(Random rnd)
+        public void Attack()
         {
-            if (_arrows > 0)
+            if (rWeapon.IsEmpty)
             {
-                double currentDamage = Convert.ToDouble(rnd.Next(_minRangeDamage, _maxRangeDamage));
-                return currentDamage;
+                Console.WriteLine($"attack {mWeapon.Damage}");
             }
             else
             {
-                return MeeleeAttack(rnd);
+                Console.WriteLine($"Range damag {rWeapon.RangeDamage}");
+                rWeapon.Shoot();
             }
-
         }
     }
 }

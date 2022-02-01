@@ -8,6 +8,6 @@ namespace ConsoleApp1.StrategyInterfaces
 {
     interface IBattleUnit
     {
-        void Attack(double dmg);
+        void Attack();
     }
 }
