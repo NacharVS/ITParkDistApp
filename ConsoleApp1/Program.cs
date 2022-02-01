@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args) 
         {
-            Machinegun machinegun = new Machinegun(10, 30);
+            var machinegun = Mechanic.MakeMachinegun(10, 30);
             //Shotgun shotgun = new Shotgun();
             //Pistol pistol = new Pistol();
             //Knife knife = new Knife();
