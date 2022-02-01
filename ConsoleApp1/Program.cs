@@ -10,21 +10,28 @@ namespace ConsoleApp1
     {
         static void Main(string[] args) 
         {
-            Machinegun machinegun = new Machinegun();
-            Shotgun shotgun = new Shotgun();
-            Pistol pistol = new Pistol();
-            Knife knife = new Knife();
-            IWeapon qq = machinegun;
-            
+            Machinegun machinegun = new Machinegun(10, 30);
+            //Shotgun shotgun = new Shotgun();
+            //Pistol pistol = new Pistol();
+            //Knife knife = new Knife();
+           
             Gunslinger Bob = new Gunslinger();
-            Bob.PickUpItem(machinegun);
-            Bob.PickUpItem(shotgun);
-            Bob.PickUpItem(pistol);
-            Bob.FireFromAllWeapons();
-            Mechanic Igor = new Mechanic();
-            Igor.UpgradeDamage(shotgun);
-            Bob.FireFromAllWeapons();
 
+            Mechanic Igor = new Mechanic();
+
+            Bob.Fire(machinegun);
+            machinegun.ShowInfo();
+            Bob.MultiFire(machinegun);
+            Bob.MultiFire(machinegun);
+            Bob.MultiFire(machinegun);
+            Bob.MultiFire(machinegun);
+            Bob.MultiFire(machinegun);
+            machinegun.ShowInfo();
+            Igor.Repair(machinegun);
+            machinegun.ShowInfo();
+            Igor.UpgradeDamage(machinegun);
+            Bob.MultiFire(machinegun);
+            Bob.Reload(machinegun);
 
 
 

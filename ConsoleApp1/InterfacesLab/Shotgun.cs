@@ -10,6 +10,7 @@ namespace ConsoleApp1.InterfacesLab
     {
         private int _damage;
         public int Damage { get => 30; set => _damage = value; }
+        public int Durability { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Reload()
         {
@@ -24,6 +25,16 @@ namespace ConsoleApp1.InterfacesLab
         public void Shoot()
         {
             Console.WriteLine($"Shotgun shooting witn {Damage}");
+        }
+
+        public void ShowInfo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SingleShoot()
+        {
+            throw new NotImplementedException();
         }
 
         public void UpgradeDamage()

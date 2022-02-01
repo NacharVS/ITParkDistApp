@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    interface IWeapon : IReload, IRepairible, IUpgradeble
+    interface IMleeWeapon : IRepairible, IUpgradeble
     {
-        int Damage { get; set; }
+        int MleeDamage { get; }
 
-        void SingleShoot();
 
-        void ShowInfo();
+        void Hit();
+
     }
 }
