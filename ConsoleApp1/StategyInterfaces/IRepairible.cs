@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StategyInterfaces
 {
-    interface IRangeWeapon 
+    interface IRepairible
     {
-        double RangeDamage { get; }
-        bool IsEmpty { get; set; }
-
-        void Shoot();
-
+        void Repair();
     }
 }

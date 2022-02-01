@@ -16,11 +16,19 @@ namespace ConsoleApp1.InterfacesLab
             Console.WriteLine("Bullets 45");
         }
 
+        public void Repair()
+        {
+            Console.WriteLine($"{GetType().Name} gun has repaired");
+        }
+
         public void Shoot()
         {
             Console.WriteLine($"Pistol shooting witn {Damage}");
         }
 
-
+        public void UpgradeDamage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

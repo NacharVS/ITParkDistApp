@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    interface IWeapon : IReload, IRepairible, IUpgradeble
+    class Knife
     {
-        int Damage { get; set; }
-
-        void Shoot();
     }
 }

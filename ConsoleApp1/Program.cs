@@ -10,12 +10,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args) 
         {
-            IBattleUnit archer = new Archer(new ShortBow(10), new ShortSword());
+            Machinegun machinegun = new Machinegun();
+            Shotgun shotgun = new Shotgun();
+            Pistol pistol = new Pistol();
+            IWeapon qq = machinegun;
+            
+            Gunslinger Bob = new Gunslinger();
+            Bob.PickUpItem(machinegun);
+            Bob.PickUpItem(shotgun);
+            Bob.PickUpItem(pistol);
+            Bob.FireFromAllWeapons();
+            Mechanic Igor = new Mechanic();
+            Igor.UpgradeDamage(shotgun);
+            Bob.FireFromAllWeapons();
 
-            for (int i = 0; i < 20; i++)
-            {
-                archer.Attack();
-            }
 
 
 

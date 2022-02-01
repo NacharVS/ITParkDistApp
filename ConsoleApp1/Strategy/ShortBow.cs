@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StategyInterfaces
 {
-    class ShortBow : IRangeWeapon
+    class ShortBow : IRangeWeapon, IRepairible
     {
-        public double RangeDamage { get => 20; set => throw new NotImplementedException(); }
+        public double RangeDamage { get => 20; }
 
         private bool _isEmpty;
         public bool IsEmpty { get => _isEmpty; set => _isEmpty = value; }
@@ -28,5 +28,9 @@ namespace ConsoleApp1.StategyInterfaces
                 IsEmpty = true;
         }
 
+        public void Repair()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

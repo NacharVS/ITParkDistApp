@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    class Machinegun : IWeapon, IReload
+    class Machinegun : IWeapon
     {
         private int _damage;
         public double _range;
-        public int Damage { get => 10; set => _damage = value; }
+        public int Damage { get => _damage; set => _damage = value; }
 
         public void Shoot()
         {
@@ -20,6 +20,16 @@ namespace ConsoleApp1.InterfacesLab
         public void Reload()
         {
             Console.WriteLine("Bullets 9 mm");
+        }
+
+        public void Repair()
+        {
+            Console.WriteLine($"{GetType().Name} gun has repaired");
+        }
+
+        public void UpgradeDamage()
+        {
+            Damage = Damage + 5;
         }
     }
 }

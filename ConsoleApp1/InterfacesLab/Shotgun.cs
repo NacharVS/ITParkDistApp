@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    class Shotgun : IWeapon, IReload
+    class Shotgun : IWeapon
     {
         private int _damage;
         public int Damage { get => 30; set => _damage = value; }
@@ -16,9 +16,19 @@ namespace ConsoleApp1.InterfacesLab
             Console.WriteLine("12 Shells");
         }
 
+        public void Repair()
+        {
+            Console.WriteLine($"{GetType().Name} gun has repaired");
+        }
+
         public void Shoot()
         {
             Console.WriteLine($"Shotgun shooting witn {Damage}");
+        }
+
+        public void UpgradeDamage()
+        {
+            throw new NotImplementedException();
         }
     }
 }
