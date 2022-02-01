@@ -13,6 +13,7 @@ namespace ConsoleApp1
             Machinegun machinegun = new Machinegun();
             Shotgun shotgun = new Shotgun();
             Pistol pistol = new Pistol();
+            Knife knife = new Knife();
             IWeapon qq = machinegun;
             
             Gunslinger Bob = new Gunslinger();
