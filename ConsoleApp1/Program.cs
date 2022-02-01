@@ -16,14 +16,13 @@ namespace ConsoleApp1
         {
            
             Console.WriteLine("-------------------------------------StrategyInterface---------------------------------------");
-            Archer archer = new Archer(new ShortBow(10), new IronDagger());
-            Warrior unit1 = new Warrior();
-            unit1.weapon = new StoneAxe();
-            unit1.Attack(unit1.weapon.Damage);
-            unit1.weapon = new ShortSword();
-            unit1.Attack(unit1.weapon.Damage);
-            unit1.weapon = new IronDagger();
-            unit1.Attack(unit1.weapon.Damage);
+
+           IBattleUnit archer = new Archer(new ShortBow(10), new ShortSword());
+            for (int i = 0; i < 20; i++)
+            {
+                archer.Attack();
+            }
+      
 
         }
     }

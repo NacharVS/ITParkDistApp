@@ -10,6 +10,6 @@ namespace ConsoleApp1.StrategyInterfaces
     {
       
 
-        void Attack(double dmg);
+        void Attack();
     }
 }

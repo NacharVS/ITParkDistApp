@@ -9,7 +9,8 @@ namespace ConsoleApp1.StrategyInterfaces
     interface IRangeEwapon 
     {
        double RangeDamage { get; set; }
-
+        bool IsEmpty { get; set; }
+        void Shoot();
         
     }
 }

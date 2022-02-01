@@ -19,9 +19,9 @@ namespace ConsoleApp1.Strategy
         public event Action CreateEvent;
         public event Action DeathEvent;
 
-        public void Attack(double dmg)
+        public void Attack()
         {
-            Console.WriteLine($"Inflicted {dmg} with {weapon.AttackSpeed} speed");
+            Console.WriteLine($"Inflicted {weapon.Damage} with {weapon.AttackSpeed} speed");
         }
 
         public void LevelUp()
