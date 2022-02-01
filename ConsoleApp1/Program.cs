@@ -1,4 +1,5 @@
-﻿using ConsoleApp1.Strategy;
+﻿using ConsoleApp1.InterfacesLab;
+using ConsoleApp1.Strategy;
 using System;
 using System.Collections.Generic;
 
@@ -8,14 +9,32 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Archer archer = new Archer(new ShortBow(10), new IronDagger());
-            Warrior unit1 = new Warrior();
-            unit1.weapon = new StoneAxe();
-            unit1.Attack(unit1.weapon.Damage);
-            unit1.weapon = new ShortSword();
-            unit1.Attack(unit1.weapon.Damage);
-            unit1.weapon = new IronDagger();
-            unit1.Attack(unit1.weapon.Damage);
+            Machinegun machinegun = new Machinegun();
+            Shotgun shotgun = new Shotgun();
+            Pistol pistol = new Pistol();
+            Knife knife = new Knife();
+            IWeapon qq = machinegun;
+
+            Gunslinger Bob = new Gunslinger();
+            Bob.PickUpItem(machinegun);
+            Bob.PickUpItem(shotgun);
+            Bob.PickUpItem(pistol);
+            Bob.FireFromAllWeapons();
+            Mechanic Igor = new Mechanic();
+            Igor.UpgradeDamage(shotgun);
+            Bob.FireFromAllWeapons();
+
+
+
+
+            //Archer archer = new Archer(new ShortBow(10), new IronDagger());
+            //Warrior unit1 = new Warrior();
+            //unit1.weapon = new StoneAxe();
+            //unit1.Attack(unit1.weapon.Damage);
+            //unit1.weapon = new ShortSword();
+            //unit1.Attack(unit1.weapon.Damage);
+            //unit1.weapon = new IronDagger();
+            //unit1.Attack(unit1.weapon.Damage);
 
 
 
