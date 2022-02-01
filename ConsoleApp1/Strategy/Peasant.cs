@@ -1,25 +1,36 @@
-﻿using System;
+﻿using ConsoleApp1.StrategyInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Strategy
 {
-                 //КРЕСТЬЯНИН
-    class Peasant :MovableUnits
+    class Peasant : IMovableUnit
     {
-        public int CarryWeight;             /* Переносимый груз крестиянина*/
+        public double Healh { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Armor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int MovingSpeed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Grade { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Expirience { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public Peasant(string name) : base(name, 30, 0, "Разнорабочий", 4) /*КОНСТРУКТОР Peasan*/ /*Задали Крестиянину  жизнь(30),броня(0),профессия(разнорачбочий),скорость(4)*/
+        public event Action CreateEvent;
+        public event Action DeathEvent;
+
+        public void LevelUp()
         {
-
-            CarryWeight = 100;
+            throw new NotImplementedException();
         }
 
-        public void Work()                /* Метод для крестиянина (РАБОТАТЬ)*/
+        public void Move()
         {
-            Console.WriteLine($"{profession} {name} передвигается со скоростью {speed} и может нести {CarryWeight} кг.");
+            throw new NotImplementedException();
+        }
+
+        private void Death()
+        {
+            Console.WriteLine("IsDead");
         }
     }
 }

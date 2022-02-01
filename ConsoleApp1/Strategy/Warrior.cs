@@ -1,34 +1,37 @@
-﻿using System;
+﻿using ConsoleApp1.StrategyInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Strategy
 {
-                  //Воин
-    class Warrior : BattleUnits
+    class Warrior : IMovableUnit , IBattleUnit
     {
-        private bool _rage = false;   /* Ярость война */
+        public double Healh { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Armor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int MovingSpeed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Grade { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Expirience { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IMleeWeapon weapon;
 
-        public Warrior(string name) : base(name, 90, 10, "солдат", 5, 2, 8)  /*Конструктор для война*/
+        public event Action CreateEvent;
+        public event Action DeathEvent;
+
+        public void Attack(double dmg)
         {
+            Console.WriteLine($"Inflicted {dmg} with {weapon.AttackSpeed} speed");
         }
 
-        public override double MleeAttack(Random rnd)
+        public void LevelUp()
         {
+            throw new NotImplementedException();
+        }
 
-
-            if (Healt > 0.4 * _maxHealth && _rage == false)
-            {
-                return base.MleeAttack(rnd);
-            }
-            else
-            {
-                _rage = true;
-                Console.WriteLine($"{name} в ярости");
-                return base.MleeAttack(rnd) * 2;
-            }
+        public void Move()
+        {
+            throw new NotImplementedException();
         }
     }
 }
