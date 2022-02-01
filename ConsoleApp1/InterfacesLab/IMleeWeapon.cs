@@ -12,6 +12,7 @@ namespace ConsoleApp1.InterfacesLab
 
 
         void Hit();
+        void ShowInfo();
 
     }
 }

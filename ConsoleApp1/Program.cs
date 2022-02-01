@@ -13,26 +13,19 @@ namespace ConsoleApp1
             var machinegun = Mechanic.MakeMachinegun(10, 30);
             //Shotgun shotgun = new Shotgun();
             //Pistol pistol = new Pistol();
-            //Knife knife = new Knife();
+            Knife knife = new Knife(20);
            
             Gunslinger Bob = new Gunslinger();
-
+            Bob.pocket = knife;
             Mechanic Igor = new Mechanic();
+            Bob.HitByKnife();
+            Bob.HitByKnife();
+            Bob.HitByKnife();
+            knife.ShowInfo();
+            Igor.Repair(knife);
+            knife.ShowInfo();
 
-            Bob.Fire(machinegun);
-            machinegun.ShowInfo();
-            Bob.MultiFire(machinegun);
-            Bob.MultiFire(machinegun);
-            Bob.MultiFire(machinegun);
-            Bob.MultiFire(machinegun);
-            Bob.MultiFire(machinegun);
-            machinegun.ShowInfo();
-            Igor.Repair(machinegun);
-            machinegun.ShowInfo();
-            Igor.UpgradeDamage(machinegun);
-            Bob.MultiFire(machinegun);
-            Bob.Reload(machinegun);
-
+            // 1. Реализовать классы Pistol, Shotgun по примеру MachineGun и добавить еще 2 класса: сюрикен и кастет, и реализовать по примеру Knife
 
 
 
