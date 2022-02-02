@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StrategyInterfaces
 {
-    class ShortBow : IRangeEwapon
+    class ShortBow : IRangeEwapon,IRepairible
     {
-        public double RangeDamage { get =>20; set => throw new NotImplementedException(); }
+        public double RangeDamage { get =>20; }
+
         private bool _isEmpty;
         public bool IsEmpty { get => _isEmpty; set => _isEmpty=value; }
+        public int Durability { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private int _arrowsCount;
 
@@ -25,6 +27,10 @@ namespace ConsoleApp1.StrategyInterfaces
             else
                 IsEmpty = true;
         }
-       
+
+        public void Repair()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

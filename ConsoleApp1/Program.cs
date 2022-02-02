@@ -1,4 +1,4 @@
-﻿
+﻿using ConsoleApp1.InterfacesLab;
 using ConsoleApp1.Strategy;
 using ConsoleApp1.StrategyInterfaces;
 using System;
@@ -17,12 +17,41 @@ namespace ConsoleApp1
            
             Console.WriteLine("-------------------------------------StrategyInterface---------------------------------------");
 
-           IBattleUnit archer = new Archer(new ShortBow(10), new ShortSword());
-            for (int i = 0; i < 20; i++)
-            {
-                archer.Attack();
-            }
-      
+            Machinegun machinegun = new Machinegun(10,30);
+            //Shotgun shotgun = new Shotgun();
+            //Pistol pistol = new Pistol();
+            //Knife knife = new Knife();
+
+            Gunslinger Bob = new Gunslinger();
+            //Bob.PickUpItem(machinegun);
+            //Bob.PickUpItem(shotgun);
+            //Bob.PickUpItem(pistol);
+            //Bob.FireFromAllWeapons();
+
+            Mechanic Igor = new Mechanic();
+            //Igor.UpgradeDamage(machinegun);
+            //Bob.FireFromAllWeapons();
+            //Bob.pocket = knife;
+            //Bob.HitByKnife();
+            //Igor.UpgradeDamage(knife);
+
+            Bob.Fire(machinegun);
+            machinegun.ShowInfo();
+            Bob.MultyFire(machinegun);
+            Bob.MultyFire(machinegun);
+            Bob.MultyFire(machinegun);
+            Bob.MultyFire(machinegun);
+            Bob.MultyFire(machinegun);
+            machinegun.ShowInfo();
+            Igor.Repair(machinegun);
+            machinegun.ShowInfo();
+            Igor.UpgradeDamage(machinegun);
+            Bob.MultyFire(machinegun);
+       
+
+
+
+
 
         }
     }

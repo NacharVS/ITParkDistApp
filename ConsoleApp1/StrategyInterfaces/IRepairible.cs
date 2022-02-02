@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.StrategyInterfaces
 {
-    interface IRangeEwapon 
+    interface IRepairible 
     {
-       double RangeDamage { get; }
-        bool IsEmpty { get; set; }
-        void Shoot();
-        
+        int Durability { get; set; }
+
+        void Repair();
     }
 }
