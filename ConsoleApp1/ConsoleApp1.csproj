@@ -5,4 +5,17 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Strategy\Battle.cs" />
+    <Compile Remove="Strategy\BattleUnit.cs" />
+    <Compile Remove="Strategy\Buildings.cs" />
+    <Compile Remove="Strategy\Catapult.cs" />
+    <Compile Remove="Strategy\Healer.cs" />
+    <Compile Remove="Strategy\Hospital.cs" />
+    <Compile Remove="Strategy\MovableUnits.cs" />
+    <Compile Remove="Strategy\Shaman.cs" />
+    <Compile Remove="Strategy\Unit.cs" />
+    <Compile Remove="Strategy\WatchingTower.cs" />
+  </ItemGroup>
+
 </Project>
