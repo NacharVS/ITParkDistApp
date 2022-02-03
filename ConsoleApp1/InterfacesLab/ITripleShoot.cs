@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    interface IUpgradeble
+    interface ITripleShoot
     {
-        void UpgradeDamage();
+        void TripleShoot();
     }
 }

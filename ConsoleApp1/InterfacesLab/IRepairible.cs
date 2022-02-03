@@ -8,6 +8,7 @@ namespace ConsoleApp1.InterfacesLab
 {
     interface IRepairible
     {
+        int Durability { get; set; }
         void Repair();
     }
 }

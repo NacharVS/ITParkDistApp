@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    interface IUpgradeble
+    interface IThrowable
     {
-        void UpgradeDamage();
+        int ThrowDamage { get; set; }
+
+        void Throw();
     }
 }

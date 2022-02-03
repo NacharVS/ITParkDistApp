@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    interface IUpgradeble
+    interface IMleeWeapon : IRepairible, IUpgradeble
     {
-        void UpgradeDamage();
+        int MleeDamage { get; }
+
+        void Hit();
+
+        void ShowInfo();
     }
 }
