@@ -42,5 +42,13 @@ namespace ConsoleApp1.InterfacesLab
         {
             pocket.Hit();
         }
+        public void HitByIronKnuckle()
+        {
+            pocket.Hit();
+        }
+        public void Throw(IThrowable throwable)
+        {
+            throwable.Throw();
+        }
     }
 }

@@ -8,26 +8,26 @@ namespace ConsoleApp1.Strategy
 {
     class Battle
     {
-        public static void Fight(BattleUnit unit1, BattleUnit unit2)
-        {
-            while (unit1.health > 0 && unit2.health > 0)
-            {
-                unit1.health -= unit2.MleeAttack(new Random())- unit1.armor;
-                unit2.health -= unit1.MleeAttack(new Random())- unit2.armor;
-                unit1.Info();
-                unit2.Info();
-            }
-        }
-        public static void Fight(Archer archer, BattleUnit unit2)
-        {
-            while (archer.health > 0 && unit2.health > 0)
-            {
-                archer.health -= unit2.MleeAttack(new Random())-archer.armor; 
-                unit2.health -= archer.RangeAttack(new Random())-unit2.armor;
-                archer.Info();
-                unit2.Info();
-            }
-        }
+        //public static void Fight(BattleUnit unit1, BattleUnit unit2)
+        //{
+        //    while (unit1.health > 0 && unit2.health > 0)
+        //    {
+        //        unit1.health -= unit2.MleeAttack(new Random())- unit1.armor;
+        //        unit2.health -= unit1.MleeAttack(new Random())- unit2.armor;
+        //        unit1.Info();
+        //        unit2.Info();
+        //    }
+        //}
+        //public static void Fight(Archer archer, BattleUnit unit2)
+        //{
+        //    while (archer.health > 0 && unit2.health > 0)
+        //    {
+        //        archer.health -= unit2.MleeAttack(new Random())-archer.armor; 
+        //        unit2.health -= archer.RangeAttack(new Random())-unit2.armor;
+        //        archer.Info();
+        //        unit2.Info();
+        //    }
+        //}
 
         //public static void Fight(Buildings building, BattleUnit unit2)
         //{

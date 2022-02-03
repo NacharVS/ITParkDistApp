@@ -9,9 +9,15 @@ namespace ConsoleApp1.InterfacesLab
     class Pistol
     {
         private int _damage;
+        private int _durability;
+        private int _maxDurability;
         public int Damage { get => 3; set => _damage = value; }
-        public int Durability { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public int Durability
+        {
+            get => _durability;
+            set => _durability = value;
+        }
+        
         public void Reload()
         {
             Console.WriteLine("Bullets 45");
@@ -19,27 +25,27 @@ namespace ConsoleApp1.InterfacesLab
 
         public void Repair()
         {
-            Console.WriteLine($"{GetType().Name} gun has repaired");
-        }
-
-        public void Shoot()
-        {
-            Console.WriteLine($"Pistol shooting witn {Damage}");
+            Durability += 5;
+            Console.WriteLine($"{GetType().Name} gun has repaired by 5");
         }
 
         public void ShowInfo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{GetType().Name} durability {Durability}");
         }
-
+        private void DicreaseDurability(int value)
+        {
+            Durability -= value;
+        }
         public void SingleShoot()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Machinegun shooting with {Damage}");
+            DicreaseDurability(1);
         }
 
         public void UpgradeDamage()
         {
-            throw new NotImplementedException();
+            Damage = Damage + 5;
         }
     }
 }
