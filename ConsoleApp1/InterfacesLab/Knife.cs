@@ -17,8 +17,9 @@ namespace ConsoleApp1.InterfacesLab
             _durability = durability;
         }
 
-        public int ThrowDamage { get => 5; set => throw new NotImplementedException(); }
+        
         public int Durability { get => _durability; set => _durability = value; }
+        int IThrowable.ThrowDamage { get => 7; set => throw new NotImplementedException(); }
 
         public void Hit()
         {
@@ -31,15 +32,10 @@ namespace ConsoleApp1.InterfacesLab
             Durability += 3;
         }
 
-        public void Throw()
-        {
-            Console.WriteLine($"{GetType().Name} inflicted {ThrowDamage} of range damage");
-        }
-
         public void UpgradeDamage()
         {
             Console.WriteLine($"new mDamage{MleeDamage + 5}");
-            Console.WriteLine($"new TDamage{ThrowDamage + 5}");
+            //Console.WriteLine($"new TDamage{ThrowDamage + 5}");
         }
 
         private void DicreaseDurability(int value)
@@ -50,6 +46,11 @@ namespace ConsoleApp1.InterfacesLab
         public void ShowInfo()
         {
             Console.WriteLine($"{GetType().Name} durability {Durability}");
+        }
+
+        void IThrowable.Hit()
+        {
+            Console.WriteLine($"{GetType().Name} inflicted of TrowableDamage");
         }
     }
 }

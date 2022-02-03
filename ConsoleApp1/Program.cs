@@ -16,14 +16,14 @@ namespace ConsoleApp1
             Knife knife = new Knife(20);
            
             Gunslinger Bob = new Gunslinger();
-            Bob.pocket = knife;
+           
             Mechanic Igor = new Mechanic();
-            Bob.HitByKnife();
-            Bob.HitByKnife();
-            Bob.HitByKnife();
+
             knife.ShowInfo();
             Igor.Repair(knife);
             knife.ShowInfo();
+            Bob.HitByKnife(knife);
+            Bob.ThrowKnife(knife);
 
             // 1. Реализовать классы Pistol, Shotgun по примеру MachineGun и добавить еще 2 класса: сюрикен и кастет, и реализовать по примеру Knife
 

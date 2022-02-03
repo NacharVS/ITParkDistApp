@@ -9,7 +9,7 @@ namespace ConsoleApp1.InterfacesLab
     class Gunslinger
     {
         List<IWeapon> inventory = new List<IWeapon>();
-        public IMleeWeapon pocket;
+
 
         public void PickUpItem(IWeapon item)
         {
@@ -38,9 +38,14 @@ namespace ConsoleApp1.InterfacesLab
             item.Reload();
         }
 
-        public void HitByKnife()
+        public void HitByKnife(IMleeWeapon weapon)
         {
-            pocket.Hit();
+            weapon.Hit();
+        }
+
+        public void ThrowKnife(IThrowable weapon)
+        {
+            weapon.Hit();
         }
     }
 }

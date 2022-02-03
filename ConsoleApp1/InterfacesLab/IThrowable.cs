@@ -10,6 +10,6 @@ namespace ConsoleApp1.InterfacesLab
     {
         int ThrowDamage { get; set; }
 
-        void Throw();
+        void Hit();
     }
 }
