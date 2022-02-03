@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    class Knife
+    class Knife: IMleeWeapon
     {
         public int MleeDamage => 3;
 

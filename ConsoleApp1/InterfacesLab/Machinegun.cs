@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    class Machinegun
+    class Machinegun : IWeapon
     {
         private int _damage;
         private int _durability;

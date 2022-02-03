@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    class Shuriken
+    class Shuriken: IThrowable
     {
         private int _durability;
         public Shuriken(int durability)
         {
             _durability = durability;
         }
-        public int ThrowDamage { get => 15; set => throw new NotImplementedException(); }
+        public int ThrowDamage { get => 25; set => throw new NotImplementedException(); }
         public int Durability { get => _durability; set => _durability = value; }
         public void Repair()
         {
@@ -23,6 +23,7 @@ namespace ConsoleApp1.InterfacesLab
         public void Throw()
         {
             Console.WriteLine($"{GetType().Name} inflicted {ThrowDamage} of range damage");
+            DicreaseDurability(2);
         }
         public void UpgradeDamage()
         {

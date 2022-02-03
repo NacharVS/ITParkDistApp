@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.InterfacesLab
 {
-    class Pistol
+    class Pistol: IWeapon
     {
         private int _damage;
         private int _durability;
         private int _maxDurability;
         public int Damage { get => 3; set => _damage = value; }
+        public Pistol(int durability)
+        {
+            _durability = durability;
+        }
         public int Durability
         {
             get => _durability;
@@ -39,7 +43,7 @@ namespace ConsoleApp1.InterfacesLab
         }
         public void SingleShoot()
         {
-            Console.WriteLine($"Machinegun shooting with {Damage}");
+            Console.WriteLine($"Pistol shooting with {Damage}");
             DicreaseDurability(1);
         }
 
