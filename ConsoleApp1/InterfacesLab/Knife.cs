@@ -10,18 +10,25 @@ namespace ConsoleApp1.InterfacesLab
     {
         public int MleeDamage => 3;
 
+        private int _durability;
 
+        public Knife(int durability)
+        {
+            _durability = durability;
+        }
 
         public int ThrowDamage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Durabiliry { get=>_durability; set=> _durability= value; }
 
         public void Hit()
         {
             Console.WriteLine($"{GetType().Name} inflicted {MleeDamage} of MleeDamage");
+            DicreaseDurability(2);
         }
 
         public void Repair()
         {
-            Console.WriteLine($"{GetType().Name} gun has repaired");
+            Durabiliry += 3;
         }
 
         public void Throw()
@@ -33,6 +40,16 @@ namespace ConsoleApp1.InterfacesLab
         {
             Console.WriteLine($" New damage = {MleeDamage+5}");
             Console.WriteLine($" New TDamage = {ThrowDamage + 5}");
+        }
+
+        private void DicreaseDurability(int value)
+        {
+            Durabiliry -= value;
+        }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine($"{GetType().Name} durability {Durabiliry}");
         }
     }
 }

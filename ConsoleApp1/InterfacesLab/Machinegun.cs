@@ -28,8 +28,16 @@ namespace ConsoleApp1.InterfacesLab
 
         public void SingleShoot()
         {
-            Console.WriteLine($"Machinegun  shooting with {Damage}");
-            DicreaseDurability(1);
+            if (Durability <= 0)
+            {
+                Console.WriteLine($"{GetType().Name} is broken");
+            }
+            else
+            {
+                Console.WriteLine($"Machinegun  shooting with {Damage}");
+                DicreaseDurability(1);
+            }
+            
         }
 
         public void Reload()

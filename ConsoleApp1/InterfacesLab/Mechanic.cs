@@ -16,5 +16,13 @@ namespace ConsoleApp1.InterfacesLab
         {
             item.UpgradDamage();
         }
+         
+        public static  Machinegun MakeMachinegun(int dmg,int durability)
+        {
+            return new Machinegun(dmg, durability);
+        }
+        
+
+        
     }
 }
