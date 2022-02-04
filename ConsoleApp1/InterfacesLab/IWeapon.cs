@@ -6,6 +6,8 @@ namespace ConsoleApp1.InterfacesLab
     {
         int Damage { get; set; }
 
-        void Shoot();
+        void SingleShoot();
+
+        void ShowInfo();
     }
 }

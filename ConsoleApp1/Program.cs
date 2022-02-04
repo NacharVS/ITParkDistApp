@@ -19,9 +19,12 @@ namespace ConsoleApp1
             Gunslinger Bob = new Gunslinger();
             Bob.pocket = knife;
             Mechanic Igor = new Mechanic();
-            Bob.HitByKnife();
-            Bob.HitByKnife();
-            Bob.HitByKnife();
+            
+            knife.ShowInfo();
+
+            Bob.HitByKnife(knife);
+            Bob.HitByKnife(knife);
+            Bob.HitByKnife(knife);
             knife.ShowInfo();
             Igor.Repair(knife);
             knife.ShowInfo();

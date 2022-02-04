@@ -13,9 +13,14 @@ namespace ConsoleApp1.InterfacesLab
             item.Repair();
         }
 
-        internal static object MakeMachinegun(int v1, int v2)
+        ////internal static object MakeMachinegun(int v1, int v2)
+        ////{
+        ////    throw new NotImplementedException();
+        ////}
+
+        public static Machinegun MakeMachinegun(int dmg, int durability)
         {
-            throw new NotImplementedException();
+            return new Machinegun(dmg, durability);
         }
 
         public void UpgradeDamage(IUpgradeble item)
@@ -25,7 +30,7 @@ namespace ConsoleApp1.InterfacesLab
 
         internal void Repair(Knife knife)
         {
-            throw new NotImplementedException();
+            knife.Repair();
         }
     }
 }

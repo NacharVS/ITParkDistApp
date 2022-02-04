@@ -10,6 +10,7 @@ namespace ConsoleApp1.InterfacesLab
     {
         List<IWeapon> inventory = new List<IWeapon>();
         internal Knife pocket;
+        
 
         public void PickUpItem(IWeapon item)
         {
@@ -17,25 +18,34 @@ namespace ConsoleApp1.InterfacesLab
         }
         public void Fire(IWeapon weapon)
         {
-            weapon.Shoot();
+
+            weapon.SingleShoot();
         }
 
         public void FireFromAllWeapons()
         {
             foreach (var item in inventory)
             {
-                item.Shoot();
+                item.SingleShoot();
             }
         }
-
-        internal void HitByKnife()
+        public void MultiFire(ITripleShoot weapon)
         {
-            throw new NotImplementedException();
+            weapon.TripleShoot();
+        }
+
+        internal void HitByKnife(IMleeWeapon weapon)
+        {
+            weapon.Hit();
         }
 
         public void Reload(IReload item)
         {
             item.Reload();
+        }
+        public void ThrowKnife(IThrowable weapon)
+        {
+            weapon.Hit();
         }
     }
 }
