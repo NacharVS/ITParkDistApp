@@ -6,24 +6,40 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
+    struct Data
+    {
+        public int a;
+        public int b;
+    }
+
+    class Data1
+    {
+        public int a;
+        public int b;
+    }
     class Program
     {
+        static void Incrementation(Data data)
+        {
+            data.a++;
+            data.b++;
+            Console.WriteLine($"in struct {data.a} {data.b}");
+        }
+        static void Incrementation(Data1 data)
+        {
+            data.a++;
+            data.b++;
+            Console.WriteLine($"in class {data.a} {data.b}");
+        }
         static void Main(string[] args) 
         {
-            var machinegun = Mechanic.MakeMachinegun(10, 30);
-            //Shotgun shotgun = new Shotgun();
-            //Pistol pistol = new Pistol();
-            Knife knife = new Knife(20);
-           
-            Gunslinger Bob = new Gunslinger();
-           
-            Mechanic Igor = new Mechanic();
+            Data dataStruct = new Data();
+            Data1 dataClass = new Data1();
+            Incrementation(dataStruct);
+            Incrementation(dataClass);
+            Console.WriteLine(dataStruct.a);
+            Console.WriteLine(dataClass.a);
 
-            knife.ShowInfo();
-            Igor.Repair(knife);
-            knife.ShowInfo();
-            Bob.HitByKnife(knife);
-            Bob.ThrowKnife(knife);
 
             // 1. Реализовать классы Pistol, Shotgun по примеру MachineGun и добавить еще 2 класса: сюрикен и кастет, и реализовать по примеру Knife
 
