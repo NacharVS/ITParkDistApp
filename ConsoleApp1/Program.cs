@@ -35,11 +35,15 @@ namespace ConsoleApp1
         }
         static void Main(string[] args) 
         {
-            Task taskOne = new Task(() => ThreadsTasksAsyncMethods.SomeExpression1());
-            Task taskTwo = new Task(() => ThreadsTasksAsyncMethods.SomeExpression2(5));
-            taskOne.Start();
-            taskTwo.Start();
-            Thread.Sleep(3000);
+            Console.WriteLine("Main start");
+
+            ThreadsTasksAsyncMethods.ExpressionOneAsync();
+            ThreadsTasksAsyncMethods.ExpressionTwoAsync();
+            Console.ReadKey();
+            Console.WriteLine("Main end");
+
+
+
 
 
             // 1. Реализовать классы Pistol, Shotgun по примеру MachineGun и добавить еще 2 класса: сюрикен и кастет, и реализовать по примеру Knife

@@ -2,22 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
     class ArrayOperations
     {
+        public static void ArrayAddition(int[] arr1, int[] arr2, int []res)
+        {
+            Thread.Sleep(1000);
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                res[i] = arr1[i] + arr2[i];
+                Console.WriteLine(res[i]);
+            }
+        }
         public static void ArrayGeneration(int[] array)
         {
             Random rnd = new Random();
 
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = rnd.Next(2);
+                array[i] = rnd.Next(10,50);
 
                 Console.Write(array[i] + " ");
             }
+            
         }
 
         public static void ArrayGeneration(int[] array, int minValue, int maxValue)
