@@ -3,6 +3,8 @@ using ConsoleApp1.StategyInterfaces;
 using ConsoleApp1.Strategy;
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -33,12 +35,11 @@ namespace ConsoleApp1
         }
         static void Main(string[] args) 
         {
-            Data dataStruct = new Data();
-            Data1 dataClass = new Data1();
-            Incrementation(dataStruct);
-            Incrementation(dataClass);
-            Console.WriteLine(dataStruct.a);
-            Console.WriteLine(dataClass.a);
+            Task taskOne = new Task(() => ThreadsTasksAsyncMethods.SomeExpression1());
+            Task taskTwo = new Task(() => ThreadsTasksAsyncMethods.SomeExpression2(5));
+            taskOne.Start();
+            taskTwo.Start();
+            Thread.Sleep(3000);
 
 
             // 1. Реализовать классы Pistol, Shotgun по примеру MachineGun и добавить еще 2 класса: сюрикен и кастет, и реализовать по примеру Knife
