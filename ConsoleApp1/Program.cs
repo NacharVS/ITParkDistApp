@@ -35,12 +35,9 @@ namespace ConsoleApp1
         }
         static void Main(string[] args) 
         {
-            Console.WriteLine("Main start");
-
-            ThreadsTasksAsyncMethods.ExpressionOneAsync();
-            ThreadsTasksAsyncMethods.ExpressionTwoAsync();
+            int[] asd = new int[5];
+            ArrayOperations.ArrayGenerationAsync(asd);
             Console.ReadKey();
-            Console.WriteLine("Main end");
 
 
 

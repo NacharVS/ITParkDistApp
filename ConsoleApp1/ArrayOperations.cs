@@ -30,6 +30,12 @@ namespace ConsoleApp1
             }
             
         }
+        public static async void ArrayGenerationAsync(int[] array)
+        {
+            Task.Delay(2000).GetAwaiter();
+            await Task.Run(()=> ArrayGeneration(array));
+
+        }
 
         public static void ArrayGeneration(int[] array, int minValue, int maxValue)
         {

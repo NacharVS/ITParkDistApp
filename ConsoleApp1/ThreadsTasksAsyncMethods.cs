@@ -35,9 +35,9 @@ namespace ConsoleApp1
         }
 
 
-        public static async void ExpressionTwoAsync()
+        public static async void ExpressionTwoAsync(int n)
         {
-            Task task = new Task(() => SomeExpression2(5));
+            Task task = new Task(() => SomeExpression2(n));
             task.Start();
             await task;
         }
